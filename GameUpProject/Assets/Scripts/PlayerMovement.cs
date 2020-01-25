@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private FieldPath path;
+    private GameObject currentField;
     private int currentPathIndex;
 
     public float movementSpeed = 15f;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         currentPathIndex = 0;
         path = GameObject.Find("Field Container").GetComponent<FieldPath>();
+        currentField = path.fields[0];
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {  
         // Maybe you can disable / enable the movement script when needed to be used so that you don't have the constant position update
-        transform.position = Vector3.MoveTowards(transform.position, path.fields[currentPathIndex].transform.position, 15f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, currentField.transform.position, 15f * Time.deltaTime);
     }
 
     public void MoveNFields(int n)
@@ -40,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public void moveToNextField()
     {
         currentPathIndex= (currentPathIndex+1)%(path.fields.Length);
+        currentField = path.fields[currentPathIndex];
     }
 
     public void HandleFieldCollison()
@@ -52,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            if(currentField.GetComponent<FieldEffect>() != null)
+                currentField.GetComponent<FieldEffect>().TriggerEffect();
             print("Final field");
         }
     }

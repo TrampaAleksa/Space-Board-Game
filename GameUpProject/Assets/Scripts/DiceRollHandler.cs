@@ -9,14 +9,12 @@ public class DiceRollHandler : MonoBehaviour
     public PlayersHandler playersHandler;
 
     public static int number;
-    private Random random;
     private int minimumDiceNumber = 1;
     private int maximumDiceNumber = 6;
 
     private void Start()
     {
         number = 0;
-        random = new Random();
     }
     public void RollTheDice()
     {
