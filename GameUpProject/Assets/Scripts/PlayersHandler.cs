@@ -12,4 +12,9 @@ public class PlayersHandler : MonoBehaviour
         currentPlayerIndex = 0;
     }
 
+    public void EndCurrentPlayersTurn()
+    {
+        currentPlayerIndex = (++currentPlayerIndex) % players.Length;
+    }
+
 }

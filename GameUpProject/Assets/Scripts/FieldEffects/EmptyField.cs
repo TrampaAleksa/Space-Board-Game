@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectSwapPlaces : FieldEffect
+public class EmptyField : FieldEffect
 {
     public override void TriggerEffect()
     {
-        print("Effect swap places!");
         playersHandler.EndCurrentPlayersTurn();
+        print("No effect!");
     }
-
 }

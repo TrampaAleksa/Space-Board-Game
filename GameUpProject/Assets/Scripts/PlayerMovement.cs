@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if(currentField.GetComponent<FieldEffect>() != null)
                 currentField.GetComponent<FieldEffect>().TriggerEffect();
-            print("Final field");
         }
     }
 }
