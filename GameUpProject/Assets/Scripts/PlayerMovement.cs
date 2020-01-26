@@ -41,13 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void moveToNextField()
     {
-        currentPathIndex= (currentPathIndex+1)%(path.fields.Length);
+        spacesToMove--;
+        currentPathIndex = (currentPathIndex+1)%(path.fields.Length);
         currentField = path.fields[currentPathIndex];
     }
 
     public void HandleFieldCollison()
     {
-        spacesToMove--;
         shouldMove = spacesToMove > 0;
         if (shouldMove)
         {
