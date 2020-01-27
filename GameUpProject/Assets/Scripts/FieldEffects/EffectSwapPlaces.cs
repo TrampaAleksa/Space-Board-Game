@@ -6,8 +6,8 @@ public class EffectSwapPlaces : FieldEffect
 {
     public override void TriggerEffect()
     {
-        print("Effect swap places!");
         playersHandler.EndCurrentPlayersTurn();
+        print("end turn");
     }
 
 }
