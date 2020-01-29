@@ -26,6 +26,5 @@ public class DiceRollHandler : MonoBehaviour
     public void MoveCurrentPlayer()
     {
         playersHandler.players[playersHandler.currentPlayerIndex].GetComponent<PlayerMovement>().MoveNFields(number);
-        //playersHandler.currentPlayerIndex = (++playersHandler.currentPlayerIndex) % playersHandler.players.Length;
     }
 }

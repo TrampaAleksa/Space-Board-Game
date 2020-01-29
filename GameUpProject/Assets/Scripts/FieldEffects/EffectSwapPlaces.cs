@@ -16,8 +16,7 @@ public class EffectSwapPlaces : FieldEffect
         playerTriggeringIndex = playersHandler.currentPlayerIndex;
         currentlySelectedPlayerIndex = playersHandler.NextIndex();
         currentlySelectedPlayer = playersHandler.players[currentlySelectedPlayerIndex];
-        print(currentlySelectedPlayer);
-        //playersHandler.EndCurrentPlayersTurn();
+        print(playersHandler.players[playerTriggeringIndex].name + "Is now choosing: ");
     }
 
     private void Update()
@@ -31,6 +30,7 @@ public class EffectSwapPlaces : FieldEffect
             if (Input.GetKeyDown(KeyCode.K))
             {
                 SwapPlaces();
+                playersHandler.EndCurrentPlayersTurn();
             }
         }
        
@@ -43,14 +43,10 @@ public class EffectSwapPlaces : FieldEffect
         PlayerMovement triggerringPlayer = playersHandler.players[playerTriggeringIndex].GetComponent<PlayerMovement>();
         PlayerMovement selectedPlayer = currentlySelectedPlayer.GetComponent<PlayerMovement>();
 
+        
         int p = selectedPlayer.currentPathIndex;
-        selectedPlayer.currentPathIndex = triggerringPlayer.currentPathIndex;
-        triggerringPlayer.currentPathIndex = p;
-        //TODO - extract a method for updating the position to travel to based on the currentPathIndex
-        Vector3 v = selectedPlayer.positionToTravelTo;
-        selectedPlayer.positionToTravelTo = triggerringPlayer.positionToTravelTo;
-        triggerringPlayer.positionToTravelTo = v;
-        playersHandler.EndCurrentPlayersTurn();
+        selectedPlayer.SetCurrentField(triggerringPlayer.currentPathIndex);
+        triggerringPlayer.SetCurrentField(p);
     }
 
     private void SelectNextPlayer()
@@ -62,7 +58,7 @@ public class EffectSwapPlaces : FieldEffect
                 currentlySelectedPlayerIndex = (currentlySelectedPlayerIndex + 1) % playersHandler.players.Length;
 
             currentlySelectedPlayer = playersHandler.players[currentlySelectedPlayerIndex];
-            print(currentlySelectedPlayer);
+            print("Currently selected player: " + currentlySelectedPlayer);
     }
 }
 
