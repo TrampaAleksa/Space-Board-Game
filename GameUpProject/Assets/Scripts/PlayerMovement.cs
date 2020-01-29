@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     private int spacesToMove = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentPathIndex = 0;
@@ -27,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "NextField")
         {
             other.tag = "Untagged";
-            moveToNextField();
+            MoveToNextField();
         }
         else if(other.tag == "LastField")
         {
@@ -49,28 +48,38 @@ public class PlayerMovement : MonoBehaviour
             path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
             path.fields[currentPathIndex+ spacesToMove];
         lastField.tag = "LastField";
-        moveToNextField();
+        MoveToNextField();
     }
 
-    public void moveToNextField()
+    public void MoveToNextField()
     {
         spacesToMove--;
-        //initial field
+        int nextPathIndex = (currentPathIndex + 1) % (path.fields.Length);
+        if (path.fields[nextPathIndex].tag != "LastField")
+        {
+            path.fields[nextPathIndex].tag = "NextField";
+        }
+        SetCurrentField(nextPathIndex);
+
+    }
+
+    //TODO -- REFACTOR FIELD SWAP EFFECT WITH THIS METHOD
+    public void SetCurrentField(int fieldIndex)
+    {
+        //update the current field to be without the player
         currentField = path.fields[currentPathIndex];
         currentFieldAltPoints = currentField.GetComponent<FieldAltPoints>();
         currentFieldAltPoints.playersOnField--;
 
-        //next field
-        currentPathIndex = (currentPathIndex+1)%(path.fields.Length);
-        if (path.fields[currentPathIndex].tag != "LastField")
-        {
-            path.fields[currentPathIndex].tag = "NextField";
-        }
-        currentField = path.fields[currentPathIndex];
+        //get the field you are supposed to move to
+        currentPathIndex = fieldIndex;
+        currentField = path.fields[fieldIndex];
         currentFieldAltPoints = currentField.GetComponent<FieldAltPoints>();
-        currentFieldAltPoints.playersOnField++;
-        positionToTravelTo = currentFieldAltPoints.altPoints[currentFieldAltPoints.playersOnField - 1].transform.position;
 
+        //Update the next field to have the player on it
+        FieldAltPoints nextFieldAltPoints = currentFieldAltPoints;
+        nextFieldAltPoints.playersOnField++;
+        positionToTravelTo = nextFieldAltPoints.altPoints[nextFieldAltPoints.playersOnField - 1].transform.position;
 
     }
 
