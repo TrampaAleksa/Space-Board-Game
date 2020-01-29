@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     public void MoveNFields(int n)
     {
         spacesToMove = n;
-        GameObject lastField = currentPathIndex+ spacesToMove >= path.fields.Length ?
+        GameObject lastField = currentPathIndex + spacesToMove >= path.fields.Length ?
             path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
             path.fields[currentPathIndex+ spacesToMove];
         lastField.tag = "LastField";
@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    //TODO -- REFACTOR FIELD SWAP EFFECT WITH THIS METHOD
     public void SetCurrentField(int fieldIndex)
     {
         //update the current field to be without the player
