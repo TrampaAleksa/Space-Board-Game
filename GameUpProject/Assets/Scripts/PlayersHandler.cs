@@ -12,6 +12,15 @@ public class PlayersHandler : MonoBehaviour
         currentPlayerIndex = 0;
     }
 
+    public GameObject NextPlayer()
+    {
+        return players[(currentPlayerIndex + 1) % players.Length];
+    }
+    public int NextIndex()
+    {
+        return (currentPlayerIndex + 1) % players.Length;
+    }
+
     public void EndCurrentPlayersTurn()
     {
         currentPlayerIndex = (++currentPlayerIndex) % players.Length;

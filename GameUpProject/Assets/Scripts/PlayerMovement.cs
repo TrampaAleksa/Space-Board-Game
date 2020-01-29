@@ -25,7 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        HandleFieldCollison();
+        print("trigger");
+        if (other.tag == "NextField")
+        {
+                moveToNextField();
+            other.tag = "Untagged";
+        }
+        if(other.tag == "LastField")
+        {
+            other.tag = "Untagged";
+            currentField.GetComponent<FieldEffect>().TriggerEffect();
+        }
     }
 
     private void FixedUpdate()
@@ -38,18 +48,26 @@ public class PlayerMovement : MonoBehaviour
     {
         spacesToMove = n;
         shouldMove = true;
+        print("moving from: " + currentPathIndex);
+        GameObject lastField = currentPathIndex+ spacesToMove >= path.fields.Length ?
+            path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
+            path.fields[currentPathIndex+ spacesToMove];
+        lastField.tag = "LastField";
         moveToNextField();
     }
 
     public void moveToNextField()
     {
+        print("move to next field");
         spacesToMove--;
+        print("spaces to move:" + spacesToMove);
         //initial field
         currentFieldAltPoints = currentField.GetComponent<FieldAltPoints>();
         currentFieldAltPoints.playersOnField--;
 
         //next field
         currentPathIndex = (currentPathIndex+1)%(path.fields.Length);
+        if (path.fields[currentPathIndex].tag != "LastField") path.fields[currentPathIndex].tag = "NextField";
         currentField = path.fields[currentPathIndex];
         currentFieldAltPoints = currentField.GetComponent<FieldAltPoints>();
         currentFieldAltPoints.playersOnField++;
@@ -58,18 +76,4 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void HandleFieldCollison()
-    {
-        shouldMove = spacesToMove > 0;
-        if (shouldMove)
-        {
-            moveToNextField();
-        }
-        else
-        {
-            //TODO - The trigger shouldn't be dependant of the "should move" boolean value. Set the trigger 
-            //so that it triggers based on a tag.
-                currentField.GetComponent<FieldEffect>().TriggerEffect();
-        }
-    }
 }
