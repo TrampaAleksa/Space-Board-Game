@@ -28,7 +28,7 @@ public class EffectSwapPlaces : FieldEffect
             {
                 SelectNextPlayer();
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 SwapPlaces();
             }
@@ -38,7 +38,19 @@ public class EffectSwapPlaces : FieldEffect
 
     private void SwapPlaces()
     {
-        
+        gameObject.tag = "Untagged";
+
+        PlayerMovement triggerringPlayer = playersHandler.players[playerTriggeringIndex].GetComponent<PlayerMovement>();
+        PlayerMovement selectedPlayer = currentlySelectedPlayer.GetComponent<PlayerMovement>();
+
+        int p = selectedPlayer.currentPathIndex;
+        selectedPlayer.currentPathIndex = triggerringPlayer.currentPathIndex;
+        triggerringPlayer.currentPathIndex = p;
+        //TODO - extract a method for updating the position to travel to based on the currentPathIndex
+        Vector3 v = selectedPlayer.positionToTravelTo;
+        selectedPlayer.positionToTravelTo = triggerringPlayer.positionToTravelTo;
+        triggerringPlayer.positionToTravelTo = v;
+        playersHandler.EndCurrentPlayersTurn();
     }
 
     private void SelectNextPlayer()

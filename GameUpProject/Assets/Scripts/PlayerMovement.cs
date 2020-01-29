@@ -6,12 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     private FieldPath path;
     private GameObject currentField;
-    private Vector3 positionToTravelTo;
-    private int currentPathIndex;
+    public Vector3 positionToTravelTo;
+    public int currentPathIndex;
     private FieldAltPoints currentFieldAltPoints;
     public float movementSpeed = 15f;
 
-    private bool shouldMove = false;
     private int spacesToMove = 0;
 
     // Start is called before the first frame update
@@ -25,13 +24,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("trigger");
         if (other.tag == "NextField")
         {
-                moveToNextField();
             other.tag = "Untagged";
+            moveToNextField();
         }
-        if(other.tag == "LastField")
+        else if(other.tag == "LastField")
         {
             other.tag = "Untagged";
             currentField.GetComponent<FieldEffect>().TriggerEffect();
@@ -47,8 +45,6 @@ public class PlayerMovement : MonoBehaviour
     public void MoveNFields(int n)
     {
         spacesToMove = n;
-        shouldMove = true;
-        print("moving from: " + currentPathIndex);
         GameObject lastField = currentPathIndex+ spacesToMove >= path.fields.Length ?
             path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
             path.fields[currentPathIndex+ spacesToMove];
@@ -58,16 +54,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void moveToNextField()
     {
-        print("move to next field");
         spacesToMove--;
-        print("spaces to move:" + spacesToMove);
         //initial field
+        currentField = path.fields[currentPathIndex];
         currentFieldAltPoints = currentField.GetComponent<FieldAltPoints>();
         currentFieldAltPoints.playersOnField--;
 
         //next field
         currentPathIndex = (currentPathIndex+1)%(path.fields.Length);
-        if (path.fields[currentPathIndex].tag != "LastField") path.fields[currentPathIndex].tag = "NextField";
+        if (path.fields[currentPathIndex].tag != "LastField")
+        {
+            path.fields[currentPathIndex].tag = "NextField";
+        }
         currentField = path.fields[currentPathIndex];
         currentFieldAltPoints = currentField.GetComponent<FieldAltPoints>();
         currentFieldAltPoints.playersOnField++;
