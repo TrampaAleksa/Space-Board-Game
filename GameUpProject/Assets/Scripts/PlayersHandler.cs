@@ -6,6 +6,7 @@ public class PlayersHandler : MonoBehaviour
 {
     public GameObject[] players;
     public int currentPlayerIndex;
+    public PlayersHandler Instance;
     // Start is called before the first frame update
     void Start()
     {
