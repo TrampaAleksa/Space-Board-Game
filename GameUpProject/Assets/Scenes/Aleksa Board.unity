@@ -509,6 +509,107 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 920a5479874bca94cb003e8725b77e77, type: 3}
+--- !u!1 &387936072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 387936077}
+  - component: {fileID: 387936076}
+  - component: {fileID: 387936075}
+  - component: {fileID: 387936074}
+  - component: {fileID: 387936073}
+  m_Layer: 0
+  m_Name: InstancesHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &387936073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387936072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3537c87d368734d8a7aaa5802b661e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tDiceNumberRolled: {fileID: 2042545940}
+--- !u!114 &387936074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387936072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b661e62698c604db7767b4b40f7d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 1742272010}
+  - {fileID: 1045570896}
+  - {fileID: 1074676105}
+  - {fileID: 540468044}
+  currentPlayerIndex: 0
+--- !u!114 &387936075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387936072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d81dfadd2abdb04b96b882b37018981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fields:
+  - {fileID: 1045355971}
+  - {fileID: 928561348}
+  - {fileID: 1673629188}
+  - {fileID: 1273819868}
+  - {fileID: 566196521}
+  - {fileID: 1297171853}
+  - {fileID: 700349086}
+  - {fileID: 1636022186}
+  - {fileID: 795406352}
+  - {fileID: 1077060149}
+  - {fileID: 1231387218}
+--- !u!114 &387936076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387936072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f260de27c25a1754b8c9ae7c7fc7e8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &387936077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387936072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.67867, y: -3.4921408, z: -4.148657}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420385359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,7 +1952,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tDiceNumberRolled: {fileID: 2042545940}
-  playersHandler: {fileID: 420385361}
 --- !u!1 &2042545939
 GameObject:
   m_ObjectHideFlags: 0

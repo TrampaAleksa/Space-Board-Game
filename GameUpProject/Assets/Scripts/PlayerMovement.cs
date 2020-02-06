@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         currentPathIndex = 0;
-        path = GameObject.Find("Field Container").GetComponent<FieldPath>();
+        path = InstanceManager.Instance.Get<FieldPath>();
         currentField = path.fields[0];
         positionToTravelTo = currentField.transform.position;
     }

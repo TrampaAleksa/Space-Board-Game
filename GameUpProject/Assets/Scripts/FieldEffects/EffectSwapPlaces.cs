@@ -29,14 +29,16 @@ public class EffectSwapPlaces : FieldEffect
             }
             if (Input.GetKeyDown(KeyCode.K))
             {
-                if(SwapPlaces())
+                PlayerMovement triggeringPlayer = playersHandler.players[playerTriggeringIndex].GetComponent<PlayerMovement>();
+                PlayerMovement selectedPlayer = currentlySelectedPlayer.GetComponent<PlayerMovement>();
+                if (SwapPlaces.TrySwappingPlayers(triggeringPlayer, selectedPlayer, gameObject))
                 playersHandler.EndCurrentPlayersTurn();
             }
         }
        
     }
 
-    private bool SwapPlaces()
+    /*private bool SwapPlaces()
     {
 
         PlayerMovement triggeringPlayer = playersHandler.players[playerTriggeringIndex].GetComponent<PlayerMovement>();
@@ -54,7 +56,7 @@ public class EffectSwapPlaces : FieldEffect
         return false;
         
       
-    }
+    }*/
 
     private void SelectNextPlayer()
     {

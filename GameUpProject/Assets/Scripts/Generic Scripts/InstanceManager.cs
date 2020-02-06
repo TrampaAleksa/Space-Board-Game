@@ -12,16 +12,8 @@ public class InstanceManager : MonoBehaviour
     {
         Instance = this;
         instancesDictionary = new Dictionary<Type, object>();
-
-        AddInstance<Instance1>(gameObject.GetComponent<Instance1>());
-        AddInstance<Instance2>(gameObject.GetComponent<Instance2>());
-    }
-
-    private void Start()
-    {
-
-        print(Get<Instance1>().gameObject.name);
-        print(Get<Instance2>().gameObject.name);
+        InstancesAdder.AddInstances(this);
+        InstancesAdder.TestInstances();
     }
 
     public T AddInstance<T>(T instance)

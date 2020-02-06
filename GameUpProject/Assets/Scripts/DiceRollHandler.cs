@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DiceRollHandler : MonoBehaviour
 {
     public Text tDiceNumberRolled;
-    public PlayersHandler playersHandler;
+    private PlayersHandler playersHandler;
 
     public static int number;
     private int minimumDiceNumber = 1;
@@ -14,6 +14,7 @@ public class DiceRollHandler : MonoBehaviour
 
     private void Start()
     {
+        playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         number = 0;
     }
     public void RollTheDice()
