@@ -22,8 +22,12 @@ public class SwapPlaces
     {
         firstPlayersField.tag = "Untagged";
         int p = secondPlayer.currentPathIndex;
-        secondPlayer.SetCurrentField(firstPlayer.currentPathIndex);
-        firstPlayer.SetCurrentField(p);
+
+        PlayerFieldMovement playerFieldMovement = InstanceManager.Instance.Get<PlayerFieldMovement>();
+        playerFieldMovement.SetCurrentField(firstPlayer.currentPathIndex, secondPlayer.gameObject);
+        playerFieldMovement.SetCurrentField(p, firstPlayer.gameObject);
+        //secondPlayer.SetCurrentField(firstPlayer.currentPathIndex);
+        //firstPlayer.SetCurrentField(p);
         return true;
     }
 }

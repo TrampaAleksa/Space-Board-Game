@@ -51,8 +51,8 @@ public class PlayerFieldMovement : MovementHandler
         {
             path.fields[nextPathIndex].tag = "NextField";
         }
-
-        player.GetComponent<PlayerMovement>().SetCurrentField(nextPathIndex);
+        InstanceManager.Instance.Get<PlayerFieldMovement>().SetCurrentField(nextPathIndex, player.gameObject);
+        //player.GetComponent<PlayerMovement>().SetCurrentField(nextPathIndex);
         return player;
     }
 
