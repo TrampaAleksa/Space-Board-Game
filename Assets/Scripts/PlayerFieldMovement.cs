@@ -10,12 +10,12 @@ public class PlayerFieldMovement : MovementHandler
 
         //update the current field to be without the player
         
-        playerMovement.currentField = path.fields[playerMovement.currentPathIndex];
+        playerMovement.currentField = path.fields[playerMovement.playersCurrentPathIndex];
         playerMovement.currentFieldAltPoints = playerMovement.currentField.GetComponent<FieldAltPoints>();
         playerMovement.currentFieldAltPoints.playersOnField--;
 
         //get the field you are supposed to move to
-        playerMovement.currentPathIndex = fieldIndex;
+        playerMovement.playersCurrentPathIndex = fieldIndex;
         playerMovement.currentField = path.fields[fieldIndex];
         playerMovement.currentFieldAltPoints = playerMovement.currentField.GetComponent<FieldAltPoints>();
 
@@ -30,7 +30,7 @@ public class PlayerFieldMovement : MovementHandler
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         int spacesToMove = playerMovement.spacesToMove = n;
-        int currentPathIndex = playerMovement.currentPathIndex;
+        int currentPathIndex = playerMovement.playersCurrentPathIndex;
 
         GameObject lastField = currentPathIndex + spacesToMove >= path.fields.Length ?
             path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
@@ -52,7 +52,6 @@ public class PlayerFieldMovement : MovementHandler
             path.fields[nextPathIndex].tag = "NextField";
         }
         InstanceManager.Instance.Get<PlayerFieldMovement>().SetCurrentField(nextPathIndex, player.gameObject);
-        //player.GetComponent<PlayerMovement>().SetCurrentField(nextPathIndex);
         return player;
     }
 
