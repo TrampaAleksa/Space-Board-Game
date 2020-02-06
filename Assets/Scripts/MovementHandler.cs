@@ -9,6 +9,5 @@ public class MovementHandler : MonoBehaviour
     {
         path = InstanceManager.Instance.Get<FieldPath>();
     }
- 
-   
+    
 }

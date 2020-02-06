@@ -16,7 +16,7 @@ public class EffectSwapPlaces : FieldEffect
         playerTriggeringIndex = playersHandler.currentPlayerIndex;
         currentlySelectedPlayerIndex = playersHandler.NextIndex();
         currentlySelectedPlayer = playersHandler.players[currentlySelectedPlayerIndex];
-        print(playersHandler.players[playerTriggeringIndex].name + "Is now choosing: ");
+        print(playersHandler.GetCurrentPlayer().name + "Is now choosing: ");
     }
 
     private void Update()
@@ -37,26 +37,6 @@ public class EffectSwapPlaces : FieldEffect
         }
        
     }
-
-    /*private bool SwapPlaces()
-    {
-
-        PlayerMovement triggeringPlayer = playersHandler.players[playerTriggeringIndex].GetComponent<PlayerMovement>();
-        PlayerMovement selectedPlayer = currentlySelectedPlayer.GetComponent<PlayerMovement>();
-
-        if(triggeringPlayer.currentPathIndex != selectedPlayer.currentPathIndex)
-        {
-            gameObject.tag = "Untagged";
-            int p = selectedPlayer.currentPathIndex;
-            selectedPlayer.SetCurrentField(triggeringPlayer.currentPathIndex);
-            triggeringPlayer.SetCurrentField(p);
-            return true;
-        }
-        print("Same space, pick a player that isn't in your space!");
-        return false;
-        
-      
-    }*/
 
     private void SelectNextPlayer()
     {

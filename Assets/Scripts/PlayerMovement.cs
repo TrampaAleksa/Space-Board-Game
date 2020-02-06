@@ -12,7 +12,6 @@ public class PlayerMovement : Player
     [SerializeField]
     public int spacesToMove = 0;
 
-
     void Start()
     {
         movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
