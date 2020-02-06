@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private FieldAltPoints currentFieldAltPoints;
     public float movementSpeed = 15f;
 
-    private int spacesToMove = 0;
+    public int spacesToMove = 0;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "NextField")
         {
             other.tag = "Untagged";
-            MoveToNextField();
+            InstanceManager.Instance.Get<MovementHandler>().MoveToNextField(gameObject,currentPathIndex);
         }
         else if(other.tag == "LastField")
         {
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
             path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
             path.fields[currentPathIndex+ spacesToMove];
         lastField.tag = "LastField";
-        MoveToNextField();
+        InstanceManager.Instance.Get<MovementHandler>().MoveToNextField(gameObject,currentPathIndex);
     }
 
     public void MoveToNextField()

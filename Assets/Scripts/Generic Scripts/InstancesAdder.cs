@@ -12,6 +12,7 @@ public class InstancesAdder
         InstanceManager.Instance.AddInstance<FieldPath>(manager.gameObject.GetComponent<FieldPath>());
         InstanceManager.Instance.AddInstance<PlayersHandler>(manager.gameObject.GetComponent<PlayersHandler>());
         InstanceManager.Instance.AddInstance<DiceRollHandler>(manager.gameObject.GetComponent<DiceRollHandler>());
+        InstanceManager.Instance.AddInstance<MovementHandler>(manager.gameObject.GetComponent<MovementHandler>());
 
     }
 
