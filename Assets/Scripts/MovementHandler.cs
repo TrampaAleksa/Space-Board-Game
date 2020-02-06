@@ -5,15 +5,22 @@ using UnityEngine;
 public class MovementHandler : MonoBehaviour
 {
     protected FieldPath path;
-    public GameObject MoveNFields(GameObject player)
-    {
-        
-        return null;
-    }
-
     private void Start()
     {
         path = InstanceManager.Instance.Get<FieldPath>();
+    }
+    public GameObject MoveNFields(int n, GameObject player)
+    {
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        int spacesToMove = playerMovement.spacesToMove = n;
+        int currentPathIndex = playerMovement.currentPathIndex;
+
+        GameObject lastField = currentPathIndex + spacesToMove >= path.fields.Length ?
+            path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
+            path.fields[currentPathIndex + spacesToMove];
+        lastField.tag = "LastField";
+        MoveToNextField(player, currentPathIndex);
+        return player;
     }
 
     public GameObject MoveToNextField(GameObject player,int currentPathIndex)
@@ -29,7 +36,7 @@ public class MovementHandler : MonoBehaviour
         }
 
         player.GetComponent<PlayerMovement>().SetCurrentField(nextPathIndex);
-        return null;
+        return player;
 }
    
 }

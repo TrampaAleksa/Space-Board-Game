@@ -5,16 +5,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private FieldPath path;
+    private MovementHandler movementHandler;
     private GameObject currentField;
+    [SerializeField]
     public Vector3 positionToTravelTo;
     public int currentPathIndex;
     private FieldAltPoints currentFieldAltPoints;
     public float movementSpeed = 15f;
 
+    [SerializeField]
     public int spacesToMove = 0;
+
 
     void Start()
     {
+        movementHandler = InstanceManager.Instance.Get<MovementHandler>();
         currentPathIndex = 0;
         path = InstanceManager.Instance.Get<FieldPath>();
         currentField = path.fields[0];
@@ -26,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "NextField")
         {
             other.tag = "Untagged";
-            InstanceManager.Instance.Get<MovementHandler>().MoveToNextField(gameObject,currentPathIndex);
+            movementHandler.MoveToNextField(gameObject,currentPathIndex);
         }
         else if(other.tag == "LastField")
         {
@@ -34,35 +39,11 @@ public class PlayerMovement : MonoBehaviour
             currentField.GetComponent<FieldEffect>().TriggerEffect();
         }
     }
-
     private void FixedUpdate()
     {  
         // Maybe you can disable / enable the movement script when needed to be used so that you don't have the constant position update
         transform.position = Vector3.MoveTowards(transform.position, positionToTravelTo, 15f * Time.deltaTime);
     }
-
-    public void MoveNFields(int n)
-    {
-        spacesToMove = n;
-        GameObject lastField = currentPathIndex + spacesToMove >= path.fields.Length ?
-            path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
-            path.fields[currentPathIndex+ spacesToMove];
-        lastField.tag = "LastField";
-        InstanceManager.Instance.Get<MovementHandler>().MoveToNextField(gameObject,currentPathIndex);
-    }
-
-    public void MoveToNextField()
-    {
-        spacesToMove--;
-        int nextPathIndex = (currentPathIndex + 1) % (path.fields.Length);
-        if (path.fields[nextPathIndex].tag != "LastField")
-        {
-            path.fields[nextPathIndex].tag = "NextField";
-        }
-        SetCurrentField(nextPathIndex);
-
-    }
-
     public void SetCurrentField(int fieldIndex)
     {
         //update the current field to be without the player
