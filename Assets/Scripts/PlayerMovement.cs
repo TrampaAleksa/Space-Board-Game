@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private FieldPath path;
-    private MovementHandler movementHandler;
-    private GameObject currentField;
+    private PlayerFieldMovement movementHandler;
+    public GameObject currentField;
     [SerializeField]
     public Vector3 positionToTravelTo;
     public int currentPathIndex;
-    private FieldAltPoints currentFieldAltPoints;
+    [SerializeField]
+    public FieldAltPoints currentFieldAltPoints;
     public float movementSpeed = 15f;
 
     [SerializeField]
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        movementHandler = InstanceManager.Instance.Get<MovementHandler>();
+        movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
         currentPathIndex = 0;
         path = InstanceManager.Instance.Get<FieldPath>();
         currentField = path.fields[0];

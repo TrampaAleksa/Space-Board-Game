@@ -7,7 +7,7 @@ public class EffectMove3Front : FieldEffect
     public override void TriggerEffect()
     {
         GameObject currentPlayer = playersHandler.players[playersHandler.currentPlayerIndex];
-        InstanceManager.Instance.Get<MovementHandler>().MoveNFields(2, currentPlayer);
+        InstanceManager.Instance.Get<PlayerFieldMovement>().MoveNFields(2, currentPlayer);
     }
 
 }

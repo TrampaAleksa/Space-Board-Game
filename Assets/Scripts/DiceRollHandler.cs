@@ -28,6 +28,6 @@ public class DiceRollHandler : MonoBehaviour
     {
         //introduce a get current player method inside the players handler
         GameObject currentPlayer = playersHandler.players[playersHandler.currentPlayerIndex];
-        InstanceManager.Instance.Get<MovementHandler>().MoveNFields(number, currentPlayer);
+        InstanceManager.Instance.Get<PlayerFieldMovement>().MoveNFields(number, currentPlayer);
     }
 }
