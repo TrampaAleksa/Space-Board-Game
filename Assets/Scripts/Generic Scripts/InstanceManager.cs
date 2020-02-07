@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class InstanceManager : MonoBehaviour
 {
     public static InstanceManager Instance;
@@ -12,8 +13,6 @@ public class InstanceManager : MonoBehaviour
     {
         Instance = this;
         instancesDictionary = new Dictionary<Type, object>();
-        InstancesAdder.AddInstances(this);
-        InstancesAdder.TestInstances();
     }
 
     public T AddInstance<T>(T instance)
@@ -24,18 +23,7 @@ public class InstanceManager : MonoBehaviour
 
     public T Get<T>()
     {
-        if (IsTypeExists(typeof(T)) == false)
-        {
-            return default(T);
-        }
-
-        return (T)instancesDictionary[typeof(T)];
+        return GetComponent < T > ();
     }
-    public bool IsTypeExists(Type t)
-    {
-        if (instancesDictionary.ContainsKey(t) == false)
-            return false;
-        else
-            return true;
-    }
+  
 }

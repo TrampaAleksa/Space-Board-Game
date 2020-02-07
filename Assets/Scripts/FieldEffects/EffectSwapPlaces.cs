@@ -5,17 +5,11 @@ using UnityEngine;
 
 public class EffectSwapPlaces : FieldEffect
 {
-
-    private GameObject currentlySelectedPlayer;
-    private int currentlySelectedPlayerIndex;
-    private int playerTriggeringIndex;
-
+    
     public override void TriggerEffect()
     {
         gameObject.tag = "Swap";
-        playerTriggeringIndex = playersHandler.currentPlayerIndex;
-        currentlySelectedPlayerIndex = playersHandler.NextIndex();
-        currentlySelectedPlayer = playersHandler.players[currentlySelectedPlayerIndex];
+        playersHandler.SelectNextPlayer();
         print(playersHandler.GetCurrentPlayer().name + "Is now choosing: ");
     }
 
@@ -25,12 +19,12 @@ public class EffectSwapPlaces : FieldEffect
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                SelectNextPlayer();
+                InstanceManager.Instance.Get<PlayersHandler>().SelectNextPlayer();
             }
             if (Input.GetKeyDown(KeyCode.K))
             {
-                PlayerMovement triggeringPlayer = playersHandler.players[playerTriggeringIndex].GetComponent<PlayerMovement>();
-                PlayerMovement selectedPlayer = currentlySelectedPlayer.GetComponent<PlayerMovement>();
+                PlayerMovement triggeringPlayer = playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>();
+                PlayerMovement selectedPlayer = playersHandler.GetSelectedPlayer().GetComponent<PlayerMovement>();
                 if (SwapPlaces.TrySwappingPlayers(triggeringPlayer, selectedPlayer, gameObject))
                 playersHandler.EndCurrentPlayersTurn();
             }
@@ -38,17 +32,6 @@ public class EffectSwapPlaces : FieldEffect
        
     }
 
-    private void SelectNextPlayer()
-    {
-            //store current index/player locally
-            currentlySelectedPlayerIndex = (currentlySelectedPlayerIndex + 1) % playersHandler.players.Length;
-
-            if (currentlySelectedPlayerIndex == playerTriggeringIndex)
-                currentlySelectedPlayerIndex = (currentlySelectedPlayerIndex + 1) % playersHandler.players.Length;
-
-            currentlySelectedPlayer = playersHandler.players[currentlySelectedPlayerIndex];
-            print("Currently selected player: " + currentlySelectedPlayer);
-    }
 }
 
  
