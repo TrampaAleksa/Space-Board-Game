@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class FuelDisplayHandler : MonoBehaviour
 {
-    public List<PlayerFuelDisplay> fuelDisplays;
+    public List<PlayerStateDisplay> fuelDisplays;
     private void Update()
     {
         foreach(var currentDisplay in fuelDisplays)
         {
-            currentDisplay.UpdateFuelAmount();
+            currentDisplay.UpdateDisplay();
         }
     }
 
