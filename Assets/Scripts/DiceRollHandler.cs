@@ -26,7 +26,6 @@ public class DiceRollHandler : MonoBehaviour
 
     public void MoveCurrentPlayer()
     {
-        //introduce a get current player method inside the players handler
         GameObject currentPlayer = playersHandler.GetCurrentPlayer();
         InstanceManager.Instance.Get<PlayerFieldMovement>().MoveNFields(number, currentPlayer);
     }
