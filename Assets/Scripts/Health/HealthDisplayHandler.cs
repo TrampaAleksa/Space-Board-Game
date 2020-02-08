@@ -6,11 +6,18 @@ public class HealthDisplayHandler : MonoBehaviour
 {
     public List<PlayerHealthDisplay> healthDisplays;
 
-    void Update()
+    private void Start()
+    {
+        LoopsHandler.LoopDelegate updateDelegate = UpdateDisplays;
+        InstanceManager.Instance.Get<LoopsHandler>().Loop(0.2f, updateDelegate);
+    }
+
+    private bool UpdateDisplays()
     {
         foreach (var currentDisplay in healthDisplays)
         {
             currentDisplay.UpdateDisplay();
         }
+        return true;
     }
 }

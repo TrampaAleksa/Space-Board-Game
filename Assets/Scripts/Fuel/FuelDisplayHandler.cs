@@ -6,12 +6,20 @@ using UnityEngine.Events;
 public class FuelDisplayHandler : MonoBehaviour
 {
     public List<PlayerStateDisplay> fuelDisplays;
-    private void Update()
+
+    private void Start()
     {
-        foreach(var currentDisplay in fuelDisplays)
+        LoopsHandler.LoopDelegate updateDelegate = UpdateDisplays;
+        InstanceManager.Instance.Get<LoopsHandler>().Loop(0.2f, updateDelegate);
+    }
+
+    private bool UpdateDisplays()
+    {
+        foreach (var currentDisplay in fuelDisplays)
         {
             currentDisplay.UpdateDisplay();
         }
+        return true;
     }
 
 }

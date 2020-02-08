@@ -32,7 +32,12 @@ public class PlayersHandler : MonoBehaviour
         tooltipHandler.ShowTooltipForGivenTime
             (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
             GetCurrentPlayer().name + "s turn",
-            TooltipHandler.TOOLTIP_TIME_NORMAL);
+            TooltipHandler.TOOLTIP_TIME_SHORT);
+        DiceRollHandler diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
+        if (diceRollHandler.DiceIsLocked())
+        {
+            diceRollHandler.ChangeDiceLockState();
+        }
     }
 
     public GameObject GetCurrentPlayer()

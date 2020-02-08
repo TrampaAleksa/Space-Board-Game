@@ -12,6 +12,8 @@ public class DiceRollHandler : MonoBehaviour
     private int minimumDiceNumber = 1;
     private int maximumDiceNumber = 6;
 
+    private bool diceLocked = false;
+
     private void Start()
     {
         playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
@@ -19,9 +21,14 @@ public class DiceRollHandler : MonoBehaviour
     }
     public void RollTheDice()
     {
-        number = Random.Range(minimumDiceNumber, maximumDiceNumber + 1);
-        tDiceNumberRolled.text = number.ToString();
-        MoveCurrentPlayer();
+        if (!diceLocked)
+        {
+            ChangeDiceLockState();
+            number = Random.Range(minimumDiceNumber, maximumDiceNumber + 1);
+            tDiceNumberRolled.text = number.ToString();
+            MoveCurrentPlayer();
+        }
+        else Debug.Log("Sorry, the dice is locked");
     }
 
     public void MoveCurrentPlayer()
@@ -29,4 +36,11 @@ public class DiceRollHandler : MonoBehaviour
         GameObject currentPlayer = playersHandler.GetCurrentPlayer();
         InstanceManager.Instance.Get<PlayerFieldMovement>().MoveNFields(number, currentPlayer);
     }
+
+    public bool ChangeDiceLockState()
+    {
+        return diceLocked = !diceLocked;
+    }
+
+    public bool DiceIsLocked() { return diceLocked; }
 }
