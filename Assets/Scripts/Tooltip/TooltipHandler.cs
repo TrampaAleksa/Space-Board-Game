@@ -9,6 +9,16 @@ public class TooltipHandler : MonoBehaviour
     public const float TOOLTIP_TIME_NORMAL = 5f;
     public const float TOOLTIP_TIME_LONG = 10f;
 
+    private void Awake()
+    {
+        GameObject[] tooltipObjs = GameObject.FindGameObjectsWithTag("Tooltip");
+        foreach(var tooltip in tooltipObjs)
+        {
+            if(tooltip.GetComponent<Tooltip>() == null)
+            tooltip.AddComponent<Tooltip>();
+        }
+    }
+
     public void ShowTooltipForGivenTime(Tooltip tooltipToShow, string message, float timeToShow)
     {
         tooltipToShow.ShowTooltip(message);

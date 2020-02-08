@@ -28,6 +28,11 @@ public class PlayersHandler : MonoBehaviour
     public void EndCurrentPlayersTurn()
     {
         CurrentPlayerIndex = (++CurrentPlayerIndex) % players.Length;
+        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+        tooltipHandler.ShowTooltipForGivenTime
+            (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
+            GetCurrentPlayer().name + "s turn",
+            TooltipHandler.TOOLTIP_TIME_NORMAL);
     }
 
     public GameObject GetCurrentPlayer()
