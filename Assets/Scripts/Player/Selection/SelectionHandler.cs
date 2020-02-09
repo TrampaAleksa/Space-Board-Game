@@ -11,18 +11,23 @@ public class SelectionHandler : MonoBehaviour
     public GameObject GetSelectedPlayer()
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
-        return playersHandler.players[CurrentlySelectedPlayerIndex];
+        return playersHandler.MemberWithIndex(CurrentlySelectedPlayerIndex);
     }
 
     public GameObject SelectNextPlayer()
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
-        CurrentlySelectedPlayerIndex = (CurrentlySelectedPlayerIndex + 1) % playersHandler.players.Length;
+        int playersLength = playersHandler.gameObjects.Length;
 
-        if (CurrentlySelectedPlayerIndex == playersHandler.CurrentPlayerIndex)
-            CurrentlySelectedPlayerIndex = (CurrentlySelectedPlayerIndex + 1) % playersHandler.players.Length;
+        CurrentlySelectedPlayerIndex = (CurrentlySelectedPlayerIndex + 1) % playersLength;
 
-        GameObject currentlySelectedPlayer = playersHandler.players[CurrentlySelectedPlayerIndex];
+        if(playersHandler.MemberWithIndex(CurrentlySelectedPlayerIndex) == playersHandler.CurrentMember())
+        {
+            //if (CurrentlySelectedPlayerIndex == playersHandler.CurrentPlayerIndex)
+            CurrentlySelectedPlayerIndex = (CurrentlySelectedPlayerIndex + 1) % playersLength;
+        }
+
+        GameObject currentlySelectedPlayer = playersHandler.MemberWithIndex(CurrentlySelectedPlayerIndex);
         print("Currently selected player: " + currentlySelectedPlayer.name);
         return currentlySelectedPlayer;
     }

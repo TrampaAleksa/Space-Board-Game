@@ -2,36 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayersHandler : MonoBehaviour
+public class PlayersHandler : GenericObjectArray
 {
     public GameObject[] players;
     //cilj je da rad sa ovim indeksima potpuno izbacimo iz svih klasa
     private int currentPlayerIndex;
-   // private int currentlySelectedPlayerIndex;
 
-    // Start is called before the first frame update
     void Start()
     {
         CurrentPlayerIndex = 0;
         InstanceManager.Instance.Get<SelectionHandler>().CurrentlySelectedPlayerIndex = 0;
 }
 
-    public GameObject NextPlayer()
-    {
-        return players[(CurrentPlayerIndex + 1) % players.Length];
-    }
-    public int NextIndex()
-    {
-        return (CurrentPlayerIndex + 1) % players.Length;
-    }
     public GameObject GetCurrentPlayer()
     {
-        return players[CurrentPlayerIndex];
+        return CurrentMember();
     }
 
     public GameObject GetPlayerWithIndex(int index)
     {
-        return players[index];
+        return MemberWithIndex(index);
+    }
+
+    public GameObject SetCurrentPlayer(int index)
+    {
+        return SetCurrentMember(index);
     }
 
     public int CurrentPlayerIndex
