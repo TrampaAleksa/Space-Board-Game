@@ -6,6 +6,7 @@ public class LoopsHandler : MonoBehaviour
 {
 
     public delegate bool LoopDelegate();
+ 
 
     public void Loop(float timeBetweenLoops, LoopDelegate loopable)
     {

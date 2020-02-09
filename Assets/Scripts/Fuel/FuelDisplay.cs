@@ -7,6 +7,6 @@ public abstract class PlayerStateDisplay : MonoBehaviour
 {
     public GameObject player;
 
-    public abstract bool UpdateDisplay();
+    public abstract void UpdateDisplay();
     
 }

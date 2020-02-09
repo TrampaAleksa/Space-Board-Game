@@ -19,4 +19,9 @@ public class PlayerFuel : MonoBehaviour
         print("Players initial fuel set: " + fuel);
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
