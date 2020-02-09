@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Aleksa/Aleksa Board.unity
+    guid: 6861fd7cea78b1a44a9afdac62087193
+  - enabled: 1
+    path: Assets/Scenes/Aleksa/Minigame test.unity
+    guid: c664e09b7e26fa14bbbc25095f575690
   m_configObjects: {}
