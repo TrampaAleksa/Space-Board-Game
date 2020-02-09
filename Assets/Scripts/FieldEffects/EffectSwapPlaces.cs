@@ -9,8 +9,8 @@ public class EffectSwapPlaces : FieldEffect
     public override void TriggerEffect()
     {
         gameObject.tag = "Swap";
-        InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer();
-        print(playersHandler.GetCurrentPlayer().name + "Is now choosing: ");
+        InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
+        print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
     }
 
     private void Update()
@@ -19,7 +19,7 @@ public class EffectSwapPlaces : FieldEffect
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer();
+                InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
             }
             if (Input.GetKeyDown(KeyCode.K))
             {

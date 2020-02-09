@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class PlayersHandler : GenericObjectArray
 {
-    public GameObject[] players;
-    //cilj je da rad sa ovim indeksima potpuno izbacimo iz svih klasa
-    private int currentPlayerIndex;
-
     void Start()
     {
-        CurrentPlayerIndex = 0;
-        InstanceManager.Instance.Get<SelectionHandler>().CurrentlySelectedPlayerIndex = 0;
+        InstanceManager.Instance.Get<SelectionHandler>().SetCurrentMember(0);
 }
 
     public GameObject GetCurrentPlayer()
@@ -24,19 +19,17 @@ public class PlayersHandler : GenericObjectArray
         return MemberWithIndex(index);
     }
 
-    public GameObject SetCurrentPlayer(int index)
+    public GameObject SetToNextPlayer()
     {
-        return SetCurrentMember(index);
+        SetToNextMember();
+        InstanceManager.Instance.Get<SelectionHandler>().SetCurrentMember(CurrentMemberIndex);
+        return CurrentMember();
     }
 
-    public int CurrentPlayerIndex
+    public GameObject SetCurrentPlayer(int index)
     {
-        get => currentPlayerIndex;
-        set
-        {
-            InstanceManager.Instance.Get<SelectionHandler>().CurrentlySelectedPlayerIndex = value;
-            currentPlayerIndex = value;
-        }
+        InstanceManager.Instance.Get<SelectionHandler>().SetCurrentMember(CurrentMemberIndex);
+        return SetCurrentMember(index);
     }
 
 }

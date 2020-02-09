@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectionHandler : MonoBehaviour
+public class SelectionHandler : GenericObjectArray
 {
     private int currentlySelectedPlayerIndex = 0;
 
@@ -10,25 +10,15 @@ public class SelectionHandler : MonoBehaviour
 
     public GameObject GetSelectedPlayer()
     {
-        PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
-        return playersHandler.MemberWithIndex(CurrentlySelectedPlayerIndex);
+        return CurrentMember();
     }
 
-    public GameObject SelectNextPlayer()
+    public GameObject SelectNextPlayer(GameObject playerSelecting)
     {
-        PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
-        int playersLength = playersHandler.gameObjects.Length;
-
-        CurrentlySelectedPlayerIndex = (CurrentlySelectedPlayerIndex + 1) % playersLength;
-
-        if(playersHandler.MemberWithIndex(CurrentlySelectedPlayerIndex) == playersHandler.CurrentMember())
-        {
-            //if (CurrentlySelectedPlayerIndex == playersHandler.CurrentPlayerIndex)
-            CurrentlySelectedPlayerIndex = (CurrentlySelectedPlayerIndex + 1) % playersLength;
-        }
-
-        GameObject currentlySelectedPlayer = playersHandler.MemberWithIndex(CurrentlySelectedPlayerIndex);
-        print("Currently selected player: " + currentlySelectedPlayer.name);
-        return currentlySelectedPlayer;
+        GameObject currentlySelected = SetToNextMember();
+        if(currentlySelected == playerSelecting)
+            currentlySelected = SetToNextMember();
+        print("Currently selected player: " + currentlySelected.name);
+        return currentlySelected;
     }
 }
