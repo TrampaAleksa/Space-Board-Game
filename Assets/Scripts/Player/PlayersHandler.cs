@@ -7,17 +7,14 @@ public class PlayersHandler : GenericObjectArray
     void Start()
     {
         InstanceManager.Instance.Get<SelectionHandler>().SetCurrentMember(0);
-}
+    }
 
     public GameObject GetCurrentPlayer()
     {
         return CurrentMember();
     }
 
-    public GameObject GetPlayerWithIndex(int index)
-    {
-        return MemberWithIndex(index);
-    }
+    
 
     public GameObject SetToNextPlayer()
     {
@@ -30,6 +27,11 @@ public class PlayersHandler : GenericObjectArray
     {
         InstanceManager.Instance.Get<SelectionHandler>().SetCurrentMember(CurrentMemberIndex);
         return SetCurrentMember(index);
+    }
+
+    public GameObject GetPlayerWithIndex(int index)
+    {
+        return MemberWithIndex(index);
     }
 
 }

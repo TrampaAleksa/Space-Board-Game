@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SelectionHandler : GenericObjectArray
 {
-    private int currentlySelectedPlayerIndex = 0;
-
-    public int CurrentlySelectedPlayerIndex { get => currentlySelectedPlayerIndex; set => currentlySelectedPlayerIndex = value; }
 
     public GameObject GetSelectedPlayer()
     {
