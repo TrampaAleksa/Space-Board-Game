@@ -10,13 +10,13 @@ public class PlayerFieldMovement : MovementHandler
 
         //update the current field to be without the player
         
-        playerMovement.currentField = path.fields[playerMovement.playersCurrentPathIndex];
+        playerMovement.currentField = path.MemberWithIndex(playerMovement.playersCurrentPathIndex);
         playerMovement.currentFieldAltPoints = playerMovement.currentField.GetComponent<FieldAltPoints>();
         playerMovement.currentFieldAltPoints.playersOnField--;
 
         //get the field you are supposed to move to
         playerMovement.playersCurrentPathIndex = fieldIndex;
-        playerMovement.currentField = path.fields[fieldIndex];
+        playerMovement.currentField = path.MemberWithIndex(fieldIndex);
         playerMovement.currentFieldAltPoints = playerMovement.currentField.GetComponent<FieldAltPoints>();
 
         //Update the next field to have the player on it
@@ -32,9 +32,9 @@ public class PlayerFieldMovement : MovementHandler
         int spacesToMove = playerMovement.spacesToMove = n;
         int currentPathIndex = playerMovement.playersCurrentPathIndex;
 
-        GameObject lastField = currentPathIndex + spacesToMove >= path.fields.Length ?
-            path.fields[currentPathIndex + spacesToMove - path.fields.Length] :
-            path.fields[currentPathIndex + spacesToMove];
+        GameObject lastField = currentPathIndex + spacesToMove >= path.gameObjects.Length ?
+            path.MemberWithIndex(currentPathIndex + spacesToMove - path.gameObjects.Length) :
+            path.MemberWithIndex(currentPathIndex + spacesToMove);
         lastField.tag = "LastField";
         MoveToNextField(player, currentPathIndex);
         return player;
@@ -42,14 +42,14 @@ public class PlayerFieldMovement : MovementHandler
 
     public GameObject MoveToNextField(GameObject player, int currentPathIndex)
     {
-        path = InstanceManager.Instance.Get<FieldPath>();
+        path = InstanceManager.Instance.Get<FieldHandler>();
 
         player.GetComponent<PlayerMovement>().spacesToMove--;
 
-        int nextPathIndex = (currentPathIndex + 1) % (path.fields.Length);
-        if (path.fields[nextPathIndex].tag != "LastField")
+        int nextPathIndex = (currentPathIndex + 1) % (path.gameObjects.Length);
+        if (path.MemberWithIndex(nextPathIndex).tag != "LastField")
         {
-            path.fields[nextPathIndex].tag = "NextField";
+            path.MemberWithIndex(nextPathIndex).tag = "NextField";
         }
         InstanceManager.Instance.Get<PlayerFieldMovement>().SetCurrentField(nextPathIndex, player.gameObject);
         return player;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    protected FieldPath path;
+    protected FieldHandler path;
     public GameObject currentField;
     public int playersCurrentPathIndex = 0;
     [SerializeField]

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldPath : MonoBehaviour
+public class FieldHandler : GenericObjectArray   
 {
     public GameObject[] fields;
 

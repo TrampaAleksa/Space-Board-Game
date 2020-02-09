@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour
 {
-    protected FieldPath path;
+    protected FieldHandler path;
     private void Start()
     {
-        path = InstanceManager.Instance.Get<FieldPath>();
+        path = InstanceManager.Instance.Get<FieldHandler>();
     }
     
 }

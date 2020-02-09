@@ -9,7 +9,7 @@ public class InstancesAdder
     static internal void AddInstances(InstanceManager manager)
     {
         //Any instance you want to add goes here
-        InstanceManager.Instance.AddInstance<FieldPath>(manager.gameObject.GetComponent<FieldPath>());
+        InstanceManager.Instance.AddInstance<FieldHandler>(manager.gameObject.GetComponent<FieldHandler>());
         InstanceManager.Instance.AddInstance<PlayersHandler>(manager.gameObject.GetComponent<PlayersHandler>());
         InstanceManager.Instance.AddInstance<DiceRollHandler>(manager.gameObject.GetComponent<DiceRollHandler>());
         InstanceManager.Instance.AddInstance<PlayerFieldMovement>(manager.gameObject.GetComponent<PlayerFieldMovement>());
