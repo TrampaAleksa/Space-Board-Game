@@ -4,27 +4,6 @@ using UnityEngine;
 
 public class PlayerFieldMovement : MovementHandler
 {
-    public void SetCurrentField(int fieldIndex, GameObject player)
-    {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-
-        //update the current field to be without the player
-        
-        playerMovement.currentField = path.MemberWithIndex(playerMovement.playersCurrentPathIndex);
-        playerMovement.currentFieldAltPoints = playerMovement.currentField.GetComponent<FieldAltPoints>();
-        playerMovement.currentFieldAltPoints.playersOnField--;
-
-        //get the field you are supposed to move to
-        playerMovement.playersCurrentPathIndex = fieldIndex;
-        playerMovement.currentField = path.MemberWithIndex(fieldIndex);
-        playerMovement.currentFieldAltPoints = playerMovement.currentField.GetComponent<FieldAltPoints>();
-
-        //Update the next field to have the player on it
-        FieldAltPoints nextFieldAltPoints = playerMovement.currentFieldAltPoints;
-        nextFieldAltPoints.playersOnField++;
-        playerMovement.positionToTravelTo = nextFieldAltPoints.altPoints[nextFieldAltPoints.playersOnField - 1].transform.position;
-
-    }
 
     public GameObject MoveNFields(int n, GameObject player)
     {
@@ -51,7 +30,7 @@ public class PlayerFieldMovement : MovementHandler
         {
             path.MemberWithIndex(nextPathIndex).tag = "NextField";
         }
-        InstanceManager.Instance.Get<PlayerFieldMovement>().SetCurrentField(nextPathIndex, player.gameObject);
+        InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(nextPathIndex, player.gameObject);
         return player;
     }
 

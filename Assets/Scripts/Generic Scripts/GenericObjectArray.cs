@@ -81,5 +81,10 @@ public class GenericObjectArray : MonoBehaviour
         return gameObjects.Length - 1;
     }
 
+    public int ArrayLength()
+    {
+        return gameObjects.Length;
+    }
+
 
 }
