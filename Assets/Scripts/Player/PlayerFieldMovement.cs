@@ -55,9 +55,4 @@ public class PlayerFieldMovement : MovementHandler
         return player;
     }
 
-    public int GetCurrentFieldIndex(GameObject player)
-    {
-        return player.GetComponent<PlayerMovement>().playersCurrentPathIndex;
-    }
-
 }

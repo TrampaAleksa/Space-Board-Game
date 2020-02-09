@@ -8,12 +8,13 @@ public class PlayersHandler : MonoBehaviour
     //cilj je da rad sa ovim indeksima potpuno izbacimo iz svih klasa
     private int currentPlayerIndex;
     private int currentlySelectedPlayerIndex;
+
     // Start is called before the first frame update
     void Start()
     {
         CurrentPlayerIndex = 0;
         CurrentlySelectedPlayerIndex = 0;
-    }
+}
 
     public GameObject NextPlayer()
     {
@@ -59,11 +60,6 @@ public class PlayersHandler : MonoBehaviour
         GameObject currentlySelectedPlayer = players[CurrentlySelectedPlayerIndex];
         print("Currently selected player: " + currentlySelectedPlayer.name);
         return currentlySelectedPlayer;
-    }
-
-    public GameObject GetPlayer(int index)
-    {
-        return players[index];
     }
     public int CurrentPlayerIndex
     {
