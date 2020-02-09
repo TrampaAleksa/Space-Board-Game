@@ -7,13 +7,13 @@ public class PlayersHandler : MonoBehaviour
     public GameObject[] players;
     //cilj je da rad sa ovim indeksima potpuno izbacimo iz svih klasa
     private int currentPlayerIndex;
-    private int currentlySelectedPlayerIndex;
+   // private int currentlySelectedPlayerIndex;
 
     // Start is called before the first frame update
     void Start()
     {
         CurrentPlayerIndex = 0;
-        CurrentlySelectedPlayerIndex = 0;
+        InstanceManager.Instance.Get<SelectionHandler>().CurrentlySelectedPlayerIndex = 0;
 }
 
     public GameObject NextPlayer()
@@ -24,54 +24,24 @@ public class PlayersHandler : MonoBehaviour
     {
         return (CurrentPlayerIndex + 1) % players.Length;
     }
-
-    public void EndCurrentPlayersTurn()
-    {
-        CurrentPlayerIndex = (++CurrentPlayerIndex) % players.Length;
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltipForGivenTime
-            (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
-            GetCurrentPlayer().name + "s turn",
-            TooltipHandler.TOOLTIP_TIME_SHORT);
-        DiceRollHandler diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
-        if (diceRollHandler.DiceIsLocked())
-        {
-            diceRollHandler.ChangeDiceLockState();
-        }
-    }
-
     public GameObject GetCurrentPlayer()
     {
         return players[CurrentPlayerIndex];
     }
 
-    public GameObject GetSelectedPlayer()
+    public GameObject GetPlayerWithIndex(int index)
     {
-        return players[CurrentlySelectedPlayerIndex];
+        return players[index];
     }
 
-    public GameObject SelectNextPlayer()
-    {
-        CurrentlySelectedPlayerIndex = (CurrentlySelectedPlayerIndex + 1) % players.Length;
-
-        if (CurrentlySelectedPlayerIndex == CurrentPlayerIndex)
-            CurrentlySelectedPlayerIndex = (currentlySelectedPlayerIndex + 1) % players.Length;
-
-        GameObject currentlySelectedPlayer = players[CurrentlySelectedPlayerIndex];
-        print("Currently selected player: " + currentlySelectedPlayer.name);
-        return currentlySelectedPlayer;
-    }
     public int CurrentPlayerIndex
     {
         get => currentPlayerIndex;
         set
         {
-            CurrentlySelectedPlayerIndex = value;
+            InstanceManager.Instance.Get<SelectionHandler>().CurrentlySelectedPlayerIndex = value;
             currentPlayerIndex = value;
         }
     }
-
-    public int CurrentlySelectedPlayerIndex { get => currentlySelectedPlayerIndex; set => currentlySelectedPlayerIndex = value; }
-
 
 }
