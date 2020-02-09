@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour
 {
-    protected FieldPath path;
+    public FieldPath path;
     private void Start()
     {
         path = InstanceManager.Instance.Get<FieldPath>();

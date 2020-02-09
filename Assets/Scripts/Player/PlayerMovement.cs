@@ -16,16 +16,17 @@ public class PlayerMovement : Player
     {
         movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
         path = InstanceManager.Instance.Get<FieldPath>();
-
+        //movementHandler.SetCurrentField(playersCurrentPathIndex, gameObject);
     }
 
     public void Initialize()
     {
         movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
         path = InstanceManager.Instance.Get<FieldPath>();
-        playersCurrentPathIndex = 0;
+        movementHandler.SetCurrentField(0, gameObject);
+        /*playersCurrentPathIndex = 0;
         currentField = path.fields[0];
-        positionToTravelTo = currentField.transform.position;
+        positionToTravelTo = currentField.transform.position;*/
     }
 
     private void OnTriggerEnter(Collider other)

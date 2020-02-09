@@ -12,6 +12,7 @@ public class PlayerBoardState
 
 public class BoardStateHolder : MonoBehaviour
 {
+    public bool firstTimeLoading = true;
     public PlayerBoardState[] playerBoardStates;
 
     // Start is called before the first frame update
@@ -44,6 +45,7 @@ public class BoardStateHolder : MonoBehaviour
             playerBoardStates[i].fuel = InstanceManager.Instance.Get<FuelHandler>().startingAmount;
             playerBoardStates[i].rank = i+1;
         }
+        firstTimeLoading = false;
     }
 
 }

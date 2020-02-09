@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 11891841}
   m_Layer: 5
   m_Name: Player 1 Health
-  m_TagString: Untagged
+  m_TagString: Display
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -674,17 +674,15 @@ GameObject:
   m_Component:
   - component: {fileID: 387936077}
   - component: {fileID: 387936076}
-  - component: {fileID: 387936075}
   - component: {fileID: 387936074}
   - component: {fileID: 387936073}
   - component: {fileID: 387936078}
   - component: {fileID: 387936079}
-  - component: {fileID: 387936080}
   - component: {fileID: 387936082}
-  - component: {fileID: 387936081}
   - component: {fileID: 387936083}
   - component: {fileID: 387936084}
   - component: {fileID: 387936085}
+  - component: {fileID: 387936080}
   m_Layer: 0
   m_Name: InstancesHolder
   m_TagString: Untagged
@@ -722,30 +720,6 @@ MonoBehaviour:
   - {fileID: 1045570896}
   - {fileID: 1074676105}
   - {fileID: 540468044}
---- !u!114 &387936075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387936072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d81dfadd2abdb04b96b882b37018981, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fields:
-  - {fileID: 1045355971}
-  - {fileID: 928561348}
-  - {fileID: 1673629188}
-  - {fileID: 1273819868}
-  - {fileID: 566196521}
-  - {fileID: 1297171853}
-  - {fileID: 7487056501979683220}
-  - {fileID: 1636022186}
-  - {fileID: 795406352}
-  - {fileID: 1077060149}
-  - {fileID: 1231387218}
 --- !u!114 &387936076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,9 +742,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.67867, y: -3.4921408, z: -4.148657}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2096817943}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &387936078
 MonoBehaviour:
@@ -784,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22227f97b2bfb5c429bc08d5f3bb5d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: {fileID: 0}
 --- !u!114 &387936079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,31 +782,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 387936072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 157f1d875479f264eb12e55e93e9d68b, type: 3}
+  m_Script: {fileID: 11500000, guid: f03e85637299c224ba9e073c0f57ad2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuelDisplays:
-  - {fileID: 1813592412}
-  - {fileID: 545052289}
-  - {fileID: 1913846392}
-  - {fileID: 2131401363}
---- !u!114 &387936081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387936072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 028199a4c5807424389b49031796814f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthDisplays:
-  - {fileID: 11891841}
-  - {fileID: 950314601}
-  - {fileID: 1566865389}
-  - {fileID: 687060515}
 --- !u!114 &387936082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,7 +870,7 @@ Transform:
   - {fileID: 1074676106}
   - {fileID: 540468049}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &540468044 stripped
 GameObject:
@@ -944,7 +898,7 @@ GameObject:
   - component: {fileID: 545052289}
   m_Layer: 5
   m_Name: Player 2 Fuel
-  m_TagString: Untagged
+  m_TagString: Display
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1116,7 +1070,7 @@ RectTransform:
   - {fileID: 677046799}
   - {fileID: 1269228}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1250,7 +1204,7 @@ GameObject:
   - component: {fileID: 687060515}
   m_Layer: 5
   m_Name: Player 4 Health
-  m_TagString: Untagged
+  m_TagString: Display
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1670,7 +1624,7 @@ GameObject:
   - component: {fileID: 950314601}
   m_Layer: 5
   m_Name: Player 2 Health
-  m_TagString: Untagged
+  m_TagString: Display
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2509,7 +2463,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1547041994
 MonoBehaviour:
@@ -2523,6 +2477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10550e5b1ef2eae419508e05330189ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstTimeLoading: 0
 --- !u!1 &1566865387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,7 +2492,7 @@ GameObject:
   - component: {fileID: 1566865389}
   m_Layer: 5
   m_Name: Player 3 Health
-  m_TagString: Untagged
+  m_TagString: Display
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3004,7 +2959,7 @@ GameObject:
   - component: {fileID: 1813592412}
   m_Layer: 5
   m_Name: Player 1 Fuel
-  m_TagString: Untagged
+  m_TagString: Display
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3095,7 +3050,7 @@ GameObject:
   - component: {fileID: 1913846392}
   m_Layer: 5
   m_Name: Player 3 Fuel
-  m_TagString: Untagged
+  m_TagString: Display
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3236,7 +3191,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042545939
 GameObject:
@@ -3317,6 +3272,61 @@ RectTransform:
   m_AnchoredPosition: {x: 6.55, y: 22.82}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2096817942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2096817943}
+  - component: {fileID: 2096817944}
+  m_Layer: 0
+  m_Name: Fields
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2096817943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096817942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 387936077}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2096817944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096817942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d81dfadd2abdb04b96b882b37018981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fields:
+  - {fileID: 1045355971}
+  - {fileID: 928561348}
+  - {fileID: 1673629188}
+  - {fileID: 1273819868}
+  - {fileID: 566196521}
+  - {fileID: 1297171853}
+  - {fileID: 7487056501979683220}
+  - {fileID: 1636022186}
+  - {fileID: 795406352}
+  - {fileID: 1077060149}
+  - {fileID: 1231387218}
 --- !u!1001 &2120824537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3400,7 +3410,7 @@ GameObject:
   - component: {fileID: 2131401363}
   m_Layer: 5
   m_Name: Player 4 Fuel
-  m_TagString: Untagged
+  m_TagString: Display
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

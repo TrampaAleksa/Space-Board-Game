@@ -23,7 +23,7 @@ public class InstanceManager : MonoBehaviour
 
     public T Get<T>()
     {
-        return GetComponent < T > ();
+        return GetComponentInChildren < T > ();
     }
   
 }
