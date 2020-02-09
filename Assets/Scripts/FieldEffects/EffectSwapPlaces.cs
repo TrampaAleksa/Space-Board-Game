@@ -26,7 +26,7 @@ public class EffectSwapPlaces : FieldEffect
                 PlayerMovement triggeringPlayer = playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>();
                 PlayerMovement selectedPlayer = playersHandler.GetSelectedPlayer().GetComponent<PlayerMovement>();
                 if (SwapPlaces.TrySwappingPlayers(triggeringPlayer, selectedPlayer, gameObject))
-                playersHandler.EndCurrentPlayersTurn();
+                InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
             }
         }
        

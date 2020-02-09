@@ -6,7 +6,7 @@ public class EmptyField : FieldEffect
 {
     public override void TriggerEffect()
     {
-        playersHandler.EndCurrentPlayersTurn();
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
         print("end turn");
     }
 }

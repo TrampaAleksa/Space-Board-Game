@@ -8,7 +8,7 @@ public class EffectHealPlayer : FieldEffect
     public override void TriggerEffect()
     {
         InstanceManager.Instance.Get<HealthHandler>().HealPlayer(playersHandler.GetCurrentPlayer(), amountToHeal);
-        playersHandler.EndCurrentPlayersTurn();
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 
 }
