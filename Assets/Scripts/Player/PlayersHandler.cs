@@ -11,14 +11,10 @@ public class PlayersHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    public void Initialize()
-    {
         CurrentPlayerIndex = 0;
         CurrentlySelectedPlayerIndex = 0;
     }
+
     public GameObject NextPlayer()
     {
         return players[(CurrentPlayerIndex + 1) % players.Length];

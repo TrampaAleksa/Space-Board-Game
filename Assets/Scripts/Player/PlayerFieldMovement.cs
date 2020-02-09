@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerFieldMovement : MovementHandler
 {
-
     public void SetCurrentField(int fieldIndex, GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();

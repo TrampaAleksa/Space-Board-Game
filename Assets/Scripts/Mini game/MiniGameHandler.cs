@@ -5,40 +5,35 @@ using UnityEngine;
 public class MiniGameHandler : MonoBehaviour
 {
     private BoardStateHolder boardStateHolder;
-    public PlayersHandler playersHandler;
-    public FuelHandler fuelHandler;
-    public HealthHandler healthHandler;
-    public PlayerFieldMovement movementHandler;
+    private PlayersHandler playersHandler;
+    private FuelHandler fuelHandler;
+    private HealthHandler healthHandler;
+    private PlayerFieldMovement movementHandler;
     void Start()
-    {
-      
-        //SetupBoardOnLoad();
-    }
-
-    public bool SetupBoardOnLoad()
     {
         boardStateHolder = GameObject.Find("BoardState").GetComponent<BoardStateHolder>();
         playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         fuelHandler = InstanceManager.Instance.Get<FuelHandler>();
         healthHandler = InstanceManager.Instance.Get<HealthHandler>();
         movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
+        if(boardStateHolder.playerBoardStates != null)
+        SetupBoardOnLoad();
+    }
 
-        if (boardStateHolder.playerBoardStates != null)
+    public void SetupBoardOnLoad()
+    {
+
+        print("setup the board");
+        PlayerBoardState[] playerBoardStates = boardStateHolder.playerBoardStates;
+        for (int i = 0; i < playerBoardStates.Length; i++)
         {
-            print("setup the board");
-            PlayerBoardState[] playerBoardStates = boardStateHolder.playerBoardStates;
-            for (int i = 0; i < playerBoardStates.Length; i++)
-            {
-                PlayerBoardState currentPlayerBoardState = boardStateHolder.playerBoardStates[i];
-                GameObject currentPlayer = playersHandler.GetPlayer(i);
-                // set players fields, fuels and health
-                movementHandler.SetCurrentField(currentPlayerBoardState.pathIndex, playersHandler.GetPlayer(i));
-                fuelHandler.SetPlayersFuel(currentPlayer, currentPlayerBoardState.fuel);
-                healthHandler.SetPlayersHealth(currentPlayer, currentPlayerBoardState.health);
-            }
-            return true;
+            PlayerBoardState currentPlayerBoardState = boardStateHolder.playerBoardStates[i];
+            GameObject currentPlayer = playersHandler.GetPlayer(i);
+            // set players fields, fuels and health
+            movementHandler.SetCurrentField(currentPlayerBoardState.pathIndex,playersHandler.GetPlayer(i));
+            fuelHandler.SetPlayersFuel(currentPlayer, currentPlayerBoardState.fuel);
+            healthHandler.SetPlayersHealth(currentPlayer, currentPlayerBoardState.health);
         }
-        return false;
     }
 
     public void SnapshotBoardState()

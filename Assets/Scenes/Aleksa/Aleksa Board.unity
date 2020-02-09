@@ -880,10 +880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 986d12e2e7b7cc14fb1b703bf61ed8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
-  fuelHandler: {fileID: 0}
-  healthHandler: {fileID: 0}
-  movementHandler: {fileID: 0}
 --- !u!1 &420385359
 GameObject:
   m_ObjectHideFlags: 0

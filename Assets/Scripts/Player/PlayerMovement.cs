@@ -15,15 +15,8 @@ public class PlayerMovement : Player
     void Start()
     {
         movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
-        path = InstanceManager.Instance.Get<FieldPath>();
-
-    }
-
-    public void Initialize()
-    {
-        movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
-        path = InstanceManager.Instance.Get<FieldPath>();
         playersCurrentPathIndex = 0;
+        path = InstanceManager.Instance.Get<FieldPath>();
         currentField = path.fields[0];
         positionToTravelTo = currentField.transform.position;
     }

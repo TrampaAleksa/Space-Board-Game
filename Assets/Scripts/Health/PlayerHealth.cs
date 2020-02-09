@@ -9,12 +9,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         healthHandler = InstanceManager.Instance.Get<HealthHandler>();
-    }
-
-    public void Initialize()
-    {
-        healthHandler = InstanceManager.Instance.Get<HealthHandler>();
         health = healthHandler.startingAmount;
     }
-
+   
 }
