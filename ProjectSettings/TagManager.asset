@@ -8,6 +8,7 @@ TagManager:
   - NextField
   - Swap
   - Tooltip
+  - Display
   layers:
   - Default
   - TransparentFX
