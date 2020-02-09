@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class PlayerHealthDisplay : PlayerStateDisplay
 {
     private Text displayText;
-    public override void UpdateDisplay()
+    public override bool UpdateDisplay()
     {
         GetComponent<Text>().text = InstanceManager.Instance.Get<HealthHandler>().GetPlayerHealth(player).health.ToString();
+        return true;
     }
 
     private void Start()
