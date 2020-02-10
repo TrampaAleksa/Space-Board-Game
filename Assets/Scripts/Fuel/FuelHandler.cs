@@ -31,10 +31,14 @@ public class FuelHandler : MonoBehaviour, IBoardState
 
     public void SetupState()
     {
+        int i = 0;
         foreach(var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
         {
-            player.GetComponent<PlayerFuel>().fuel = startingAmount;
-            print("Players initial fuel set: " + startingAmount);
+            float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].fuel;
+            player.GetComponent<PlayerFuel>().fuel = amount;
+            print("Players initial fuel set: " + amount);
+            i++;
         }
+      
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BoardStateHandler : MonoBehaviour
 {
+    public PlayerBoardState[] playerBoardStates;
     void Start()
     {
         foreach(var stateComponent in InstanceManager.Instance.GetComponents<IBoardState>())
