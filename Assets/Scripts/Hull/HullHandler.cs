@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HullHandler : MonoBehaviour, IBoardState
 {
-    public float startingAmount;
+    public const float startingAmount = 30f;
     public GameObject SetPlayerHull(GameObject player, float value)
     {
         player.GetComponent<PlayerHull>().hull = value;

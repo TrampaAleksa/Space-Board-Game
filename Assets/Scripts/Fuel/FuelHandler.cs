@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FuelHandler : MonoBehaviour, IBoardState
 {
-    public float startingAmount = 50;
+    public const float startingAmount = 50;
 
     public PlayerFuel GetPlayersFuel(GameObject player)
     {

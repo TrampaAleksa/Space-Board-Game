@@ -20,4 +20,6 @@ public class BoardStateHandler : MonoBehaviour
             stateComponent.SaveState();
         }
     }
+
+  
 }
