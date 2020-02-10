@@ -15,9 +15,7 @@ public class Field : MonoBehaviour
     }
     public Field NthField(int n)
     {
-        Field field = InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(IndexInPath).GetComponent<Field>();
-        for (int i = 0; i < n; i++) field = field.NextField();
-        return field;
+       return  InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(IndexInPath+n).GetComponent<Field>();
     }
 
     public GameObject RemovePlayerFromField(GameObject player)

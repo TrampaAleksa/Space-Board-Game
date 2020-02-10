@@ -9,10 +9,7 @@ public class MovementHandler : MonoBehaviour
         FieldHandler path = InstanceManager.Instance.Get<FieldHandler>();
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
-        int spacesToMove = playerMovement.spacesToMove = n;
-        int currentPathIndex = playerMovement.currentPlayerField.IndexInPath;
-        GameObject lastField = path.MemberWithIndex(currentPathIndex + spacesToMove);
-
+        GameObject lastField = playerMovement.currentPlayerField.NthField(n).gameObject;
         lastField.tag = "LastField";
         MoveToNextField(player);
         return player;
