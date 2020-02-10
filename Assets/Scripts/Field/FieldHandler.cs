@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FieldHandler : GenericObjectArray   
 {
+    private void Start()
+    {
+        InitializeFields();
+    }
     public void SetCurrentField(int fieldIndex, GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
@@ -25,6 +29,15 @@ public class FieldHandler : GenericObjectArray
         playerMovement.positionToTravelTo = nextFieldAltPoints.altPoints[nextFieldAltPoints.playersOnField - 1].transform.position;
     }
         
-    
+    public void InitializeFields()
+    {
+        int i = 0;
+        foreach(var field in gameObjects)
+        {
+            field.AddComponent<Field>();
+            field.GetComponent<Field>().InitialSetUpField(i);
+            i++;
+        }
+    }
 
 }
