@@ -22,7 +22,7 @@ public class Field : MonoBehaviour
 
     public GameObject AddPlayerToField(GameObject player)
     {
-        player.GetComponent<PlayerMovement>().currentPlayerField = gameObject;
+        player.GetComponent<PlayerMovement>().currentPlayerField = this;
         playersOnField++;
         return player;
     }

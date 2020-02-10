@@ -12,7 +12,7 @@ public class FieldHandler : GenericObjectArray
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
-        Field originalField = playerMovement.currentPlayerField.GetComponent<Field>();
+        Field originalField = playerMovement.currentPlayerField;
         originalField.RemovePlayerFromField(player);
 
         Field fieldToMoveTo = MemberWithIndex(fieldIndex).GetComponent<Field>();

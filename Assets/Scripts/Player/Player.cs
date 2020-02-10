@@ -6,6 +6,6 @@ public class Player : MonoBehaviour
 {
     protected FieldHandler path;
     [SerializeField]
-    public GameObject currentPlayerField;
+    public Field currentPlayerField;
 
 }

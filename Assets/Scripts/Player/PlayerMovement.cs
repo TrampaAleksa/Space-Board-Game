@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : Player
 {
-    private PlayerFieldMovement movementHandler;
+    private MovementHandler movementHandler;
     [SerializeField]
     public Vector3 positionToTravelTo;
     [SerializeField]
@@ -14,7 +14,7 @@ public class PlayerMovement : Player
 
     void Start()
     {
-        movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
+        movementHandler = InstanceManager.Instance.Get<MovementHandler>();
         path = InstanceManager.Instance.Get<FieldHandler>();
         path.SetupPlayerFieldOnLoad(gameObject);
     }
@@ -24,7 +24,7 @@ public class PlayerMovement : Player
         if (other.tag == "NextField")
         {
             other.tag = "Untagged";
-            movementHandler.MoveToNextField(gameObject, currentPlayerField.GetComponent<Field>().IndexInPath);
+            movementHandler.MoveToNextField(gameObject);
         }
         else if(other.tag == "LastField")
         {

@@ -34,7 +34,7 @@ public class DiceRollHandler : MonoBehaviour
     public void MoveCurrentPlayer()
     {
         GameObject currentPlayer = playersHandler.GetCurrentPlayer();
-        InstanceManager.Instance.Get<PlayerFieldMovement>().MoveNFields(number, currentPlayer);
+        InstanceManager.Instance.Get<MovementHandler>().MoveNFields(number, currentPlayer);
     }
 
     public bool ChangeDiceLockState()
