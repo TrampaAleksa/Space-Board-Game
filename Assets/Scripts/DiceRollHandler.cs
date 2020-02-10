@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class DiceRollHandler : MonoBehaviour
 {
     public Text tDiceNumberRolled;
-    private PlayersHandler playersHandler;
 
     public static int number;
     private int minimumDiceNumber = 1;
@@ -16,7 +15,6 @@ public class DiceRollHandler : MonoBehaviour
 
     private void Start()
     {
-        playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         number = 0;
     }
     public void RollTheDice()
@@ -33,7 +31,7 @@ public class DiceRollHandler : MonoBehaviour
 
     public void MoveCurrentPlayer()
     {
-        GameObject currentPlayer = playersHandler.GetCurrentPlayer();
+        GameObject currentPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         InstanceManager.Instance.Get<MovementHandler>().MoveNFields(number, currentPlayer);
     }
 

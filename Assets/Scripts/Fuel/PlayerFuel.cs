@@ -5,18 +5,11 @@ using UnityEngine;
 public class PlayerFuel : MonoBehaviour
 {
     public float fuel;
-    private FuelHandler fuelHandler;
+
     // Start is called before the first frame update
     void Start()
     {
-        fuelHandler = InstanceManager.Instance.Get<FuelHandler>();
-        fuel = fuelHandler.startingAmount;
-        print("Players initial fuel set: " + fuel);
+      
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

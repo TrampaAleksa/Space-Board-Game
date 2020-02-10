@@ -14,13 +14,13 @@ public class PlayerMovement : Player
 
     void Start()
     {
-        movementHandler = InstanceManager.Instance.Get<MovementHandler>();
         path = InstanceManager.Instance.Get<FieldHandler>();
         path.SetupPlayerFieldOnLoad(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        movementHandler = InstanceManager.Instance.Get<MovementHandler>();
         if (other.tag == "NextField")
         {
             other.tag = "Untagged";

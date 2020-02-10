@@ -15,7 +15,7 @@ public class FuelDisplayText : PlayerStateDisplay
         return true;
     }
 
-    private void Start()
+    private void Awake()
     {
         displayText = GetComponent<Text>();
     }

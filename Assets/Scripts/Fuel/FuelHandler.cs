@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FuelHandler : MonoBehaviour
+public class FuelHandler : MonoBehaviour, IBoardState
 {
     public float startingAmount = 50;
 
@@ -25,4 +25,16 @@ public class FuelHandler : MonoBehaviour
         return player;
     }
 
+    public void SaveState()
+    {
+    }
+
+    public void SetupState()
+    {
+        foreach(var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
+        {
+            player.GetComponent<PlayerFuel>().fuel = startingAmount;
+            print("Players initial fuel set: " + startingAmount);
+        }
+    }
 }
