@@ -8,17 +8,16 @@ public class FieldHandler : GenericObjectArray
     {
         InitializeFields();
     }
-    public void SetCurrentField(int fieldIndex, GameObject player)
+    public void SetCurrentField(Field fieldToSetTo, GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
         Field originalField = playerMovement.currentPlayerField;
         originalField.RemovePlayerFromField(player);
 
-        Field fieldToMoveTo = MemberWithIndex(fieldIndex).GetComponent<Field>();
-        fieldToMoveTo.AddPlayerToField(player);
+        fieldToSetTo.AddPlayerToField(player);
         //maybe move the position to travel to into the AddPlayerToField method
-        playerMovement.positionToTravelTo = fieldToMoveTo.GetFreeAltPoint().gameObject.transform.position;
+        playerMovement.positionToTravelTo = fieldToSetTo.GetFreeAltPoint().gameObject.transform.position;
     }
 
     public GameObject SetupPlayerFieldOnLoad(GameObject player)

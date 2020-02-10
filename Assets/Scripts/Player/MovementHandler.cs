@@ -25,7 +25,7 @@ public class MovementHandler : MonoBehaviour
             currentPlayerField.NextField().tag = "NextField";
         }
         //Refactoring SetCurrentField to accept field instead of an index
-        InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(currentPlayerField.NextField().IndexInPath, player.gameObject);
+        InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(currentPlayerField.NextField(), player.gameObject);
         return player;
     }
 

@@ -13,6 +13,12 @@ public class Field : MonoBehaviour
     {
         return InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(IndexInPath+1).GetComponent<Field>();
     }
+    public Field NthField(int n)
+    {
+        Field field = InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(IndexInPath).GetComponent<Field>();
+        for (int i = 0; i < n; i++) field = field.NextField();
+        return field;
+    }
 
     public GameObject RemovePlayerFromField(GameObject player)
     {
@@ -29,8 +35,8 @@ public class Field : MonoBehaviour
 
     public GameObject GetFreeAltPoint()
     {
-        if (playersOnField == 0 || playersOnField > 4) Debug.Log("Error, negative players on field or more than 4");
-        return altPoints[playersOnField].gameObject;
+        if (playersOnField == 0 || playersOnField > 4) print("Error, negative players on field or more than 4");
+        return altPoints[playersOnField-1].gameObject;
         /*foreach(var altPoint in altPoints)
         {
             if (altPoint.IsFree) return altPoint.gameObject;
