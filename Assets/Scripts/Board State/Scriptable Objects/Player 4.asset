@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c754bc055b0c12548afce955396a43ce, type: 3}
   m_Name: Player 4
   m_EditorClassIdentifier: 
-  fuel: 0
-  hull: 0
+  fuel: 50
+  hull: 30
   pathIndex: 0
   rank: 0

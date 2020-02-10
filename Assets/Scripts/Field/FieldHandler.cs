@@ -35,9 +35,12 @@ public class FieldHandler : GenericObjectArray, IBoardState
 
     public void SetupState()
     {
+        int i = 0;
         foreach(var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
         {
-            FirstMember().GetComponent<Field>().AddPlayerToField(player);
+            int index = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].pathIndex;
+            MemberWithIndex(index).GetComponent<Field>().AddPlayerToField(player);
+            i++;
         }
     }
 }
