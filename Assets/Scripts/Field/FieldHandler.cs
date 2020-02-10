@@ -20,9 +20,7 @@ public class FieldHandler : GenericObjectArray
 
     public GameObject SetupPlayerFieldOnLoad(GameObject player)
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         FirstMember().GetComponent<Field>().AddPlayerToField(player);
-        playerMovement.positionToTravelTo = playerMovement.currentPlayerField.transform.position;
         return player;
     }
         
