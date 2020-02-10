@@ -14,8 +14,6 @@ public class PlayerMovement : Player
 
     void Start()
     {
-        path = InstanceManager.Instance.Get<FieldHandler>();
-        path.SetupPlayerFieldOnLoad(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldHandler : GenericObjectArray   
+public class FieldHandler : GenericObjectArray, IBoardState
 {
     private void Awake()
     {
@@ -18,12 +18,6 @@ public class FieldHandler : GenericObjectArray
         fieldToSetTo.AddPlayerToField(player);
     }
 
-    public GameObject SetupPlayerFieldOnLoad(GameObject player)
-    {
-        FirstMember().GetComponent<Field>().AddPlayerToField(player);
-        return player;
-    }
-        
     public void InitializeFields()
     {
         int i = 0;
@@ -35,4 +29,15 @@ public class FieldHandler : GenericObjectArray
         }
     }
 
+    public void SaveState()
+    {
+    }
+
+    public void SetupState()
+    {
+        foreach(var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
+        {
+            FirstMember().GetComponent<Field>().AddPlayerToField(player);
+        }
+    }
 }

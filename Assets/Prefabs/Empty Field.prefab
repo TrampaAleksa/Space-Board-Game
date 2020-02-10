@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: 3328239556379134794}
   - component: {fileID: 8852363149004892310}
   - component: {fileID: 8941476910274975232}
-  - component: {fileID: 8833001131327208403}
   - component: {fileID: 6177314028417407021}
   m_Layer: 0
   m_Name: Empty Field
@@ -200,24 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e097fa1df3a64ca478de5a684a076fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8833001131327208403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7487056500700843432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbfe634b9debd8449c326001643e9f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  altPoints:
-  - {fileID: 6367575185060159169}
-  - {fileID: 59508835988366557}
-  - {fileID: 8049072752070493757}
-  - {fileID: 7851695332891898762}
-  playersOnField: 0
 --- !u!65 &6177314028417407021
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 5227898472943166839}
   - component: {fileID: 9029521295442410537}
   - component: {fileID: 3001346343176986613}
-  - component: {fileID: 3020255379241766064}
   - component: {fileID: 487866058688032590}
   - component: {fileID: 6016534195786952053}
   m_Layer: 0
@@ -145,24 +144,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &3020255379241766064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3789879971427072715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbfe634b9debd8449c326001643e9f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  altPoints:
-  - {fileID: 801972914593261986}
-  - {fileID: 6029316054077920190}
-  - {fileID: 4380604943417651550}
-  - {fileID: 4578426578175231209}
-  playersOnField: 0
 --- !u!65 &487866058688032590
 BoxCollider:
   m_ObjectHideFlags: 0
