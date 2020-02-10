@@ -9,7 +9,7 @@ public class PlayerFieldMovement : MovementHandler
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         int spacesToMove = playerMovement.spacesToMove = n;
-        int currentPathIndex = playerMovement.playersCurrentPathIndex;
+        int currentPathIndex = playerMovement.currentPlayerField.GetComponent<Field>().IndexInPath;
 
         GameObject lastField = currentPathIndex + spacesToMove >= path.gameObjects.Length ?
             path.MemberWithIndex(currentPathIndex + spacesToMove - path.gameObjects.Length) :

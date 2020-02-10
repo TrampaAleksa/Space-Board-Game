@@ -24,7 +24,7 @@ public class PlayerMovement : Player
         if (other.tag == "NextField")
         {
             other.tag = "Untagged";
-            movementHandler.MoveToNextField(gameObject,playersCurrentPathIndex);
+            movementHandler.MoveToNextField(gameObject, currentPlayerField.GetComponent<Field>().IndexInPath);
         }
         else if(other.tag == "LastField")
         {

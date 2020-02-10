@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FieldHandler : GenericObjectArray   
 {
-    private void Start()
+    private void Awake()
     {
         InitializeFields();
     }
@@ -13,20 +13,13 @@ public class FieldHandler : GenericObjectArray
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
         //update the current field to be without the player
+        Field originalField = playerMovement.currentPlayerField.GetComponent<Field>();
+        originalField.RemovePlayerFromField(player);
 
-        playerMovement.currentPlayerField = MemberWithIndex(playerMovement.playersCurrentPathIndex);
-        playerMovement.currentFieldAltPoints = playerMovement.currentPlayerField.GetComponent<FieldAltPoints>();
-        playerMovement.currentFieldAltPoints.playersOnField--;
-
-        //get the field you are supposed to move to
-        playerMovement.playersCurrentPathIndex = fieldIndex;
-        playerMovement.currentPlayerField = MemberWithIndex(fieldIndex);
-        playerMovement.currentFieldAltPoints = playerMovement.currentPlayerField.GetComponent<FieldAltPoints>();
-
-        //Update the next field to have the player on it
-        FieldAltPoints nextFieldAltPoints = playerMovement.currentFieldAltPoints;
-        nextFieldAltPoints.playersOnField++;
-        playerMovement.positionToTravelTo = nextFieldAltPoints.altPoints[nextFieldAltPoints.playersOnField - 1].transform.position;
+        Field fieldToMoveTo = MemberWithIndex(fieldIndex).GetComponent<Field>();
+        fieldToMoveTo.AddPlayerToField(player);
+        //maybe move the position to travel to into the AddPlayerToField method
+        playerMovement.positionToTravelTo = fieldToMoveTo.GetFreeAltPoint().gameObject.transform.position;
     }
 
 
@@ -34,11 +27,8 @@ public class FieldHandler : GenericObjectArray
     public GameObject SetupPlayerFieldOnLoad(GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-        playerMovement.playersCurrentPathIndex = 0;
-        playerMovement.currentPlayerField = FirstMember();
+        FirstMember().GetComponent<Field>().AddPlayerToField(player);
         playerMovement.positionToTravelTo = playerMovement.currentPlayerField.transform.position;
-        playerMovement.currentFieldAltPoints = playerMovement.currentPlayerField.GetComponent<FieldAltPoints>();
-        playerMovement.currentFieldAltPoints.playersOnField++;
         return player;
     }
         

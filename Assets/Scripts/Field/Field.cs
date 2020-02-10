@@ -6,7 +6,6 @@ public class Field : MonoBehaviour
 {
     public int IndexInPath = 0;
     [SerializeField]
-    //public FieldAltPoints currentFieldAltPoints;
     public FieldAltPoint[] altPoints;
     public int playersOnField = 0;
 
@@ -23,6 +22,7 @@ public class Field : MonoBehaviour
 
     public GameObject AddPlayerToField(GameObject player)
     {
+        player.GetComponent<PlayerMovement>().currentPlayerField = gameObject;
         playersOnField++;
         return player;
     }
@@ -30,7 +30,7 @@ public class Field : MonoBehaviour
     public GameObject GetFreeAltPoint()
     {
         if (playersOnField == 0 || playersOnField > 4) Debug.Log("Error, negative players on field or more than 4");
-        return altPoints[playersOnField - 1].gameObject;
+        return altPoints[playersOnField].gameObject;
         /*foreach(var altPoint in altPoints)
         {
             if (altPoint.IsFree) return altPoint.gameObject;
