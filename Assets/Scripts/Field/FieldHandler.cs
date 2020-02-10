@@ -14,19 +14,32 @@ public class FieldHandler : GenericObjectArray
 
         //update the current field to be without the player
 
-        playerMovement.currentField = MemberWithIndex(playerMovement.playersCurrentPathIndex);
-        playerMovement.currentFieldAltPoints = playerMovement.currentField.GetComponent<FieldAltPoints>();
+        playerMovement.currentPlayerField = MemberWithIndex(playerMovement.playersCurrentPathIndex);
+        playerMovement.currentFieldAltPoints = playerMovement.currentPlayerField.GetComponent<FieldAltPoints>();
         playerMovement.currentFieldAltPoints.playersOnField--;
 
         //get the field you are supposed to move to
         playerMovement.playersCurrentPathIndex = fieldIndex;
-        playerMovement.currentField = MemberWithIndex(fieldIndex);
-        playerMovement.currentFieldAltPoints = playerMovement.currentField.GetComponent<FieldAltPoints>();
+        playerMovement.currentPlayerField = MemberWithIndex(fieldIndex);
+        playerMovement.currentFieldAltPoints = playerMovement.currentPlayerField.GetComponent<FieldAltPoints>();
 
         //Update the next field to have the player on it
         FieldAltPoints nextFieldAltPoints = playerMovement.currentFieldAltPoints;
         nextFieldAltPoints.playersOnField++;
         playerMovement.positionToTravelTo = nextFieldAltPoints.altPoints[nextFieldAltPoints.playersOnField - 1].transform.position;
+    }
+
+
+
+    public GameObject SetupPlayerFieldOnLoad(GameObject player)
+    {
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        playerMovement.playersCurrentPathIndex = 0;
+        playerMovement.currentPlayerField = FirstMember();
+        playerMovement.positionToTravelTo = playerMovement.currentPlayerField.transform.position;
+        playerMovement.currentFieldAltPoints = playerMovement.currentPlayerField.GetComponent<FieldAltPoints>();
+        playerMovement.currentFieldAltPoints.playersOnField++;
+        return player;
     }
         
     public void InitializeFields()

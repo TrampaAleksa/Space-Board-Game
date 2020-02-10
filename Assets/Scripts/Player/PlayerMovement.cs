@@ -15,10 +15,8 @@ public class PlayerMovement : Player
     void Start()
     {
         movementHandler = InstanceManager.Instance.Get<PlayerFieldMovement>();
-        playersCurrentPathIndex = 0;
         path = InstanceManager.Instance.Get<FieldHandler>();
-        currentField = path.FirstMember();
-        positionToTravelTo = currentField.transform.position;
+        path.SetupPlayerFieldOnLoad(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +29,7 @@ public class PlayerMovement : Player
         else if(other.tag == "LastField")
         {
             other.tag = "Untagged";
-            currentField.GetComponent<FieldEffect>().TriggerEffect();
+            currentPlayerField.GetComponent<FieldEffect>().TriggerEffect();
         }
     }
     private void FixedUpdate()

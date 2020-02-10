@@ -29,12 +29,14 @@ public class Field : MonoBehaviour
 
     public GameObject GetFreeAltPoint()
     {
-        foreach(var altPoint in altPoints)
+        if (playersOnField == 0 || playersOnField > 4) Debug.Log("Error, negative players on field or more than 4");
+        return altPoints[playersOnField - 1].gameObject;
+        /*foreach(var altPoint in altPoints)
         {
             if (altPoint.IsFree) return altPoint.gameObject;
         }
         print("Error, all points are not free");
-        return null;
+        return null;*/
     }
 
 
