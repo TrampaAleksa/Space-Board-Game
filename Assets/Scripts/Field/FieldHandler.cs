@@ -16,8 +16,6 @@ public class FieldHandler : GenericObjectArray
         originalField.RemovePlayerFromField(player);
 
         fieldToSetTo.AddPlayerToField(player);
-        //maybe move the position to travel to into the AddPlayerToField method
-        playerMovement.positionToTravelTo = fieldToSetTo.GetFreeAltPoint().gameObject.transform.position;
     }
 
     public GameObject SetupPlayerFieldOnLoad(GameObject player)

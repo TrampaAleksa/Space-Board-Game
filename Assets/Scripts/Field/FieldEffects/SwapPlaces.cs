@@ -7,9 +7,9 @@ public class SwapPlaces
 {
    public static bool TrySwappingPlayers(PlayerMovement firstPlayer, PlayerMovement secondPlayer, GameObject fieldTriggeringSwap)
     {
-        bool playersOnSameField = 
-            firstPlayer.currentPlayerField.IndexInPath
-            == secondPlayer.currentPlayerField.IndexInPath;
+        bool playersOnSameField =
+            firstPlayer.currentPlayerField.
+            Equals(secondPlayer.currentPlayerField);
 
         if (playersOnSameField)
             return PlayersOnSameFieldAction();

@@ -6,7 +6,6 @@ public class MovementHandler : MonoBehaviour
 {
     public GameObject MoveNFields(int n, GameObject player)
     {
-        FieldHandler path = InstanceManager.Instance.Get<FieldHandler>();
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
         GameObject lastField = playerMovement.currentPlayerField.NthField(n).gameObject;
@@ -21,7 +20,6 @@ public class MovementHandler : MonoBehaviour
         {
             currentPlayerField.NextField().tag = "NextField";
         }
-        //Refactoring SetCurrentField to accept field instead of an index
         InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(currentPlayerField.NextField(), player.gameObject);
         return player;
     }

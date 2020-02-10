@@ -26,8 +26,10 @@ public class Field : MonoBehaviour
 
     public GameObject AddPlayerToField(GameObject player)
     {
-        player.GetComponent<PlayerMovement>().currentPlayerField = this;
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        playerMovement.currentPlayerField = this;
         playersOnField++;
+        playerMovement.positionToTravelTo = GetFreeAltPoint().gameObject.transform.position;
         return player;
     }
 
@@ -51,5 +53,10 @@ public class Field : MonoBehaviour
         return this;
     }
 
-
+    public override bool Equals(object obj)
+    {
+        return obj is Field field &&
+               base.Equals(obj) &&
+               IndexInPath == field.IndexInPath;
+    }
 }
