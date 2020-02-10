@@ -9,9 +9,10 @@ using UnityEngine.UI;
 public class FuelDisplayText : PlayerStateDisplay
 {
     private Text displayText;
-    public override void UpdateDisplay()
+    public override bool UpdateDisplay()
     {
         displayText.text = InstanceManager.Instance.Get<FuelHandler>().GetPlayersFuel(player).fuel.ToString();
+        return true;
     }
 
     private void Start()

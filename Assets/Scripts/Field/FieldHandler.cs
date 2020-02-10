@@ -12,7 +12,6 @@ public class FieldHandler : GenericObjectArray
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
-        //update the current field to be without the player
         Field originalField = playerMovement.currentPlayerField.GetComponent<Field>();
         originalField.RemovePlayerFromField(player);
 
@@ -21,8 +20,6 @@ public class FieldHandler : GenericObjectArray
         //maybe move the position to travel to into the AddPlayerToField method
         playerMovement.positionToTravelTo = fieldToMoveTo.GetFreeAltPoint().gameObject.transform.position;
     }
-
-
 
     public GameObject SetupPlayerFieldOnLoad(GameObject player)
     {
