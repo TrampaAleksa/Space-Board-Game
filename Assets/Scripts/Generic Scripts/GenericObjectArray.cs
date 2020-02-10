@@ -51,6 +51,11 @@ public class GenericObjectArray : MonoBehaviour
 
     public GameObject MemberWithIndex(int index)
     {
+        while (index >= gameObjects.Length)
+        {
+            index -= gameObjects.Length;
+        }
+        while (index < 0) index += gameObjects.Length;
         return gameObjects[index];
     }
 
