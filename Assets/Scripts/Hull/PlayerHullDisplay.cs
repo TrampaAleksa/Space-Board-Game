@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealthDisplay : PlayerStateDisplay
+public class PlayerHullDisplay : PlayerStateDisplay
 {
     private Text displayText;
     public override bool UpdateDisplay()
     {
-        GetComponent<Text>().text = InstanceManager.Instance.Get<HealthHandler>().GetPlayerHealth(player).health.ToString();
+        GetComponent<Text>().text = InstanceManager.Instance.Get<HullHandler>().GetPlayerHull(player).hull.ToString();
         return true;
     }
 
-    private void Start()
+    private void Awake()
     {
         displayText = GetComponent<Text>();
     }

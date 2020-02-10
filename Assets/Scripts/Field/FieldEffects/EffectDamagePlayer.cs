@@ -7,7 +7,7 @@ public class EffectDamagePlayer : FieldEffect
     public float damageAmount = 10;
     public override void TriggerEffect()
     {
-        InstanceManager.Instance.Get<HealthHandler>().DamagePlayer(playersHandler.GetCurrentPlayer(), damageAmount);
+        InstanceManager.Instance.Get<HullHandler>().DamagePlayer(playersHandler.GetCurrentPlayer(), damageAmount);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }
