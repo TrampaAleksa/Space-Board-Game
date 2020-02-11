@@ -24,11 +24,9 @@ public class SwapPlaces
     private static bool SwapPlayersAction(PlayerMovement firstPlayer, PlayerMovement secondPlayer, GameObject firstPlayersField)
     {
         firstPlayersField.tag = "Untagged";
-        Field p  = secondPlayer.currentPlayerField;
 
         FieldHandler fieldHandler = InstanceManager.Instance.Get<FieldHandler>();
-        fieldHandler.SetCurrentField(firstPlayer.currentPlayerField, secondPlayer.gameObject);
-        fieldHandler.SetCurrentField(p, firstPlayer.gameObject);
+        fieldHandler.SwapTwoPlayers(firstPlayer, secondPlayer);
 
         return true;
     }

@@ -19,6 +19,7 @@ public class DiceRollHandler : MonoBehaviour
     }
     public void RollTheDice()
     {
+        print("roolled");
         if (!diceLocked)
         {
             ChangeDiceLockState();

@@ -18,6 +18,18 @@ public class FieldHandler : GenericObjectArray, IBoardState
         fieldToSetTo.AddPlayerToField(player);
     }
 
+    public void SwapTwoPlayers(PlayerMovement playerMovement1, PlayerMovement playerMovement2)
+    {
+        Field originalField1 = playerMovement1.currentPlayerField;
+        Field originalField2 = playerMovement2.currentPlayerField;
+
+        originalField1.RemovePlayerFromField(playerMovement1.gameObject);
+        originalField2.RemovePlayerFromField(playerMovement2.gameObject);
+
+        originalField2.AddPlayerToField(playerMovement1.gameObject);
+        originalField1.AddPlayerToField(playerMovement2.gameObject);
+    }
+
     public void InitializeFields()
     {
         int i = 0;
