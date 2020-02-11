@@ -27,6 +27,13 @@ public class FuelHandler : MonoBehaviour, IBoardState
 
     public void SaveState()
     {
+        int i = 0;
+        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
+        {
+            float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].fuel = player.GetComponent<PlayerFuel>().fuel;
+            print("Saving the players fuel: " + amount);
+            i++;
+        }
     }
 
     public void SetupState()

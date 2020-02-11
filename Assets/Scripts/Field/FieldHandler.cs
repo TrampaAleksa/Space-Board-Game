@@ -31,6 +31,14 @@ public class FieldHandler : GenericObjectArray, IBoardState
 
     public void SaveState()
     {
+        int i = 0;
+        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
+        {
+            int index = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].pathIndex
+                = player.GetComponent<PlayerMovement>().currentPlayerField.IndexInPath;
+            print("Saved players position index: " + index);
+            i++;
+        }
     }
 
     public void SetupState()
