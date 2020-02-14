@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player 2
   m_EditorClassIdentifier: 
   fuel: 50
-  hull: 30
+  hull: 100
   pathIndex: 0
+  checkpointIndex: 0
   rank: 0

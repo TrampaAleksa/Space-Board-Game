@@ -22,7 +22,7 @@ public class PlayerMovement : Player
         if (other.tag == "NextField")
         {
             other.tag = "Untagged";
-            movementHandler.MoveToNextField(gameObject);
+            movementHandler.MoveToNextField(gameObject); 
         }
         else if(other.tag == "LastField")
         {
