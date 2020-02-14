@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHull : MonoBehaviour
 {
-    public float hull;
+    public float hullPercentage;
     void Start()
     {
     }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 161511084261474643}
   - component: {fileID: 7263638960093066791}
   - component: {fileID: 6088539356152592416}
+  - component: {fileID: -1637520199664502957}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -108,9 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d116654214ba3d4385cd3bfa1dfd936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentField: {fileID: 0}
-  playersCurrentPathIndex: 0
-  currentFieldAltPoints: {fileID: 0}
+  currentPlayerField: {fileID: 0}
   positionToTravelTo: {x: 0, y: 0, z: 0}
   movementSpeed: 8
   spacesToMove: 0
@@ -139,4 +138,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2b38ff9b34d2c43b0604c7d7031bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  hullPercentage: 0
+--- !u!114 &-1637520199664502957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6278102749296986475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0969a9e541df5984381d7b53825177c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointField: {fileID: 0}

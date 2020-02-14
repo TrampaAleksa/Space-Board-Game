@@ -14,8 +14,6 @@ public class PlayersHandler : GenericObjectArray
         return CurrentMember();
     }
 
-    
-
     public GameObject SetToNextPlayer()
     {
         SetToNextMember();

@@ -22,6 +22,7 @@ public class BoardStateReset : MonoBehaviour
             stateComponent.fuel = FuelHandler.startingAmount;
             stateComponent.hull = HullHandler.startingAmount;
             stateComponent.pathIndex = 0;
+            stateComponent.checkpointIndex = 0;
         }
     }
 }
