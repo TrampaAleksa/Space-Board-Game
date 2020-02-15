@@ -10,7 +10,8 @@ public class MovementHandler : MonoBehaviour
 
         GameObject lastField = playerMovement.currentPlayerField.NthField(n).gameObject;
         lastField.tag = "LastField";
-        MoveToNextField(player);
+        GameObject field = n < 0 ? MoveToPreviousField(player) : MoveToNextField(player);
+        //MoveToNextField(player);
         return player;
     }
     public GameObject MoveToNextField(GameObject player)
@@ -21,6 +22,17 @@ public class MovementHandler : MonoBehaviour
             currentPlayerField.NextField().tag = "NextField";
         }
         InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(currentPlayerField.NextField(), player.gameObject);
+        return player;
+    }
+
+    public GameObject MoveToPreviousField(GameObject player)
+    {
+        Field currentPlayerField = player.GetComponent<PlayerMovement>().currentPlayerField;
+        if (currentPlayerField.PreviousField().tag != "LastField")
+        {
+            currentPlayerField.PreviousField().tag = "NextField";
+        }
+        InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(currentPlayerField.PreviousField(), player.gameObject);
         return player;
     }
 

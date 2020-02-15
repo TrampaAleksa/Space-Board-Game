@@ -18,6 +18,11 @@ public class Field : MonoBehaviour
        return  InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(IndexInPath+n).GetComponent<Field>();
     }
 
+    public Field PreviousField()
+    {
+        return InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(IndexInPath - 1).GetComponent<Field>();
+    }
+
     public GameObject RemovePlayerFromField(GameObject player)
     {
         playersOnField--;
