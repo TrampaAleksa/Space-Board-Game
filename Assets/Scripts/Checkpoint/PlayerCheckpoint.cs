@@ -14,6 +14,7 @@ public class PlayerCheckpoint : MonoBehaviour
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         //TODO -- Extrack TeleportToField method to use in some of the cases
         InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(CheckpointField, player);
+        player.GetComponent<PlayerHull>().hullPercentage = HullHandler.startingAmount;
         player.transform.position = playerMovement.positionToTravelTo;
         return player;
     }
