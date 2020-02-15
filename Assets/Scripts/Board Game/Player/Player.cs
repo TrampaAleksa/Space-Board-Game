@@ -9,4 +9,9 @@ public class Player : MonoBehaviour
     public Field currentPlayerField;
     public int turnsToSkip;
 
+    public bool EnginesBroken()
+    {
+        return turnsToSkip > 0;
+    }
+
 }

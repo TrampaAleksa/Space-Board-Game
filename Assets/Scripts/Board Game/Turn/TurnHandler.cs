@@ -8,10 +8,10 @@ public class TurnHandler : MonoBehaviour
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         playersHandler.SetToNextPlayer();
-        int nextPlayersTurnsToSkip = playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>().turnsToSkip;
-        if (nextPlayersTurnsToSkip > 0)
+        bool brokenEngines = playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>().EnginesBroken();
+        if (brokenEngines)
         {
-            playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>().turnsToSkip--;
+            SkipPlayersTurn(playersHandler.GetCurrentPlayer());
             EndCurrentPlayersTurn();
         }
         else
@@ -28,5 +28,17 @@ public class TurnHandler : MonoBehaviour
             }
         }
        
+    }
+
+    public GameObject PlayerSkipTurns(GameObject player, int turnsToSkip)
+    {
+        player.GetComponent<PlayerMovement>().turnsToSkip += turnsToSkip;
+        return player;
+    }
+
+    public int SkipPlayersTurn(GameObject player)
+    {
+        player.GetComponent<PlayerMovement>().turnsToSkip--;
+        return player.GetComponent<PlayerMovement>().turnsToSkip;
     }
 }
