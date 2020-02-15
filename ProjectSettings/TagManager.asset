@@ -6,9 +6,9 @@ TagManager:
   tags:
   - LastField
   - NextField
-  - Swap
   - Tooltip
   - Display
+  - Selection
   layers:
   - Default
   - TransparentFX
