@@ -17,6 +17,7 @@ public class MinePlacementClick : MonoBehaviour, IClickEvent
                     hit.collider.gameObject.AddComponent<Mine>();
                     InstanceManager.Instance.Get<ClickEventHandler>().RemoveClickEvent(this);
                     InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+                    Destroy(this);
                 }
                 else print("mine already exists");
             }

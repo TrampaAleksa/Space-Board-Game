@@ -7,6 +7,6 @@ public class EffectPlaceMine : FieldEffect
     public override void TriggerEffect()
     {
         print("Place a mine!");
-        InstanceManager.Instance.Get<ClickEventHandler>().AddClickEvent(GetComponent<MinePlacementClick>());
+        InstanceManager.Instance.Get<ClickEventHandler>().AddClickEvent(gameObject.AddComponent<MinePlacementClick>());
     }
 }

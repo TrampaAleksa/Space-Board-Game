@@ -21,6 +21,7 @@ public class TeleportClick : MonoBehaviour, IClickEvent
                     InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(playerToTeleport, fieldClicked);
                     InstanceManager.Instance.Get<ClickEventHandler>().RemoveClickEvent(this);
                     playerToTeleport.GetComponent<PlayerMovement>().currentPlayerField.GetComponent<FieldEffect>().TriggerEffect();
+                    Destroy(this);
                 }
                 else print("Distance too large");
             }
