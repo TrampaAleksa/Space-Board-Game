@@ -58,7 +58,7 @@ public class HullHandler : MonoBehaviour, IBoardState
         {
             float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].hull;
             player.GetComponent<PlayerHull>().hullPercentage = amount;
-            print("Players initial hull set: " + startingAmount);
+            print("Players initial hull set: " + amount);
             i++;
         }
     }

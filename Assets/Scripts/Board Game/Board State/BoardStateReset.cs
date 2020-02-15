@@ -23,6 +23,7 @@ public class BoardStateReset : MonoBehaviour
             stateComponent.hull = HullHandler.startingAmount;
             stateComponent.pathIndex = 0;
             stateComponent.checkpointIndex = 0;
+            stateComponent.turnsToSkip = 0;
         }
     }
 }

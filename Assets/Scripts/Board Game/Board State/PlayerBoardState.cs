@@ -10,5 +10,6 @@ public class PlayerBoardState : ScriptableObject
     public int pathIndex;
     public int checkpointIndex;
     public int rank;
+    public int turnsToSkip;
     
 }

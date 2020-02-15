@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnHandler : MonoBehaviour
+public class TurnHandler : MonoBehaviour, IBoardState
 {
    public void EndCurrentPlayersTurn()
     {
@@ -41,4 +41,28 @@ public class TurnHandler : MonoBehaviour
         player.GetComponent<PlayerMovement>().turnsToSkip--;
         return player.GetComponent<PlayerMovement>().turnsToSkip;
     }
+
+    public void SaveState()
+    {
+        int i = 0;
+        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
+        {
+            int turnsToSkip = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].turnsToSkip = player.GetComponent<PlayerMovement>().turnsToSkip;
+            print("Saving the players turns to skip : " + turnsToSkip);
+            i++;
+        }
+    }
+
+    public void SetupState()
+    {
+        int i = 0;
+        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
+        {
+            int turnsToSkip = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].turnsToSkip;
+            player.GetComponent<PlayerMovement>().turnsToSkip = turnsToSkip;
+            i++;
+        }
+    }
+
+   
 }
