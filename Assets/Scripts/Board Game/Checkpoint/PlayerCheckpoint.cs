@@ -12,9 +12,9 @@ public class PlayerCheckpoint : MonoBehaviour
     {
         GameObject player = gameObject;
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-        //TODO -- Extrack TeleportToField method to use in some of the cases
         InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(player, CheckpointField);
         player.GetComponent<PlayerHull>().hullPercentage = HullHandler.startingAmount;
+        playerMovement.turnsToSkip = 0;
         return player;
     }
 
