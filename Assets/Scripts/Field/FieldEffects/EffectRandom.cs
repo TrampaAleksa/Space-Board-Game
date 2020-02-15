@@ -7,5 +7,6 @@ public class EffectRandom : FieldEffect
     public override void TriggerEffect()
     {
         print("Random effect!");
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }

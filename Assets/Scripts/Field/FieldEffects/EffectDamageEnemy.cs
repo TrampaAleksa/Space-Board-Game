@@ -7,5 +7,6 @@ public class EffectDamageEnemy : FieldEffect
     public override void TriggerEffect()
     {
         print("Damage the enemy!");
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }
