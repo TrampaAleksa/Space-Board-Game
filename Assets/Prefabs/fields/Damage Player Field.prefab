@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3897218163619730969}
   - component: {fileID: 7111818047044461509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7736897475341621516}
   - component: {fileID: 1852301658514052029}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 424771601364597584}
   - component: {fileID: 3064352675285437419}
   - component: {fileID: 2678522385696574709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Damage Player Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb773553354218c4bb340f83eeb61d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
   damageAmount: 20
 --- !u!1 &2838064912635858183
 GameObject:
@@ -223,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4578714516691053478}
   - component: {fileID: 318429034631163538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -266,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7014988022122087323}
   - component: {fileID: 2672327265398519797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5760337544474236006}
   - component: {fileID: 8009154202921539930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2431849164932039529}
   - component: {fileID: 5892551407082456436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2501865705137072119}
   - component: {fileID: 8414254733948157404}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7485814199876155982}
   - component: {fileID: 2339732281999292471}
   - component: {fileID: 990645266683110338}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Random Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171f202462c636548b742e2df67f4266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
 --- !u!1 &8533854918560111065
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1845631528560731929}
   - component: {fileID: 5758203530547993996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

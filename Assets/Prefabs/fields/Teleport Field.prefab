@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9047490565977130357}
   - component: {fileID: 3169156694905913312}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 283956545428723746}
   - component: {fileID: 4929826127562185307}
   - component: {fileID: 3454112200933043791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Teleport Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525d7292e7549f544b5f7232983f7297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
 --- !u!1 &6776659797641352950
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5091967236536599963}
   - component: {fileID: 1213531785686458288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -222,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3162354705169380874}
   - component: {fileID: 807305363415857974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -265,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5020824521520095493}
   - component: {fileID: 3878910908696405784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

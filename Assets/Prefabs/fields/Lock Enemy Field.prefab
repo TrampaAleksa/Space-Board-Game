@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5235574412212121179}
   - component: {fileID: 2223723452411286734}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2217366763742633252}
   - component: {fileID: 4472994140408221720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8109530227643927083}
   - component: {fileID: 68666013704014902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8326336242043449013}
   - component: {fileID: 2733701678681846942}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 3951780522386649868}
   - component: {fileID: 8164209418256019829}
   - component: {fileID: 3372447093870935677}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lock Enemy Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,3 +298,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0723798d3f8ac848ab09f86702b130c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7208555903976793131}
   - component: {fileID: 3638293751668793022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 1906741334211443068}
   - component: {fileID: 6767935400408234757}
   - component: {fileID: 2717990834619585224}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Place Mine Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc506a9dfe060ab4694a785d6cdc2e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
 --- !u!1 &5155851862045521832
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6858004647335306437}
   - component: {fileID: 671493087887605486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -222,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6641479660197740635}
   - component: {fileID: 3193724171786618438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -265,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3631092089723344724}
   - component: {fileID: 1347372534692862568}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

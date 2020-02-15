@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2870452399638672455}
   - component: {fileID: 4127453052617067543}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3301455240742498000}
   - component: {fileID: 254642097047690648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8113912074542080453}
   - component: {fileID: 1046141660597358690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4857920320206982284}
   - component: {fileID: 7784788385075067959}
   - component: {fileID: 4157708299330668328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Heal Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8a5f1576d851a408186b9eb8e154e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
   amountToHeal: 20
 --- !u!1 &7056311927722310363
 GameObject:
@@ -266,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8720384876229893242}
   - component: {fileID: 4565628601605038685}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

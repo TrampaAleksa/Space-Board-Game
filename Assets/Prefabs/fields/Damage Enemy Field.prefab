@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5806795661809474217}
   - component: {fileID: 495921944089583676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7545578957465960153}
   - component: {fileID: 1787486721446885572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502210187085146582}
   - component: {fileID: 2751376850596291818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7759852109379148359}
   - component: {fileID: 4453376009304113260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 3380538252892047358}
   - component: {fileID: 7597721993511011719}
   - component: {fileID: 8421164938613863796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Damage Enemy Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,3 +298,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba4a1806f45bd14faa3b6e1b80d525f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}

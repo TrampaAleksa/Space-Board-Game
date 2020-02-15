@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 961925391700652023}
   - component: {fileID: 5404366686955098576}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6452908223244475741}
   - component: {fileID: 8634770996437626389}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 343995206656627272}
   - component: {fileID: 8852055516420334575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 3978570804667825921}
   - component: {fileID: 1753424254853812154}
   - component: {fileID: 5615795706411568513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fuel Station
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185c0a1269ff51f47ae58d33064d245d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
 --- !u!1 &5565387595394036554
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6019501687859873738}
   - component: {fileID: 5556278061360906138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

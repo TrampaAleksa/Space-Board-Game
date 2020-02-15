@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 921500826709883263}
   - component: {fileID: 1322819757995688239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5915820019764891970}
   - component: {fileID: 1459287383025135461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7527483015848706484}
   - component: {fileID: 5122051738904850703}
   - component: {fileID: 8451086830648861833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Move Back Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbfe1417de810d4f9ff0aa8f4ca9569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
 --- !u!1 &9014827184660098847
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595056747842465021}
   - component: {fileID: 2709079472954449242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -265,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 490066823302800360}
   - component: {fileID: 2924131941442080928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

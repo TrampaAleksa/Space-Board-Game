@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 841840181515141815}
   - component: {fileID: 1530270315365186279}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6160418271114963594}
   - component: {fileID: 1380189550478169261}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 8003451629626718844}
   - component: {fileID: 4643822385336765127}
   - component: {fileID: 3190090363929172263}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Move Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181a81c7f4b12a4fb2559d4cfbd8272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
 --- !u!1 &8736634687189360992
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 119930451303585824}
   - component: {fileID: 3455280933536426856}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -265,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6692731789131667253}
   - component: {fileID: 2521893044003382930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

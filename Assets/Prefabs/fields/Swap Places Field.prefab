@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 902018808639115446}
   - component: {fileID: 5394685089033547409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6363791370438976028}
   - component: {fileID: 8505383415688434004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368154489282997513}
   - component: {fileID: 8864560471762295982}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 3957351593014067264}
   - component: {fileID: 1839867018069979387}
   - component: {fileID: 3859089955236466752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Swap Places Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c02102b0d3a1f438e3707f1f8e8fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersHandler: {fileID: 0}
 --- !u!1 &5539944139556817931
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5932507052988020875}
   - component: {fileID: 5532164350618321115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
