@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3064352675285437419}
   - component: {fileID: 2678522385696574709}
   m_Layer: 0
-  m_Name: Damage Field
+  m_Name: Damage Player Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791202146461343342}
   m_LocalRotation: {x: -0, y: 0.96040905, z: -0, w: 0.27859375}
-  m_LocalPosition: {x: -13.405813, y: -3.5445962, z: 3.6132627}
+  m_LocalPosition: {x: -13.405813, y: 0, z: 3.6132627}
   m_LocalScale: {x: 1, y: 0.08, z: 1}
   m_Children:
   - {fileID: 4578714516691053478}
