@@ -11,7 +11,6 @@ public class ClickEventHandler : MonoBehaviour, IClickEvent
     private void Start()
     {
         eventsOnClick = Clicked;
-        eventsOnClick += gameObject.AddComponent<MinePlacementClick>().Clicked;
     }
 
     private void Update()
@@ -22,12 +21,12 @@ public class ClickEventHandler : MonoBehaviour, IClickEvent
         }
     }
 
-    private void AddClickEvent(IClickEvent clickEvent)
+    public void AddClickEvent(IClickEvent clickEvent)
     {
         eventsOnClick += clickEvent.Clicked;
     }
 
-    private void RemoveClickEvent(IClickEvent clickEvent)
+    public void RemoveClickEvent(IClickEvent clickEvent)
     {
         eventsOnClick -= clickEvent.Clicked;
     }

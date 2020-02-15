@@ -14,7 +14,11 @@ public class MinePlacementClick : MonoBehaviour, IClickEvent
             {
                 print("Clicked on a field!");
                 if (hit.collider.gameObject.GetComponent<Mine>() == null)
+                {
                     hit.collider.gameObject.AddComponent<Mine>();
+                    InstanceManager.Instance.Get<ClickEventHandler>().RemoveClickEvent(this);
+                    InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+                }
                 else print("mine already exists");
             }
         }
