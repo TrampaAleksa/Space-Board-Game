@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class EffectRandom : FieldEffect
 {
+
+    private void Start()
+    {
+        effectsList = GameObject.Find("Random Effects Holder").GetComponentsInChildren<FieldEffect>();
+    }
+    public FieldEffect[] effectsList;
     public override void TriggerEffect()
     {
-        print("Random effect!");
-        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+        int index = Random.Range(0, effectsList.Length);
+        print("Random effect: " + effectsList[index].name);
+        effectsList[index].TriggerEffect();
     }
 }
