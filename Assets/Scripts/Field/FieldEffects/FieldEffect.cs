@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class FieldEffect : MonoBehaviour
 {
-    protected PlayersHandler playersHandler;
+    [SerializeField]
+    public PlayersHandler playersHandler;
+    public const string TAG_SELECTION = "Selection";
 
     private void Start()
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SelectionHandler : GenericObjectArray
 {
@@ -18,4 +19,5 @@ public class SelectionHandler : GenericObjectArray
         print("Currently selected player: " + currentlySelected.name);
         return currentlySelected;
     }
+
 }

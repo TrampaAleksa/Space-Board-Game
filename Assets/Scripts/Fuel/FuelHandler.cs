@@ -5,6 +5,7 @@ using UnityEngine;
 public class FuelHandler : MonoBehaviour, IBoardState
 {
     public const float startingAmount = 50;
+    public const float winningAmount = 300f;
 
     public PlayerFuel GetPlayersFuel(GameObject player)
     {
@@ -22,6 +23,22 @@ public class FuelHandler : MonoBehaviour, IBoardState
     {
         PlayerFuel playerFuel = GetPlayersFuel(player);
         playerFuel.fuel += amount;
+        if(playerFuel.fuel >= winningAmount)
+        {
+            print("PLAYER: " + player.name + " WON THE GAME!");
+        }
+        return player;
+    }
+
+    public GameObject RemoveFuelFromPlayer(GameObject player, float amount)
+    {
+        PlayerFuel playerFuel = GetPlayersFuel(player);
+        playerFuel.fuel -= amount;
+        if (playerFuel.fuel < 0)
+        {
+            playerFuel.fuel = 0;
+            //TODO -- freeze the player and skip his next 2 turns
+        }
         return player;
     }
 

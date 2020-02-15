@@ -17,7 +17,7 @@ public class FuelStation : FieldEffect
     {
         if(other.tag == "Player")
         {
-            other.GetComponent<PlayerFuel>().fuel += fuelPerVisit;
+            InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(other.gameObject, fuelPerVisit);
             print("added fuel to: " + other.name);
         }
     }

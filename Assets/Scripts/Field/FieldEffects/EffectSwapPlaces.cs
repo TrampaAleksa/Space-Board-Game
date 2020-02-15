@@ -8,14 +8,14 @@ public class EffectSwapPlaces : FieldEffect
     
     public override void TriggerEffect()
     {
-        gameObject.tag = "Swap";
+        gameObject.tag = TAG_SELECTION;
         InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
         print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
     }
 
     private void Update()
     {
-        if(gameObject.tag == "Swap")
+        if(gameObject.tag == TAG_SELECTION)
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
