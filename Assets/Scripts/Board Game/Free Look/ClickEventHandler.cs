@@ -33,7 +33,6 @@ public class ClickEventHandler : MonoBehaviour, IClickEvent
 
     public IClickEvent Clicked()
     {
-        print("Default click event");
         return this;
     }
 }

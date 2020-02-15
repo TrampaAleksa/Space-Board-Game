@@ -7,6 +7,6 @@ public class EffectTeleport : FieldEffect
     public override void TriggerEffect()
     {
         print("Emergency teleport!");
-        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+        InstanceManager.Instance.Get<ClickEventHandler>().AddClickEvent(GetComponent<TeleportClick>());
     }
 }

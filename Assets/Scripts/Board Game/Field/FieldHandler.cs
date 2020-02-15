@@ -18,6 +18,12 @@ public class FieldHandler : GenericObjectArray, IBoardState
         fieldToSetTo.AddPlayerToField(player);
     }
 
+    public void TeleportPlayerToField(GameObject player, Field field)
+    {
+        SetCurrentField(field, player);
+        player.GetComponent<PlayerMovement>().transform.position = player.GetComponent<PlayerMovement>().positionToTravelTo;
+    }
+
     public void SwapTwoPlayers(PlayerMovement playerMovement1, PlayerMovement playerMovement2)
     {
         Field originalField1 = playerMovement1.currentPlayerField;
@@ -28,6 +34,14 @@ public class FieldHandler : GenericObjectArray, IBoardState
 
         originalField2.AddPlayerToField(playerMovement1.gameObject);
         originalField1.AddPlayerToField(playerMovement2.gameObject);
+    }
+
+    public int DistanceBetweenTwoFields(Field field1, Field field2)
+    {
+        //Note -- If the player tries to teleport ahead of the finish line or before the finish line print
+        //a message saying that he can't do that (the difference between the last index and first index is very big so he 
+       // wont be able to teleport even if he wanted to).
+        return Mathf.Abs(field1.IndexInPath - field2.IndexInPath);
     }
 
     public void InitializeFields()

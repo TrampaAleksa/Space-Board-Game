@@ -12,7 +12,6 @@ public class MinePlacementClick : MonoBehaviour, IClickEvent
         {
             if (hit.transform != null && hit.collider.gameObject.GetComponentInChildren<Field>() != null)
             {
-                print("Clicked on a field!");
                 if (hit.collider.gameObject.GetComponent<Mine>() == null)
                 {
                     hit.collider.gameObject.AddComponent<Mine>();
