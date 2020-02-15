@@ -8,16 +8,25 @@ public class TurnHandler : MonoBehaviour
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         playersHandler.SetToNextPlayer();
-        //playersHandler.CurrentPlayerIndex = (++playersHandler.CurrentPlayerIndex) % playersHandler.players.Length;
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltipForGivenTime
-            (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
-            playersHandler.GetCurrentPlayer().name + "s turn",
-            TooltipHandler.TOOLTIP_TIME_SHORT);
-        DiceRollHandler diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
-        if (diceRollHandler.DiceIsLocked())
+        int nextPlayersTurnsToSkip = playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>().turnsToSkip;
+        if (nextPlayersTurnsToSkip > 0)
         {
-            diceRollHandler.ChangeDiceLockState();
+            playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>().turnsToSkip--;
+            EndCurrentPlayersTurn();
         }
+        else
+        {
+            TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+            tooltipHandler.ShowTooltipForGivenTime
+                (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
+                playersHandler.GetCurrentPlayer().name + "s turn",
+                TooltipHandler.TOOLTIP_TIME_SHORT);
+            DiceRollHandler diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
+            if (diceRollHandler.DiceIsLocked())
+            {
+                diceRollHandler.ChangeDiceLockState();
+            }
+        }
+       
     }
 }
