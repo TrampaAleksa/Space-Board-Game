@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HullHandler : MonoBehaviour, IBoardState
 {
-    public const float startingAmount = 100f;
-    public const float maximumAmount = 100f;
+    public const float startingAmount = 120f;
+    public const float maximumAmount = 120f;
 
     public GameObject SetPlayerHull(GameObject player, float value)
     {
@@ -22,9 +22,9 @@ public class HullHandler : MonoBehaviour, IBoardState
     {
         PlayerHull playerHull = player.GetComponent<PlayerHull>();
         playerHull.hullPercentage += value;
-        if (playerHull.hullPercentage >= 100)
+        if (playerHull.hullPercentage >= maximumAmount)
         {
-            playerHull.hullPercentage = 100f;
+            playerHull.hullPercentage = maximumAmount;
         }
 
         return player;
