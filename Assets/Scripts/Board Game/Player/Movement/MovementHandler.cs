@@ -11,7 +11,6 @@ public class MovementHandler : MonoBehaviour
         GameObject lastField = playerMovement.currentPlayerField.NthField(n).gameObject;
         lastField.tag = "LastField";
         GameObject field = n < 0 ? MoveToPreviousField(player) : MoveToNextField(player);
-        //MoveToNextField(player);
         return player;
     }
     public GameObject MoveToNextField(GameObject player)

@@ -12,10 +12,6 @@ public class PlayerMovement : Player
     [SerializeField]
     public int spacesToMove = 0;
 
-    void Start()
-    {
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         movementHandler = InstanceManager.Instance.Get<MovementHandler>();

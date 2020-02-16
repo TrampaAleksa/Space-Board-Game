@@ -7,19 +7,14 @@ public class DiceRollHandler : MonoBehaviour
 {
     public Text tDiceNumberRolled;
 
-    public static int number;
+    public static int number = 0;
     private int minimumDiceNumber = 1;
     private int maximumDiceNumber = 6;
 
     private bool diceLocked = false;
 
-    private void Start()
-    {
-        number = 0;
-    }
     public void RollTheDice()
     {
-        print("roolled");
         if (!diceLocked)
         {
             ChangeDiceLockState();
