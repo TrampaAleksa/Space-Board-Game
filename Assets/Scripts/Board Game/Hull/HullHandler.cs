@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HullHandler : MonoBehaviour, IBoardState
 {
-    public const float startingAmount = 120f;
-    public const float maximumAmount = 120f;
+    public const float STARTING_HULL = 120f;
+    public const float MAXIMUM_HULL = 120f;
 
     public GameObject SetPlayerHull(GameObject player, float value)
     {
@@ -16,28 +16,6 @@ public class HullHandler : MonoBehaviour, IBoardState
     public PlayerHull GetPlayerHull(GameObject player)
     {
         return player.GetComponent<PlayerHull>();
-    }
-
-    public GameObject RepairPlayer(GameObject player, float value)
-    {
-        PlayerHull playerHull = player.GetComponent<PlayerHull>();
-        playerHull.HullPercentage += value;
-        if (playerHull.HullPercentage >= maximumAmount)
-        {
-            playerHull.HullPercentage = maximumAmount;
-        }
-
-        return player;
-    }
-
-    public GameObject DamagePlayer(GameObject player, float value)
-    {
-        player.GetComponent<PlayerHull>().HullPercentage -= value;
-        if(player.GetComponent<PlayerHull>().HullPercentage <= 0)
-        {
-            player.GetComponent<PlayerCheckpoint>().RespawnAtCheckpoint();
-        }
-        return player;
     }
 
     public void SaveState()

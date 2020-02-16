@@ -35,4 +35,10 @@ public class MovementHandler : MonoBehaviour
         return player;
     }
 
+    public void MoveCurrentPlayer(int numberOfFields)
+    {
+        GameObject currentPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
+        InstanceManager.Instance.Get<MovementHandler>().MoveNFields(numberOfFields, currentPlayer);
+    }
+
 }

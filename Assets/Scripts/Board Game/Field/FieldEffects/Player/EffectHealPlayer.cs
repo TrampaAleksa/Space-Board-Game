@@ -7,7 +7,7 @@ public class EffectHealPlayer : FieldEffect
     public float amountToHeal = 10;
     public override void TriggerEffect()
     {
-        InstanceManager.Instance.Get<HullHandler>().RepairPlayer(playersHandler.GetCurrentPlayer(), amountToHeal);
+        Repair.RepairPlayer(playersHandler.GetCurrentPlayer(), amountToHeal, HullHandler.MAXIMUM_HULL);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 

@@ -13,8 +13,7 @@ public class DamageEnemy :ISelectionEffect
 
     public static bool TryDamagingPlayer(PlayerHull selectedPlayer, GameObject fieldTriggeringEffect)
     {
-        HullHandler hullHandler = InstanceManager.Instance.Get<HullHandler>();
-        hullHandler.DamagePlayer(selectedPlayer.gameObject, EffectDamageEnemy.AMOUNT_TO_DAMAGE);
+        Damage.DamagePlayer(selectedPlayer.gameObject, EffectDamageEnemy.AMOUNT_TO_DAMAGE);
         fieldTriggeringEffect.tag = "Untagged";
         return true;
     }

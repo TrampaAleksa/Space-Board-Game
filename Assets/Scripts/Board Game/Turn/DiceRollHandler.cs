@@ -20,15 +20,9 @@ public class DiceRollHandler : MonoBehaviour
             ChangeDiceLockState();
             number = Random.Range(minimumDiceNumber, maximumDiceNumber + 1);
             tDiceNumberRolled.text = number.ToString();
-            MoveCurrentPlayer();
+            InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(number);
         }
         else Debug.Log("Sorry, the dice is locked");
-    }
-
-    public void MoveCurrentPlayer()
-    {
-        GameObject currentPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
-        InstanceManager.Instance.Get<MovementHandler>().MoveNFields(number, currentPlayer);
     }
 
     public bool ChangeDiceLockState()
