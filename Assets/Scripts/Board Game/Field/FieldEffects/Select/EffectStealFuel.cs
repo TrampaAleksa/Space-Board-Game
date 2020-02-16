@@ -29,6 +29,5 @@ public class EffectStealFuel : SelectOnTrigger
                selectionEffect.ConfirmedSelection();
             }
         }
-
     }
 }

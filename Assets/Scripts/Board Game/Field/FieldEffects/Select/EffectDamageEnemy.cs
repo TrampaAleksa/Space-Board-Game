@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectDamageEnemy : FieldEffect
+public class EffectDamageEnemy : SelectOnTrigger
 {
-    public const float amountToDamage = 20f;
+    public const float AMOUNT_TO_DAMAGE = 20f;
+
     public override void TriggerEffect()
     {
-        gameObject.tag = TAG_SELECTION;
-        InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
-        print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
+        SelectNextPlayerOnTrigger();
         print("Damage Another player!");
+    }
+
+    private void Awake()
+    {
+        selectionEffect = new DamageEnemy(gameObject);
     }
 
     private void Update()
@@ -23,12 +27,9 @@ public class EffectDamageEnemy : FieldEffect
             }
             if (Input.GetKeyDown(KeyCode.K))
             {
-                PlayerHull selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerHull>();
-                if (DamageEnemy.TryDamagingPlayer(selectedPlayer, amountToDamage, gameObject))
-                    InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+                selectionEffect.ConfirmedSelection();
             }
         }
-
     }
 
 }

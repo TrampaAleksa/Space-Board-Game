@@ -11,11 +11,11 @@ public class StealFuel : ISelectionEffect
         this.field = field;
     }
 
-    public static bool TryStealingFuel(PlayerFuel triggeringPlayer, PlayerFuel selectedPlayer, float amountToSteal, GameObject fieldTriggeringEffect)
+    public static bool TryStealingFuel(PlayerFuel triggeringPlayer, PlayerFuel selectedPlayer, GameObject fieldTriggeringEffect)
     {
         FuelHandler fuelHandler = InstanceManager.Instance.Get<FuelHandler>();
-        fuelHandler.AddFuelToPlayer(triggeringPlayer.gameObject, amountToSteal);
-        fuelHandler.RemoveFuelFromPlayer(selectedPlayer.gameObject, amountToSteal);
+        fuelHandler.AddFuelToPlayer(triggeringPlayer.gameObject, EffectStealFuel.AMOUNT_TO_STEAL);
+        fuelHandler.RemoveFuelFromPlayer(selectedPlayer.gameObject, EffectStealFuel.AMOUNT_TO_STEAL);
         fieldTriggeringEffect.tag = "Untagged";
         return true;
     }
@@ -25,7 +25,7 @@ public class StealFuel : ISelectionEffect
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         PlayerFuel triggeringPlayer = playersHandler.GetCurrentPlayer().GetComponent<PlayerFuel>();
         PlayerFuel selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerFuel>();
-        if (TryStealingFuel(triggeringPlayer, selectedPlayer, EffectStealFuel.AMOUNT_TO_STEAL, field))
+        if (TryStealingFuel(triggeringPlayer, selectedPlayer, field))
             InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }
