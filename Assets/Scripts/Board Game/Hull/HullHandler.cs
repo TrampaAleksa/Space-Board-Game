@@ -9,7 +9,7 @@ public class HullHandler : MonoBehaviour, IBoardState
 
     public GameObject SetPlayerHull(GameObject player, float value)
     {
-        player.GetComponent<PlayerHull>().hullPercentage = value;
+        player.GetComponent<PlayerHull>().HullPercentage = value;
         return player;
     }
 
@@ -21,10 +21,10 @@ public class HullHandler : MonoBehaviour, IBoardState
     public GameObject RepairPlayer(GameObject player, float value)
     {
         PlayerHull playerHull = player.GetComponent<PlayerHull>();
-        playerHull.hullPercentage += value;
-        if (playerHull.hullPercentage >= maximumAmount)
+        playerHull.HullPercentage += value;
+        if (playerHull.HullPercentage >= maximumAmount)
         {
-            playerHull.hullPercentage = maximumAmount;
+            playerHull.HullPercentage = maximumAmount;
         }
 
         return player;
@@ -32,8 +32,8 @@ public class HullHandler : MonoBehaviour, IBoardState
 
     public GameObject DamagePlayer(GameObject player, float value)
     {
-        player.GetComponent<PlayerHull>().hullPercentage -= value;
-        if(player.GetComponent<PlayerHull>().hullPercentage <= 0)
+        player.GetComponent<PlayerHull>().HullPercentage -= value;
+        if(player.GetComponent<PlayerHull>().HullPercentage <= 0)
         {
             player.GetComponent<PlayerCheckpoint>().RespawnAtCheckpoint();
         }
@@ -45,7 +45,7 @@ public class HullHandler : MonoBehaviour, IBoardState
         int i = 0;
         foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
         {
-            float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].hull = player.GetComponent<PlayerHull>().hullPercentage;
+            float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].hull = player.GetComponent<PlayerHull>().HullPercentage;
             print("Saving the players fuel: " + amount);
             i++;
         }
@@ -57,7 +57,7 @@ public class HullHandler : MonoBehaviour, IBoardState
         foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
         {
             float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].hull;
-            player.GetComponent<PlayerHull>().hullPercentage = amount;
+            player.GetComponent<PlayerHull>().HullPercentage = amount;
             print("Players initial hull set: " + amount);
             i++;
         }

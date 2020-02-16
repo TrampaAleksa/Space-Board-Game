@@ -13,7 +13,7 @@ public class PlayerHullDisplayBar : PlayerStateDisplay
     {
         if (shouldUpdate)
         {
-            int indexToActivateTo = (int)player.GetComponent<PlayerHull>().hullPercentage / 10;
+            int indexToActivateTo = (int)player.GetComponent<PlayerHull>().HullPercentage / 10;
             for(int i = 0; i< indexToActivateTo; i++)
             {
                 barSteps[i].gameObject.SetActive(true);
@@ -22,6 +22,7 @@ public class PlayerHullDisplayBar : PlayerStateDisplay
             {
                 barSteps[i].gameObject.SetActive(false);
             }
+            shouldUpdate = false;
         }
         return true;
     }

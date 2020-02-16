@@ -13,7 +13,7 @@ public class PlayerCheckpoint : MonoBehaviour
         GameObject player = gameObject;
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(player, CheckpointField);
-        player.GetComponent<PlayerHull>().hullPercentage = HullHandler.startingAmount;
+        player.GetComponent<PlayerHull>().HullPercentage = HullHandler.startingAmount;
         playerMovement.turnsToSkip = 0;
         float numberToDivideFuelBy = 2f;
         player.GetComponent<PlayerFuel>().fuel /= numberToDivideFuelBy;

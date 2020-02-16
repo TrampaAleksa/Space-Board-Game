@@ -8,7 +8,7 @@ public class PlayerHullDisplay : PlayerStateDisplay
     private Text displayText;
     public override bool UpdateDisplay()
     {
-        GetComponent<Text>().text = InstanceManager.Instance.Get<HullHandler>().GetPlayerHull(player).hullPercentage.ToString();
+        GetComponent<Text>().text = InstanceManager.Instance.Get<HullHandler>().GetPlayerHull(player).HullPercentage.ToString();
         return true;
     }
 
