@@ -24,18 +24,9 @@ public class EffectLockEnemy : FieldEffect
             if (Input.GetKeyDown(KeyCode.K))
             {
                 PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
-                if (TrySkippingPlayersTurn(selectedPlayer))
+                if (LockEnemy.TrySkippingPlayersTurn(selectedPlayer, numberOfTurns, gameObject))
                     InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
             }
         }
-
-    }
-
-    public bool TrySkippingPlayersTurn(PlayerMovement selectedPlayer)
-    {
-        TurnHandler turnHandler = InstanceManager.Instance.Get<TurnHandler>();
-        turnHandler.PlayerSkipTurns(selectedPlayer.gameObject, numberOfTurns);
-        gameObject.tag = "Untagged";
-        return true;
     }
 }

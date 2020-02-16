@@ -24,18 +24,11 @@ public class EffectDamageEnemy : FieldEffect
             if (Input.GetKeyDown(KeyCode.K))
             {
                 PlayerHull selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerHull>();
-                if (TryDamagingPlayer(selectedPlayer))
+                if (DamageEnemy.TryDamagingPlayer(selectedPlayer, amountToDamage, gameObject))
                     InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
             }
         }
 
     }
 
-    public bool TryDamagingPlayer(PlayerHull selectedPlayer)
-    {
-        HullHandler hullHandler = InstanceManager.Instance.Get<HullHandler>();
-        hullHandler.DamagePlayer(selectedPlayer.gameObject, amountToDamage);
-        gameObject.tag = "Untagged";
-        return true;
-    }
 }

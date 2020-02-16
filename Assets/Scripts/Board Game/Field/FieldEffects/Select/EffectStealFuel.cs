@@ -25,19 +25,10 @@ public class EffectStealFuel : FieldEffect
             {
                 PlayerFuel triggeringPlayer = playersHandler.GetCurrentPlayer().GetComponent<PlayerFuel>();
                 PlayerFuel selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerFuel>();
-                if (TryStealingFuel(triggeringPlayer, selectedPlayer))
+                if (StealFuel.TryStealingFuel(triggeringPlayer, selectedPlayer, amountToSteal, gameObject))
                     InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
             }
         }
 
-    }
-
-    public bool TryStealingFuel(PlayerFuel triggeringPlayer, PlayerFuel selectedPlayer)
-    {
-        FuelHandler fuelHandler = InstanceManager.Instance.Get<FuelHandler>();
-        fuelHandler.AddFuelToPlayer(triggeringPlayer.gameObject, amountToSteal);
-        fuelHandler.RemoveFuelFromPlayer(selectedPlayer.gameObject, amountToSteal);
-        gameObject.tag = "Untagged";
-        return true;
     }
 }
