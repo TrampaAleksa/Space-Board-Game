@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class EffectStealFuel : FieldEffect
 {
-    public float amountToSteal = 20f;
+    public const float AMOUNT_TO_STEAL = 20f;
+    private ISelectionEffect selectionEffect;
+
+    private void Awake()
+    {
+        selectionEffect = new StealFuel(gameObject);
+    }
     public override void TriggerEffect()
     {
         gameObject.tag = TAG_SELECTION;
@@ -23,10 +29,7 @@ public class EffectStealFuel : FieldEffect
             }
             if (Input.GetKeyDown(KeyCode.K))
             {
-                PlayerFuel triggeringPlayer = playersHandler.GetCurrentPlayer().GetComponent<PlayerFuel>();
-                PlayerFuel selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerFuel>();
-                if (StealFuel.TryStealingFuel(triggeringPlayer, selectedPlayer, amountToSteal, gameObject))
-                    InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+               selectionEffect.ConfirmedSelection();
             }
         }
 
