@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectLockEnemy : FieldEffect
+public class EffectLockEnemy : SelectOnTrigger
 {
-    public const int numberOfTurns = 1;
+    public const int TURNS_TO_LOCK = 1;
     public override void TriggerEffect()
     {
-        gameObject.tag = TAG_SELECTION;
-        InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
-        print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
+        SelectNextPlayerOnTrigger();
         print("Break another players engines!");
+    }
+
+    private void Awake()
+    {
+        selectionEffect = new LockEnemy(gameObject);
     }
 
     private void Update()
@@ -23,9 +26,7 @@ public class EffectLockEnemy : FieldEffect
             }
             if (Input.GetKeyDown(KeyCode.K))
             {
-                PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
-                if (LockEnemy.TrySkippingPlayersTurn(selectedPlayer, numberOfTurns, gameObject))
-                    InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+                selectionEffect.ConfirmedSelection();
             }
         }
     }
