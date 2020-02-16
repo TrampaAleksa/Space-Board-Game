@@ -3,9 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwapPlaces 
+public class SwapPlaces : ISelectionEffect
 {
-   public static bool TrySwappingPlayers(PlayerMovement firstPlayer, PlayerMovement secondPlayer, GameObject fieldTriggeringSwap)
+
+    private GameObject field;
+
+    public SwapPlaces(GameObject field)
+    {
+        this.field = field;
+    }
+
+    public static bool TrySwappingPlayers(PlayerMovement firstPlayer, PlayerMovement secondPlayer, GameObject fieldTriggeringSwap)
     {
         bool playersOnSameField =
             firstPlayer.currentPlayerField.
@@ -29,5 +37,13 @@ public class SwapPlaces
         fieldHandler.SwapTwoPlayers(firstPlayer, secondPlayer);
 
         return true;
+    }
+
+    public void ConfirmedSelection()
+    {
+        PlayerMovement triggeringPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerMovement>();
+        PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
+        if (TrySwappingPlayers(triggeringPlayer, selectedPlayer, field))
+            InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }

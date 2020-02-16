@@ -3,14 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectSwapPlaces : FieldEffect
+public class EffectSwapPlaces : SelectOnTrigger
 {
     
     public override void TriggerEffect()
     {
-        gameObject.tag = TAG_SELECTION;
-        InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
-        print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
+        SelectNextPlayerOnTrigger();
+        print("Swap places with someone!");
+    }
+
+    private void Awake()
+    {
+        selectionEffect = new SwapPlaces(gameObject);
     }
 
     private void Update()
@@ -23,13 +27,9 @@ public class EffectSwapPlaces : FieldEffect
             }
             if (Input.GetKeyDown(KeyCode.K))
             {
-                PlayerMovement triggeringPlayer = playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>();
-                PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
-                if (SwapPlaces.TrySwappingPlayers(triggeringPlayer, selectedPlayer, gameObject))
-                InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+                selectionEffect.ConfirmedSelection();
             }
         }
-       
     }
 
 }
