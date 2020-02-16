@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playersHandler: {fileID: 0}
+  effectsList: []
 --- !u!1 &8533854918560111065
 GameObject:
   m_ObjectHideFlags: 0

@@ -256,7 +256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playersHandler: {fileID: 0}
-  amountToSteal: 20
 --- !u!1 &8036496516137646782
 GameObject:
   m_ObjectHideFlags: 0
