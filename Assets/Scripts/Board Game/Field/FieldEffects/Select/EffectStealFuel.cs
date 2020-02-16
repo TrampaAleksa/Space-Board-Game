@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectStealFuel : FieldEffect
+public class EffectStealFuel : SelectOnTrigger
 {
     public const float AMOUNT_TO_STEAL = 20f;
-    private ISelectionEffect selectionEffect;
 
     private void Awake()
     {
@@ -13,9 +12,7 @@ public class EffectStealFuel : FieldEffect
     }
     public override void TriggerEffect()
     {
-        gameObject.tag = TAG_SELECTION;
-        InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
-        print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
+        SelectNextPlayerOnTrigger();
         print("Steal another players fuel!");
     }
 
