@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFreeLook : MonoBehaviour
+public class CameraFreeLook : ICameraMode
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Vector3 target;
+    private Transform camera;
+    private float cameraMovementSpeed = 30f;
 
-    // Update is called once per frame
-    void Update()
+
+    public void UpdateCamera(Vector3 offset, float smoothSpeed)
     {
-        
+       
     }
 }
