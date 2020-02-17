@@ -7,6 +7,7 @@ public class PlayerMovement : Player
     private MovementHandler movementHandler;
     [SerializeField]
     public Vector3 positionToTravelTo;
+    public float rotationSpeed = 15f;
     [SerializeField]
     public float movementSpeed = 15f;
     [SerializeField]
@@ -28,7 +29,20 @@ public class PlayerMovement : Player
         }
     }
     private void FixedUpdate()
-    {  
+    {
+        Vector3 targetDirection = positionToTravelTo - transform.position;
+
+        // The step size is equal to speed times frame time.
+        float singleStep = rotationSpeed * Time.deltaTime;
+
+        // Rotate the forward vector towards the target direction by one step
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+
+        // Draw a ray pointing at our target in
+        Debug.DrawRay(transform.position, newDirection, Color.red);
+
+        // Calculate a rotation a step closer to the target and applies rotation to this object
+        transform.rotation = Quaternion.LookRotation(newDirection);
         // Maybe you can disable / enable the movement script when needed to be used so that you don't have the constant position update
         transform.position = Vector3.MoveTowards(transform.position, positionToTravelTo, 15f * Time.deltaTime);
     }

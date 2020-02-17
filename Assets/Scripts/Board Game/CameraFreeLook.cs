@@ -5,12 +5,13 @@ using UnityEngine;
 public class CameraFreeLook : ICameraMode
 {
     private Vector3 target;
-    private Transform camera;
+    private Camera camera;
     private float cameraMovementSpeed = 30f;
 
 
     public void UpdateCamera(Vector3 offset, float smoothSpeed)
     {
-       
+        camera = Camera.main;
+
     }
 }
