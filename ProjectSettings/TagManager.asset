@@ -9,6 +9,7 @@ TagManager:
   - Tooltip
   - Display
   - Selection
+  - Field
   layers:
   - Default
   - TransparentFX

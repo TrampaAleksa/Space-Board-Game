@@ -52,6 +52,9 @@ public class FieldHandler : GenericObjectArray, IBoardState
             field.tag = "Untagged";
             field.AddComponent<Field>();
             field.GetComponent<Field>().InitialSetUpField(i);
+            Vector3 _lookDirection = MemberWithIndex(i + 1).transform.position - field.transform.position;
+            Quaternion _rot = Quaternion.LookRotation(_lookDirection, Vector3.up);
+            field.transform.rotation = Quaternion.Lerp(field.transform.rotation, _rot, 1);
             i++;
         }
     }
