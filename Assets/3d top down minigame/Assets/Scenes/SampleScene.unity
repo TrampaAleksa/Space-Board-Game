@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.30666667
+  m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 1fc98c698cec5a3478c9714d7afd886e, type: 2}
 --- !u!4 &466928113
@@ -1366,7 +1366,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.2407743e-23, y: 0, z: 0, w: 1.8e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4076,6 +4076,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6762d20c554b30b46be3663d8f271070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStates:
+  - {fileID: 11400000, guid: 491771c19c28d744dba626b035e92889, type: 2}
+  - {fileID: 11400000, guid: b14f0e9c9fc55194b80a15e19bd89049, type: 2}
+  - {fileID: 11400000, guid: 9d7b49a5e2c0a374fbfa6aac39dfe1f2, type: 2}
+  - {fileID: 11400000, guid: 7212804a14586064eb7d5c90529c2048, type: 2}
 --- !u!195 &2042842082
 NavMeshAgent:
   m_ObjectHideFlags: 0

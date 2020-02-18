@@ -13,7 +13,6 @@ public class EnemyAIV2 : MonoBehaviour
     float distance3;
     float distance4;
     float[] distances = new float[4];
-    
 
     float minDistance;
 
@@ -21,7 +20,7 @@ public class EnemyAIV2 : MonoBehaviour
     public NavMeshAgent agent; //enemy
 
 
-    public static GameObject[] scores=new GameObject[4];  //OVAJ NIZ PROSLEDI TRAMPI
+     //OVAJ NIZ PROSLEDI TRAMPI
 
     void Awake()
     {
@@ -49,7 +48,6 @@ public class EnemyAIV2 : MonoBehaviour
         }
         else
         {
-            scores[0] = players[0];
             distance1 = 99f;
         }
         if (players[1] != null)
@@ -58,7 +56,6 @@ public class EnemyAIV2 : MonoBehaviour
         }
         else
         {
-            scores[1] = players[1];
             distance2 = 99f;
         }
         if (players[2] != null)
@@ -67,7 +64,6 @@ public class EnemyAIV2 : MonoBehaviour
         }
         else
         {
-            scores[2] = players[2];
             distance3 = 99f;
         }
         if (players[3] != null)
@@ -76,7 +72,6 @@ public class EnemyAIV2 : MonoBehaviour
         }
         else
         {
-            scores[3] = players[3];
             distance4 = 9999f;
         }
 
