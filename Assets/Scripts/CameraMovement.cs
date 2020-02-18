@@ -11,8 +11,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Start()
     {
-        currentCameraMode = new CameraFreeLook();
-        //currentCameraMode = new DefaultCameraMode();
+        //currentCameraMode = new CameraFreeLook();
+        currentCameraMode = new DefaultCameraMode();
     }
 
     private void LateUpdate()
