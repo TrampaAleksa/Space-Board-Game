@@ -606,6 +606,11 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 161511084261474643, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: offset.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1377,6 +1382,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationSpeed
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 161511084261474643, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: offset.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
@@ -2745,6 +2755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f6d859282be864ab12b35ca401628a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rewardPerRank: 5
 --- !u!1001 &389966094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6622,6 +6633,11 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 161511084261474643, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: offset.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10198,7 +10214,7 @@ PrefabInstance:
     - target: {fileID: 3565649353597290192, guid: 68f0e9a00a7eadd468845985e8924acb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3565649353597290192, guid: 68f0e9a00a7eadd468845985e8924acb,
         type: 3}
@@ -10250,7 +10266,7 @@ Transform:
   - {fileID: 1953893768}
   - {fileID: 1696112846}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2121362686
 GameObject:
@@ -10671,6 +10687,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationSpeed
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 161511084261474643, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: offset.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
