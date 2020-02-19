@@ -7,9 +7,11 @@ public class Damage
     public static GameObject DamagePlayer(GameObject player, float value)
     {
         player.GetComponent<PlayerHull>().HullPercentage -= value;
+        //damage sound?
         if (player.GetComponent<PlayerHull>().HullPercentage <= 0)
         {
             player.GetComponent<PlayerCheckpoint>().RespawnAtCheckpoint();
+            //respawn sound?
         }
         return player;
     }

@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class SelectionHandler : GenericObjectArray
 {
-
     public GameObject GetSelectedPlayer()
     {
         return CurrentMember();
@@ -14,10 +13,10 @@ public class SelectionHandler : GenericObjectArray
     public GameObject SelectNextPlayer(GameObject playerSelecting)
     {
         GameObject currentlySelected = SetToNextMember();
-        if(currentlySelected == playerSelecting)
+        if (currentlySelected == playerSelecting)
             currentlySelected = SetToNextMember();
         print("Currently selected player: " + currentlySelected.name);
+        //changed selected player sound?
         return currentlySelected;
     }
-
 }
