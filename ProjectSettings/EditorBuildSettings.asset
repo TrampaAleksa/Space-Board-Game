@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Aleksa/Board/Testing board 1.unity
+  - enabled: 0
+    path: Assets/Scenes/Aleksa/Aleksa Board.unity
     guid: 6861fd7cea78b1a44a9afdac62087193
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Aleksa/Mini Game test.unity
     guid: 2a5c7c7fb6515894695c10eca22808db
+  - enabled: 1
+    path: Assets/Scenes/Laki/MainMenu.unity
+    guid: adb7dc4e37da7ba4ba71c7f2b21ac0c0
   m_configObjects: {}
