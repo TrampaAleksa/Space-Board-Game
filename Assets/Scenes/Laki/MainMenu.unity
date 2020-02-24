@@ -2285,12 +2285,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 866028740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
+  m_Script: {fileID: 11500000, guid: 41a9e5cea8f51d0459c6a21bad9c4875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathCreator: {fileID: 1600728995}
-  endOfPathInstruction: 0
-  speed: 1
+  ScrollSpeed: 2
+  speed: 0.05
 --- !u!1 &869301354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3930,18 +3929,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1600728995 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8631341144714057945, guid: c7209703cf72ed4458178cf72c3b3c38,
-    type: 3}
-  m_PrefabInstance: {fileID: 408288827}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1669235795
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,7 +4039,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1669235795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5264d345db6b81c4cb629944e9805e70, type: 3}
+  m_Script: {fileID: 11500000, guid: 42f477bf2f6d305479bf6c73a893d37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuPanel: {fileID: 408423772}
