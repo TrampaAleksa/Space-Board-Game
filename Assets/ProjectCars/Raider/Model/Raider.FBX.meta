@@ -1,99 +1,277 @@
 fileFormatVersion: 2
 guid: 3c1ef6c70e16e2947a2baf048d0ee880
-timeCreated: 18446744011573954816
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName:
-    100000: Body_C
-    100002: Circle_WESD_B_PIVOT01_02
-    100004: Circle_WESD_B_PIVOT03_04
-    100006: Circle_WESD_BRIDGE01
-    100008: Circle_WESD_BRIDGE02
-    100010: Circle_WESD_GUN
-    100012: Circle_WESD_WHELL01
-    100014: Circle_WESD_WHELL02
-    100016: Circle_WESD_WHELL03
-    100018: Circle_WESD_WHELL04
-    100020: Point_WESD_WHELL01
-    100022: Point_WESD_WHELL02
-    100024: Point_WESD_WHELL03
-    100026: Point_WESD_WHELL04
-    100028: //RootNode
-    100030: WESD_B_PIVOT01
-    100032: WESD_B_PIVOT02
-    100034: WESD_B_PIVOT03
-    100036: WESD_B_PIVOT04
-    100038: WESD_BODY
-    100040: WESD_BRIDGE01
-    100042: WESD_BRIDGE02
-    100044: WESD_WHELL01
-    100046: WESD_WHELL02
-    100048: WESD_WHELL03
-    100050: WESD_WHELL04
-    400000: Body_C
-    400002: Circle_WESD_B_PIVOT01_02
-    400004: Circle_WESD_B_PIVOT03_04
-    400006: Circle_WESD_BRIDGE01
-    400008: Circle_WESD_BRIDGE02
-    400010: Circle_WESD_GUN
-    400012: Circle_WESD_WHELL01
-    400014: Circle_WESD_WHELL02
-    400016: Circle_WESD_WHELL03
-    400018: Circle_WESD_WHELL04
-    400020: Point_WESD_WHELL01
-    400022: Point_WESD_WHELL02
-    400024: Point_WESD_WHELL03
-    400026: Point_WESD_WHELL04
-    400028: //RootNode
-    400030: WESD_B_PIVOT01
-    400032: WESD_B_PIVOT02
-    400034: WESD_B_PIVOT03
-    400036: WESD_B_PIVOT04
-    400038: WESD_BODY
-    400040: WESD_BRIDGE01
-    400042: WESD_BRIDGE02
-    400044: WESD_WHELL01
-    400046: WESD_WHELL02
-    400048: WESD_WHELL03
-    400050: WESD_WHELL04
-    2300000: WESD_B_PIVOT01
-    2300002: WESD_B_PIVOT02
-    2300004: WESD_B_PIVOT03
-    2300006: WESD_B_PIVOT04
-    2300008: WESD_BODY
-    2300010: WESD_BRIDGE01
-    2300012: WESD_BRIDGE02
-    2300014: WESD_WHELL01
-    2300016: WESD_WHELL02
-    2300018: WESD_WHELL03
-    2300020: WESD_WHELL04
-    3300000: WESD_B_PIVOT01
-    3300002: WESD_B_PIVOT02
-    3300004: WESD_B_PIVOT03
-    3300006: WESD_B_PIVOT04
-    3300008: WESD_BODY
-    3300010: WESD_BRIDGE01
-    3300012: WESD_BRIDGE02
-    3300014: WESD_WHELL01
-    3300016: WESD_WHELL02
-    3300018: WESD_WHELL03
-    3300020: WESD_WHELL04
-    4300000: WESD_BODY
-    4300002: WESD_B_PIVOT04
-    4300004: WESD_B_PIVOT03
-    4300006: WESD_WHELL01
-    4300008: WESD_WHELL02
-    4300010: WESD_BRIDGE02
-    4300012: WESD_B_PIVOT02
-    4300014: WESD_B_PIVOT01
-    4300016: WESD_WHELL03
-    4300018: WESD_WHELL04
-    4300020: WESD_BRIDGE01
-    9500000: //RootNode
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Body_C
+  - first:
+      1: 100002
+    second: Circle_WESD_B_PIVOT01_02
+  - first:
+      1: 100004
+    second: Circle_WESD_B_PIVOT03_04
+  - first:
+      1: 100006
+    second: Circle_WESD_BRIDGE01
+  - first:
+      1: 100008
+    second: Circle_WESD_BRIDGE02
+  - first:
+      1: 100010
+    second: Circle_WESD_GUN
+  - first:
+      1: 100012
+    second: Circle_WESD_WHELL01
+  - first:
+      1: 100014
+    second: Circle_WESD_WHELL02
+  - first:
+      1: 100016
+    second: Circle_WESD_WHELL03
+  - first:
+      1: 100018
+    second: Circle_WESD_WHELL04
+  - first:
+      1: 100020
+    second: Point_WESD_WHELL01
+  - first:
+      1: 100022
+    second: Point_WESD_WHELL02
+  - first:
+      1: 100024
+    second: Point_WESD_WHELL03
+  - first:
+      1: 100026
+    second: Point_WESD_WHELL04
+  - first:
+      1: 100028
+    second: //RootNode
+  - first:
+      1: 100030
+    second: WESD_B_PIVOT01
+  - first:
+      1: 100032
+    second: WESD_B_PIVOT02
+  - first:
+      1: 100034
+    second: WESD_B_PIVOT03
+  - first:
+      1: 100036
+    second: WESD_B_PIVOT04
+  - first:
+      1: 100038
+    second: WESD_BODY
+  - first:
+      1: 100040
+    second: WESD_BRIDGE01
+  - first:
+      1: 100042
+    second: WESD_BRIDGE02
+  - first:
+      1: 100044
+    second: WESD_WHELL01
+  - first:
+      1: 100046
+    second: WESD_WHELL02
+  - first:
+      1: 100048
+    second: WESD_WHELL03
+  - first:
+      1: 100050
+    second: WESD_WHELL04
+  - first:
+      4: 400000
+    second: Body_C
+  - first:
+      4: 400002
+    second: Circle_WESD_B_PIVOT01_02
+  - first:
+      4: 400004
+    second: Circle_WESD_B_PIVOT03_04
+  - first:
+      4: 400006
+    second: Circle_WESD_BRIDGE01
+  - first:
+      4: 400008
+    second: Circle_WESD_BRIDGE02
+  - first:
+      4: 400010
+    second: Circle_WESD_GUN
+  - first:
+      4: 400012
+    second: Circle_WESD_WHELL01
+  - first:
+      4: 400014
+    second: Circle_WESD_WHELL02
+  - first:
+      4: 400016
+    second: Circle_WESD_WHELL03
+  - first:
+      4: 400018
+    second: Circle_WESD_WHELL04
+  - first:
+      4: 400020
+    second: Point_WESD_WHELL01
+  - first:
+      4: 400022
+    second: Point_WESD_WHELL02
+  - first:
+      4: 400024
+    second: Point_WESD_WHELL03
+  - first:
+      4: 400026
+    second: Point_WESD_WHELL04
+  - first:
+      4: 400028
+    second: //RootNode
+  - first:
+      4: 400030
+    second: WESD_B_PIVOT01
+  - first:
+      4: 400032
+    second: WESD_B_PIVOT02
+  - first:
+      4: 400034
+    second: WESD_B_PIVOT03
+  - first:
+      4: 400036
+    second: WESD_B_PIVOT04
+  - first:
+      4: 400038
+    second: WESD_BODY
+  - first:
+      4: 400040
+    second: WESD_BRIDGE01
+  - first:
+      4: 400042
+    second: WESD_BRIDGE02
+  - first:
+      4: 400044
+    second: WESD_WHELL01
+  - first:
+      4: 400046
+    second: WESD_WHELL02
+  - first:
+      4: 400048
+    second: WESD_WHELL03
+  - first:
+      4: 400050
+    second: WESD_WHELL04
+  - first:
+      23: 2300000
+    second: WESD_B_PIVOT01
+  - first:
+      23: 2300002
+    second: WESD_B_PIVOT02
+  - first:
+      23: 2300004
+    second: WESD_B_PIVOT03
+  - first:
+      23: 2300006
+    second: WESD_B_PIVOT04
+  - first:
+      23: 2300008
+    second: WESD_BODY
+  - first:
+      23: 2300010
+    second: WESD_BRIDGE01
+  - first:
+      23: 2300012
+    second: WESD_BRIDGE02
+  - first:
+      23: 2300014
+    second: WESD_WHELL01
+  - first:
+      23: 2300016
+    second: WESD_WHELL02
+  - first:
+      23: 2300018
+    second: WESD_WHELL03
+  - first:
+      23: 2300020
+    second: WESD_WHELL04
+  - first:
+      33: 3300000
+    second: WESD_B_PIVOT01
+  - first:
+      33: 3300002
+    second: WESD_B_PIVOT02
+  - first:
+      33: 3300004
+    second: WESD_B_PIVOT03
+  - first:
+      33: 3300006
+    second: WESD_B_PIVOT04
+  - first:
+      33: 3300008
+    second: WESD_BODY
+  - first:
+      33: 3300010
+    second: WESD_BRIDGE01
+  - first:
+      33: 3300012
+    second: WESD_BRIDGE02
+  - first:
+      33: 3300014
+    second: WESD_WHELL01
+  - first:
+      33: 3300016
+    second: WESD_WHELL02
+  - first:
+      33: 3300018
+    second: WESD_WHELL03
+  - first:
+      33: 3300020
+    second: WESD_WHELL04
+  - first:
+      43: 4300000
+    second: WESD_BODY
+  - first:
+      43: 4300002
+    second: WESD_B_PIVOT04
+  - first:
+      43: 4300004
+    second: WESD_B_PIVOT03
+  - first:
+      43: 4300006
+    second: WESD_WHELL01
+  - first:
+      43: 4300008
+    second: WESD_WHELL02
+  - first:
+      43: 4300010
+    second: WESD_BRIDGE02
+  - first:
+      43: 4300012
+    second: WESD_B_PIVOT02
+  - first:
+      43: 4300014
+    second: WESD_B_PIVOT01
+  - first:
+      43: 4300016
+    second: WESD_WHELL03
+  - first:
+      43: 4300018
+    second: WESD_WHELL04
+  - first:
+      43: 4300020
+    second: WESD_BRIDGE01
+  - first:
+      95: 9500000
+    second: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: default
+    second: {fileID: 2100000, guid: 8081c2a4ac10ee742ad4ddb87b98ab19, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -106,6 +284,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -120,6 +300,8 @@ ModelImporter:
     globalScale: 0.02
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -127,9 +309,14 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -140,10 +327,14 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 4
     normalCalculationMode: 0
-  importAnimation: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -153,8 +344,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.02
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
