@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAIV2 : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class EnemyAIV2 : MonoBehaviour
     float[] distances = new float[4];
 
     float minDistance;
-
 
     public NavMeshAgent agent; //enemy
 
@@ -38,6 +38,10 @@ public class EnemyAIV2 : MonoBehaviour
     void Update()
     {
         calculateDistancesAndChase();
+        if(distance1==99f && distance2==99f && distance3==99f && distance4 == 99f)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void calculateDistancesAndChase()
@@ -49,6 +53,7 @@ public class EnemyAIV2 : MonoBehaviour
         else
         {
             distance1 = 99f;
+            
         }
         if (players[1] != null)
         {
@@ -57,6 +62,7 @@ public class EnemyAIV2 : MonoBehaviour
         else
         {
             distance2 = 99f;
+           
         }
         if (players[2] != null)
         {
@@ -65,6 +71,7 @@ public class EnemyAIV2 : MonoBehaviour
         else
         {
             distance3 = 99f;
+            
         }
         if (players[3] != null)
         {
@@ -72,7 +79,8 @@ public class EnemyAIV2 : MonoBehaviour
         }
         else
         {
-            distance4 = 9999f;
+            distance4 = 99f;
+            
         }
 
         print(distance1);

@@ -7,7 +7,7 @@ public class BallScript : MonoBehaviour
     
     void Update()
     {
-        if (transform.position.y < -5)
+        if (transform.position.y < -10)
         {
             Destroy(gameObject);
         }
