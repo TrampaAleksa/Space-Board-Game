@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3375192}
   - component: {fileID: 2375192}
   m_Layer: 0
-  m_Name: WT_REARRIGHT
+  m_Name: WESD_REARRIGHT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 3375194}
   - component: {fileID: 2375194}
   m_Layer: 0
-  m_Name: WT_REARLEFT
+  m_Name: WESD_REARLEFT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 3375202}
   - component: {fileID: 2375202}
   m_Layer: 0
-  m_Name: WT_FRONTLEFT
+  m_Name: WESD_FRONTLEFT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 3375204}
   - component: {fileID: 2375204}
   m_Layer: 0
-  m_Name: WT_FRONTRIGHT
+  m_Name: WESD_FRONTRIGHT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,8 +446,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175234}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -0.00000023842, z: -0.00018455}
-  m_LocalScale: {x: 3, y: 3.3636947, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: -0.4}
+  m_LocalScale: {x: 3, y: 3.5, z: 3}
   m_Children:
   - {fileID: 475228}
   - {fileID: 475226}
@@ -557,14 +557,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850015e63220a5041b7f95eb16fe9e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontDriverW: {fileID: 0}
-  frontPassengerW: {fileID: 0}
-  rearDriverW: {fileID: 0}
-  rearPassengerW: {fileID: 0}
-  frontDriverT: {fileID: 0}
-  frontPassengerT: {fileID: 0}
-  rearDriverT: {fileID: 0}
-  rearPassengerT: {fileID: 0}
+  nameOfInputHorizontal: 
+  nameOfInputVertical: 
+  frontLeftW: {fileID: 0}
+  frontRightW: {fileID: 0}
+  rearLeftW: {fileID: 0}
+  rearRightW: {fileID: 0}
+  frontLeftT: {fileID: 0}
+  frontRightT: {fileID: 0}
+  rearLeftT: {fileID: 0}
+  rearRightT: {fileID: 0}
   maxSteerAngle: 0
   motorForce: 0
 --- !u!1 &1202636769538667276
@@ -728,7 +730,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8224690729099976451}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.34
+  m_Radius: 0.33
   m_SuspensionSpring:
     spring: 90000
     damper: 9000
