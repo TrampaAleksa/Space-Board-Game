@@ -3,10 +3,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public partial class PlayerController : MonoBehaviour
 {
+    private bool beforeFinishPass = false;
     private float m_horizontalInput;
     private float m_verticalInput;
     private float m_steeringAngle;
+    private int num;
 
+
+    public Text[] pText;
     public string nameOfInputHorizontal;
     public string nameOfInputVertical;
     public WheelCollider frontLeftW, frontRightW,
@@ -15,12 +19,20 @@ public partial class PlayerController : MonoBehaviour
                      rearLeftT, rearRightT;
     public float maxSteerAngle;
     public float motorForce;
+
+    public int lap;
+
     public static PlayerController Instance;
     private void Awake()
     {
         Instance = this;
     }
-    
+    private void Start()
+    {
+        pText = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
+        num = int.Parse(gameObject.name);
+        Debug.Log(num);
+    }
     private void FixedUpdate()
     {
         GetInput();
@@ -28,19 +40,6 @@ public partial class PlayerController : MonoBehaviour
         Accelerate();
         UpdateWheelPoses();
     }
-
-        /*
-        player.frontDriverW = GameObject.Find("WC_FRONTLEFT").GetComponent<WheelCollider>();
-        player.frontPassengerW = GameObject.Find("WC_FRONTRIGHT").GetComponent<WheelCollider>();
-        player.rearDriverW = GameObject.Find("WC_REARLEFT").GetComponent<WheelCollider>();
-        player.rearPassengerW = GameObject.Find("WC_REARRIGHT").GetComponent<WheelCollider>();
-
-        player.frontDriverT = GameObject.Find("WESD_FRONTLEFT").GetComponent<Transform>();
-        player.frontPassengerT = GameObject.Find("WESD_FRONTRIGHT").GetComponent<Transform>();
-        player.rearDriverT = GameObject.Find("WESD_REARLEFT").GetComponent<Transform>();
-        player.rearPassengerT = GameObject.Find("WESD_REARRIGHT").GetComponent<Transform>();
-        */
-
     public void GetInput()
     {
         m_horizontalInput = Input.GetAxis(nameOfInputHorizontal);
@@ -65,7 +64,6 @@ public partial class PlayerController : MonoBehaviour
         UpdateWheelPose(rearLeftW, rearLeftT);
         UpdateWheelPose(rearRightW, rearRightT);
     }
-    //(_colider=frontDriverW, _transform=frontDriverT)
     private void UpdateWheelPose(WheelCollider _collider, Transform _transform)
     {
         Vector3 _pos = _transform.position; // Trenutna pozicija
@@ -74,5 +72,23 @@ public partial class PlayerController : MonoBehaviour
         _collider.GetWorldPose(out _pos, out _quat); //https://docs.unity3d.com/ScriptReference/WheelCollider.GetWorldPose.html
         _transform.position = _pos; //Dodela
         _transform.rotation = _quat; //Dodela
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Finish")
+        {
+            if (!beforeFinishPass)
+            {
+                lap++;
+                pText[num-1].text = "Lap: "+lap.ToString();
+                beforeFinishPass = true;
+            }
+        }
+
+        if (other.tag == "NextField")
+        {
+            beforeFinishPass = false;
+        }
     }
 }
