@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public partial class PlayerController : MonoBehaviour
 {
+    private int lap;
     private bool beforeFinishPass = false;
     private float m_horizontalInput;
     private float m_verticalInput;
@@ -19,10 +20,10 @@ public partial class PlayerController : MonoBehaviour
                      rearLeftT, rearRightT;
     public float maxSteerAngle;
     public float motorForce;
-
-    public int lap;
+    public float numberOfLaps;
 
     public static PlayerController Instance;
+
     private void Awake()
     {
         Instance = this;
@@ -31,7 +32,7 @@ public partial class PlayerController : MonoBehaviour
     {
         pText = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
         num = int.Parse(gameObject.name);
-        Debug.Log(num);
+        pText[num - 1].text = "Lap: " + lap.ToString() + "/" + numberOfLaps;
     }
     private void FixedUpdate()
     {
@@ -81,7 +82,7 @@ public partial class PlayerController : MonoBehaviour
             if (!beforeFinishPass)
             {
                 lap++;
-                pText[num-1].text = "Lap: "+lap.ToString();
+                pText[num-1].text = "Lap: "+(lap-1).ToString() +"/"+numberOfLaps;
                 beforeFinishPass = true;
             }
         }

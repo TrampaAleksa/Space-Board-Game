@@ -13115,6 +13115,11 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 801869851015412863, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}
       propertyPath: nameOfInputHorizontal
@@ -13174,6 +13179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: motorForce
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
+        type: 3}
+      propertyPath: numberOfLaps
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2146965497428666352, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}

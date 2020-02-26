@@ -522,7 +522,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175236}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.1
   m_UseGravity: 1
@@ -555,6 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850015e63220a5041b7f95eb16fe9e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pText: []
   nameOfInputHorizontal: 
   nameOfInputVertical: 
   frontLeftW: {fileID: 0}
@@ -567,6 +568,7 @@ MonoBehaviour:
   rearRightT: {fileID: 0}
   maxSteerAngle: 0
   motorForce: 0
+  numberOfLaps: 2
 --- !u!1 &1202636769538667276
 GameObject:
   m_ObjectHideFlags: 0
