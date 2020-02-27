@@ -7049,7 +7049,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117919676}
-  - component: {fileID: 117919675}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7057,18 +7056,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &117919675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117919674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88241e68d8cc3064a9e960cace622882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &117919676
 Transform:
   m_ObjectHideFlags: 0
@@ -13134,7 +13121,7 @@ PrefabInstance:
         type: 3}
       propertyPath: frontLeftW
       value: 
-      objectReference: {fileID: 757747754}
+      objectReference: {fileID: 0}
     - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}
       propertyPath: frontRightW
@@ -39912,6 +39899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 706153524}
   - component: {fileID: 706153525}
+  - component: {fileID: 706153527}
   m_Layer: 0
   m_Name: FinishLine
   m_TagString: Finish
@@ -39946,6 +39934,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.23656514, y: 2.0000005, z: 0.39747912}
   m_Center: {x: -0.036429565, y: 0.00033495884, z: 0.0062545547}
+--- !u!114 &706153527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706153523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c8d3dfa26233440b8be54bef85b041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &707601443
 GameObject:
   m_ObjectHideFlags: 0
@@ -42642,12 +42642,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756450143}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!146 &757747754 stripped
-WheelCollider:
-  m_CorrespondingSourceObject: {fileID: 2146965497428666352, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 228086698}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &758742974
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public partial class PlayerController : MonoBehaviour
     private int num;
 
 
-    public Text[] pText;
+    private Text[] pText;
     public string nameOfInputHorizontal;
     public string nameOfInputVertical;
     public WheelCollider frontLeftW, frontRightW,
@@ -30,6 +30,28 @@ public partial class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        WheelCollider[] wheelColliders = gameObject.GetComponentsInChildren<WheelCollider>();
+        Transform[] transforms = gameObject.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < 4; i++)
+        {
+            if (wheelColliders[i].name == "WC_FRONTLEFT")
+                frontLeftW = wheelColliders[i];
+            else if (wheelColliders[i].name == "WC_FRONTRIGHT")
+                frontRightW = wheelColliders[i];
+            else if (wheelColliders[i].name == "WC_REARLEFT")
+                rearLeftW = wheelColliders[i];
+            else if (wheelColliders[i].name == "WC_REARRIGHT")
+                rearRightW = wheelColliders[i];
+
+            if (transforms[i + 1].name == "WESD_FRONTLEFT")
+                frontLeftT = transforms[i + 1];
+            if (transforms[i + 1].name == "WESD_FRONTRIGHT")
+                frontRightT = transforms[i + 1];
+            if (transforms[i + 1].name == "WESD_REARLEFT")
+                rearLeftT = transforms[i + 1];
+            if (transforms[i + 1].name == "WESD_REARRIGHT")
+                rearRightT = transforms[i + 1];
+        }
         pText = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
         num = int.Parse(gameObject.name);
         pText[num - 1].text = "Lap: " + lap.ToString() + "/" + numberOfLaps;
@@ -79,11 +101,18 @@ public partial class PlayerController : MonoBehaviour
     {
         if (other.tag == "Finish")
         {
-            if (!beforeFinishPass)
+            if (numberOfLaps!=lap) 
             {
-                lap++;
-                pText[num-1].text = "Lap: "+(lap-1).ToString() +"/"+numberOfLaps;
-                beforeFinishPass = true;
+                if (!beforeFinishPass)
+                {
+                    lap++;
+                    pText[num - 1].text = "Lap: " + (lap - 1).ToString() + "/" + numberOfLaps;
+                    beforeFinishPass = true;
+                } 
+            }
+            else
+            {
+                PlayerFinishRace();
             }
         }
 
@@ -91,5 +120,10 @@ public partial class PlayerController : MonoBehaviour
         {
             beforeFinishPass = false;
         }
+    }
+
+    private void PlayerFinishRace() 
+    {
+
     }
 }
