@@ -35,7 +35,7 @@ public class PlayerMovement : Player
 
     private void FixedUpdate()
     {
-        Vector3 targetDirection = positionToTravelTo - transform.position;
+        Vector3 targetDirection = positionToTravelTo+ (Vector3.up* 0.5f) - transform.position;
 
         float singleStep = rotationSpeed * Time.deltaTime;
 
@@ -45,6 +45,6 @@ public class PlayerMovement : Player
 
         transform.rotation = Quaternion.LookRotation(newDirection);
         // Maybe you can disable / enable the movement script when needed to be used so that you don't have the constant position update
-        transform.position = Vector3.MoveTowards(transform.position, positionToTravelTo, movementSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, positionToTravelTo + (Vector3.up * 0.5f), movementSpeed * Time.deltaTime);
     }
 }
