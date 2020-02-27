@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseFollow : ICameraMode
 {
-    private const double UpperBoundary = 0.95;
+    private const double UpperBoundary = 0.95f;
     public float ScrollSpeed = 2;
     public float speed=0.2f;
     float Horizontal;
@@ -19,9 +19,9 @@ public class MouseFollow : ICameraMode
         Vertical = Input.GetAxis("Mouse Y") * speed;
         tmp += new Vector3(Horizontal, 0, Vertical);
 
-        if (Input.mousePosition.y >= Screen.height * UpperBoundary || Input.mousePosition.y <= Screen.height * 1-UpperBoundary || Input.mousePosition.x >= Screen.width * UpperBoundary || Input.mousePosition.x <= Screen.width * 1 - UpperBoundary)
+        if (Input.mousePosition.y >= Screen.height * UpperBoundary || Input.mousePosition.y <= Screen.height * (1f-UpperBoundary) || Input.mousePosition.x >= Screen.width * UpperBoundary || Input.mousePosition.x <= Screen.width * (1f - UpperBoundary))
         {
-            camera.transform.position += tmp * Time.deltaTime * ScrollSpeed;
+            camera.transform.parent.transform.position += tmp * Time.deltaTime * ScrollSpeed;
         }
     }
 }

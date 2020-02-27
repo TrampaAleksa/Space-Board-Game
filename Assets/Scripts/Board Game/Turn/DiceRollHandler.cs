@@ -47,7 +47,8 @@ public class DiceRollHandler : MonoBehaviour
     {
         
             int randomDiceSide = 0;
-
+        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+        cameraMovementHandler.SetCameraMode(cameraMovementHandler.playerFollowMode);
             for (int i = 0; i <= 20; i++)
             {
                 randomDiceSide = Random.Range(0, 6);
@@ -60,6 +61,7 @@ public class DiceRollHandler : MonoBehaviour
             numberRolled = randomDiceSide + 1;
             tDiceNumberRolled.text = numberRolled.ToString();
             InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
+            
     }
 
     public bool DiceIsLocked() { return diceLocked; }

@@ -9,11 +9,17 @@ public class CameraMovementHandler : MonoBehaviour
     public Vector3 offset;
     public ICameraMode currentCameraMode;
 
+    public ICameraMode freeLookMode;
+    public ICameraMode playerFollowMode;
+    public ICameraMode selectedFolllowMode;
+
+
     private void Start()
     {
-        //currentCameraMode = new MouseFollow();
-        //currentCameraMode = new DefaultCameraMode();
-        currentCameraMode = new CameraModeSelectedFollow();
+        freeLookMode = new MouseFollow();
+        playerFollowMode = new DefaultCameraMode();
+        selectedFolllowMode = new CameraModeSelectedFollow();
+        currentCameraMode = freeLookMode;
     }
 
     private void LateUpdate()
@@ -25,6 +31,7 @@ public class CameraMovementHandler : MonoBehaviour
     {
         currentCameraMode = mode;
     }
+
 
     public class DefaultCameraMode : ICameraMode
     {
