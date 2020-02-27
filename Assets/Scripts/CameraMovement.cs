@@ -11,8 +11,9 @@ public class CameraMovement : MonoBehaviour
 
     private void Start()
     {
-        currentCameraMode = new MouseFollow();
+        //currentCameraMode = new MouseFollow();
         //currentCameraMode = new DefaultCameraMode();
+        currentCameraMode = new CameraModeSelectedFollow();
     }
 
     private void LateUpdate()
