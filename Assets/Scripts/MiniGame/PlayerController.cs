@@ -112,7 +112,7 @@ public partial class PlayerController : MonoBehaviour
             }
             else
             {
-                PlayerFinishRace();
+                GameManager.Instance.PlayerFinishRace(gameObject.name);
             }
         }
 
@@ -120,10 +120,5 @@ public partial class PlayerController : MonoBehaviour
         {
             beforeFinishPass = false;
         }
-    }
-
-    private void PlayerFinishRace() 
-    {
-
     }
 }
