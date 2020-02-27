@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseFollow : MonoBehaviour
+public class MouseFollow : ICameraMode
 {
+    private const double UpperBoundary = 0.95;
     public float ScrollSpeed = 2;
-    public float speed=0.01f;
+    public float speed=0.2f;
     float Horizontal;
     float Vertical;
     Vector3 tmp;
-    void Update()
+    private Camera camera;
+
+    public void UpdateCamera(Vector3 offset, float smoothSpeed)
     {
-        Horizontal = Input.GetAxis("Mouse X")*speed;
+        camera = Camera.main;
+        Horizontal = Input.GetAxis("Mouse X") * speed;
         Vertical = Input.GetAxis("Mouse Y") * speed;
         tmp += new Vector3(Horizontal, 0, Vertical);
 
-        if (Input.mousePosition.y >= Screen.height * 0.95 || Input.mousePosition.y <= Screen.height * 0.05 || Input.mousePosition.x >= Screen.width * 0.95 || Input.mousePosition.x <= Screen.width * 0.05)
+        if (Input.mousePosition.y >= Screen.height * UpperBoundary || Input.mousePosition.y <= Screen.height * 1-UpperBoundary || Input.mousePosition.x >= Screen.width * UpperBoundary || Input.mousePosition.x <= Screen.width * 1 - UpperBoundary)
         {
-            transform.position += tmp * Time.deltaTime * ScrollSpeed;
+            camera.transform.position += tmp * Time.deltaTime * ScrollSpeed;
         }
     }
 }
