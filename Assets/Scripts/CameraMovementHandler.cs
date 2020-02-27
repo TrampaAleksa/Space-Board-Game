@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class CameraMovementHandler : MonoBehaviour
 {
     public Transform target;
 
