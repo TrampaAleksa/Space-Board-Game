@@ -5,11 +5,11 @@ public partial class PlayerController : MonoBehaviour
 {
     private int lap;
     private bool beforeFinishPass = false;
+    private bool playerFinishRace = false;
     private float m_horizontalInput;
     private float m_verticalInput;
     private float m_steeringAngle;
     private int num;
-
 
     private Text[] pText;
     public string nameOfInputHorizontal;
@@ -58,10 +58,14 @@ public partial class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        GetInput();
-        Steer();
-        Accelerate();
+        if (!playerFinishRace)
+        {
+            GetInput();
+            Steer();
+            Accelerate();
+        }
         UpdateWheelPoses();
+        
     }
     public void GetInput()
     {
@@ -105,14 +109,14 @@ public partial class PlayerController : MonoBehaviour
             {
                 if (!beforeFinishPass)
                 {
-                    lap++;
-                    pText[num - 1].text = "Lap: " + (lap - 1).ToString() + "/" + numberOfLaps;
-                    beforeFinishPass = true;
+                    FinishedLap();
                 } 
             }
             else
             {
+                playerFinishRace = true;
                 GameManager.Instance.PlayerFinishRace(gameObject.name);
+                FinishedLap();
             }
         }
 
@@ -120,5 +124,11 @@ public partial class PlayerController : MonoBehaviour
         {
             beforeFinishPass = false;
         }
+    }
+    private void FinishedLap() 
+    {
+        lap++;
+        pText[num - 1].text = "Lap: " + (lap - 1).ToString() + "/" + numberOfLaps;
+        beforeFinishPass = true;
     }
 }

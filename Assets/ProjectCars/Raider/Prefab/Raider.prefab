@@ -565,8 +565,8 @@ MonoBehaviour:
   frontRightT: {fileID: 0}
   rearLeftT: {fileID: 0}
   rearRightT: {fileID: 0}
-  maxSteerAngle: 0
-  motorForce: 0
+  maxSteerAngle: 60
+  motorForce: 1000
   numberOfLaps: 2
 --- !u!1 &1202636769538667276
 GameObject:

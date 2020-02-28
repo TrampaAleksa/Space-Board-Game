@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    PlayerBoardState[] playerBoardStates;
+    public PlayerBoardState[] playerBoardStates;
+    
+    private int brojac = 1;
+    private int numberOfPlayersFinished=0;
 
     public static GameManager Instance;
-    int brojac = 1;
     private void Awake()
     {
         Instance = this;
@@ -15,6 +17,16 @@ public class GameManager : MonoBehaviour
 
     public void PlayerFinishRace(string number) 
     {
+        playerBoardStates[int.Parse(number) - 1].rank = brojac;
+        Debug.Log("player rank: " + playerBoardStates[int.Parse(number) - 1].rank);
+        Debug.Log("pleyer" + number);
         brojac++;
+        numberOfPlayersFinished++;
+        if (numberOfPlayersFinished == 4)
+            GameFinished();
+    }
+    private void GameFinished() 
+    {
+        Time.timeScale = 0;
     }
 }
