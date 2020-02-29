@@ -7,7 +7,10 @@ using System.Collections.Generic;
 public class UIManager : MonoBehaviour
 {
     public GameObject mainMenuPanel;
+    public GameObject controlsPanel;
     public GameObject settingsPanel;
+    public GameObject scoresPanel;
+    public GameObject creditsPanel;
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
 
@@ -17,10 +20,34 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
-    public void Settings() 
+    public void Controls() 
+    {
+        mainMenuPanel.SetActive(false);
+        controlsPanel.SetActive(true);
+    }
+    public void Settings()
     {
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(true);
+    }
+    public void Scores()
+    {
+        mainMenuPanel.SetActive(false);
+        scoresPanel.SetActive(true);
+    }
+    public void Credits()
+    {
+        mainMenuPanel.SetActive(false);
+        creditsPanel.SetActive(true);
+    }
+    public void Back() 
+    {
+        controlsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        scoresPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+
+        mainMenuPanel.SetActive(true);
     }
 
     public void Quit()
@@ -49,6 +76,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        mainMenuPanel.SetActive(true);
         settingsPanel.SetActive(false);
         
         resolutions = Screen.resolutions;
