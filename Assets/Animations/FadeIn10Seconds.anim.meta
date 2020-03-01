@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations/FadeIn10Seconds.anim.meta
 guid: ffa211c0ff7f28745aa19100d220d32e
 NativeFormatImporter:
+=======
+guid: 432cd9bee1d181d408b6e158e3c0b948
+folderAsset: yes
+DefaultImporter:
+>>>>>>> UIBranch:Assets/Asset/Track Assets/Materials.meta
   externalObjects: {}
   mainObjectFileID: 7400000
   userData: 

@@ -10,11 +10,7 @@ TagManager:
   - Display
   - Selection
   - Field
-  - Player 1
-  - Player 2
-  - Player 3
-  - Player 4
-  - Ground
+  - Death
   layers:
   - Default
   - TransparentFX
