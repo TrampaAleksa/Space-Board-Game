@@ -19,7 +19,7 @@ public class TooltipHandler : MonoBehaviour
         }
     }
 
-    public void ShowTooltip(Tooltip tooltipToShow, string message, float timeToShow)
+    public void ShowTooltip(Tooltip tooltipToShow, string message)
     {
         tooltipToShow.ShowTooltip(message);
     }

@@ -21,8 +21,7 @@ public class TurnHandler : MonoBehaviour, IBoardState
             TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
             tooltipHandler.ShowTooltip
                 (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
-                playersHandler.GetCurrentPlayer().name + "s turn",
-                TooltipHandler.TOOLTIP_TIME_SHORT);
+                playersHandler.GetCurrentPlayer().name + "s turn");
             DiceRollHandler diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
             if (diceRollHandler.DiceIsLocked())
             {
