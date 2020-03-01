@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class EffectPlaceMine : FieldEffect
 {
+    public override void TooltipDisplay()
+    {
+        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Click on a field to place a mine");
+    }
+
     public override void TriggerEffect()
     {
         print("Place a mine!");

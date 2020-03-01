@@ -14,7 +14,23 @@ public class TooltipTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            InstanceManager.Instance.Get<TooltipHandler>().ShowTooltipForGivenTime(tooltip, "Hello World!", 5f);
+            tooltip.GetComponent<Animator>().SetTrigger(TooltipAnimationType.Trigger3Seconds.ToString());
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            tooltip.GetComponent<Animator>().SetTrigger(TooltipAnimationType.Trigger5Seconds.ToString());
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            tooltip.GetComponent<Animator>().SetTrigger(TooltipAnimationType.Trigger8Seconds.ToString());
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            tooltip.GetComponent<Animator>().SetTrigger(TooltipAnimationType.Trigger10Seconds.ToString());
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            tooltip.GetComponent<Animator>().SetTrigger(TooltipAnimationType.TriggerFloatUp.ToString());
         }
     }
 }

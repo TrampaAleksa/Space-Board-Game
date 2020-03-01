@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : Player
 {
@@ -9,7 +7,7 @@ public class PlayerMovement : Player
     [SerializeField]
     public Vector3 positionToTravelTo;
 
-    public float rotationSpeed = 15f;
+    public float rotationSpeed = 30f;
 
     [SerializeField]
     public float movementSpeed = 15f;
@@ -30,20 +28,18 @@ public class PlayerMovement : Player
             other.tag = "Untagged";
             FieldEffect[] effects = currentPlayerField.GetComponents<FieldEffect>();
             foreach (var effect in effects) effect.TriggerEffect();
+            effects[0].TooltipDisplay();
         }
     }
 
     private void FixedUpdate()
     {
-        Vector3 targetDirection = positionToTravelTo+ (Vector3.up* 0.5f) - transform.position;
+        Vector3 targetDirection = currentPlayerField.transform.position + (Vector3.up * 0.5f) + currentPlayerField.transform.forward - transform.position;
 
         float singleStep = rotationSpeed * Time.deltaTime;
 
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-
-        Debug.DrawRay(transform.position, newDirection, Color.red);
-
-        transform.rotation = Quaternion.LookRotation(newDirection);
+        Quaternion _rot = Quaternion.LookRotation(targetDirection, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation, _rot, singleStep);
         // Maybe you can disable / enable the movement script when needed to be used so that you don't have the constant position update
         transform.position = Vector3.MoveTowards(transform.position, positionToTravelTo + (Vector3.up * 0.5f), movementSpeed * Time.deltaTime);
     }
