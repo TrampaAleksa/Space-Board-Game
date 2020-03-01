@@ -28,5 +28,9 @@ public class TooltipTest : MonoBehaviour
         {
             tooltip.GetComponent<Animator>().SetTrigger(TooltipAnimationType.Trigger10Seconds.ToString());
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            tooltip.GetComponent<Animator>().SetTrigger(TooltipAnimationType.TriggerFloatUp.ToString());
+        }
     }
 }
