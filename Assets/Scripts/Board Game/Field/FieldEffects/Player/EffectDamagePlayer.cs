@@ -5,6 +5,13 @@ using UnityEngine;
 public class EffectDamagePlayer : FieldEffect
 {
     public float damageAmount = 20;
+
+    public override void TooltipDisplay()
+    {
+        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "You Took damage!");
+    }
+
     public override void TriggerEffect()
     {
         Damage.DamagePlayer(playersHandler.GetCurrentPlayer(), damageAmount);

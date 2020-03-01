@@ -8,6 +8,8 @@ public class TooltipHandler : MonoBehaviour
     public const float TOOLTIP_TIME_SHORT = 2f;
     public const float TOOLTIP_TIME_NORMAL = 5f;
     public const float TOOLTIP_TIME_LONG = 10f;
+    public Tooltip fieldInfoTooltip;
+
 
     private void Awake()
     {

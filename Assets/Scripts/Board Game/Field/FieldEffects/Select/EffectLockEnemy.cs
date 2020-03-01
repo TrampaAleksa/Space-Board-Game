@@ -5,6 +5,12 @@ using UnityEngine;
 public class EffectLockEnemy : SelectOnTrigger
 {
     public const int TURNS_TO_LOCK = 1;
+
+    public override void TooltipDisplay()
+    {
+        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Break the selected enemies engine!");
+    }
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();
