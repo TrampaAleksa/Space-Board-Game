@@ -12,10 +12,10 @@ public class TooltipHandler : MonoBehaviour
     private void Awake()
     {
         GameObject[] tooltipObjs = GameObject.FindGameObjectsWithTag("Tooltip");
-        foreach(var tooltip in tooltipObjs)
+        foreach (var tooltip in tooltipObjs)
         {
-            if(tooltip.GetComponent<Tooltip>() == null)
-            tooltip.AddComponent<Tooltip>();
+            if (tooltip.GetComponent<Tooltip>() == null)
+                tooltip.AddComponent<Tooltip>();
         }
     }
 
@@ -39,10 +39,10 @@ public class TooltipHandler : MonoBehaviour
     public Tooltip FindTooltipByGameObjectName(string name)
     {
         Tooltip tooltipFound = GameObject.Find(name).GetComponent<Tooltip>();
-        if (tooltipFound == null) {
+        if (tooltipFound == null)
+        {
             Debug.Log("Error, tooltip was not found, wrong name or no component attached");
         }
         return tooltipFound;
     }
-
 }
