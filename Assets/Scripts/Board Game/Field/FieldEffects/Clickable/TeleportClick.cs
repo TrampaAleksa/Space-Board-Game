@@ -5,6 +5,7 @@ using UnityEngine;
 public class TeleportClick : MonoBehaviour, IClickEvent
 {
     public const int maximumDistanceAllowed = 3;
+
     public IClickEvent Clicked()
     {
         RaycastHit hit;
@@ -22,6 +23,7 @@ public class TeleportClick : MonoBehaviour, IClickEvent
                     InstanceManager.Instance.Get<ClickEventHandler>().RemoveClickEvent(this);
                     playerToTeleport.GetComponent<PlayerMovement>().currentPlayerField.GetComponent<FieldEffect>().TriggerEffect();
                     Destroy(this);
+                    //teleport sound effect
                 }
                 else print("Distance too large");
             }

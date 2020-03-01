@@ -18,11 +18,11 @@ public class MinePlacementClick : MonoBehaviour, IClickEvent
                     InstanceManager.Instance.Get<ClickEventHandler>().RemoveClickEvent(this);
                     InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
                     Destroy(this);
+                    //Mine placed sound
                 }
                 else print("mine already exists");
             }
         }
         return this;
     }
-
 }

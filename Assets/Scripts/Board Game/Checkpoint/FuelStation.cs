@@ -5,6 +5,7 @@ using UnityEngine;
 public class FuelStation : FieldEffect
 {
     private float fuelPerVisit = 20f;
+
     public override void TriggerEffect()
     {
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
@@ -15,11 +16,11 @@ public class FuelStation : FieldEffect
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(other.gameObject, fuelPerVisit);
+            //Fuel added sound?
             print("added fuel to: " + other.name);
         }
     }
-
 }

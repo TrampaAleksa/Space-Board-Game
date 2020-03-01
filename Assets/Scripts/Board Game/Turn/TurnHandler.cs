@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class TurnHandler : MonoBehaviour, IBoardState
 {
-   public void EndCurrentPlayersTurn()
+    public void EndCurrentPlayersTurn()
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         playersHandler.SetToNextPlayer();
         bool brokenEngines = playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>().EnginesBroken();
         if (brokenEngines)
         {
+            // broken engine sound
             SkipPlayersTurn(playersHandler.GetCurrentPlayer());
             EndCurrentPlayersTurn();
         }
         else
         {
+            // player ended turn sound
             TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
             tooltipHandler.ShowTooltipForGivenTime
                 (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
@@ -26,8 +28,16 @@ public class TurnHandler : MonoBehaviour, IBoardState
             {
                 diceRollHandler.ChangeDiceLockState();
             }
+            CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+            cameraMovementHandler.SetCameraMode(cameraMovementHandler.playerFollowMode);
+            Invoke("DelayCameraModeSwitch", 1.5f);
         }
-       
+    }
+
+    private void DelayCameraModeSwitch()
+    {
+        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+        cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
     }
 
     public GameObject PlayerSkipTurns(GameObject player, int turnsToSkip)
@@ -63,6 +73,4 @@ public class TurnHandler : MonoBehaviour, IBoardState
             i++;
         }
     }
-
-   
 }
