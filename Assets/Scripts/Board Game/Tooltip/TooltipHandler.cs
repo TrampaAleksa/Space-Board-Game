@@ -21,17 +21,8 @@ public class TooltipHandler : MonoBehaviour
 
     public void ShowTooltip(Tooltip tooltipToShow, string message, float timeToShow)
     {
-        tooltipToShow.ShowTooltip(TooltipAnimationType.Trigger3Seconds, message);
-        //tooltipToShow.ShowTooltip(message);
-        //StartCoroutine(RemoveTooltipWithDelay(tooltipToShow, timeToShow));
+        tooltipToShow.ShowTooltip(message);
     }
-
-    private IEnumerator RemoveTooltipWithDelay(Tooltip tooltipToRemove, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        tooltipToRemove.RemoveTooltip();
-    }
-
     /// <summary>
     /// If you sometimes need to get the reference to a specific tooltip, use this method
     /// </summary>

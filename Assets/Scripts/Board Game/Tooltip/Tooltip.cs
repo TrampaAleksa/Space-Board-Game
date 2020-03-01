@@ -6,6 +6,7 @@ public class Tooltip : MonoBehaviour
 {
     protected Text tooltipTextComponent;
     protected Animator tooltipAnimator;
+    public TooltipAnimationType defaultAnimationType;
 
     private void Start()
     {
@@ -18,10 +19,10 @@ public class Tooltip : MonoBehaviour
         tooltipTextComponent.text = message;
         tooltipAnimator.SetTrigger(type.ToString());
     }
-   
-    public void RemoveTooltip()
-    {
 
+    public void ShowTooltip(string message)
+    {
+        tooltipTextComponent.text = message;
+        tooltipAnimator.SetTrigger(defaultAnimationType.ToString());
     }
-  
 }
