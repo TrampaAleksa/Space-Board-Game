@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Text))]
 public class Tooltip : MonoBehaviour
 {
     private Text tooltipTextComponent;
-    void Start()
+
+    private void Start()
     {
         tooltipTextComponent = GetComponent<Text>();
     }
