@@ -10,6 +10,7 @@ TagManager:
   - Display
   - Selection
   - Field
+  - Death
   layers:
   - Default
   - TransparentFX
