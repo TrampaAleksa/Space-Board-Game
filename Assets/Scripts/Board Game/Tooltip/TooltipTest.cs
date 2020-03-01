@@ -14,7 +14,7 @@ public class TooltipTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            InstanceManager.Instance.Get<TooltipHandler>().ShowTooltipForGivenTime(tooltip, "Hello World!", 5f);
+            tooltip.GetComponent<Animator>().SetTrigger("Trigger3Seconds");
         }
     }
 }

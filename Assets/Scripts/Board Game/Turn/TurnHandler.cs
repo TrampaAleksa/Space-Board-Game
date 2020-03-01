@@ -19,7 +19,7 @@ public class TurnHandler : MonoBehaviour, IBoardState
         {
             // player ended turn sound
             TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-            tooltipHandler.ShowTooltipForGivenTime
+            tooltipHandler.ShowTooltip
                 (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
                 playersHandler.GetCurrentPlayer().name + "s turn",
                 TooltipHandler.TOOLTIP_TIME_SHORT);

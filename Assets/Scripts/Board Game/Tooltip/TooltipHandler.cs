@@ -19,10 +19,11 @@ public class TooltipHandler : MonoBehaviour
         }
     }
 
-    public void ShowTooltipForGivenTime(Tooltip tooltipToShow, string message, float timeToShow)
+    public void ShowTooltip(Tooltip tooltipToShow, string message, float timeToShow)
     {
-        tooltipToShow.ShowTooltip(message);
-        StartCoroutine(RemoveTooltipWithDelay(tooltipToShow, timeToShow));
+        tooltipToShow.ShowTooltip(TooltipAnimationType.Trigger3Seconds, message);
+        //tooltipToShow.ShowTooltip(message);
+        //StartCoroutine(RemoveTooltipWithDelay(tooltipToShow, timeToShow));
     }
 
     private IEnumerator RemoveTooltipWithDelay(Tooltip tooltipToRemove, float delay)

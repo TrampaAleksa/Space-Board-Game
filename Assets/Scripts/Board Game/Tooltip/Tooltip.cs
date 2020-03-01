@@ -4,22 +4,24 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class Tooltip : MonoBehaviour
 {
-    private Text tooltipTextComponent;
+    protected Text tooltipTextComponent;
+    protected Animator tooltipAnimator;
 
     private void Start()
     {
         tooltipTextComponent = GetComponent<Text>();
+        tooltipAnimator = GetComponent<Animator>();
     }
 
-    //If you want some customizability for the tooltips, just implement these methods differently
-    internal void ShowTooltip(string message)
+    public void ShowTooltip(TooltipAnimationType type, string message)
     {
         tooltipTextComponent.text = message;
-        tooltipTextComponent.gameObject.transform.localScale = Vector3.one;
+        tooltipAnimator.SetTrigger(type.ToString());
     }
-
-    internal void RemoveTooltip()
+   
+    public void RemoveTooltip()
     {
-        tooltipTextComponent.gameObject.transform.localScale = Vector3.zero;
+
     }
+  
 }
