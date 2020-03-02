@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EffectMoveForward : FieldEffect
 {
+
+    public override void TooltipDisplay()
+    {
+        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "You moved forward");
+    }
+
     public override void TriggerEffect()
     {
         GameObject currentPlayer = playersHandler.GetCurrentPlayer();

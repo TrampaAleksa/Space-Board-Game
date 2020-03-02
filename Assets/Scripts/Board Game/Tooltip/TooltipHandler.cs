@@ -8,29 +8,23 @@ public class TooltipHandler : MonoBehaviour
     public const float TOOLTIP_TIME_SHORT = 2f;
     public const float TOOLTIP_TIME_NORMAL = 5f;
     public const float TOOLTIP_TIME_LONG = 10f;
+    public Tooltip fieldInfoTooltip;
+
 
     private void Awake()
     {
         GameObject[] tooltipObjs = GameObject.FindGameObjectsWithTag("Tooltip");
-        foreach(var tooltip in tooltipObjs)
+        foreach (var tooltip in tooltipObjs)
         {
-            if(tooltip.GetComponent<Tooltip>() == null)
-            tooltip.AddComponent<Tooltip>();
+            if (tooltip.GetComponent<Tooltip>() == null)
+                tooltip.AddComponent<Tooltip>();
         }
     }
 
-    public void ShowTooltipForGivenTime(Tooltip tooltipToShow, string message, float timeToShow)
+    public void ShowTooltip(Tooltip tooltipToShow, string message)
     {
         tooltipToShow.ShowTooltip(message);
-        StartCoroutine(RemoveTooltipWithDelay(tooltipToShow, timeToShow));
     }
-
-    private IEnumerator RemoveTooltipWithDelay(Tooltip tooltipToRemove, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        tooltipToRemove.RemoveTooltip();
-    }
-
     /// <summary>
     /// If you sometimes need to get the reference to a specific tooltip, use this method
     /// </summary>
@@ -39,10 +33,10 @@ public class TooltipHandler : MonoBehaviour
     public Tooltip FindTooltipByGameObjectName(string name)
     {
         Tooltip tooltipFound = GameObject.Find(name).GetComponent<Tooltip>();
-        if (tooltipFound == null) {
+        if (tooltipFound == null)
+        {
             Debug.Log("Error, tooltip was not found, wrong name or no component attached");
         }
         return tooltipFound;
     }
-
 }

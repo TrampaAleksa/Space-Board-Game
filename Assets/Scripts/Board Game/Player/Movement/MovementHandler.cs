@@ -13,6 +13,7 @@ public class MovementHandler : MonoBehaviour
         GameObject field = n < 0 ? MoveToPreviousField(player) : MoveToNextField(player);
         return player;
     }
+
     public GameObject MoveToNextField(GameObject player)
     {
         Field currentPlayerField = player.GetComponent<PlayerMovement>().currentPlayerField;
@@ -20,6 +21,7 @@ public class MovementHandler : MonoBehaviour
         {
             currentPlayerField.NextField().tag = "NextField";
         }
+        //ship movement sound?
         InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(currentPlayerField.NextField(), player.gameObject);
         return player;
     }
@@ -31,6 +33,7 @@ public class MovementHandler : MonoBehaviour
         {
             currentPlayerField.PreviousField().tag = "NextField";
         }
+        //ship movement sound?
         InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(currentPlayerField.PreviousField(), player.gameObject);
         return player;
     }
@@ -40,5 +43,4 @@ public class MovementHandler : MonoBehaviour
         GameObject currentPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         InstanceManager.Instance.Get<MovementHandler>().MoveNFields(numberOfFields, currentPlayer);
     }
-
 }

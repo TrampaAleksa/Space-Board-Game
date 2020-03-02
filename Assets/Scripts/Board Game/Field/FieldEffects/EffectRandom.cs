@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class EffectRandom : FieldEffect
 {
-
+    public override void TooltipDisplay()
+    {
+        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Random effect occured!");
+    }
     private void Start()
     {
         effectsList = GameObject.Find("Random Effects Holder").GetComponentsInChildren<FieldEffect>();

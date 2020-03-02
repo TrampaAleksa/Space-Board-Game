@@ -14,5 +14,5 @@ public abstract class FieldEffect : MonoBehaviour
         playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
     }
     public abstract void TriggerEffect();
-
+    public abstract void TooltipDisplay();
 }
