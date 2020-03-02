@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 856133338e5935c4ea7215ea837b00da
 folderAsset: yes
 timeCreated: 1546380202
-=======
-<<<<<<< HEAD:Assets/Map/Terrain Assets/Trees/Materials.meta
-guid: df2248bccd110f12a000e6888f962b59
-folderAsset: yes
-timeCreated: 1431779236
-=======
-guid: 856133338e5935c4ea7215ea837b00da
-folderAsset: yes
-timeCreated: 1546380202
->>>>>>> master:Assets/PathCreator/Examples.meta
->>>>>>> master
 licenseType: Store
 DefaultImporter:
   userData: 

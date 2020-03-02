@@ -5,12 +5,13 @@ using UnityEngine;
 public class TooltipTest : MonoBehaviour
 {
     private Tooltip tooltip;
-    void Start()
+
+    private void Start()
     {
         tooltip = GameObject.FindGameObjectWithTag("Tooltip").GetComponent<Tooltip>();
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -31,6 +32,10 @@ public class TooltipTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             tooltip.GetComponent<Animator>().SetTrigger(TooltipAnimationType.TriggerFloatUp.ToString());
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            GameObject.Find("Text (TMP)").GetComponent<Animator>().SetTrigger("TriggerMeshFloatUp");
         }
     }
 }
