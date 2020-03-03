@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TooltipTest : MonoBehaviour
 {
-    private Tooltip tooltip;
+    private TextTooltip tooltip;
 
     private void Start()
     {
-        tooltip = GameObject.FindGameObjectWithTag("Tooltip").GetComponent<Tooltip>();
+        tooltip = GameObject.FindGameObjectWithTag("Tooltip").GetComponent<TextTooltip>();
     }
 
     private void Update()

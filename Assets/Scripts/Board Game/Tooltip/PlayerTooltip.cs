@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerTooltip : MonoBehaviour
 {
     [SerializeField]
-    public Tooltip tooltip;
+    public TextMeshTooltip tooltip;
     public GameObject tooltipText;
     public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
-        //tooltip = tooltipText.GetComponentInChildren<Tooltip>();
+        tooltip = tooltipText.GetComponentInChildren<TextMeshTooltip>();
     }
 
     // Update is called once per frame

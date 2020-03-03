@@ -8,7 +8,7 @@ public class TooltipHandler : MonoBehaviour
     public const float TOOLTIP_TIME_SHORT = 2f;
     public const float TOOLTIP_TIME_NORMAL = 5f;
     public const float TOOLTIP_TIME_LONG = 10f;
-    public Tooltip fieldInfoTooltip;
+    public TextTooltip fieldInfoTooltip;
 
 
     private void Awake()
@@ -16,12 +16,12 @@ public class TooltipHandler : MonoBehaviour
         GameObject[] tooltipObjs = GameObject.FindGameObjectsWithTag("Tooltip");
         foreach (var tooltip in tooltipObjs)
         {
-            if (tooltip.GetComponent<Tooltip>() == null)
-                tooltip.AddComponent<Tooltip>();
+            if (tooltip.GetComponent<TextTooltip>() == null)
+                tooltip.AddComponent<TextTooltip>();
         }
     }
 
-    public void ShowTooltip(Tooltip tooltipToShow, string message)
+    public void ShowTooltip(TextTooltip tooltipToShow, string message)
     {
         tooltipToShow.ShowTooltip(message);
     }
@@ -30,9 +30,9 @@ public class TooltipHandler : MonoBehaviour
     /// </summary>
     /// <param name="name">The name of the gameobject the tooltip is attached to</param>
     /// <returns>The tooltip component from the game object found</returns>
-    public Tooltip FindTooltipByGameObjectName(string name)
+    public TextTooltip FindTooltipByGameObjectName(string name)
     {
-        Tooltip tooltipFound = GameObject.Find(name).GetComponent<Tooltip>();
+        TextTooltip tooltipFound = GameObject.Find(name).GetComponent<TextTooltip>();
         if (tooltipFound == null)
         {
             Debug.Log("Error, tooltip was not found, wrong name or no component attached");
@@ -49,7 +49,7 @@ public class TooltipHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            ShowPlayersTooltip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerTooltip>(), "30");
+            ShowPlayersTooltip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerTooltip>(), "Player 30");
         }
     }
 }

@@ -139,6 +139,8 @@ GameObject:
   - component: {fileID: 7079624}
   - component: {fileID: 7079623}
   - component: {fileID: 7079622}
+  - component: {fileID: 7079627}
+  - component: {fileID: 7079628}
   m_Layer: 0
   m_Name: Player 4 Status Tooltip
   m_TagString: Tooltip
@@ -166,8 +168,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96ca6a1925a2ac3499d6c0701ce02689, type: 2}
+  m_sharedMaterial: {fileID: -5317107476480020798, guid: 96ca6a1925a2ac3499d6c0701ce02689,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -192,14 +195,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -289,7 +292,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5317107476480020798, guid: 96ca6a1925a2ac3499d6c0701ce02689, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -329,6 +332,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7079627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f671bb929b7c9ee4e9de9f3c6976b3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAnimationType: 5
+--- !u!95 &7079628
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e076bb1e1af5d24db581da3b4817d13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &13864111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6697,6 +6732,7 @@ GameObject:
   - component: {fileID: 1132154136}
   - component: {fileID: 1132154135}
   - component: {fileID: 1132154139}
+  - component: {fileID: 1132154140}
   m_Layer: 0
   m_Name: Player 1 Status Tooltip
   m_TagString: Tooltip
@@ -6743,8 +6779,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96ca6a1925a2ac3499d6c0701ce02689, type: 2}
+  m_sharedMaterial: {fileID: -5317107476480020798, guid: 96ca6a1925a2ac3499d6c0701ce02689,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6769,14 +6806,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -6866,7 +6903,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5317107476480020798, guid: 96ca6a1925a2ac3499d6c0701ce02689, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6906,6 +6943,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1132154140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132154133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f671bb929b7c9ee4e9de9f3c6976b3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAnimationType: 5
 --- !u!1001 &1133836868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8743,6 +8793,8 @@ GameObject:
   - component: {fileID: 1499417843}
   - component: {fileID: 1499417842}
   - component: {fileID: 1499417841}
+  - component: {fileID: 1499417845}
+  - component: {fileID: 1499417846}
   m_Layer: 0
   m_Name: Player 2 Status Tooltip
   m_TagString: Tooltip
@@ -8789,8 +8841,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96ca6a1925a2ac3499d6c0701ce02689, type: 2}
+  m_sharedMaterial: {fileID: -5317107476480020798, guid: 96ca6a1925a2ac3499d6c0701ce02689,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8815,14 +8868,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -8912,7 +8965,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5317107476480020798, guid: 96ca6a1925a2ac3499d6c0701ce02689, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8933,6 +8986,38 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1499417845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499417839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f671bb929b7c9ee4e9de9f3c6976b3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAnimationType: 5
+--- !u!95 &1499417846
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499417839}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e076bb1e1af5d24db581da3b4817d13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1585687006
 GameObject:
   m_ObjectHideFlags: 0
@@ -10280,6 +10365,8 @@ GameObject:
   - component: {fileID: 1852485691}
   - component: {fileID: 1852485690}
   - component: {fileID: 1852485689}
+  - component: {fileID: 1852485693}
+  - component: {fileID: 1852485694}
   m_Layer: 0
   m_Name: Player 3 Status Tooltip
   m_TagString: Tooltip
@@ -10326,8 +10413,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96ca6a1925a2ac3499d6c0701ce02689, type: 2}
+  m_sharedMaterial: {fileID: -5317107476480020798, guid: 96ca6a1925a2ac3499d6c0701ce02689,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10352,14 +10440,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -10449,7 +10537,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5317107476480020798, guid: 96ca6a1925a2ac3499d6c0701ce02689, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10470,6 +10558,38 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1852485693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852485687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f671bb929b7c9ee4e9de9f3c6976b3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAnimationType: 5
+--- !u!95 &1852485694
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852485687}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e076bb1e1af5d24db581da3b4817d13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1882856847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12118,17 +12238,17 @@ PrefabInstance:
     - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_FontData.m_BestFit
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_FontData.m_MinSize
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_FontData.m_MaxSize
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
@@ -12148,7 +12268,18 @@ PrefabInstance:
     - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_Text
-      value: Player Info
+      value: ' 3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 6f4492faa14cc574593e8640001667c0,
+        type: 3}
+    - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075951, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}

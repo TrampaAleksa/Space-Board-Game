@@ -9,4 +9,5 @@ public enum TooltipAnimationType
     Trigger8Seconds,
     Trigger10Seconds,
     TriggerFloatUp,
+    TriggerMeshFloatUp
 }
