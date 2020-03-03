@@ -23,7 +23,8 @@ public class FuelHandler : MonoBehaviour, IBoardState
     {
         PlayerFuel playerFuel = GetPlayersFuel(player);
         playerFuel.fuel += amount;
-        if(playerFuel.fuel >= winningAmount)
+        InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "+" + amount);
+        if (playerFuel.fuel >= winningAmount)
         {
             print("PLAYER: " + player.name + " WON THE GAME!");
         }
@@ -34,6 +35,7 @@ public class FuelHandler : MonoBehaviour, IBoardState
     {
         PlayerFuel playerFuel = GetPlayersFuel(player);
         playerFuel.fuel -= amount;
+        InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "-" + amount);
         if (playerFuel.fuel < 0)
         {
             playerFuel.fuel = 0;

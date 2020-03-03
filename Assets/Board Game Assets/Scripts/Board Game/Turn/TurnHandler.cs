@@ -12,6 +12,7 @@ public class TurnHandler : MonoBehaviour, IBoardState
         if (brokenEngines)
         {
             // broken engine sound
+            InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(playersHandler.GetCurrentPlayer(), "Engines Broke");
             SkipPlayersTurn(playersHandler.GetCurrentPlayer());
             EndCurrentPlayersTurn();
         }

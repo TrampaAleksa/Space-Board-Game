@@ -7,6 +7,7 @@ public class Damage
     public static GameObject DamagePlayer(GameObject player, float value)
     {
         player.GetComponent<PlayerHull>().HullPercentage -= value;
+        InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "-"+value);
         //damage sound?
         if (player.GetComponent<PlayerHull>().HullPercentage <= 0)
         {

@@ -40,16 +40,16 @@ public class TooltipHandler : MonoBehaviour
         return tooltipFound;
     }
 
-    public void ShowPlayersTooltip(PlayerTooltip tooltip, string message)
+    public void ShowPlayersTooltip(GameObject player, string message)
     {
-        tooltip.tooltip.ShowTooltip(message);
+        player.GetComponent<PlayerTooltip>().tooltip.ShowTooltip(message);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            ShowPlayersTooltip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerTooltip>(), "-30 Fuel");
+            ShowPlayersTooltip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), "-30 Fuel");
         }
     }
 }
