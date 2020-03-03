@@ -70,7 +70,7 @@ public partial class PlayerController : MonoBehaviour
 
     public void Break()
     {
-        if(m_verticalInput<0)
+        if(m_verticalInput<=0)
             frontRightW.motorTorque = frontLeftW.motorTorque = m_verticalInput * motorForce*10000000;
     }
 

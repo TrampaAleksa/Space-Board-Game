@@ -27,11 +27,11 @@ public class GameManager : MonoBehaviour
             StateOfFinishGame(counterRankDec, number);
             counterRankDec--;
     }
-    private void StateOfFinishGame(int count, int number) 
+    private void StateOfFinishGame(int count, int number)
     {
         playerBoardStates[number - 1].rank = count;
         numberOfPlayersFinished++;
-        if (numberOfPlayersFinished == 4)
+        if (numberOfPlayersFinished == 3)
             GameFinished();
         Debug.Log("player rank: " + playerBoardStates[number-1].rank);
         Debug.Log("pleyer" + number);
