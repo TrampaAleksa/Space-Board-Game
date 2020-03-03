@@ -15,6 +15,7 @@ TagManager:
   - Player 3
   - Player 4
   - Ground
+  - DeathLine
   layers:
   - Default
   - TransparentFX
