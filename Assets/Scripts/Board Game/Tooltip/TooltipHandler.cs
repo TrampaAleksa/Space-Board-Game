@@ -49,7 +49,7 @@ public class TooltipHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            ShowPlayersTooltip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerTooltip>(), "Player 30");
+            ShowPlayersTooltip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerTooltip>(), "-30 Fuel");
         }
     }
 }
