@@ -39,4 +39,17 @@ public class TooltipHandler : MonoBehaviour
         }
         return tooltipFound;
     }
+
+    public void ShowPlayersTooltip(PlayerTooltip tooltip, string message)
+    {
+        tooltip.tooltip.ShowTooltip(message);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ShowPlayersTooltip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerTooltip>(), "30");
+        }
+    }
 }
