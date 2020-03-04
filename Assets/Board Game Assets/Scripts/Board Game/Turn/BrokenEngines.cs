@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class BrokenEngines : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static void BrokenEngineAction()
     {
-        
+        // broken engine sound
+        GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
+        InstanceManager.Instance.Get<TooltipHandler>()
+            .ShowPlayersTooltip(player, "Engines Broke");
+        SkipPlayersTurn(player);
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 
-    // Update is called once per frame
-    void Update()
+    public static int SkipPlayersTurn(GameObject player)
     {
-        
+        player.GetComponent<PlayerMovement>().turnsToSkip--;
+        return player.GetComponent<PlayerMovement>().turnsToSkip;
     }
 }
