@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TurnHandler : MonoBehaviour, IBoardState
 {
@@ -20,9 +18,10 @@ public class TurnHandler : MonoBehaviour, IBoardState
         {
             // player ended turn sound
             TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-            tooltipHandler.ShowTooltip
+            /*tooltipHandler.ShowTooltip
                 (tooltipHandler.FindTooltipByGameObjectName("TooltipMessage"),
-                playersHandler.GetCurrentPlayer().name + "s turn");
+                playersHandler.GetCurrentPlayer().name + "s turn");*/
+            tooltipHandler.ShowInfoTooltip(playersHandler.GetCurrentPlayer().name + "s turn");
             DiceRollHandler diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
             if (diceRollHandler.DiceIsLocked())
             {

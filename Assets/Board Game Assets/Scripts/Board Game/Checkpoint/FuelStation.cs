@@ -6,12 +6,12 @@ public class FuelStation : FieldEffect
 {
     private float fuelPerVisit = 20f;
 
-
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
         tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Fuel station, refilled fuel!");
     }
+
     public override void TriggerEffect()
     {
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();

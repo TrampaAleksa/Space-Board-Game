@@ -9,9 +9,12 @@ public class TooltipHandler : MonoBehaviour
     public const float TOOLTIP_TIME_NORMAL = 5f;
     public const float TOOLTIP_TIME_LONG = 10f;
     public TextTooltip fieldInfoTooltip;
+    public TextTooltip playerInfoTooltip;
 
     private void Awake()
     {
+        fieldInfoTooltip = GameObject.Find("FieldInfoTooltip").GetComponentInChildren<TextTooltip>();
+        playerInfoTooltip = GameObject.Find("InfoTooltip").GetComponentInChildren<TextTooltip>();
         GameObject[] tooltipObjs = GameObject.FindGameObjectsWithTag("Tooltip");
         foreach (var tooltip in tooltipObjs)
         {
@@ -43,6 +46,11 @@ public class TooltipHandler : MonoBehaviour
     public void ShowPlayersTooltip(GameObject player, string message)
     {
         player.GetComponent<PlayerTooltip>().tooltip.ShowTooltip(message);
+    }
+
+    public void ShowInfoTooltip(string message)
+    {
+        ShowTooltip(playerInfoTooltip, message);
     }
 
     private void Update()
