@@ -9,7 +9,7 @@ public class FuelStation : FieldEffect
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Fuel station, refilled fuel!");
+        tooltipHandler.ShowFieldInfoTooltip("Fuel station, refilled fuel!");
     }
 
     public override void TriggerEffect()

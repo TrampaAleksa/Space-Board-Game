@@ -9,8 +9,9 @@ public class EffectLockPlayer : FieldEffect
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Engines shut down!");
+        tooltipHandler.ShowFieldInfoTooltip("Engines shut down!");
     }
+
     public override void TriggerEffect()
     {
         print("Your engines shut down!");

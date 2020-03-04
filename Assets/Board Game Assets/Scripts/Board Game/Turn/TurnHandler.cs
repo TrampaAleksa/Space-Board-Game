@@ -14,7 +14,6 @@ public class TurnHandler : MonoBehaviour, IBoardState
         }
         // player ended turn sound
         EndTurn.StartNextPlayersTurn();
-        InstanceManager.Instance.Get<CameraMovementHandler>().DelayedFreeLookCameraModeSwitch(1.5f);
     }
 
     public GameObject AddPlayerTurnsToSkip(GameObject player, int turnsToSkip)

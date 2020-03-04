@@ -9,8 +9,9 @@ public class EffectDamageEnemy : SelectOnTrigger
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Choose an enemy to damage!");
+        tooltipHandler.ShowFieldInfoTooltip("Choose an enemy to damage!");
     }
+
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();
@@ -36,5 +37,4 @@ public class EffectDamageEnemy : SelectOnTrigger
             }
         }
     }
-
 }

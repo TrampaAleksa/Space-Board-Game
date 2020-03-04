@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class TooltipHandler : MonoBehaviour
 {
-    public const float TOOLTIP_TIME_SHORT = 2f;
-    public const float TOOLTIP_TIME_NORMAL = 5f;
-    public const float TOOLTIP_TIME_LONG = 10f;
-    public TextTooltip fieldInfoTooltip;
+    private TextTooltip fieldInfoTooltip;
     public TextTooltip playerInfoTooltip;
 
     private void Awake()
@@ -26,6 +23,11 @@ public class TooltipHandler : MonoBehaviour
     public void ShowTooltip(TextTooltip tooltipToShow, string message)
     {
         tooltipToShow.ShowTooltip(message);
+    }
+
+    public void ShowFieldInfoTooltip(string message)
+    {
+        fieldInfoTooltip.ShowTooltip(message);
     }
 
     /// <summary>

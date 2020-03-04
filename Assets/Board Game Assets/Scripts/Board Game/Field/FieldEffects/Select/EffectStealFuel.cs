@@ -9,13 +9,14 @@ public class EffectStealFuel : SelectOnTrigger
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Steal the selected players fuel!");
+        tooltipHandler.ShowFieldInfoTooltip("Steal the selected players fuel!");
     }
 
     private void Awake()
     {
         selectionEffect = new StealFuel(gameObject);
     }
+
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();
@@ -32,7 +33,7 @@ public class EffectStealFuel : SelectOnTrigger
             }
             if (Input.GetKeyDown(KeyCode.K))
             {
-               selectionEffect.ConfirmedSelection();
+                selectionEffect.ConfirmedSelection();
             }
         }
     }

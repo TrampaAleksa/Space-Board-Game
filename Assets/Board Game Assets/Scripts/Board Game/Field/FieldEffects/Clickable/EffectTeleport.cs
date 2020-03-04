@@ -7,8 +7,9 @@ public class EffectTeleport : FieldEffect
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Click on a field to teleport to");
+        tooltipHandler.ShowFieldInfoTooltip("Click on a field to teleport to");
     }
+
     public override void TriggerEffect()
     {
         print("Emergency teleport!");

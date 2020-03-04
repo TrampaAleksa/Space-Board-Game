@@ -9,8 +9,9 @@ public class EffectLockEnemy : SelectOnTrigger
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Break the selected enemies engine!");
+        tooltipHandler.ShowFieldInfoTooltip("Break the selected enemies engine!");
     }
+
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();

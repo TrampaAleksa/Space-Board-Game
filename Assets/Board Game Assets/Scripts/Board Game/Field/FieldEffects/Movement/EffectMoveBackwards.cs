@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EffectMoveBackwards : FieldEffect
 {
-
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "You moved backwards");
+        tooltipHandler.ShowFieldInfoTooltip("You moved backwards");
     }
+
     public override void TriggerEffect()
     {
         GameObject currentPlayer = playersHandler.GetCurrentPlayer();

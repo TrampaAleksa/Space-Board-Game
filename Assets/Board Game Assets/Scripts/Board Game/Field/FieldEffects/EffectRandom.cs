@@ -7,13 +7,16 @@ public class EffectRandom : FieldEffect
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "Random effect occured!");
+        tooltipHandler.ShowFieldInfoTooltip("Random effect occured!");
     }
+
     private void Start()
     {
         effectsList = GameObject.Find("Random Effects Holder").GetComponentsInChildren<FieldEffect>();
     }
+
     public FieldEffect[] effectsList;
+
     public override void TriggerEffect()
     {
         int index = Random.Range(0, effectsList.Length);

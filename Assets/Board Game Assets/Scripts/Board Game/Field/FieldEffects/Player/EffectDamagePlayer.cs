@@ -9,7 +9,7 @@ public class EffectDamagePlayer : FieldEffect
     public override void TooltipDisplay()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowTooltip(tooltipHandler.fieldInfoTooltip, "You Took damage!");
+        tooltipHandler.ShowFieldInfoTooltip("You Took damage!");
     }
 
     public override void TriggerEffect()
