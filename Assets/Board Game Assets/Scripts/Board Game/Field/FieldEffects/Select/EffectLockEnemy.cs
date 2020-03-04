@@ -15,6 +15,7 @@ public class EffectLockEnemy : SelectOnTrigger
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();
+        GenericTriggerEffect();
         print("Break another players engines!");
     }
 

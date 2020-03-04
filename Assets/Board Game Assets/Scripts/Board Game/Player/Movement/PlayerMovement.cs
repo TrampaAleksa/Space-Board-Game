@@ -28,7 +28,7 @@ public class PlayerMovement : Player
             other.tag = "Untagged";
             FieldEffect[] effects = currentPlayerField.GetComponents<FieldEffect>();
             foreach (var effect in effects) effect.TriggerEffect();
-            effects[0].TooltipDisplay();
+            // effects[0].TooltipDisplay();
         }
     }
 

@@ -14,6 +14,7 @@ public class EffectDamagePlayer : FieldEffect
 
     public override void TriggerEffect()
     {
+        GenericTriggerEffect();
         Damage.DamagePlayer(playersHandler.GetCurrentPlayer(), damageAmount);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }

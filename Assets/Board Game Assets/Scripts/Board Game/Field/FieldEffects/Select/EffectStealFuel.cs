@@ -20,6 +20,7 @@ public class EffectStealFuel : SelectOnTrigger
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();
+        GenericTriggerEffect();
         print("Steal another players fuel!");
     }
 

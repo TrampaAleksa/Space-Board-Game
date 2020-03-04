@@ -19,6 +19,7 @@ public class EffectRandom : FieldEffect
 
     public override void TriggerEffect()
     {
+        GenericTriggerEffect();
         int index = Random.Range(0, effectsList.Length);
         print("Random effect: " + effectsList[index].name);
         effectsList[index].TriggerEffect();

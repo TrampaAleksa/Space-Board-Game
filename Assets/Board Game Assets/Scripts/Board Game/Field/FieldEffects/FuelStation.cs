@@ -14,6 +14,7 @@ public class FuelStation : FieldEffect
 
     public override void TriggerEffect()
     {
+        GenericTriggerEffect();
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         Field field = gameObject.GetComponent<Field>();
         InstanceManager.Instance.Get<CheckpointHandler>().SetPlayersCheckpoint(player, field);

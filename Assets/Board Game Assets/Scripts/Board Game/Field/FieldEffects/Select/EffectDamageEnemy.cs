@@ -15,6 +15,7 @@ public class EffectDamageEnemy : SelectOnTrigger
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();
+        GenericTriggerEffect();
         print("Damage Another player!");
     }
 

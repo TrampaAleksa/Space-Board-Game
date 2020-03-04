@@ -14,6 +14,7 @@ public class EffectSwapPlaces : SelectOnTrigger
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();
+        GenericTriggerEffect();
         print("Swap places with someone!");
     }
 

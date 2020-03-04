@@ -14,6 +14,7 @@ public class EffectHealPlayer : FieldEffect
 
     public override void TriggerEffect()
     {
+        GenericTriggerEffect();
         Repair.RepairPlayer(playersHandler.GetCurrentPlayer(), amountToHeal, HullHandler.MAXIMUM_HULL);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
