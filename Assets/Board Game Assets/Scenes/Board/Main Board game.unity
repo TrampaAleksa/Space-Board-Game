@@ -750,7 +750,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tooltipText
       value: 
-      objectReference: {fileID: 1888629637}
+      objectReference: {fileID: 0}
     - target: {fileID: 1415150822298374755, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: tooltip
@@ -1753,7 +1753,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tooltipText
       value: 
-      objectReference: {fileID: 773932115}
+      objectReference: {fileID: 0}
     - target: {fileID: 1563069208593759565, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Mesh
@@ -3295,6 +3295,7 @@ GameObject:
   - component: {fileID: 387936081}
   - component: {fileID: 387936089}
   - component: {fileID: 387936090}
+  - component: {fileID: 387936091}
   m_Layer: 0
   m_Name: InstancesHolder
   m_TagString: Untagged
@@ -3543,6 +3544,18 @@ MonoBehaviour:
   target: {fileID: 1174075281}
   smoothSpeed: 0.75
   offset: {x: 3.85, y: 15.4, z: -7.47}
+--- !u!114 &387936091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387936072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92f962f35a44fd48a60288bb7ff0f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &389966094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6936,6 +6949,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 905338210}
+  - component: {fileID: 905338211}
   m_Layer: 0
   m_Name: MouseBoundObject
   m_TagString: Untagged
@@ -6957,6 +6971,18 @@ Transform:
   m_Father: {fileID: 1325363579}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &905338211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905338209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff241a7961238b47b864057b7e0f3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &918879683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9191,7 +9217,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tooltipText
       value: 
-      objectReference: {fileID: 1497337769}
+      objectReference: {fileID: 0}
     - target: {fileID: 1563069208593759565, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Mesh
@@ -9303,7 +9329,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325363579}
-  - component: {fileID: 1325363580}
   m_Layer: 0
   m_Name: Default Camera Position
   m_TagString: Untagged
@@ -9327,18 +9352,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1325363580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325363578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92f962f35a44fd48a60288bb7ff0f46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1325613098
 GameObject:
   m_ObjectHideFlags: 0
@@ -14712,7 +14725,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tooltipText
       value: 
-      objectReference: {fileID: 185320835}
+      objectReference: {fileID: 0}
     - target: {fileID: 1563069208593759565, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Mesh
