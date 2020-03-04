@@ -16,6 +16,9 @@ TagManager:
   - Player 4
   - Ground
   - DeathLine
+  - PText
+  - PPanel
+  - Wheel
   layers:
   - Default
   - TransparentFX
