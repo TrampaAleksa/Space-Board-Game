@@ -13,7 +13,6 @@ public class CameraMovementHandler : MonoBehaviour
     public ICameraMode playerFollowMode;
     public ICameraMode selectedFolllowMode;
 
-
     private void Start()
     {
         freeLookMode = new MouseFollow();
@@ -32,6 +31,16 @@ public class CameraMovementHandler : MonoBehaviour
         currentCameraMode = mode;
     }
 
+    public void DelayedFreeLookCameraModeSwitch(float time)
+    {
+        Invoke("DelayCameraModeSwitch", time);
+    }
+
+    private void DelayCameraModeSwitch()
+    {
+        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+        cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
+    }
 
     public class DefaultCameraMode : ICameraMode
     {

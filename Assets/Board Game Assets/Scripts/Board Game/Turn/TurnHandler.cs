@@ -10,31 +10,17 @@ public class TurnHandler : MonoBehaviour, IBoardState
         if (brokenEngines)
         {
             BrokenEngines.BrokenEngineAction();
+            return;
         }
-        else
-        {
-            // player ended turn sound
-            EndTurn.StartNextPlayersTurn();
-            Invoke("DelayCameraModeSwitch", 1.5f);
-        }
+        // player ended turn sound
+        EndTurn.StartNextPlayersTurn();
+        InstanceManager.Instance.Get<CameraMovementHandler>().DelayedFreeLookCameraModeSwitch(1.5f);
     }
 
-    private void DelayCameraModeSwitch()
-    {
-        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
-        cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
-    }
-
-    public GameObject PlayerSkipTurns(GameObject player, int turnsToSkip)
+    public GameObject AddPlayerTurnsToSkip(GameObject player, int turnsToSkip)
     {
         player.GetComponent<PlayerMovement>().turnsToSkip += turnsToSkip;
         return player;
-    }
-
-    public int SkipPlayersTurn(GameObject player)
-    {
-        player.GetComponent<PlayerMovement>().turnsToSkip--;
-        return player.GetComponent<PlayerMovement>().turnsToSkip;
     }
 
     public void SaveState()
