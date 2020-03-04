@@ -89,7 +89,6 @@ public partial class PlayerController : MonoBehaviour
     {
         if (other.tag == "Finish")
         {
-            Debug.Log(playerClass.Name+" : "+ playerClass.Element);
             if (!beforeFinishPass)
             {
                 FinishedLap();
