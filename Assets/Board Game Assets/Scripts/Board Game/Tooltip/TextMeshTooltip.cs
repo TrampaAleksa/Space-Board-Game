@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class TextMeshTooltip : MonoBehaviour, ITooltipAction
 {
-    protected TextMeshPro tooltipTextComponent;
+    public TextMeshPro tooltipTextComponent;
     protected Animator tooltipAnimator;
     public TooltipAnimationType defaultAnimationType;
 
-    private void Start()
+    private void Awake()
     {
-        tooltipTextComponent = GetComponent<TextMeshPro>();
+        tooltipTextComponent = GetComponentInChildren<TextMeshPro>();
         tooltipAnimator = GetComponent<Animator>();
     }
 

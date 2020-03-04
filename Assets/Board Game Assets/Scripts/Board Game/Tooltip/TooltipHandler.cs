@@ -10,13 +10,12 @@ public class TooltipHandler : MonoBehaviour
     public const float TOOLTIP_TIME_LONG = 10f;
     public TextTooltip fieldInfoTooltip;
 
-
     private void Awake()
     {
         GameObject[] tooltipObjs = GameObject.FindGameObjectsWithTag("Tooltip");
         foreach (var tooltip in tooltipObjs)
         {
-            if (tooltip.GetComponent<TextTooltip>() == null)
+            if (tooltip.GetComponent<ITooltipAction>() == null)
                 tooltip.AddComponent<TextTooltip>();
         }
     }
@@ -25,6 +24,7 @@ public class TooltipHandler : MonoBehaviour
     {
         tooltipToShow.ShowTooltip(message);
     }
+
     /// <summary>
     /// If you sometimes need to get the reference to a specific tooltip, use this method
     /// </summary>
