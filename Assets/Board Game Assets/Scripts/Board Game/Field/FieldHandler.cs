@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class FieldHandler : GenericObjectArray, IBoardState
 {
@@ -43,8 +45,12 @@ public class FieldHandler : GenericObjectArray, IBoardState
         return Mathf.Abs(field1.IndexInPath - field2.IndexInPath);
     }
 
+    public Dictionary<Type, string> tooltipMessagesDictionary;
+
     public void InitializeFields()
     {
+        tooltipMessagesDictionary = new Dictionary<Type, string>();
+        AddMessagesToDictionary(tooltipMessagesDictionary);
         gameObjects = GameObject.FindGameObjectsWithTag("Field");
         int i = 0;
         foreach (var field in gameObjects)
@@ -56,6 +62,17 @@ public class FieldHandler : GenericObjectArray, IBoardState
             Quaternion _rot = Quaternion.LookRotation(_lookDirection, Vector3.up);
             field.transform.rotation = Quaternion.Lerp(field.transform.rotation, _rot, 1);
             i++;
+        }
+    }
+
+    private void AddMessagesToDictionary(Dictionary<Type, string> tooltipMessagesDictionary)
+    {
+        for (int i = 0; i < FieldInfoMessages.fieldGameObjectNames.Length; i++)
+        {
+            tooltipMessagesDictionary.Add
+                (FieldInfoMessages.fieldGameObjectNames[i],
+                FieldInfoMessages.fieldInfoMessages[i]);
+            print("added type of " + FieldInfoMessages.fieldGameObjectNames[i] + "with the message: " + FieldInfoMessages.fieldInfoMessages[i]);
         }
     }
 

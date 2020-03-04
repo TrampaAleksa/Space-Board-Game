@@ -11,19 +11,6 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
     public const string TAG_SELECTION = "Selection";
     protected ISelectionEffect selectionEffect;
 
-    private Dictionary<string, string> tooltipMessagesDictionary;
-
-    private void Awake()
-    {
-        tooltipMessagesDictionary = new Dictionary<string, string>();
-        AddMessagesToDictionary(tooltipMessagesDictionary);
-    }
-
-    private void AddMessagesToDictionary(Dictionary<string, string> tooltipMessagesDictionary)
-    {
-        throw new NotImplementedException();
-    }
-
     private void Start()
     {
         playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
@@ -41,6 +28,9 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
     private void DisplayFieldInfoTooltip()
     {
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowFieldInfoTooltip("Generic message");
+
+        tooltipHandler.ShowFieldInfoTooltip
+            (InstanceManager.Instance.Get<FieldHandler>()
+            .tooltipMessagesDictionary[gameObject.GetComponent<FieldEffect>().GetType()]);
     }
 }
