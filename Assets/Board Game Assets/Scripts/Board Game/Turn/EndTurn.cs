@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndTurn : MonoBehaviour
 {
-    public void StartNextPlayersTurn()
+    public static void StartNextPlayersTurn()
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         // player ended turn sound
