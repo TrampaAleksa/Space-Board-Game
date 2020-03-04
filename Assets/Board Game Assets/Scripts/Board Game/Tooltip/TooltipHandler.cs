@@ -6,43 +6,25 @@ using UnityEngine.UI;
 public class TooltipHandler : MonoBehaviour
 {
     private TextTooltip fieldInfoTooltip;
-    public TextTooltip playerInfoTooltip;
+    private TextTooltip infoTooltip;
 
     private void Awake()
     {
+        InitializeTooltips();
+    }
+
+    public void InitializeTooltips()
+    {
         fieldInfoTooltip = GameObject.Find("FieldInfoTooltip").GetComponentInChildren<TextTooltip>();
-        playerInfoTooltip = GameObject.Find("InfoTooltip").GetComponentInChildren<TextTooltip>();
-        GameObject[] tooltipObjs = GameObject.FindGameObjectsWithTag("Tooltip");
-        foreach (var tooltip in tooltipObjs)
+        infoTooltip = GameObject.Find("InfoTooltip").GetComponentInChildren<TextTooltip>();
+
+        GameObject[] players = InstanceManager.Instance.Get<PlayersHandler>().gameObjects;
+        TextMeshTooltip[] tooltipHolders = GameObject.Find("PlayerContainer").GetComponentsInChildren<TextMeshTooltip>();
+        if (tooltipHolders.Length != players.Length) print("number of tooltip holders not equal to players");
+        for (int i = 0; i < players.Length; i++)
         {
-            if (tooltip.GetComponent<ITooltipAction>() == null)
-                tooltip.AddComponent<TextTooltip>();
+            players[i].GetComponent<PlayerTooltip>().tooltip = tooltipHolders[i];
         }
-    }
-
-    public void ShowTooltip(TextTooltip tooltipToShow, string message)
-    {
-        tooltipToShow.ShowTooltip(message);
-    }
-
-    public void ShowFieldInfoTooltip(string message)
-    {
-        fieldInfoTooltip.ShowTooltip(message);
-    }
-
-    /// <summary>
-    /// If you sometimes need to get the reference to a specific tooltip, use this method
-    /// </summary>
-    /// <param name="name">The name of the gameobject the tooltip is attached to</param>
-    /// <returns>The tooltip component from the game object found</returns>
-    public TextTooltip FindTooltipByGameObjectName(string name)
-    {
-        TextTooltip tooltipFound = GameObject.Find(name).GetComponent<TextTooltip>();
-        if (tooltipFound == null)
-        {
-            Debug.Log("Error, tooltip was not found, wrong name or no component attached");
-        }
-        return tooltipFound;
     }
 
     public void ShowPlayersTooltip(GameObject player, string message)
@@ -52,7 +34,12 @@ public class TooltipHandler : MonoBehaviour
 
     public void ShowInfoTooltip(string message)
     {
-        ShowTooltip(playerInfoTooltip, message);
+        infoTooltip.ShowTooltip(message);
+    }
+
+    public void ShowFieldInfoTooltip(string message)
+    {
+        fieldInfoTooltip.ShowTooltip(message);
     }
 
     private void Update()

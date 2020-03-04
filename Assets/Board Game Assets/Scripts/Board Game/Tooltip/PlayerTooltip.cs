@@ -6,16 +6,18 @@ public class PlayerTooltip : MonoBehaviour
 {
     [SerializeField]
     public TextMeshTooltip tooltip;
-    public GameObject tooltipText;
+
+    private GameObject tooltipText;
     public Vector3 offset;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        tooltip = tooltipText.GetComponentInChildren<TextMeshTooltip>();
+        tooltipText = tooltip.gameObject.transform.parent.gameObject;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         tooltipText.transform.position = transform.position + offset;
     }
