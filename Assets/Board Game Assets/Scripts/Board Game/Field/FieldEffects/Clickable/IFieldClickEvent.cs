@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IFieldClickEvent
 {
-    void FieldClickAction();
+    void FieldClickAction(IClickEvent click, GameObject hit);
 }
