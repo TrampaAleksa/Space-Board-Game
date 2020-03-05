@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseFollow : ICameraMode
+public class CameraModeMouseFollow : ICameraMode
 {
     private const double UpperBoundary = 0.98f;
     public float ScrollSpeed = 2;
