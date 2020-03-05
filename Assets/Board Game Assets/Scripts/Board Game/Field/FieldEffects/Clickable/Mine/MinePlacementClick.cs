@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class MinePlacementClick : MonoBehaviour, IClickEvent
 {
+    private MinePlacementClickEvent minePlacementEventImpl;
+
+    private void Start()
+    {
+        minePlacementEventImpl = new MinePlacementClickEvent();
+    }
+
     public IClickEvent Clicked()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100.0f, LayerMask.GetMask("Field")))
         {
-            if (hit.transform != null && hit.collider.gameObject.GetComponentInChildren<Field>() != null)
-            {
-                if (hit.collider.gameObject.GetComponent<Mine>() == null)
-                {
-                    hit.collider.gameObject.AddComponent<Mine>();
-                    InstanceManager.Instance.Get<ClickEventHandler>().RemoveClickEvent(this);
-                    InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
-                    Destroy(this);
-                    //Mine placed sound
-                }
-                else print("mine already exists");
-            }
+            minePlacementEventImpl.FieldClickAction(this, hit.collider.gameObject);
         }
         return this;
     }

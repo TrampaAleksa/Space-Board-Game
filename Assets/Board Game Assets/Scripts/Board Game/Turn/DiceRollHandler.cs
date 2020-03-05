@@ -12,8 +12,7 @@ public class DiceRollHandler : MonoBehaviour
     private Image diceImage;
     public float diceAnimationSpeed = 0.05f;
 
-    int numberRolled = 0;
-
+    private int numberRolled = 0;
 
     public static int number = 0;
     private int minimumDiceNumber = 1;
@@ -25,7 +24,6 @@ public class DiceRollHandler : MonoBehaviour
     {
         diceImage = GameObject.Find("Dice").GetComponent<Image>();
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
-
     }
 
     public void DiceWasClicked()
@@ -43,26 +41,27 @@ public class DiceRollHandler : MonoBehaviour
         return diceLocked = !diceLocked;
     }
 
-     private IEnumerator RollTheDice()
+    private IEnumerator RollTheDice()
     {
-        
-            int randomDiceSide = 0;
+        int randomDiceSide = 0;
         CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode(cameraMovementHandler.playerFollowMode);
-            for (int i = 0; i <= 20; i++)
-            {
-                randomDiceSide = Random.Range(0, 6);
+        for (int i = 0; i <= 20; i++)
+        {
+            randomDiceSide = Random.Range(0, 6);
 
-                diceImage.sprite = diceSides[randomDiceSide];
+            diceImage.sprite = diceSides[randomDiceSide];
 
-                yield return new WaitForSeconds(diceAnimationSpeed);
-            }
+            yield return new WaitForSeconds(diceAnimationSpeed);
+        }
 
-            numberRolled = randomDiceSide + 1;
-            tDiceNumberRolled.text = numberRolled.ToString();
-            InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
-            
+        numberRolled = randomDiceSide + 1;
+        tDiceNumberRolled.text = numberRolled.ToString();
+        InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
     }
 
-    public bool DiceIsLocked() { return diceLocked; }
+    public bool DiceIsLocked()
+    {
+        return diceLocked;
+    }
 }
