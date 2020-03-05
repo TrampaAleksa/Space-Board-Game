@@ -8,7 +8,7 @@ public class EffectPlaceMine : FieldEffect
     {
         print("Place a mine!");
         GenericTriggerEffect();
-        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
         InstanceManager.Instance.Get<ClickEventHandler>().AddClickEvent(gameObject.AddComponent<MinePlacementClick>());
     }

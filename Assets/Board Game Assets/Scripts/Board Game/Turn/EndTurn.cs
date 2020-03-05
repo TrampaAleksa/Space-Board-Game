@@ -17,8 +17,8 @@ public class EndTurn : MonoBehaviour
             diceRollHandler.ChangeDiceLockState();
         }
 
-        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode(cameraMovementHandler.playerFollowMode);
-        InstanceManager.Instance.Get<CameraMovementHandler>().DelayedFreeLookCameraModeSwitch(1.5f);
+        InstanceManager.Instance.Get<CameraModesHandler>().DelayedFreeLookCameraModeSwitch(1.5f);
     }
 }

@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 
-public class CameraMovementHandler : MonoBehaviour
+public class CameraModesHandler : MonoBehaviour
 {
-    public Transform target;
-
     public float smoothSpeed = 0.305f;
-
     public Vector3 offset;
+
     public ICameraMode currentCameraMode;
 
     public ICameraMode freeLookMode;
@@ -15,9 +13,10 @@ public class CameraMovementHandler : MonoBehaviour
 
     private void Start()
     {
+        Transform camera = Camera.main.transform;
         freeLookMode = new CameraModeMouseFollow();
-        playerFollowMode = new CameraModePlayerFollow();
-        selectedFolllowMode = new CameraModeSelectedFollow();
+        playerFollowMode = new CameraModePlayerFollow(camera);
+        selectedFolllowMode = new CameraModeSelectedFollow(camera);
         currentCameraMode = freeLookMode;
     }
 
@@ -38,7 +37,7 @@ public class CameraMovementHandler : MonoBehaviour
 
     private void DelayCameraModeSwitch()
     {
-        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
     }
 }

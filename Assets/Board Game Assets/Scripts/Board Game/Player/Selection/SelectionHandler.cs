@@ -17,7 +17,7 @@ public class SelectionHandler : GenericObjectArray
             currentlySelected = SetToNextMember();
         print("Currently selected player: " + currentlySelected.name);
         //changed selected player sound?
-        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode(cameraMovementHandler.selectedFolllowMode);
         return currentlySelected;
     }

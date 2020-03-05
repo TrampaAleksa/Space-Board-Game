@@ -8,7 +8,7 @@ public class EffectTeleport : FieldEffect
     {
         print("Emergency teleport!");
         GenericTriggerEffect();
-        CameraMovementHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraMovementHandler>();
+        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
         InstanceManager.Instance.Get<ClickEventHandler>().AddClickEvent(gameObject.AddComponent<TeleportClick>());
     }
