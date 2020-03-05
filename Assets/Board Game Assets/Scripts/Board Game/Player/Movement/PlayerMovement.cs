@@ -28,18 +28,15 @@ public class PlayerMovement : Player
             other.tag = "Untagged";
             FieldEffect[] effects = currentPlayerField.GetComponents<FieldEffect>();
             foreach (var effect in effects) effect.TriggerEffect();
-            // effects[0].TooltipDisplay();
         }
     }
 
     private void FixedUpdate()
     {
-        Vector3 targetDirection = currentPlayerField.transform.position + (Vector3.up * 0.5f) + currentPlayerField.transform.forward - transform.position;
-
-        float singleStep = rotationSpeed * Time.deltaTime;
-
-        Quaternion _rot = Quaternion.LookRotation(targetDirection, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, _rot, singleStep);
+        Vector3 targetPosition = currentPlayerField.transform.position
+                                + (Vector3.up * 0.5f)
+                                + currentPlayerField.transform.forward;
+        Lerping.LerpObjectRotationToPosition(targetPosition, gameObject, rotationSpeed);
         // Maybe you can disable / enable the movement script when needed to be used so that you don't have the constant position update
         transform.position = Vector3.MoveTowards(transform.position, positionToTravelTo + (Vector3.up * 0.5f), movementSpeed * Time.deltaTime);
     }

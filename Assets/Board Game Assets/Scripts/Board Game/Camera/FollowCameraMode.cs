@@ -18,12 +18,8 @@ public class FollowCameraMode
 
     public void FollowTarget(Transform target, Vector3 offset, float smoothSpeed)
     {
-        Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(camera.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        camera.position = smoothedPosition;
+        Lerping.LerpObjectToPosition(target.position + offset, camera.gameObject, smoothSpeed);
 
-        Vector3 _lookDirection = target.position - camera.position;
-        Quaternion _rot = Quaternion.LookRotation(_lookDirection, Vector3.up);
-        camera.rotation = Quaternion.Lerp(camera.rotation, _rot, cameraRotationSpeed * Time.deltaTime);
+        Lerping.LerpObjectRotationToPosition(target.position, camera.gameObject, cameraRotationSpeed);
     }
 }
