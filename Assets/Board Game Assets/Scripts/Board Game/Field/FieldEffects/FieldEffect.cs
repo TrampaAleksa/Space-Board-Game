@@ -18,8 +18,6 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
 
     public abstract void TriggerEffect();
 
-    public abstract void TooltipDisplay();
-
     public void GenericTriggerEffect()
     {
         DisplayFieldInfoTooltip();

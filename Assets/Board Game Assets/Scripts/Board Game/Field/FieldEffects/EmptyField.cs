@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class EmptyField : FieldEffect
 {
-    public override void TooltipDisplay()
-    {
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowFieldInfoTooltip("This field does nothing!");
-    }
-
     public override void TriggerEffect()
     {
         GenericTriggerEffect();

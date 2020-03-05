@@ -5,12 +5,6 @@ using UnityEngine;
 
 public class EffectSwapPlaces : SelectOnTrigger
 {
-    public override void TooltipDisplay()
-    {
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowFieldInfoTooltip("Select an enemy to swap places with");
-    }
-
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();

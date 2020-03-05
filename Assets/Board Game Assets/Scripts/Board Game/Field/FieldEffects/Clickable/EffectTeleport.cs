@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class EffectTeleport : FieldEffect
 {
-    public override void TooltipDisplay()
-    {
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowFieldInfoTooltip("Click on a field to teleport to");
-    }
-
     public override void TriggerEffect()
     {
         print("Emergency teleport!");

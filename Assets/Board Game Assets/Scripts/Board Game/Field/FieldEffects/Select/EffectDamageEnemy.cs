@@ -6,12 +6,6 @@ public class EffectDamageEnemy : SelectOnTrigger
 {
     public const float AMOUNT_TO_DAMAGE = 20f;
 
-    public override void TooltipDisplay()
-    {
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowFieldInfoTooltip("Choose an enemy to damage!");
-    }
-
     public override void TriggerEffect()
     {
         SelectNextPlayerOnTrigger();

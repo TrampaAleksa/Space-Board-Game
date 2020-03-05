@@ -6,12 +6,6 @@ public class EffectStealFuel : SelectOnTrigger
 {
     public const float AMOUNT_TO_STEAL = 20f;
 
-    public override void TooltipDisplay()
-    {
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowFieldInfoTooltip("Steal the selected players fuel!");
-    }
-
     private void Awake()
     {
         selectionEffect = new StealFuel(gameObject);

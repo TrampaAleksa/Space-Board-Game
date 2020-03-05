@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Mine : FieldEffect
 {
-    public override void TooltipDisplay()
-    {
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowFieldInfoTooltip("Stepped on a mine!");
-    }
-
     public override void TriggerEffect()
     {
         print("YOU STEPPED ON A MINE");

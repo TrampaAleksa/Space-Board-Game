@@ -6,12 +6,6 @@ public class EffectHealPlayer : FieldEffect
 {
     public float amountToHeal = 10;
 
-    public override void TooltipDisplay()
-    {
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowFieldInfoTooltip("You were repaired!");
-    }
-
     public override void TriggerEffect()
     {
         GenericTriggerEffect();
