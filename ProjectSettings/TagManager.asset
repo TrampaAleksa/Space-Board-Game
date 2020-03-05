@@ -6,9 +6,19 @@ TagManager:
   tags:
   - LastField
   - NextField
-  - Swap
   - Tooltip
   - Display
+  - Selection
+  - Field
+  - Player 1
+  - Player 2
+  - Player 3
+  - Player 4
+  - Ground
+  - DeathLine
+  - PText
+  - PPanel
+  - Wheel
   layers:
   - Default
   - TransparentFX
@@ -18,7 +28,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Field
   - 
   - 
   - 

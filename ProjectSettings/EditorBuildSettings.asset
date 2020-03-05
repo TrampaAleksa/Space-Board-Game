@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Aleksa/Aleksa Board.unity
-    guid: 6861fd7cea78b1a44a9afdac62087193
+    path: Assets/UI Assets/Scenes/MainMenu.unity
+    guid: adb7dc4e37da7ba4ba71c7f2b21ac0c0
   - enabled: 1
-    path: Assets/Scenes/Aleksa/Minigame test.unity
-    guid: c664e09b7e26fa14bbbc25095f575690
+    path: Assets/Board Game Assets/Scenes/Board/Main Board game.unity
+    guid: 3c72671a801d18847adc53a9cb151b15
+  - enabled: 1
+    path: Assets/Mini Games/minigame-1/Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
