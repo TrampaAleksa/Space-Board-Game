@@ -2,7 +2,6 @@
 
 public class CameraModesHandler : MonoBehaviour
 {
-    public float smoothSpeed = 0.305f;
     public Vector3 offset;
 
     public ICameraMode currentCameraMode;
