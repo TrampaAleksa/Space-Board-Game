@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICameraMode 
+public interface ICameraMode
 {
-    void UpdateCamera(Vector3 offset, float smoothSpeed);
+    void UpdateCamera();
 }

@@ -12,7 +12,7 @@ public class CameraModeMouseFollow : ICameraMode
     private Vector3 tmp;
     private Camera camera;
 
-    public void UpdateCamera(Vector3 offset, float smoothSpeed)
+    public void UpdateCamera()
     {
         camera = Camera.main;
         Horizontal = Input.GetAxis("Mouse X") * speed;

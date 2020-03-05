@@ -22,7 +22,7 @@ public class CameraModesHandler : MonoBehaviour
 
     private void LateUpdate()
     {
-        currentCameraMode.UpdateCamera(offset, smoothSpeed);
+        currentCameraMode.UpdateCamera();
     }
 
     public void SetCameraMode(ICameraMode mode)
