@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 117919676}
   - component: {fileID: 117919675}
   - component: {fileID: 117919677}
+  - component: {fileID: 117919678}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -367,6 +368,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779c196ae0f338a4a9ce0fb623615031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &117919678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117919674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2041d6a177453a4caff35aebb6f5822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfWheelColliderObject:
+  - WC_FRONTLEFT
+  - WC_FRONTRIGHT
+  - WC_REARLEFT
+  - WC_REARRIGHT
 --- !u!1 &149159946
 GameObject:
   m_ObjectHideFlags: 0

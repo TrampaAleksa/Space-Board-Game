@@ -29,17 +29,10 @@ public partial class PlayerController : MonoBehaviour
     {
         playerClass = new PlayerClass(i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
         WheelCollider[] wheelColliders = gameObject.GetComponentsInChildren<WheelCollider>();
-        for (int i = 0; i < wheelColliders.Length; i++)
-        {
-            if (wheelColliders[i].name == "WC_FRONTLEFT")
-                frontLeftW = wheelColliders[i];
-            else if (wheelColliders[i].name == "WC_FRONTRIGHT")
-                frontRightW = wheelColliders[i];
-            else if (wheelColliders[i].name == "WC_REARLEFT")
-                rearLeftW = wheelColliders[i];
-            else if (wheelColliders[i].name == "WC_REARRIGHT")
-                rearRightW = wheelColliders[i];
-        }
+        frontLeftW =wheelColliders[0];
+        frontRightW =wheelColliders[1];
+        rearLeftW =wheelColliders[2];
+        rearRightW =wheelColliders[3];
         pPanel.gameObject.SetActive(false);
         pText.text = "Lap: " + lap.ToString() + "/" + GameManager.Instance.numberOfLaps;
     }
@@ -58,9 +51,7 @@ public partial class PlayerController : MonoBehaviour
                 if (GameManager.Instance.numberOfLaps == lap-1)
                 {
                     GameManager.Instance.Win(playerClass.Element);
-                    gameObject.SetActive(false);
-                    pPanel.gameObject.SetActive(true);
-                    pText.text = playerClass.Name + " je " + GameManager.Instance.playerBoardStates[playerClass.Element].rank + " mesto";
+                    FinishGame();
                 }
             }
         }
@@ -68,9 +59,7 @@ public partial class PlayerController : MonoBehaviour
         if (other.tag == "DeathLine")
         {
             GameManager.Instance.Lose(playerClass.Element);
-            gameObject.SetActive(false);
-            pPanel.gameObject.SetActive(true);
-            pText.text = playerClass.Name + " je " + GameManager.Instance.playerBoardStates[playerClass.Element].rank + " mesto";
+            FinishGame();
         }
 
 
@@ -84,5 +73,11 @@ public partial class PlayerController : MonoBehaviour
         lap++;
         pText.text = "Lap: " + (lap - 1).ToString() + "/" + GameManager.Instance.numberOfLaps;
         beforeFinishPass = true;
+    }
+    private void FinishGame()
+    {
+        gameObject.SetActive(false);
+        pPanel.gameObject.SetActive(true);
+        pText.text = playerClass.Name + " je " + GameManager.Instance.playerBoardStates[playerClass.Element].rank + " mesto";
     }
 }
