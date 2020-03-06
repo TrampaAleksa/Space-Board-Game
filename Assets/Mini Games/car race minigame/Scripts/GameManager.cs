@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public float numberOfLaps;
     public PlayerBoardState[] playerBoardStates;
 
     private int counterRankInc = 1;

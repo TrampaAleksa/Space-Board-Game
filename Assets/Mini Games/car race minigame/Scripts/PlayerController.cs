@@ -3,26 +3,22 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public partial class PlayerController : MonoBehaviour
 {
+    private PlayerClass playerClass;
     private static int i = 0;
     private int lap;
     private bool beforeFinishPass = false;
-    private bool playerFinishRace = false;
-    private float m_horizontalInput;
-    private float m_verticalInput;
 
+    public float maxSteerAngle, motorForce, 
+                    maximumRotation;
     public string nameOfInputHorizontal;
     public string nameOfInputVertical;
-    public float maxSteerAngle;
-    public float motorForce;
-    public float numberOfLaps;
-    public float maximumRotation = 45;
 
-    public PlayerClass playerClass;
     public Text pText;
     public Transform pPanel;
     public Transform BodyForRotate;
     public WheelCollider frontLeftW, frontRightW,
                          rearLeftW, rearRightW;
+
     public static PlayerController Instance;
 
     private void Awake()
@@ -31,7 +27,7 @@ public partial class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        playerClass = new PlayerClass(i, GameManager.Instance.ReturnName(i++));
+        playerClass = new PlayerClass(i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
         WheelCollider[] wheelColliders = gameObject.GetComponentsInChildren<WheelCollider>();
         for (int i = 0; i < wheelColliders.Length; i++)
         {
@@ -45,44 +41,11 @@ public partial class PlayerController : MonoBehaviour
                 rearRightW = wheelColliders[i];
         }
         pPanel.gameObject.SetActive(false);
-        pText.text = "Lap: " + lap.ToString() + "/" + numberOfLaps;
+        pText.text = "Lap: " + lap.ToString() + "/" + GameManager.Instance.numberOfLaps;
     }
     private void FixedUpdate()
     {
-        if (!playerFinishRace)
-        {
-            GetInput();
-            Rotation();
-            Steer();
-            Accelerate();
-        }
-        
-    }
-    public void GetInput()
-    {
-        m_horizontalInput = Input.GetAxis(nameOfInputHorizontal);
-        m_verticalInput = Input.GetAxis(nameOfInputVertical); //Podesavanje osa za strelice
-    }
-
-    public void Rotation()
-    {
-        BodyForRotate.transform.localRotation = new Quaternion(0,-(m_horizontalInput* maximumRotation), 0, 180);
-    }
-
-    public void Break()
-    {
-        if(m_verticalInput<0)
-            frontRightW.motorTorque = frontLeftW.motorTorque = m_verticalInput * motorForce*10000000;
-    }
-
-    public void Steer()
-    {
-        frontRightW.steerAngle = frontLeftW.steerAngle = maxSteerAngle * m_horizontalInput;
-    }
-
-    public void Accelerate()
-    {
-        frontRightW.motorTorque = frontLeftW.motorTorque = rearLeftW.motorTorque=rearRightW.motorTorque = m_verticalInput * motorForce;
+        CarMovement.Instance.Move(frontRightW, frontLeftW, rearLeftW, rearRightW, playerClass.MotorForce, playerClass.MaxSteerAngle, playerClass.MaximumRotation, BodyForRotate, nameOfInputHorizontal, nameOfInputVertical);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,9 +55,8 @@ public partial class PlayerController : MonoBehaviour
             if (!beforeFinishPass)
             {
                 FinishedLap();
-                if (numberOfLaps == lap-1)
+                if (GameManager.Instance.numberOfLaps == lap-1)
                 {
-                    playerFinishRace = true;
                     GameManager.Instance.Win(playerClass.Element);
                     gameObject.SetActive(false);
                     pPanel.gameObject.SetActive(true);
@@ -105,7 +67,6 @@ public partial class PlayerController : MonoBehaviour
 
         if (other.tag == "DeathLine")
         {
-            beforeFinishPass = true;
             GameManager.Instance.Lose(playerClass.Element);
             gameObject.SetActive(false);
             pPanel.gameObject.SetActive(true);
@@ -121,7 +82,7 @@ public partial class PlayerController : MonoBehaviour
     private void FinishedLap()
     {
         lap++;
-        pText.text = "Lap: " + (lap - 1).ToString() + "/" + numberOfLaps;
+        pText.text = "Lap: " + (lap - 1).ToString() + "/" + GameManager.Instance.numberOfLaps;
         beforeFinishPass = true;
     }
 }

@@ -26,7 +26,6 @@ public class CameraFollowController : MonoBehaviour {
 	{
 		LookAtTarget();
 		MoveToTarget();
-		
 	}
 
 

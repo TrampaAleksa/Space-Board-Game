@@ -7,11 +7,17 @@ public class PlayerClass
 {
     private int element;
     private string name;
+    private float maxSteerAngle;
+    private float motorForce;
+    private float maximumRotation;
 
-    public PlayerClass(int element, string name)
+    public PlayerClass(int element, string name, float maxSteerAngle, float motorForce,float maximumRotation)
     {
         this.element = element;
         this.name = name;
+        this.maxSteerAngle=maxSteerAngle;
+        this.motorForce=motorForce;
+        this.maximumRotation=maximumRotation;
 
     }
     public int Element
@@ -24,5 +30,22 @@ public class PlayerClass
     {
         get { return name; }
         set { name = value; }
+    }
+
+    public float MaxSteerAngle
+    {
+        get { return maxSteerAngle; }
+        set { maxSteerAngle = value; }
+    }
+
+    public float MotorForce
+    {
+        get { return motorForce; }
+        set { motorForce = value; }
+    }
+    public float MaximumRotation
+    {
+        get { return maximumRotation; }
+        set { maximumRotation = value; }
     }
 }

@@ -315,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117919676}
   - component: {fileID: 117919675}
+  - component: {fileID: 117919677}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -334,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88241e68d8cc3064a9e960cace622882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfLaps: 1
   playerBoardStates:
   - {fileID: 11400000, guid: 491771c19c28d744dba626b035e92889, type: 2}
   - {fileID: 11400000, guid: b14f0e9c9fc55194b80a15e19bd89049, type: 2}
@@ -353,6 +355,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &117919677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117919674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 779c196ae0f338a4a9ce0fb623615031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &149159946
 GameObject:
   m_ObjectHideFlags: 0
