@@ -28,7 +28,7 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
 
         tooltipHandler.ShowFieldInfoTooltip
-            (InstanceManager.Instance.Get<FieldHower>()
-            .tooltipMessagesDictionary[gameObject.GetComponent<FieldEffect>().GetType()]);
+            (InstanceManager.Instance.Get<FieldInfoDictionaryHandler>()
+            .TooltipMessagesDictionary[gameObject.GetComponent<FieldEffect>().GetType()]);
     }
 }

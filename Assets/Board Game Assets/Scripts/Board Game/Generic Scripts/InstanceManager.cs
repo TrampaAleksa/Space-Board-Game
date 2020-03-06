@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class InstanceManager : MonoBehaviour
 {
     public static InstanceManager Instance;
@@ -17,13 +16,13 @@ public class InstanceManager : MonoBehaviour
 
     public T AddInstance<T>(T instance)
     {
-        instancesDictionary[typeof(T)] = instance;
+        gameObject.AddComponent(instance.GetType());
+        // instancesDictionary[typeof(T)] = instance;
         return instance;
     }
 
     public T Get<T>()
     {
-        return GetComponentInChildren < T > ();
+        return GetComponentInChildren<T>();
     }
-  
 }
