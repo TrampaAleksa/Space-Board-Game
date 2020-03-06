@@ -9,13 +9,18 @@ public class UIManager : MonoBehaviour
     public GameObject mainMenuPanel;
     public GameObject controlsPanel;
     public GameObject settingsPanel;
-    public GameObject scoresPanel;
+    public GameObject inputPanel;
     public GameObject creditsPanel;
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
 
     Resolution[] resolutions;
-    public void Play()
+    public void Input()
+    {
+        mainMenuPanel.SetActive(false);
+        inputPanel.SetActive(true);
+    }
+    public void Confirm()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
@@ -30,11 +35,6 @@ public class UIManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(true);
     }
-    public void Scores()
-    {
-        mainMenuPanel.SetActive(false);
-        scoresPanel.SetActive(true);
-    }
     public void Credits()
     {
         mainMenuPanel.SetActive(false);
@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
     {
         controlsPanel.SetActive(false);
         settingsPanel.SetActive(false);
-        scoresPanel.SetActive(false);
+        inputPanel.SetActive(false);
         creditsPanel.SetActive(false);
 
         mainMenuPanel.SetActive(true);
@@ -76,8 +76,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        mainMenuPanel.SetActive(true);
-        settingsPanel.SetActive(false);
+        Back();
         
         resolutions = Screen.resolutions;
         int currentResolutionIndex = 0;
