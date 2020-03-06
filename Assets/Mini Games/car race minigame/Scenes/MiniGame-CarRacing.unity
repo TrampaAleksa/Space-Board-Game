@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28626305, g: 0.3351929, b: 0.5214541, a: 1}
+  m_IndirectSpecularColor: {r: 0.28626406, g: 0.33519366, b: 0.5214548, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -135,7 +135,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 175236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_Name
-      value: Player2
+      value: Player4
       objectReference: {fileID: 0}
     - target: {fileID: 175236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_IsActive
@@ -143,7 +143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 238.23
+      value: 240.20999
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -151,7 +151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 216.95001
+      value: 230.28001
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -187,15 +187,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.0000024
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.0000002
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.0000024
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2375206, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -210,21 +210,21 @@ PrefabInstance:
         type: 3}
       propertyPath: pPanel
       value: 
-      objectReference: {fileID: 1394630191}
+      objectReference: {fileID: 1438300719}
     - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}
       propertyPath: pText
       value: 
-      objectReference: {fileID: 1597994906}
+      objectReference: {fileID: 691135675}
     - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}
       propertyPath: nameOfInputHorizontal
-      value: Horizontal2
+      value: Horizontal4
       objectReference: {fileID: 0}
     - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}
       propertyPath: nameOfInputVertical
-      value: Vertical2
+      value: Vertical4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
@@ -1939,7 +1939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ec92b17d01bff41bd816d0156adddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 1679869564}
+  objectToFollow: {fileID: 10395645}
   followSpeed: 10
   lookSpeed: 10
   offset: {x: 0, y: 3, z: -13}
@@ -2122,7 +2122,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6f4492faa14cc574593e8640001667c0, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
@@ -2569,7 +2569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 175236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_Name
-      value: Player4
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 175236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_IsActive
@@ -2577,7 +2577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 240.20999
+      value: 238.23
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2585,7 +2585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 230.28001
+      value: 216.95001
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2605,7 +2605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2618,6 +2618,18 @@ PrefabInstance:
     - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.0000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.0000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 475236, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.0000024
       objectReference: {fileID: 0}
     - target: {fileID: 2375206, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2632,21 +2644,21 @@ PrefabInstance:
         type: 3}
       propertyPath: pPanel
       value: 
-      objectReference: {fileID: 1438300719}
+      objectReference: {fileID: 1394630191}
     - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}
       propertyPath: pText
       value: 
-      objectReference: {fileID: 691135675}
+      objectReference: {fileID: 1597994906}
     - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}
       propertyPath: nameOfInputHorizontal
-      value: Horizontal4
+      value: Horizontal2
       objectReference: {fileID: 0}
     - target: {fileID: 1037268582675659842, guid: 393279a4b8e8fc1438ca0bfa8d2170d8,
         type: 3}
       propertyPath: nameOfInputVertical
-      value: Vertical4
+      value: Vertical2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393279a4b8e8fc1438ca0bfa8d2170d8, type: 3}
@@ -2712,7 +2724,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6f4492faa14cc574593e8640001667c0, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
@@ -3697,7 +3709,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6f4492faa14cc574593e8640001667c0, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
@@ -4150,7 +4162,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6f4492faa14cc574593e8640001667c0, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
@@ -4556,7 +4568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ec92b17d01bff41bd816d0156adddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 10395645}
+  objectToFollow: {fileID: 1679869564}
   followSpeed: 10
   lookSpeed: 10
   offset: {x: 0, y: 3, z: -13}
