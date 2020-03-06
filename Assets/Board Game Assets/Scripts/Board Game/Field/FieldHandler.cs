@@ -4,37 +4,27 @@ using UnityEngine;
 
 public class FieldHandler : GenericObjectArray, IBoardState
 {
+    private FieldMovementImpl fieldMovement;
+
     private void Awake()
     {
         InitializeFields();
+        fieldMovement = new FieldMovementImpl();
     }
 
     public void SetCurrentField(Field fieldToSetTo, GameObject player)
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-
-        Field originalField = playerMovement.currentPlayerField;
-        originalField.RemovePlayerFromField(player);
-
-        fieldToSetTo.AddPlayerToField(player);
+        fieldMovement.SetCurrentField(fieldToSetTo, player);
     }
 
     public void TeleportPlayerToField(GameObject player, Field field)
     {
-        SetCurrentField(field, player);
-        player.GetComponent<PlayerMovement>().transform.position = player.GetComponent<PlayerMovement>().positionToTravelTo;
+        fieldMovement.TeleportPlayerToField(player, field);
     }
 
     public void SwapTwoPlayers(PlayerMovement playerMovement1, PlayerMovement playerMovement2)
     {
-        Field originalField1 = playerMovement1.currentPlayerField;
-        Field originalField2 = playerMovement2.currentPlayerField;
-
-        originalField1.RemovePlayerFromField(playerMovement1.gameObject);
-        originalField2.RemovePlayerFromField(playerMovement2.gameObject);
-
-        originalField2.AddPlayerToField(playerMovement1.gameObject);
-        originalField1.AddPlayerToField(playerMovement2.gameObject);
+        fieldMovement.SwapTwoPlayers(playerMovement1, playerMovement2);
     }
 
     public int DistanceBetweenTwoFields(Field field1, Field field2)
