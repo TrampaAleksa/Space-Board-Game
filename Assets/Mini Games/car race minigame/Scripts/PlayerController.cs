@@ -8,16 +8,12 @@ public partial class PlayerController : MonoBehaviour
     private int lap;
     private bool beforeFinishPass = false;
 
-    public float maxSteerAngle, motorForce, 
-                    maximumRotation;
+    public float maxSteerAngle, motorForce, maximumRotation;
     public string nameOfInputHorizontal;
     public string nameOfInputVertical;
-
-    public Text pText;
-    public Transform pPanel;
+    private float f_horizontalInput;
+    private float f_verticalInput;
     public Transform BodyForRotate;
-    public WheelCollider frontLeftW, frontRightW,
-                         rearLeftW, rearRightW;
 
     public static PlayerController Instance;
 
@@ -25,20 +21,16 @@ public partial class PlayerController : MonoBehaviour
     {
         Instance = this;
     }
+    
     private void Start()
     {
-        playerClass = new PlayerClass(i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
-        WheelCollider[] wheelColliders = gameObject.GetComponentsInChildren<WheelCollider>();
-        frontLeftW =wheelColliders[0];
-        frontRightW =wheelColliders[1];
-        rearLeftW =wheelColliders[2];
-        rearRightW =wheelColliders[3];
-        pPanel.gameObject.SetActive(false);
-        pText.text = "Lap: " + lap.ToString() + "/" + GameManager.Instance.numberOfLaps;
+        playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
+        playerClass.Panel.gameObject.SetActive(false);
+        playerClass.Text.text = "Lap: " + lap.ToString() + "/" + GameManager.Instance.numberOfLaps;
     }
     private void FixedUpdate()
     {
-        CarMovement.Instance.Move(frontRightW, frontLeftW, rearLeftW, rearRightW, playerClass.MotorForce, playerClass.MaxSteerAngle, playerClass.MaximumRotation, BodyForRotate, nameOfInputHorizontal, nameOfInputVertical);
+        Move();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,13 +63,27 @@ public partial class PlayerController : MonoBehaviour
     private void FinishedLap()
     {
         lap++;
-        pText.text = "Lap: " + (lap - 1).ToString() + "/" + GameManager.Instance.numberOfLaps;
+        playerClass.Text.text = "Lap: " + (lap - 1).ToString() + "/" + GameManager.Instance.numberOfLaps;
         beforeFinishPass = true;
+    }
+    public void Move()
+    {
+        GetInput(nameOfInputHorizontal, nameOfInputVertical);
+        playerClass.Steer(f_horizontalInput);
+        playerClass.Rotation(f_horizontalInput);
+        if(f_verticalInput<0)
+            playerClass.Break(f_verticalInput);
+        else    playerClass.Accelerate(f_verticalInput);
+    }
+    public void GetInput(string nameOfInputHorizontal, string nameOfInputVertical)
+    {
+        f_horizontalInput = Input.GetAxis(nameOfInputHorizontal);
+        f_verticalInput = Input.GetAxis(nameOfInputVertical);
     }
     private void FinishGame()
     {
         gameObject.SetActive(false);
-        pPanel.gameObject.SetActive(true);
-        pText.text = playerClass.Name + " je " + GameManager.Instance.playerBoardStates[playerClass.Element].rank + " mesto";
+        playerClass.Panel.gameObject.SetActive(true);
+        playerClass.Text.text = playerClass.Name + " je " + GameManager.Instance.playerBoardStates[playerClass.Element].rank + " mesto";
     }
 }

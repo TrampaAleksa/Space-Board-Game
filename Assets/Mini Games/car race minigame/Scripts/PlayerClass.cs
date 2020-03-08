@@ -1,51 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class PlayerClass
 {
+    private GameObject playerObject;
+    private GameObject bodyForRotate;
     private int element;
-    private string name;
+    private string nameOfPlayer;
     private float maxSteerAngle;
     private float motorForce;
     private float maximumRotation;
+    private GameObject panel;
+    private Text text;
+    private WheelCollider[] wheelColliders;
 
-    public PlayerClass(int element, string name, float maxSteerAngle, float motorForce,float maximumRotation)
+    public PlayerClass(GameObject playerObject, int element, string name, float maxSteerAngle, float motorForce,float maximumRotation)
     {
         this.element = element;
-        this.name = name;
+        this.nameOfPlayer = name;
         this.maxSteerAngle=maxSteerAngle;
         this.motorForce=motorForce;
         this.maximumRotation=maximumRotation;
-
+        this.playerObject=playerObject;
+        this.bodyForRotate= playerObject.GetComponentInChildren<ROTATEBODY>().gameObject;
+        this.wheelColliders=playerObject.GetComponentsInChildren<WheelCollider>();
+        GameObject[] tmpP= GameObject.FindGameObjectsWithTag("PPanel");
+        Panel=tmpP[0];
+        GameObject[] tmpT= GameObject.FindGameObjectsWithTag("PText");
+        Text[] tmpTxt= new Text[tmpT.Length];
+        for(int i=0;i<tmpT.Length;i++)
+        {
+            tmpTxt[i]=tmpT[i].GetComponent<Text>();
+        }
+        this.text=tmpTxt[element];
     }
-    public int Element
+    //methods
+    public void Rotation(float m_horizontalInput)
     {
-        get { return element; }
-        set { element=value; }
+        bodyForRotate.transform.localEulerAngles = new Vector3(0,-(m_horizontalInput* maximumRotation), 0);
     }
-
-    public string Name
+    public void Break(float m_verticalInput)
     {
-        get { return name; }
-        set { name = value; }
+       wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = m_verticalInput * motorForce*2;
     }
-
-    public float MaxSteerAngle
+    public void Steer(float m_horizontalInput)
     {
-        get { return maxSteerAngle; }
-        set { maxSteerAngle = value; }
+        wheelColliders[0].steerAngle = wheelColliders[1].steerAngle = maxSteerAngle * m_horizontalInput;
     }
-
-    public float MotorForce
+    public void Accelerate(float m_verticalInput)
     {
-        get { return motorForce; }
-        set { motorForce = value; }
+        wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = wheelColliders[2].motorTorque=wheelColliders[3].motorTorque = m_verticalInput * motorForce;
     }
-    public float MaximumRotation
-    {
-        get { return maximumRotation; }
-        set { maximumRotation = value; }
-    }
+    //prop
+    public GameObject PlayerObject{ get { return playerObject; } set { playerObject=value; } }
+    public Text Text{ get { return text; } set { text = value; } }
+    public GameObject Panel { get { return panel; } set => panel = value; }
+    public int Element { get { return element; } set { element=value; } }
+    public string Name { get { return nameOfPlayer; } set { nameOfPlayer = value; } }
+    public float MaxSteerAngle { get { return maxSteerAngle; } set { maxSteerAngle = value; } }
+    public float MotorForce { get { return motorForce; } set { motorForce = value; } }
+    public float MaximumRotation { get { return maximumRotation; } set { maximumRotation = value; } }
+    public WheelCollider[] WheelColliders { get{return wheelColliders; } set{wheelColliders=value;} }
 }
