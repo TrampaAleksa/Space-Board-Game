@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HowerRaycast : MonoBehaviour, IRaycastMethod
+public class FieldHowerRaycast : MonoBehaviour, IRaycastMethod
 {
     private FieldHowerTooltip howerTooltip;
+    public Vector3 offset = new Vector3(0, 2, 1);
 
     private void Start()
     {
-        howerTooltip = GameObject.Find("Field hower holder").GetComponent<FieldHowerTooltip>();
+        // howerTooltip = GameObject.Find("Field hower holder").GetComponent<FieldHowerTooltip>();
         InstanceManager.Instance.Get<PointerRaycastHandler>().AddPointerRaycastToEvents(this);
     }
 
@@ -19,11 +20,14 @@ public class HowerRaycast : MonoBehaviour, IRaycastMethod
         {
             howerTooltip = hit.collider.gameObject.GetComponentInChildren<FieldHowerTooltip>();
             howerTooltip.ShowTooltip("Floated over");
-            howerTooltip.transform.position = hit.transform.position + (Vector3.up * 3);
+            howerTooltip.transform.parent.eulerAngles = new Vector3(howerTooltip.transform.parent.eulerAngles.x,
+                Camera.main.transform.eulerAngles.y,
+                howerTooltip.transform.parent.eulerAngles.z);
         }
         else
         {
-            howerTooltip.RemoveTooltip();
+            if (howerTooltip != null)
+                howerTooltip.RemoveTooltip();
         }
     }
 }

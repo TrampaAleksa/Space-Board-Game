@@ -6,13 +6,11 @@ public class TooltipTest : MonoBehaviour
 {
     private TextTooltip tooltip;
     private bool howeredOver;
-    private FieldHowerTooltip howerTooltip;
 
     private void Start()
     {
         howeredOver = false;
-        howerTooltip = GameObject.Find("Field hower holder").GetComponent<FieldHowerTooltip>();
-        print(howerTooltip.name);
+
         tooltip = GameObject.FindGameObjectWithTag("Tooltip").GetComponent<TextTooltip>();
     }
 
