@@ -9,7 +9,7 @@ public class FieldHowerRaycast : MonoBehaviour, IRaycastMethod
 
     private void Start()
     {
-        howerTooltip = GameObject.Find("Field hower holder").GetComponent<FieldHowerTooltip>();
+        // howerTooltip = GameObject.Find("Field hower holder").GetComponent<FieldHowerTooltip>();
         InstanceManager.Instance.Get<PointerRaycastHandler>().AddPointerRaycastToEvents(this);
     }
 
@@ -26,7 +26,8 @@ public class FieldHowerRaycast : MonoBehaviour, IRaycastMethod
         }
         else
         {
-            howerTooltip.RemoveTooltip();
+            if (howerTooltip != null)
+                howerTooltip.RemoveTooltip();
         }
     }
 }
