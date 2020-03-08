@@ -29,7 +29,7 @@ public class CarMovement : MonoBehaviour
 
     public void Rotation(Transform BodyForRotate, float maximumRotation)
     {
-        BodyForRotate.transform.localRotation = new Quaternion(0,-(m_horizontalInput* maximumRotation), 0, 180);
+        BodyForRotate.transform.localEulerAngles = new Vector3(0,-(m_horizontalInput* maximumRotation), 0);
     }
 
     public void Break(WheelCollider frontRightW, WheelCollider frontLeftW, float motorForce)
