@@ -10,4 +10,19 @@ public class AddComponentHendler : MonoBehaviour
     {
         Instance=this;
     }
+    /*
+    public T[] AddAnyComponent<T>(T[] param,string[] names)
+    {
+        int j=0;
+        T[] newArray=param;
+        for(int i=0;i<newArray.Length;i++)
+        {
+            if(newArray[i].name==names[i]){
+                param[j]=newArray[i];
+                j++;
+            }
+                
+        }
+        return param;
+    }*/
 }
