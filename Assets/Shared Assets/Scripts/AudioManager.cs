@@ -1,8 +1,9 @@
 ﻿using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.UI;
-    using UnityEngine.Audio;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Audio;
+
 public class AudioManager : MonoBehaviour
 {
     [System.Serializable]
@@ -16,14 +17,17 @@ public class AudioManager : MonoBehaviour
         public bool loop;
         public int volume;
     }
+
     public static AudioManager Instance;
-    void Awake()
+
+    private void Awake()
     {
         Instance = this;
     }
+
     public Audio[] audioArray;
 
-    void Start()
+    private void Start()
     {
         int i = 0;
         AudioSource[] audioSource = new AudioSource[audioArray.Length];
@@ -39,11 +43,4 @@ public class AudioManager : MonoBehaviour
             i++;
         }
     }
-/*public AudioSource carSound;
-    public AudioSource pickPoint;
-    public AudioSource crash;
-    public AudioSource startUp;
-    public AudioSource mainMenuSound;
-    public AudioSource mainMenuClick;
-    */
 }
