@@ -19,6 +19,7 @@ TagManager:
   - PText
   - PPanel
   - Wheel
+  - Body
   layers:
   - Default
   - TransparentFX

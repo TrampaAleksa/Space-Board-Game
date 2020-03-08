@@ -6550,7 +6550,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 932241971}
   inputPanel: {fileID: 1126231844}
   creditsPanel: {fileID: 1933962641}
-  audioMixer: {fileID: 24100000, guid: 3b2f5e010b7b96540968891bf2f1cd9b, type: 2}
+  audioMixer: {fileID: 0}
   resolutionDropdown: {fileID: 669766267}
 --- !u!1 &1669833546
 GameObject:
