@@ -651,7 +651,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 2207153853908380428, guid: 7bc6481755766464da28da493bfb5c51,
     type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2741,7 +2741,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 8842095175822567840, guid: 6f7687e3309e2a542b66b0d15cd59dcc,
     type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4655,7 +4655,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -6208190806931674633, guid: 4883aff56c9ec0241850fa8797fdc99b,
     type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4897,7 +4897,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -6834016084890181082, guid: 2ef2c86ffa6ad1d42927286fcece403c,
     type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5512,7 +5512,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -7520542146186625384, guid: f91b2fce114f22e4da587a4037bccde5,
     type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5696,7 +5696,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 9158429976309336498}
   inputPanel: {fileID: 9158429976515904677}
   creditsPanel: {fileID: 9158429977327175184}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 3b2f5e010b7b96540968891bf2f1cd9b, type: 2}
   resolutionDropdown: {fileID: 9158429976042551802}
 --- !u!1 &9158429977088597569
 GameObject:
