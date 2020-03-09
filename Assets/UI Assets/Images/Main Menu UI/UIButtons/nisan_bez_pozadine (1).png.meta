@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: 063aa3732afe0f34580a93cf9b6ac515
+guid: 4a9a8ca40dccb22408bd42854daf2847
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6723052673049494069
-    second: player_name(prazno)_0
-  - first:
-      213: -6684996963516625255
-    second: player_name(prazno)_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -46,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -90,49 +84,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: player_name(prazno)_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 626
-        height: 374
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4fce7b5749093f4e943eedc00c81d8d
-      internalID: -6723052673049494069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_name(prazno)_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 374
-        width: 626
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2d6eba7e323d614cb341ea759f0427d
-      internalID: -6684996963516625255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
