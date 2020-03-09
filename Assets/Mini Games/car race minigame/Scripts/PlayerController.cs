@@ -7,21 +7,20 @@ public partial class PlayerController : MonoBehaviour
     private static int i = 0;
     private int lap;
     private bool beforeFinishPass = false;
+    private float f_horizontalInput;
+    private float f_verticalInput;
 
     public float maxSteerAngle, motorForce, maximumRotation;
     public string nameOfInputHorizontal;
     public string nameOfInputVertical;
-    private float f_horizontalInput;
-    private float f_verticalInput;
     public Transform BodyForRotate;
-
     public static PlayerController Instance;
+    public static bool startGame=false;
 
     private void Awake()
     {
         Instance = this;
     }
-    
     private void Start()
     {
         playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
@@ -30,9 +29,9 @@ public partial class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Move();
+        if(startGame)
+            Move();
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Finish")
@@ -47,14 +46,11 @@ public partial class PlayerController : MonoBehaviour
                 }
             }
         }
-
         if (other.tag == "DeathLine")
         {
             GameManager.Instance.Lose(playerClass.Element);
             FinishGame();
         }
-
-
         if (other.tag == "NextField")
         {
             beforeFinishPass = false;
