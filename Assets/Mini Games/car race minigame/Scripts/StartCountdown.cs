@@ -10,9 +10,11 @@ public class StartCountdown : MonoBehaviour
 
     private void Start()
     {
+        print("start");
         StartCoroutine(CountdownToStart());
     }
-    IEnumerator CountdownToStart()
+
+    private IEnumerator CountdownToStart()
     {
         while (countdwonTime > 0)
         {
@@ -25,11 +27,10 @@ public class StartCountdown : MonoBehaviour
 
         countdownDisplay.text = "GO!";
 
-        PlayerController.startGame=true;
+        PlayerController.startGame = true;
 
         yield return new WaitForSeconds(1f);
 
         countdownDisplay.gameObject.SetActive(false);
     }
-  
 }

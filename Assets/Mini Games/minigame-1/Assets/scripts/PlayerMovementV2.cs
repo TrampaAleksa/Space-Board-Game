@@ -89,7 +89,6 @@ public class PlayerMovementV2 : MonoBehaviour
         movement4.x = Input.GetAxisRaw("Horizontal4");
         movement4.z = Input.GetAxisRaw("Vertical4");
 
-
     }
 
 
