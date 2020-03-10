@@ -10,6 +10,30 @@ public class EffectTeleport : FieldEffect
         GenericTriggerEffect();
         CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
-        InstanceManager.Instance.Get<ClickEventHandler>().AddClickEvent(gameObject.AddComponent<TeleportClick>());
+        gameObject.tag = TAG_SELECTION;
+
+        FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
+        TeleportFieldSelectEvent fieldSelectionEvent = new TeleportFieldSelectEvent();
+        fieldSelectionHandler.confirmedSelectionEvents += fieldSelectionEvent.ConfirmSelectedField;
+        fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
+    }
+
+    private void Update()
+    {
+        if (gameObject.tag == TAG_SELECTION)
+        {
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                InstanceManager.Instance.Get<FieldSelectionHandler>().SelectNextField();
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                InstanceManager.Instance.Get<FieldSelectionHandler>().SelectPreviousField();
+            }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                InstanceManager.Instance.Get<FieldSelectionHandler>().TriggerSelectionEvent();
+            }
+        }
     }
 }
