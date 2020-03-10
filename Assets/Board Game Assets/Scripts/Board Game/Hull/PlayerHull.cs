@@ -9,15 +9,10 @@ public class PlayerHull : MonoBehaviour
     public float HullPercentage
     {
         get => hullPercentage;
-        set {
+        set
+        {
             hullPercentage = value;
             InstanceManager.Instance.Get<DisplayHandler>().SetShouldUpdate();
         }
     }
-    
-
-    void Start()
-    {
-    }
-   
 }

@@ -56,16 +56,7 @@ public static class FieldInfoMessages
     public static readonly Type FIELD_NAME_PLACE_MINE = typeof(EffectPlaceMine);
     public static readonly Type FIELD_NAME_TELEPORT_PLAYER = typeof(EffectTeleport);
 
-    /* public static string[] fieldGameObjectNames =
-     {   FIELD_NAME_FUEL_STATION, FIELD_NAME_EMPTY_FIELD, FIELD_NAME_RANDOM,
-         FIELD_NAME_SWAP_PLACES, FIELD_NAME_STEAL_FUEL,
-         FIELD_NAME_LOCK_ENEMY, FIELD_NAME_DAMAGE_ENEMY,
-         FIELD_NAME_LOCK_PLAYER, FIELD_NAME_HEAL_PLAYER,
-         FIELD_NAME_DAMAGE_PLAYER, FIELD_NAME_MOVE_FORWARD,
-         FIELD_NAME_MOVE_BACKWARDS, FIELD_NAME_PLACE_MINE, FIELD_NAME_TELEPORT_PLAYER
-     };*/
-
-    public static readonly Type[] fieldGameObjectNames =
+    public static readonly Type[] fieldGameObjectTypes =
    {   FIELD_NAME_FUEL_STATION, FIELD_NAME_EMPTY_FIELD, FIELD_NAME_RANDOM,
         FIELD_NAME_SWAP_PLACES, FIELD_NAME_STEAL_FUEL,
         FIELD_NAME_LOCK_ENEMY, FIELD_NAME_DAMAGE_ENEMY,

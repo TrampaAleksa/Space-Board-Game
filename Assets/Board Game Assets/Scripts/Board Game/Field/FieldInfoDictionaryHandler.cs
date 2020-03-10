@@ -17,12 +17,12 @@ public class FieldInfoDictionaryHandler : MonoBehaviour
 
     public void AddMessagesToDictionary(Dictionary<Type, string> tooltipMessagesDictionary)
     {
-        for (int i = 0; i < FieldInfoMessages.fieldGameObjectNames.Length; i++)
+        for (int i = 0; i < FieldInfoMessages.fieldGameObjectTypes.Length; i++)
         {
             tooltipMessagesDictionary.Add
-                (FieldInfoMessages.fieldGameObjectNames[i],
+                (FieldInfoMessages.fieldGameObjectTypes[i],
                 FieldInfoMessages.fieldInfoMessages[i]);
-            print("added type of " + FieldInfoMessages.fieldGameObjectNames[i] + "with the message: " + FieldInfoMessages.fieldInfoMessages[i]);
+            print("added type of " + FieldInfoMessages.fieldGameObjectTypes[i] + "with the message: " + FieldInfoMessages.fieldInfoMessages[i]);
         }
     }
 }
