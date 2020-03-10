@@ -45,7 +45,7 @@ public class DiceRollHandler : MonoBehaviour
     {
         int randomDiceSide = 0;
         CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
-        cameraMovementHandler.SetCameraMode(cameraMovementHandler.playerFollowMode);
+        cameraMovementHandler.SetCameraMode(typeof(CameraModePlayerFollow));
         for (int i = 0; i <= 20; i++)
         {
             randomDiceSide = Random.Range(0, 6);

@@ -1,24 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class CameraModesHandler : MonoBehaviour
 {
     public Vector3 offset;
 
-    public ICameraMode currentCameraMode;
+    private ICameraMode currentCameraMode;
 
-    public ICameraMode freeLookMode;
-    public ICameraMode playerFollowMode;
-    public ICameraMode selectedFolllowMode;
-    public ICameraMode fieldFollowMode;
+    private Dictionary<Type, ICameraMode> cameraModesDictionary;
 
     private void Start()
     {
+        cameraModesDictionary = new Dictionary<Type, ICameraMode>();
         Transform camera = Camera.main.transform;
-        freeLookMode = new CameraModeMouseFollow();
-        playerFollowMode = new CameraModePlayerFollow(camera);
-        selectedFolllowMode = new CameraModeSelectedFollow(camera);
-        fieldFollowMode = new CameraModeFieldFollow(camera);
-        currentCameraMode = playerFollowMode;
+
+        cameraModesDictionary.Add(typeof(CameraModeMouseFollow), new CameraModeMouseFollow());
+        cameraModesDictionary.Add(typeof(CameraModePlayerFollow), new CameraModePlayerFollow(camera));
+        cameraModesDictionary.Add(typeof(CameraModeSelectedFollow), new CameraModeSelectedFollow(camera));
+        cameraModesDictionary.Add(typeof(CameraModeFieldFollow), new CameraModeFieldFollow(camera));
+        currentCameraMode = cameraModesDictionary[typeof(CameraModePlayerFollow)];
     }
 
     private void LateUpdate()
@@ -26,19 +27,8 @@ public class CameraModesHandler : MonoBehaviour
         currentCameraMode.UpdateCamera();
     }
 
-    public void SetCameraMode(ICameraMode mode)
+    public void SetCameraMode(Type mode)
     {
-        currentCameraMode = mode;
-    }
-
-    public void DelayedFreeLookCameraModeSwitch(float time)
-    {
-        Invoke("DelayCameraModeSwitch", time);
-    }
-
-    private void DelayCameraModeSwitch()
-    {
-        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
-        cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
+        currentCameraMode = cameraModesDictionary[mode];
     }
 }

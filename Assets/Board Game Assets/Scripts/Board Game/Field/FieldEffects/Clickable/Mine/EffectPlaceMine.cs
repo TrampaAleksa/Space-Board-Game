@@ -15,7 +15,7 @@ public class EffectPlaceMine : FieldEffect
         InstanceManager.Instance.Get<FieldSelectionHandler>().confirmedSelectionEvents += fieldSelectionEvent.ConfirmSelectedField;
         fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
         CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
-        cameraMovementHandler.SetCameraMode(cameraMovementHandler.fieldFollowMode);
+        cameraMovementHandler.SetCameraMode(typeof(CameraModeFieldFollow));
     }
 
     private void Update()
