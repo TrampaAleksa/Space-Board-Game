@@ -8,14 +8,15 @@ public class EffectTeleport : FieldEffect
     {
         print("Emergency teleport!");
         GenericTriggerEffect();
-        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
-        cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
         gameObject.tag = TAG_SELECTION;
 
         FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
         TeleportFieldSelectEvent fieldSelectionEvent = new TeleportFieldSelectEvent();
         fieldSelectionHandler.confirmedSelectionEvents += fieldSelectionEvent.ConfirmSelectedField;
         fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
+
+        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
+        cameraMovementHandler.SetCameraMode(cameraMovementHandler.fieldFollowMode);
     }
 
     private void Update()

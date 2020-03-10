@@ -9,14 +9,13 @@ public class EffectPlaceMine : FieldEffect
         print("Place a mine!");
         gameObject.tag = TAG_SELECTION;
         GenericTriggerEffect();
-        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
-        cameraMovementHandler.SetCameraMode(cameraMovementHandler.freeLookMode);
-        //InstanceManager.Instance.Get<ClickEventHandler>().AddClickEvent(gameObject.AddComponent<MinePlacementClick>());
 
         FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
         MineFieldSelectionEvent fieldSelectionEvent = new MineFieldSelectionEvent();
         InstanceManager.Instance.Get<FieldSelectionHandler>().confirmedSelectionEvents += fieldSelectionEvent.ConfirmSelectedField;
         fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
+        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
+        cameraMovementHandler.SetCameraMode(cameraMovementHandler.fieldFollowMode);
     }
 
     private void Update()

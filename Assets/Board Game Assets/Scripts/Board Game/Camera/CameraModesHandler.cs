@@ -9,6 +9,7 @@ public class CameraModesHandler : MonoBehaviour
     public ICameraMode freeLookMode;
     public ICameraMode playerFollowMode;
     public ICameraMode selectedFolllowMode;
+    public ICameraMode fieldFollowMode;
 
     private void Start()
     {
@@ -16,7 +17,8 @@ public class CameraModesHandler : MonoBehaviour
         freeLookMode = new CameraModeMouseFollow();
         playerFollowMode = new CameraModePlayerFollow(camera);
         selectedFolllowMode = new CameraModeSelectedFollow(camera);
-        currentCameraMode = freeLookMode;
+        fieldFollowMode = new CameraModeFieldFollow(camera);
+        currentCameraMode = playerFollowMode;
     }
 
     private void LateUpdate()
