@@ -14,9 +14,9 @@ public class TeleportFieldSelectEvent
         if (InstanceManager.Instance.Get<FieldHandler>()
             .DistanceBetweenTwoFields(playersField, selectedFieldComponent) <= maximumDistanceAllowed)
         {
-            InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(playerToTeleport, selectedFieldComponent);
             InstanceManager.Instance.Get<FieldSelectionHandler>().confirmedSelectionEvents -= ConfirmSelectedField;
             InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerMovement>().currentPlayerField.tag = "Untagged";
+            InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(playerToTeleport, selectedFieldComponent);
             playerToTeleport.GetComponent<PlayerMovement>().currentPlayerField.GetComponent<FieldEffect>().TriggerEffect();
             //teleport sound effect
         }

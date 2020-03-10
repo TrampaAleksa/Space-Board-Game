@@ -21,8 +21,13 @@ public class InstanceManager : MonoBehaviour
         return instance;
     }
 
-    public T Get<T>()
+    public T Get<T>() where T : MonoBehaviour
     {
-        return GetComponentInChildren<T>();
+        T foundComponent = GetComponentInChildren<T>();
+        if (foundComponent == null)
+        {
+            foundComponent = gameObject.AddComponent<T>();
+        }
+        return foundComponent;
     }
 }
