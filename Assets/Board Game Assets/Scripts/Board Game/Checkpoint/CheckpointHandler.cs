@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class CheckpointHandler : MonoBehaviour, IBoardPlayerState
 {
-    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        int checkpointIndex = player.GetComponent<PlayerCheckpoint>().CheckpointField.IndexInPath;
-        playerState.checkpointIndex = checkpointIndex;
-    }
-
-    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        int checkpointIndex = playerState.checkpointIndex;
-        Field fieldAtCheckpointIndex = InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(checkpointIndex).GetComponent<Field>();
-        player.GetComponent<PlayerCheckpoint>().CheckpointField = fieldAtCheckpointIndex;
-    }
-
     public void SetPlayersCheckpoint(GameObject player, Field fieldToSetTo)
     {
         player.GetComponent<PlayerCheckpoint>().CheckpointField = fieldToSetTo;
@@ -29,5 +16,18 @@ public class CheckpointHandler : MonoBehaviour, IBoardPlayerState
         player.GetComponent<PlayerMovement>().turnsToSkip = 0;
         float numberToDivideFuelBy = 2f;
         player.GetComponent<PlayerFuel>().fuel /= numberToDivideFuelBy;
+    }
+
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
+    {
+        int checkpointIndex = player.GetComponent<PlayerCheckpoint>().CheckpointField.IndexInPath;
+        playerState.checkpointIndex = checkpointIndex;
+    }
+
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
+    {
+        int checkpointIndex = playerState.checkpointIndex;
+        Field fieldAtCheckpointIndex = InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(checkpointIndex).GetComponent<Field>();
+        player.GetComponent<PlayerCheckpoint>().CheckpointField = fieldAtCheckpointIndex;
     }
 }
