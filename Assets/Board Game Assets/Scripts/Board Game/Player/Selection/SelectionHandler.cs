@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class SelectionHandler : GenericObjectArray
 {
+
     public GameObject GetSelectedPlayer()
     {
         return CurrentMember();

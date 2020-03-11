@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class FieldSelectionHandler : GenericObjectArray
 {
-    public event Action<GameObject> confirmedSelectionEvents;
 
+    void Awake()
+    {
+        gameObjects = InstanceManager.Instance.Get<FieldHandler>().gameObjects;
+    }
     public GameObject GetSelectedField()
     {
         return CurrentMember();
@@ -30,13 +33,6 @@ public class FieldSelectionHandler : GenericObjectArray
         print("selected : " + CurrentMember().name);
         return currentlySelected;
     }
-
-    public GameObject TriggerSelectionEvent()
-    {
-        confirmedSelectionEvents?.Invoke(CurrentMember());
-        return CurrentMember();
-    }
-
     public Field GetCurrentField()
     {
         return CurrentMember().GetComponent<Field>();
