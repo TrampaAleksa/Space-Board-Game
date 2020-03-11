@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldHandler : GenericObjectArray, IBoardState
+public class FieldHandler : GenericObjectArray, IBoardPlayerState
 {
     private FieldMovementImpl fieldMovement;
 
@@ -40,26 +40,16 @@ public class FieldHandler : GenericObjectArray, IBoardState
         return Mathf.Abs(field1.IndexInPath - field2.IndexInPath);
     }
 
-    public void SaveState()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        int i = 0;
-        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
-        {
-            int index = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].pathIndex
-                = player.GetComponent<PlayerMovement>().currentPlayerField.IndexInPath;
-            print("Saved players position index: " + index);
-            i++;
-        }
+        int index = playerState.pathIndex
+            = player.GetComponent<PlayerMovement>().currentPlayerField.IndexInPath;
+        print("Saved players position index: " + index);
     }
 
-    public void SetupState()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        int i = 0;
-        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
-        {
-            int index = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].pathIndex;
-            MemberWithIndex(index).GetComponent<Field>().AddPlayerToField(player);
-            i++;
-        }
+        int index = playerState.pathIndex;
+        MemberWithIndex(index).GetComponent<Field>().AddPlayerToField(player);
     }
 }

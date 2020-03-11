@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FuelHandler : MonoBehaviour, IBoardState
+public class FuelHandler : MonoBehaviour, IBoardPlayerState
 {
     public const float startingAmount = 50;
     public const float winningAmount = 300f;
@@ -44,27 +44,16 @@ public class FuelHandler : MonoBehaviour, IBoardState
         return player;
     }
 
-    public void SaveState()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        int i = 0;
-        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
-        {
-            float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].fuel = player.GetComponent<PlayerFuel>().fuel;
-            print("Saving the players fuel: " + amount);
-            i++;
-        }
+        float amount = playerState.fuel = player.GetComponent<PlayerFuel>().fuel;
+        print("Saving the players fuel: " + amount);
     }
 
-    public void SetupState()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        int i = 0;
-        foreach(var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
-        {
-            float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].fuel;
-            player.GetComponent<PlayerFuel>().fuel = amount;
-            print("Players initial fuel set: " + amount);
-            i++;
-        }
-      
+        float amount = playerState.fuel;
+        player.GetComponent<PlayerFuel>().fuel = amount;
+        print("Players initial fuel set: " + amount);
     }
 }

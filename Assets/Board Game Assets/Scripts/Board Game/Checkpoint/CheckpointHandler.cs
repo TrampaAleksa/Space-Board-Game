@@ -2,29 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointHandler : MonoBehaviour, IBoardState
+public class CheckpointHandler : MonoBehaviour, IBoardPlayerState
 {
-    public void SaveState()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        int i = 0;
-        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
-        {
-            int checkpointIndex = player.GetComponent<PlayerCheckpoint>().CheckpointField.IndexInPath;
-            InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].checkpointIndex = checkpointIndex;
-            i++;
-        }
+        int checkpointIndex = player.GetComponent<PlayerCheckpoint>().CheckpointField.IndexInPath;
+        playerState.checkpointIndex = checkpointIndex;
     }
 
-    public void SetupState()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        int i = 0;
-        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
-        {
-            int checkpointIndex = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].checkpointIndex;
-            Field fieldAtCheckpointIndex = InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(checkpointIndex).GetComponent<Field>();
-            player.GetComponent<PlayerCheckpoint>().CheckpointField = fieldAtCheckpointIndex;
-            i++;
-        }
+        int checkpointIndex = playerState.checkpointIndex;
+        Field fieldAtCheckpointIndex = InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(checkpointIndex).GetComponent<Field>();
+        player.GetComponent<PlayerCheckpoint>().CheckpointField = fieldAtCheckpointIndex;
     }
 
     public void SetPlayersCheckpoint(GameObject player, Field fieldToSetTo)

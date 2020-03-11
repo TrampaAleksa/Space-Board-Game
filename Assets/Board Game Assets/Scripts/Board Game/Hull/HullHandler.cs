@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HullHandler : MonoBehaviour, IBoardState
+public class HullHandler : MonoBehaviour, IBoardPlayerState
 {
     public const float STARTING_HULL = 120f;
     public const float MAXIMUM_HULL = 120f;
@@ -18,28 +18,16 @@ public class HullHandler : MonoBehaviour, IBoardState
         return player.GetComponent<PlayerHull>();
     }
 
-    public void SaveState()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        int i = 0;
-        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
-        {
-            float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].hull = player.GetComponent<PlayerHull>().HullPercentage;
-            print("Saving the players fuel: " + amount);
-            i++;
-        }
+        float amount = playerState.hull = player.GetComponent<PlayerHull>().HullPercentage;
+        print("Saving the players fuel: " + amount);
     }
 
-    public void SetupState()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        int i = 0;
-        foreach (var player in InstanceManager.Instance.Get<PlayersHandler>().gameObjects)
-        {
-            float amount = InstanceManager.Instance.Get<BoardStateHandler>().playerBoardStates[i].hull;
-            player.GetComponent<PlayerHull>().HullPercentage = amount;
-            print("Players initial hull set: " + amount);
-            i++;
-        }
+        float amount = playerState.hull;
+        player.GetComponent<PlayerHull>().HullPercentage = amount;
+        print("Players initial hull set: " + amount);
     }
 }
-
-

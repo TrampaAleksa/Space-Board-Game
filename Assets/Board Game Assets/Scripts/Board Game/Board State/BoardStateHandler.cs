@@ -5,21 +5,28 @@ using UnityEngine;
 public class BoardStateHandler : MonoBehaviour
 {
     public PlayerBoardState[] playerBoardStates;
-    void Start()
+
+    private void Start()
     {
-        foreach(var stateComponent in InstanceManager.Instance.GetComponents<IBoardState>())
+        GameObject[] players = InstanceManager.Instance.Get<PlayersHandler>().gameObjects;
+        foreach (var stateComponent in InstanceManager.Instance.GetComponents<IBoardPlayerState>())
         {
-            stateComponent.SetupState();
+            for (int i = 0; i < players.Length; i++)
+            {
+                stateComponent.SetupPlayerState(players[i], playerBoardStates[i]);
+            }
         }
     }
 
     public void SaveBoardState()
     {
-        foreach (var stateComponent in InstanceManager.Instance.GetComponents<IBoardState>())
+        GameObject[] players = InstanceManager.Instance.Get<PlayersHandler>().gameObjects;
+        foreach (var stateComponent in InstanceManager.Instance.GetComponents<IBoardPlayerState>())
         {
-            stateComponent.SaveState();
+            for (int i = 0; i < players.Length; i++)
+            {
+                stateComponent.SavePlayerState(players[i], playerBoardStates[i]);
+            }
         }
     }
-
-  
 }
