@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectLockEnemy : SelectOnTrigger
+public class EffectLockEnemy : SelectPlayerEffect
 {
     public const int TURNS_TO_LOCK = 1;
 
     public override void TriggerEffect()
     {
-        SelectNextPlayerOnTrigger();
+        GenericSelectTrigger();
         GenericTriggerEffect();
         print("Break another players engines!");
     }

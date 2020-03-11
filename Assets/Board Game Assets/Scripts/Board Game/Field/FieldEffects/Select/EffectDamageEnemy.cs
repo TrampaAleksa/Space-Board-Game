@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectDamageEnemy : SelectOnTrigger
+public class EffectDamageEnemy : SelectPlayerEffect
 {
     public const float AMOUNT_TO_DAMAGE = 20f;
 
     public override void TriggerEffect()
     {
-        SelectNextPlayerOnTrigger();
+        GenericSelectTrigger();
         GenericTriggerEffect();
+        InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
         print("Damage Another player!");
     }
 
@@ -18,18 +19,18 @@ public class EffectDamageEnemy : SelectOnTrigger
         selectionEffect = new DamageEnemy(gameObject);
     }
 
-    private void Update()
-    {
-        if (gameObject.tag == TAG_SELECTION)
-        {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
-            }
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                selectionEffect.ConfirmedSelection();
-            }
-        }
-    }
+    /* private void Update()
+     {
+         if (gameObject.tag == TAG_SELECTION)
+         {
+             if (Input.GetKeyDown(KeyCode.DownArrow))
+             {
+                 InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
+             }
+             if (Input.GetKeyDown(KeyCode.K))
+             {
+                 selectionEffect.ConfirmedSelection();
+             }
+         }
+     }*/
 }

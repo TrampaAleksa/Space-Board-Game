@@ -55,8 +55,8 @@ public class DiceRollHandler : MonoBehaviour
             yield return new WaitForSeconds(diceAnimationSpeed);
         }
 
-        numberRolled = randomDiceSide + 1;
-        // numberRolled = 2;
+        // numberRolled = randomDiceSide + 1;
+        numberRolled = 6;
         tDiceNumberRolled.text = numberRolled.ToString();
         InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
     }

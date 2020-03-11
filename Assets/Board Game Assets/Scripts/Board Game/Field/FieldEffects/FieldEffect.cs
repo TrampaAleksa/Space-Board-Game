@@ -9,7 +9,7 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
     public PlayersHandler playersHandler;
 
     public const string TAG_SELECTION = "Selection";
-    protected ISelectionEffect selectionEffect;
+    public ISelectionEffect selectionEffect;
 
     private void Start()
     {

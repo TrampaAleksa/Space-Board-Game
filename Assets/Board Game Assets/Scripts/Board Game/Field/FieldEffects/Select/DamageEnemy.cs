@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageEnemy :ISelectionEffect
+public class DamageEnemy : ISelectionEffect
 {
     private GameObject field;
 
@@ -15,6 +15,7 @@ public class DamageEnemy :ISelectionEffect
     {
         Damage.DamagePlayer(selectedPlayer.gameObject, EffectDamageEnemy.AMOUNT_TO_DAMAGE);
         fieldTriggeringEffect.tag = "Untagged";
+        fieldTriggeringEffect.GetComponent<SelectPlayerEffect>().FinishedSelecting();
         return true;
     }
 
