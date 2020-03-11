@@ -10,7 +10,6 @@ public class EffectDamageEnemy : SelectPlayerEffect
     {
         GenericSelectTrigger();
         GenericTriggerEffect();
-        InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
         print("Damage Another player!");
     }
 
@@ -18,19 +17,4 @@ public class EffectDamageEnemy : SelectPlayerEffect
     {
         selectionEffect = new DamageEnemy(gameObject);
     }
-
-    /* private void Update()
-     {
-         if (gameObject.tag == TAG_SELECTION)
-         {
-             if (Input.GetKeyDown(KeyCode.DownArrow))
-             {
-                 InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
-             }
-             if (Input.GetKeyDown(KeyCode.K))
-             {
-                 selectionEffect.ConfirmedSelection();
-             }
-         }
-     }*/
 }

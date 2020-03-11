@@ -8,6 +8,7 @@ public abstract class SelectPlayerEffect : FieldEffect
     {
         gameObject.tag = TAG_SELECTION;
         InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
+        InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
         print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
     }
 

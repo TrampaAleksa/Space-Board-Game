@@ -17,19 +17,4 @@ public class EffectStealFuel : SelectPlayerEffect
         GenericTriggerEffect();
         print("Steal another players fuel!");
     }
-
-    private void Update()
-    {
-        if (gameObject.tag == TAG_SELECTION)
-        {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
-            }
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                selectionEffect.ConfirmedSelection();
-            }
-        }
-    }
 }

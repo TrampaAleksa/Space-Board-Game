@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SwapPlaces : ISelectionEffect
 {
-
     private GameObject field;
 
     public SwapPlaces(GameObject field)
@@ -44,6 +43,9 @@ public class SwapPlaces : ISelectionEffect
         PlayerMovement triggeringPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerMovement>();
         PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
         if (TrySwappingPlayers(triggeringPlayer, selectedPlayer, field))
+        {
+            field.GetComponent<SelectPlayerEffect>().FinishedSelecting();
             InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+        }
     }
 }

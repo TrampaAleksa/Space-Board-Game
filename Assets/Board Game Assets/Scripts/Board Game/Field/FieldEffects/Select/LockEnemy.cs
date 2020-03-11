@@ -11,11 +11,13 @@ public class LockEnemy : ISelectionEffect
         this.field = field;
     }
 
-    public static bool TrySkippingPlayersTurn(PlayerMovement selectedPlayer, int numberOfTurns, GameObject fieldTriggerintEffect)
+    public static bool TrySkippingPlayersTurn(PlayerMovement selectedPlayer, int numberOfTurns, GameObject fieldTriggeringEffect)
     {
+        fieldTriggeringEffect.GetComponent<SelectPlayerEffect>().FinishedSelecting();
         TurnHandler turnHandler = InstanceManager.Instance.Get<TurnHandler>();
         turnHandler.AddPlayerTurnsToSkip(selectedPlayer.gameObject, numberOfTurns);
-        fieldTriggerintEffect.tag = "Untagged";
+
+        fieldTriggeringEffect.tag = "Untagged";
         return true;
     }
 
