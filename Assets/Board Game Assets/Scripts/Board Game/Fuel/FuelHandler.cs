@@ -21,26 +21,13 @@ public class FuelHandler : MonoBehaviour, IBoardPlayerState
 
     public GameObject AddFuelToPlayer(GameObject player, float amount)
     {
-        PlayerFuel playerFuel = GetPlayersFuel(player);
-        playerFuel.fuel += amount;
-        InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "+" + amount);
-        if (playerFuel.fuel >= winningAmount)
-        {
-            print("PLAYER: " + player.name + " WON THE GAME!");
-        }
+        AddFuel.AddFuelToPlayer(player, amount);
         return player;
     }
 
     public GameObject RemoveFuelFromPlayer(GameObject player, float amount)
     {
-        PlayerFuel playerFuel = GetPlayersFuel(player);
-        playerFuel.fuel -= amount;
-        InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "-" + amount);
-        if (playerFuel.fuel < 0)
-        {
-            playerFuel.fuel = 0;
-            //TODO -- freeze the player and skip his next 2 turns
-        }
+        RemoveFuel.RemoveFuelFromPlayer(player, amount);
         return player;
     }
 
