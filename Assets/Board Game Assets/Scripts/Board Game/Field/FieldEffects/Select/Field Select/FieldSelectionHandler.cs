@@ -36,4 +36,9 @@ public class FieldSelectionHandler : GenericObjectArray
         confirmedSelectionEvents?.Invoke(CurrentMember());
         return CurrentMember();
     }
+
+    public Field GetCurrentField()
+    {
+        return CurrentMember().GetComponent<Field>();
+    }
 }

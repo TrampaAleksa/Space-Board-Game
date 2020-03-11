@@ -15,20 +15,46 @@ public class TeleportFieldSelectionEffect : ISelectionEffect
 
     public void ConfirmedSelection()
     {
-        FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
-        GameObject playerToTeleport = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
-        Field playersField = playerToTeleport.GetComponent<PlayerMovement>().currentPlayerField;
-        Field selectedFieldComponent = fieldSelectionHandler.CurrentMember().GetComponent<Field>();
+        TryTeleporting(new PlayerAndFieldReferences());
+    }
 
-        if (InstanceManager.Instance.Get<FieldHandler>()
-            .DistanceBetweenTwoFields(playersField, selectedFieldComponent) <= maximumDistanceAllowed)
+    public void TryTeleporting(PlayerAndFieldReferences references)
+    {
+        if (SelectedFieldIsInDistance(references))
         {
             fieldOfPlayerSelecting.GetComponent<SelectEffect>().FinishedSelecting();
 
-            InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(playerToTeleport, selectedFieldComponent);
-            playerToTeleport.GetComponent<PlayerMovement>().currentPlayerField.GetComponent<FieldEffect>().TriggerEffect();
+            InstanceManager.Instance.Get<FieldHandler>()
+                .TeleportPlayerToField(references.playerToTeleport, references.selectedFieldComponent);
+
+            TriggerFieldsEffect(references.selectedFieldComponent);
             //teleport sound effect
         }
-        else Debug.Log("Distance too large");
+        else InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip("Distance too Large");
+    }
+
+    private static void TriggerFieldsEffect(Field fieldTeleportedTo)
+    {
+        fieldTeleportedTo.gameObject.GetComponent<FieldEffect>().TriggerEffect();
+    }
+
+    private static bool SelectedFieldIsInDistance(PlayerAndFieldReferences references)
+    {
+        return InstanceManager.Instance.Get<FieldHandler>()
+                       .DistanceBetweenTwoFields(references.playersField, references.selectedFieldComponent) <= maximumDistanceAllowed;
+    }
+}
+
+public class PlayerAndFieldReferences
+{
+    public GameObject playerToTeleport;
+    public Field playersField;
+    public Field selectedFieldComponent;
+
+    public PlayerAndFieldReferences()
+    {
+        playerToTeleport = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
+        playersField = playerToTeleport.GetComponent<PlayerMovement>().currentPlayerField;
+        selectedFieldComponent = InstanceManager.Instance.Get<FieldSelectionHandler>().GetCurrentField();
     }
 }
