@@ -4,44 +4,9 @@ using UnityEngine;
 
 public class TeleportFieldSelectionEffect : ISelectionEffect
 {
-    public const int maximumDistanceAllowed = 3;
-
-    private GameObject fieldOfPlayerSelecting;
-
-    public TeleportFieldSelectionEffect(GameObject fieldOfPlayerSelecting)
-    {
-        this.fieldOfPlayerSelecting = fieldOfPlayerSelecting;
-    }
-
     public void ConfirmedSelection()
     {
-        TryTeleporting(new PlayerAndFieldReferences());
-    }
-
-    public void TryTeleporting(PlayerAndFieldReferences references)
-    {
-        if (SelectedFieldIsInDistance(references))
-        {
-            fieldOfPlayerSelecting.GetComponent<SelectEffect>().FinishedSelecting();
-
-            InstanceManager.Instance.Get<FieldHandler>()
-                .TeleportPlayerToField(references.playerToTeleport, references.selectedFieldComponent);
-
-            TriggerFieldsEffect(references.selectedFieldComponent);
-            //teleport sound effect
-        }
-        else InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip("Distance too Large");
-    }
-
-    private static void TriggerFieldsEffect(Field fieldTeleportedTo)
-    {
-        fieldTeleportedTo.gameObject.GetComponent<FieldEffect>().TriggerEffect();
-    }
-
-    private static bool SelectedFieldIsInDistance(PlayerAndFieldReferences references)
-    {
-        return InstanceManager.Instance.Get<FieldHandler>()
-                       .DistanceBetweenTwoFields(references.playersField, references.selectedFieldComponent) <= maximumDistanceAllowed;
+        Teleport.TryTeleporting(new PlayerAndFieldReferences());
     }
 }
 

@@ -13,6 +13,6 @@ public class EffectTeleport : SelectFieldEffect
 
     private void Awake()
     {
-        selectionEffect = new TeleportFieldSelectionEffect(gameObject);
+        selectionEffect = new TeleportFieldSelectionEffect();
     }
 }
