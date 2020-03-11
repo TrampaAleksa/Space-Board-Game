@@ -11,13 +11,9 @@ public class PlayerCheckpoint : MonoBehaviour
     public GameObject RespawnAtCheckpoint()
     {
         GameObject player = gameObject;
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+
         InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(player, CheckpointField);
-        player.GetComponent<PlayerHull>().HullPercentage = HullHandler.STARTING_HULL;
-        playerMovement.turnsToSkip = 0;
-        float numberToDivideFuelBy = 2f;
-        player.GetComponent<PlayerFuel>().fuel /= numberToDivideFuelBy;
+        InstanceManager.Instance.Get<CheckpointHandler>().SetPlayerStatusAfterRespawn(player);
         return player;
     }
-
 }

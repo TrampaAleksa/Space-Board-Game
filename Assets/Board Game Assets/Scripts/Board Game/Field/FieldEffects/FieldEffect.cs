@@ -8,8 +8,6 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
     [SerializeField]
     public PlayersHandler playersHandler;
 
-    public const string TAG_SELECTION = "Selection";
-
     private void Start()
     {
         playersHandler = InstanceManager.Instance.Get<PlayersHandler>();

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportFieldSelectEvent : ISelectionEffect
+public class TeleportFieldSelectionEffect : ISelectionEffect
 {
     public const int maximumDistanceAllowed = 3;
 
     private GameObject fieldOfPlayerSelecting;
 
-    public TeleportFieldSelectEvent(GameObject fieldOfPlayerSelecting)
+    public TeleportFieldSelectionEffect(GameObject fieldOfPlayerSelecting)
     {
         this.fieldOfPlayerSelecting = fieldOfPlayerSelecting;
     }
