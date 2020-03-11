@@ -2,25 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportFieldSelectEvent
+public class TeleportFieldSelectEvent : ISelectionEffect
 {
     public const int maximumDistanceAllowed = 3;
 
-    public void ConfirmSelectedField(GameObject field)
+    private GameObject fieldOfPlayerSelecting;
+
+    public TeleportFieldSelectEvent(GameObject fieldOfPlayerSelecting)
     {
+        this.fieldOfPlayerSelecting = fieldOfPlayerSelecting;
+    }
+
+    public void ConfirmedSelection()
+    {
+        FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
         GameObject playerToTeleport = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         Field playersField = playerToTeleport.GetComponent<PlayerMovement>().currentPlayerField;
-        Field selectedFieldComponent = field.GetComponent<Field>();
+        Field selectedFieldComponent = fieldSelectionHandler.CurrentMember().GetComponent<Field>();
+
         if (InstanceManager.Instance.Get<FieldHandler>()
             .DistanceBetweenTwoFields(playersField, selectedFieldComponent) <= maximumDistanceAllowed)
         {
-            InstanceManager.Instance.Get<PlayersHandler>()
-             .GetCurrentPlayer()
-             .GetComponent<PlayerMovement>()
-             .currentPlayerField
-             .GetComponent<SelectFieldEffect>()
-             .FinishedSelecting();
-            InstanceManager.Instance.Get<FieldSelectionHandler>().confirmedSelectionEvents -= ConfirmSelectedField;
+            fieldOfPlayerSelecting.GetComponent<SelectEffect>().FinishedSelecting();
+
             InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(playerToTeleport, selectedFieldComponent);
             playerToTeleport.GetComponent<PlayerMovement>().currentPlayerField.GetComponent<FieldEffect>().TriggerEffect();
             //teleport sound effect

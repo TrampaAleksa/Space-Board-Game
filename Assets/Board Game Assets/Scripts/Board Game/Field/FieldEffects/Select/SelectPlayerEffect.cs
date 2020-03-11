@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SelectPlayerEffect : FieldEffect
+public abstract class SelectPlayerEffect : SelectEffect
 {
-    public void GenericSelectTrigger()
+    public override void GenericSelectTrigger()
     {
         InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
         InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
         print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
     }
 
-    public void SelectionInputs()
+    public override void SelectionInputs()
     {
         print("input registered");
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -24,7 +24,7 @@ public abstract class SelectPlayerEffect : FieldEffect
         }
     }
 
-    public void FinishedSelecting()
+    public override void FinishedSelecting()
     {
         InstanceManager.Instance.Get<Inputs>().selectionInputEvents
             -= SelectionInputs;

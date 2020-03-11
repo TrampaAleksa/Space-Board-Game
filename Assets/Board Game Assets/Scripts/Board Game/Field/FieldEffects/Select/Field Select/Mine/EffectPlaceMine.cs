@@ -9,7 +9,10 @@ public class EffectPlaceMine : SelectFieldEffect
         print("Place a mine!");
         GenericTriggerEffect();
         GenericSelectTrigger();
-        MineFieldSelectionEvent fieldSelectionEvent = new MineFieldSelectionEvent();
-        InstanceManager.Instance.Get<FieldSelectionHandler>().confirmedSelectionEvents += fieldSelectionEvent.ConfirmSelectedField;
+    }
+
+    private void Awake()
+    {
+        selectionEffect = new MineFieldSelectionEvent(gameObject);
     }
 }

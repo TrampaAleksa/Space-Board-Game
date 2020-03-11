@@ -9,7 +9,10 @@ public class EffectTeleport : SelectFieldEffect
         print("Select a filed to teleport to!");
         GenericTriggerEffect();
         GenericSelectTrigger();
-        TeleportFieldSelectEvent fieldSelectionEvent = new TeleportFieldSelectEvent();
-        InstanceManager.Instance.Get<FieldSelectionHandler>().confirmedSelectionEvents += fieldSelectionEvent.ConfirmSelectedField;
+    }
+
+    private void Awake()
+    {
+        selectionEffect = new TeleportFieldSelectEvent(gameObject);
     }
 }

@@ -56,7 +56,7 @@ public class DiceRollHandler : MonoBehaviour
         }
 
         numberRolled = randomDiceSide + 1;
-        //numberRolled = 2; // use to fix what the dice will roll, for testing
+        //numberRolled = 5; // use to fix what the dice will roll, for testing
         tDiceNumberRolled.text = numberRolled.ToString();
         InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
     }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DamageEnemy : ISelectionEffect
 {
-    private GameObject field;
+    private GameObject fieldOfPlayerSelecting;
 
-    public DamageEnemy(GameObject field)
+    public DamageEnemy(GameObject fieldOfPlayerSelecting)
     {
-        this.field = field;
+        this.fieldOfPlayerSelecting = fieldOfPlayerSelecting;
     }
 
     public static bool TryDamagingPlayer(PlayerHull selectedPlayer, GameObject fieldTriggeringEffect)
@@ -21,7 +21,7 @@ public class DamageEnemy : ISelectionEffect
     public void ConfirmedSelection()
     {
         PlayerHull selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerHull>();
-        if (TryDamagingPlayer(selectedPlayer, field))
+        if (TryDamagingPlayer(selectedPlayer, fieldOfPlayerSelecting))
             InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }
