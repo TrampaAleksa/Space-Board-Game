@@ -30,8 +30,6 @@ public class SwapPlaces : ISelectionEffect
 
     private static bool SwapPlayersAction(PlayerMovement firstPlayer, PlayerMovement secondPlayer, GameObject firstPlayersField)
     {
-        firstPlayersField.tag = "Untagged";
-
         FieldHandler fieldHandler = InstanceManager.Instance.Get<FieldHandler>();
         fieldHandler.SwapTwoPlayers(firstPlayer, secondPlayer);
 

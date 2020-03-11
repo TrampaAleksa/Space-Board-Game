@@ -14,7 +14,6 @@ public class DamageEnemy : ISelectionEffect
     public static bool TryDamagingPlayer(PlayerHull selectedPlayer, GameObject fieldTriggeringEffect)
     {
         Damage.DamagePlayer(selectedPlayer.gameObject, EffectDamageEnemy.AMOUNT_TO_DAMAGE);
-        fieldTriggeringEffect.tag = "Untagged";
         fieldTriggeringEffect.GetComponent<SelectPlayerEffect>().FinishedSelecting();
         return true;
     }

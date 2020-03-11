@@ -17,7 +17,6 @@ public class StealFuel : ISelectionEffect
         FuelHandler fuelHandler = InstanceManager.Instance.Get<FuelHandler>();
         fuelHandler.AddFuelToPlayer(triggeringPlayer.gameObject, EffectStealFuel.AMOUNT_TO_STEAL);
         fuelHandler.RemoveFuelFromPlayer(selectedPlayer.gameObject, EffectStealFuel.AMOUNT_TO_STEAL);
-        fieldTriggeringEffect.tag = "Untagged";
         return true;
     }
 

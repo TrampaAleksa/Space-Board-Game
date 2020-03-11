@@ -17,7 +17,6 @@ public class LockEnemy : ISelectionEffect
         TurnHandler turnHandler = InstanceManager.Instance.Get<TurnHandler>();
         turnHandler.AddPlayerTurnsToSkip(selectedPlayer.gameObject, numberOfTurns);
 
-        fieldTriggeringEffect.tag = "Untagged";
         return true;
     }
 
