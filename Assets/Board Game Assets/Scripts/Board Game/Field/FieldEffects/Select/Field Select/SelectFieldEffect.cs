@@ -1,0 +1,42 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public abstract class SelectFieldEffect : FieldEffect
+{
+    public void GenericSelectTrigger()
+    {
+        FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
+
+        fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
+
+        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
+        cameraMovementHandler.SetCameraMode(typeof(CameraModeFieldFollow));
+
+        InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
+        print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
+    }
+
+    public void SelectionInputs()
+    {
+        print("input registered");
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            InstanceManager.Instance.Get<FieldSelectionHandler>().SelectNextField();
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            InstanceManager.Instance.Get<FieldSelectionHandler>().SelectPreviousField();
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            InstanceManager.Instance.Get<FieldSelectionHandler>().TriggerSelectionEvent();
+        }
+    }
+
+    public void FinishedSelecting()
+    {
+        InstanceManager.Instance.Get<Inputs>().selectionInputEvents
+            -= SelectionInputs;
+    }
+}

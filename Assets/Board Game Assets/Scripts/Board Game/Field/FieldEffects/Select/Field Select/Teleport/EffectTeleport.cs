@@ -2,39 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectTeleport : FieldEffect
+public class EffectTeleport : SelectFieldEffect
 {
     public override void TriggerEffect()
     {
-        print("Emergency teleport!");
+        print("Select a filed to teleport to!");
         GenericTriggerEffect();
-        gameObject.tag = TAG_SELECTION;
-
-        FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
+        GenericSelectTrigger();
         TeleportFieldSelectEvent fieldSelectionEvent = new TeleportFieldSelectEvent();
-        fieldSelectionHandler.confirmedSelectionEvents += fieldSelectionEvent.ConfirmSelectedField;
-        fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
-
-        CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
-        cameraMovementHandler.SetCameraMode(typeof(CameraModeFieldFollow));
-    }
-
-    private void Update()
-    {
-        if (gameObject.tag == TAG_SELECTION)
-        {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                InstanceManager.Instance.Get<FieldSelectionHandler>().SelectNextField();
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                InstanceManager.Instance.Get<FieldSelectionHandler>().SelectPreviousField();
-            }
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                InstanceManager.Instance.Get<FieldSelectionHandler>().TriggerSelectionEvent();
-            }
-        }
+        InstanceManager.Instance.Get<FieldSelectionHandler>().confirmedSelectionEvents += fieldSelectionEvent.ConfirmSelectedField;
     }
 }

@@ -10,7 +10,12 @@ public class MineFieldSelectionEvent
         {
             field.AddComponent<Mine>();
             InstanceManager.Instance.Get<FieldSelectionHandler>().confirmedSelectionEvents -= ConfirmSelectedField;
-            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerMovement>().currentPlayerField.tag = "Untagged";
+            InstanceManager.Instance.Get<PlayersHandler>()
+                .GetCurrentPlayer()
+                .GetComponent<PlayerMovement>()
+                .currentPlayerField
+                .GetComponent<SelectFieldEffect>()
+                .FinishedSelecting();
             InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
             //Mine placed sound
         }
