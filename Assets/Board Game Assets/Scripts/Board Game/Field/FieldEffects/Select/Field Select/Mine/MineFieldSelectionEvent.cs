@@ -13,9 +13,10 @@ public class MineFieldSelectionEvent : ISelectionEffect
 
     public void ConfirmedSelection()
     {
-        if (fieldOfPlayerSelecting.GetComponent<Mine>() == null)
+        GameObject selectedField = InstanceManager.Instance.Get<FieldSelectionHandler>().GetSelectedField();
+        if (selectedField.GetComponent<Mine>() == null)
         {
-            fieldOfPlayerSelecting.AddComponent<Mine>();
+            selectedField.AddComponent<Mine>();
             fieldOfPlayerSelecting.GetComponent<SelectEffect>().FinishedSelecting();
             InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
             //Mine placed sound
