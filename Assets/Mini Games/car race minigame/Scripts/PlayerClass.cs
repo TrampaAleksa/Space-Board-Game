@@ -60,7 +60,6 @@ public class PlayerClass
     }
     public void Steer(float m_horizontalInput)
     {
-        Debug.Log(wheelColliders[0].motorTorque);
         wheelColliders[0].steerAngle = wheelColliders[1].steerAngle = maxSteerAngle * m_horizontalInput;
     }
     public void Accelerate(float m_verticalInput)
