@@ -27,8 +27,8 @@ public class CameraModesHandler : MonoBehaviour
         currentCameraMode.UpdateCamera();
     }
 
-    public void SetCameraMode(Type mode)
+    public void SetCameraMode<T>() where T : ICameraMode
     {
-        currentCameraMode = cameraModesDictionary[mode];
+        currentCameraMode = cameraModesDictionary[typeof(T)] != null ? cameraModesDictionary[typeof(T)] : currentCameraMode;
     }
 }

@@ -11,7 +11,7 @@ public abstract class SelectFieldEffect : SelectEffect
         fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
 
         CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
-        cameraMovementHandler.SetCameraMode(typeof(CameraModeFieldFollow));
+        cameraMovementHandler.SetCameraMode<CameraModeFieldFollow>();
 
         InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
         print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
