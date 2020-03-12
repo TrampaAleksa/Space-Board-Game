@@ -11,12 +11,9 @@ public partial class PlayerController : MonoBehaviour
     private float f_verticalInput;
 
     public float maxSteerAngle, motorForce, maximumRotation;
-    public string nameOfInputHorizontal;
-    public string nameOfInputVertical;
-    public Transform BodyForRotate;
-    public static PlayerController Instance;
-    public static bool startGame=false;
+    public static bool startGame = false;
 
+    public static PlayerController Instance;
     private void Awake()
     {
         Instance = this;
@@ -25,12 +22,13 @@ public partial class PlayerController : MonoBehaviour
     {
         playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
         playerClass.Panel.gameObject.SetActive(false);
-        playerClass.Text.text = "Lap: " + lap.ToString() + "/" + GameManager.Instance.numberOfLaps;
+        playerClass.Text.text = "Speed";
     }
     private void FixedUpdate()
     {
         if(startGame)
             Move();
+         playerClass.CountSpeed();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -59,16 +57,15 @@ public partial class PlayerController : MonoBehaviour
     private void FinishedLap()
     {
         lap++;
-        playerClass.Text.text = "Lap: " + (lap - 1).ToString() + "/" + GameManager.Instance.numberOfLaps;
         beforeFinishPass = true;
     }
     public void Move()
     {
-        GetInput(nameOfInputHorizontal, nameOfInputVertical);
+        GetInput(playerClass.NameOfInputHorizontal, playerClass.NameOfInputVertical);
         playerClass.Steer(f_horizontalInput);
         playerClass.Rotation(f_horizontalInput);
         if(f_verticalInput<0)
-            playerClass.Break(f_verticalInput);
+            playerClass.Brake(f_verticalInput);
         else    playerClass.Accelerate(f_verticalInput);
     }
     public void GetInput(string nameOfInputHorizontal, string nameOfInputVertical)

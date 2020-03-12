@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     {
         StateOfFinishGame(counterRankInc, number);
         counterRankInc++;
-        
     }
     public void Lose(int number)
     {
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour
         if (numberOfPlayersFinished == 3)
             GameFinished();
     }
-    private void GameFinished() 
+    private void GameFinished()
     {
         SceneManager.LoadScene(1);
     }
