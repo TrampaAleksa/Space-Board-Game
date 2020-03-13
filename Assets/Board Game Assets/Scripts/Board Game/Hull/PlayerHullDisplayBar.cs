@@ -14,18 +14,17 @@ public class PlayerHullDisplayBar : PlayerStateDisplay
         if (shouldUpdate)
         {
             int indexToActivateTo = (int)player.GetComponent<PlayerHull>().HullPercentage / 10;
-            for(int i = 0; i< indexToActivateTo; i++)
+            for (int i = 0; i < indexToActivateTo; i++)
             {
-                barSteps[i].gameObject.SetActive(true);
+                //barSteps[i].gameObject.SetActive(true);
+                barSteps[i].color = new Color(barSteps[i].color.r, barSteps[i].color.g, barSteps[i].color.b, 1);
             }
-            for(int i = indexToActivateTo; i<barSteps.Length; i++)
+            for (int i = indexToActivateTo; i < barSteps.Length; i++)
             {
-                barSteps[i].gameObject.SetActive(false);
+                barSteps[i].color = new Color(barSteps[i].color.r, barSteps[i].color.g, barSteps[i].color.b, 0);
             }
             shouldUpdate = false;
         }
         return true;
     }
-
-    
 }
