@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public partial class PlayerController : MonoBehaviour
 {
+    public CameraFollowController cameraFollowController;
     private PlayerClass playerClass;
     private static int i = 0;
     private int lap;
@@ -20,9 +21,7 @@ public partial class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        //Camera.allCameras;
         playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
-        playerClass.Panel.gameObject.SetActive(false);
         playerClass.Text.text = "Speed";
     }
     private void FixedUpdate()
@@ -76,8 +75,9 @@ public partial class PlayerController : MonoBehaviour
     }
     private void FinishGame()
     {
+        cameraFollowController.finishGame = true;
         gameObject.SetActive(false);
-        playerClass.Panel.gameObject.SetActive(true);
+        cameraFollowController.ChangeIndex(cameraFollowController.index);
         playerClass.Text.text = playerClass.Name + " je " + GameManager.Instance.playerBoardStates[playerClass.Element].rank + " mesto";
     }
 }
