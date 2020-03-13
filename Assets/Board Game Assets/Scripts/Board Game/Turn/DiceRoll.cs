@@ -35,7 +35,7 @@ public class DiceRoll
         }
         int numberRolled = randomDiceSide + 1;
         InstanceManager.Instance.Get<DiceRollHandler>().numberRolled = numberRolled;
-        //numberRolled = 2; // use to fix what the dice will roll, for testing
+        numberRolled = 5; // use to fix what the dice will roll, for testing
         InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
     }
 }

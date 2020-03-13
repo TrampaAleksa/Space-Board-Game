@@ -8,6 +8,7 @@ public class EffectMoveForward : FieldEffect
     {
         GenericTriggerEffect();
         GameObject currentPlayer = playersHandler.GetCurrentPlayer();
-        InstanceManager.Instance.Get<MovementHandler>().MoveNFields(1, currentPlayer);
+        int fieldsToMove = Random.Range(1, 7);
+        InstanceManager.Instance.Get<MovementHandler>().MoveNFields(fieldsToMove, currentPlayer);
     }
 }
