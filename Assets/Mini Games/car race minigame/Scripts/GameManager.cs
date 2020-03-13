@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     private int numberOfPlayersFinished=0;
 
     public static GameManager Instance;
-
     private void Awake()
     {
         Instance = this;
