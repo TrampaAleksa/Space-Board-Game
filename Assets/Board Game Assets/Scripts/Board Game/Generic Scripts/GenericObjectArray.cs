@@ -25,7 +25,7 @@ public class GenericObjectArray : MonoBehaviour
     /// <returns>The next member in the array</returns>
     public GameObject NextMember()
     {
-        int nextMember = (CurrentMemberIndex+1) % gameObjects.Length;
+        int nextMember = (CurrentMemberIndex + 1) % gameObjects.Length;
         return gameObjects[nextMember];
     }
 
@@ -37,7 +37,7 @@ public class GenericObjectArray : MonoBehaviour
     {
         int previousMember = CurrentMemberIndex == 0 ?
             gameObjects.Length - 1 :
-            CurrentMemberIndex-1;
+            CurrentMemberIndex - 1;
 
         return gameObjects[previousMember];
     }
@@ -72,16 +72,16 @@ public class GenericObjectArray : MonoBehaviour
     /// <returns></returns>
     public GameObject SetCurrentMember(int index)
     {
-        while(index >= gameObjects.Length)
+        while (index >= gameObjects.Length)
         {
             index -= gameObjects.Length;
         }
-        while(index <0) index += gameObjects.Length;
+        while (index < 0) index += gameObjects.Length;
         CurrentMemberIndex = index;
         return gameObjects[CurrentMemberIndex];
     }
 
-  public int LastMemberIndex()
+    public int LastMemberIndex()
     {
         return gameObjects.Length - 1;
     }
@@ -90,6 +90,4 @@ public class GenericObjectArray : MonoBehaviour
     {
         return gameObjects.Length;
     }
-
-
 }

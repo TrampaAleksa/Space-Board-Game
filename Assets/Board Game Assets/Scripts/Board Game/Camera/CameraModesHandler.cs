@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +30,13 @@ public class CameraModesHandler : MonoBehaviour
 
     public void SetCameraMode<T>() where T : ICameraMode
     {
-        currentCameraMode = cameraModesDictionary[typeof(T)] != null ? cameraModesDictionary[typeof(T)] : currentCameraMode;
+        //currentCameraMode = cameraModesDictionary[typeof(T)] != null ? cameraModesDictionary[typeof(T)] : currentCameraMode;
+        StartCoroutine(DelayCameraSwitch(cameraModesDictionary[typeof(T)]));
+    }
+
+    private IEnumerator DelayCameraSwitch(ICameraMode cameraMode)
+    {
+        yield return new WaitForSeconds(1.5f);
+        currentCameraMode = cameraMode;
     }
 }
