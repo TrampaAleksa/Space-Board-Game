@@ -30,7 +30,6 @@ public class CameraModesHandler : MonoBehaviour
 
     public void SetCameraMode<T>() where T : ICameraMode
     {
-        //currentCameraMode = cameraModesDictionary[typeof(T)] != null ? cameraModesDictionary[typeof(T)] : currentCameraMode;
         StartCoroutine(DelayCameraSwitch(cameraModesDictionary[typeof(T)]));
     }
 
