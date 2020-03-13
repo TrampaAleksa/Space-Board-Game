@@ -13,13 +13,9 @@ public class EffectSwapPlaces : SelectPlayerEffect
             InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
             return;
         }
+        selectionEffect = new SwapPlaces(gameObject);
         GenericSelectTrigger();
         GenericTriggerEffect();
         print("Swap places with someone!");
-    }
-
-    private void Awake()
-    {
-        selectionEffect = new SwapPlaces(gameObject);
     }
 }

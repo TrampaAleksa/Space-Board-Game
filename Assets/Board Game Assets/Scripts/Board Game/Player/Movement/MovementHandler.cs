@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovementHandler : MonoBehaviour
 {
     public float fuelPerField = 0.5f;
+    public bool moveForward = true;
 
     public GameObject MoveNFields(int n, GameObject player)
     {
@@ -12,7 +13,8 @@ public class MovementHandler : MonoBehaviour
 
         GameObject lastField = playerMovement.currentPlayerField.NthField(n).gameObject;
         lastField.tag = "LastField";
-        GameObject field = n < 0 ? MoveToPreviousField(player) : MoveToNextField(player);
+        moveForward = n > 0;
+        GameObject field = moveForward ? MoveToNextField(player) : MoveToPreviousField(player);
         return player;
     }
 

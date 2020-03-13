@@ -6,13 +6,9 @@ public class EffectPlaceMine : SelectFieldEffect
 {
     public override void TriggerEffect()
     {
+        selectionEffect = new MineFieldSelectionEvent(gameObject);
         print("Place a mine!");
         GenericTriggerEffect();
         GenericSelectTrigger();
-    }
-
-    private void Awake()
-    {
-        selectionEffect = new MineFieldSelectionEvent(gameObject);
     }
 }

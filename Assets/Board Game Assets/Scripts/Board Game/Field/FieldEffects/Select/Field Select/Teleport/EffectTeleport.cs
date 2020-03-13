@@ -6,13 +6,9 @@ public class EffectTeleport : SelectFieldEffect
 {
     public override void TriggerEffect()
     {
+        selectionEffect = new TeleportFieldSelectionEffect();
         print("Select a filed to teleport to!");
         GenericTriggerEffect();
         GenericSelectTrigger();
-    }
-
-    private void Awake()
-    {
-        selectionEffect = new TeleportFieldSelectionEffect();
     }
 }

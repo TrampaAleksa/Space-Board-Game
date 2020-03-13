@@ -8,13 +8,9 @@ public class EffectDamageEnemy : SelectPlayerEffect
 
     public override void TriggerEffect()
     {
+        selectionEffect = new DamageEnemy(gameObject);
         GenericSelectTrigger();
         GenericTriggerEffect();
         print("Damage Another player!");
-    }
-
-    private void Awake()
-    {
-        selectionEffect = new DamageEnemy(gameObject);
     }
 }

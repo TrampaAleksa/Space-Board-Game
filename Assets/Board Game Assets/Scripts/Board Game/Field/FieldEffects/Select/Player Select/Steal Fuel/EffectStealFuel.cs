@@ -6,13 +6,9 @@ public class EffectStealFuel : SelectPlayerEffect
 {
     public const float AMOUNT_TO_STEAL = 20f;
 
-    private void Awake()
-    {
-        selectionEffect = new StealFuel(gameObject);
-    }
-
     public override void TriggerEffect()
     {
+        selectionEffect = new StealFuel(gameObject);
         GenericSelectTrigger();
         GenericTriggerEffect();
         print("Steal another players fuel!");
