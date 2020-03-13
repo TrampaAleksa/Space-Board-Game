@@ -8,7 +8,7 @@ public class FieldHandler : GenericObjectArray, IBoardPlayerState
 
     private void Awake()
     {
-        new FieldInit(this).Initialize();
+        new FieldInitPath(this).Initialize();
         fieldMovement = new FieldMovementImpl();
     }
 
@@ -51,5 +51,6 @@ public class FieldHandler : GenericObjectArray, IBoardPlayerState
     {
         int index = playerState.pathIndex;
         MemberWithIndex(index).GetComponent<Field>().AddPlayerToField(player);
+        TeleportPlayerToField(player, MemberWithIndex(index).GetComponent<Field>());
     }
 }
