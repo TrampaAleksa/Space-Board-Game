@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,9 +10,10 @@ using UnityEngine.UI;
 public class FuelDisplayText : PlayerStateDisplay
 {
     private Text displayText;
+
     public override bool UpdateDisplay()
     {
-        displayText.text = InstanceManager.Instance.Get<FuelHandler>().GetPlayersFuel(player).fuel.ToString();
+        displayText.text = Convert.ToInt32(InstanceManager.Instance.Get<FuelHandler>().GetPlayersFuel(player).fuel).ToString();
         return true;
     }
 
