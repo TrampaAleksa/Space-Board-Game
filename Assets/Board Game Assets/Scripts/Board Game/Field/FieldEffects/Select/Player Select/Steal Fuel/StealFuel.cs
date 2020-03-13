@@ -15,8 +15,8 @@ public class StealFuel : ISelectionEffect
     {
         fieldTriggeringEffect.GetComponent<SelectPlayerEffect>().FinishedSelecting();
         FuelHandler fuelHandler = InstanceManager.Instance.Get<FuelHandler>();
-        fuelHandler.AddFuelToPlayer(triggeringPlayer.gameObject, EffectStealFuel.AMOUNT_TO_STEAL);
-        fuelHandler.RemoveFuelFromPlayer(selectedPlayer.gameObject, EffectStealFuel.AMOUNT_TO_STEAL);
+        fuelHandler.AddFuelToPlayer(triggeringPlayer.gameObject, EffectStealFuel.AMOUNT_TO_STEAL, true);
+        fuelHandler.RemoveFuelFromPlayer(selectedPlayer.gameObject, EffectStealFuel.AMOUNT_TO_STEAL, true);
         return true;
     }
 

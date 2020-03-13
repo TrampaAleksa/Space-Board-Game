@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour
 {
+    public float fuelPerField = 0.5f;
+
     public GameObject MoveNFields(int n, GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
@@ -21,6 +23,7 @@ public class MovementHandler : MonoBehaviour
         {
             currentPlayerField.NextField().tag = "NextField";
         }
+        InstanceManager.Instance.Get<FuelHandler>().RemoveFuelFromPlayer(player, fuelPerField, false);
         //ship movement sound?
         InstanceManager.Instance.Get<FieldHandler>().SetCurrentField(currentPlayerField.NextField(), player.gameObject);
         return player;

@@ -16,7 +16,7 @@ public class RankHandler : MonoBehaviour, IBoardPlayerState
     {
         int rank = playerState.rank;
         float fuelReward = PrizeForRank(rank);
-        InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(player, fuelReward);
+        InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(player, fuelReward, false);
     }
 
     public float PrizeForRank(int rank)

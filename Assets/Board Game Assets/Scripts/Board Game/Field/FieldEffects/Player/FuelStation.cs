@@ -19,7 +19,7 @@ public class FuelStation : FieldEffect
     {
         if (other.tag == "Player")
         {
-            InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(other.gameObject, fuelPerVisit);
+            InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(other.gameObject, fuelPerVisit, true);
             //Fuel added sound?
             print("added fuel to: " + other.name);
         }

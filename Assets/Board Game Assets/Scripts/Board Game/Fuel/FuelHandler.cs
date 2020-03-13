@@ -5,7 +5,7 @@ using UnityEngine;
 public class FuelHandler : MonoBehaviour, IBoardPlayerState
 {
     public const float startingAmount = 50;
-    public const float winningAmount = 300f;
+    public const float winningAmount = 200f;
 
     public PlayerFuel GetPlayersFuel(GameObject player)
     {
@@ -19,15 +19,15 @@ public class FuelHandler : MonoBehaviour, IBoardPlayerState
         return player;
     }
 
-    public GameObject AddFuelToPlayer(GameObject player, float amount)
+    public GameObject AddFuelToPlayer(GameObject player, float amount, bool showTooltip)
     {
-        AddFuel.AddFuelToPlayer(player, amount);
+        AddFuel.AddFuelToPlayer(player, amount, showTooltip);
         return player;
     }
 
-    public GameObject RemoveFuelFromPlayer(GameObject player, float amount)
+    public GameObject RemoveFuelFromPlayer(GameObject player, float amount, bool showTooltip)
     {
-        RemoveFuel.RemoveFuelFromPlayer(player, amount);
+        RemoveFuel.RemoveFuelFromPlayer(player, amount, showTooltip);
         return player;
     }
 
