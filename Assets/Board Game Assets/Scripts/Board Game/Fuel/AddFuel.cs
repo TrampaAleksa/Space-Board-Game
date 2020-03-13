@@ -13,6 +13,7 @@ public class AddFuel
         if (playerFuel.fuel >= FuelHandler.winningAmount)
         {
             Debug.Log("PLAYER: " + player.name + " WON THE GAME!");
+            InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "WON THE GAME");
         }
         return player;
     }
