@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoardStateReset : MonoBehaviour
 {
     public PlayerBoardState[] playerBoardStates;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -24,6 +25,7 @@ public class BoardStateReset : MonoBehaviour
             stateComponent.pathIndex = 0;
             stateComponent.checkpointIndex = 0;
             stateComponent.turnsToSkip = 0;
+            stateComponent.rank = 0;
         }
     }
 }
