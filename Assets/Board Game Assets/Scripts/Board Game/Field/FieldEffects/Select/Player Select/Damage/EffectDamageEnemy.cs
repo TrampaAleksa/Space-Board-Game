@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectDamageEnemy : SelectPlayerEffect
 {
-    public const float AMOUNT_TO_DAMAGE = 20f;
+    public const float AMOUNT_TO_DAMAGE = 40f;
 
     public override void TriggerEffect()
     {

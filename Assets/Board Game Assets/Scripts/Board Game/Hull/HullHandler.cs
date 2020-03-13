@@ -18,6 +18,12 @@ public class HullHandler : MonoBehaviour, IBoardPlayerState
         return player.GetComponent<PlayerHull>();
     }
 
+    public GameObject DamagePlayer(GameObject player, float value)
+    {
+        Damage.DamagePlayer(player, value);
+        return player;
+    }
+
     public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
         float amount = playerState.hull = player.GetComponent<PlayerHull>().HullPercentage;
