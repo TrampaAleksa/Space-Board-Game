@@ -48,12 +48,12 @@ public class PlayerClass
     }
     public void Brake(float m_verticalInput)
     {
-        if (((int)(wheelColliders[0].radius * wheelColliders[0].rpm) / 2) > 0)
+        if ((int)(wheelColliders[0].radius) > 0)
         {
             wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = 0;
             wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = -m_verticalInput * motorForce * 2;
         }
-        if (((int)(wheelColliders[0].radius * wheelColliders[0].rpm) / 2) <= 0)
+        if ((int)(wheelColliders[0].radius) <= 0)
         {
             SpeedUp(m_verticalInput);
         }

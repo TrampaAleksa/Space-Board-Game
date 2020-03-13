@@ -10,7 +10,6 @@ public class StartCountdown : MonoBehaviour
 
     private void Start()
     {
-        print("start");
         StartCoroutine(CountdownToStart());
     }
 

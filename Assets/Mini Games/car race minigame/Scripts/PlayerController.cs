@@ -20,6 +20,7 @@ public partial class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        //Camera.allCameras;
         playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
         playerClass.Panel.gameObject.SetActive(false);
         playerClass.Text.text = "Speed";
