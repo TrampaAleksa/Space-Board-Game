@@ -17,8 +17,8 @@ public static class FieldInfoMessages
     public const string DAMAGE_PLAYER = "You took damage!";
     public const string MOVE_FORWARD = "Moving random number of fields forward!";
     public const string MOVE_BACKWARDS = "Moving random number of fields backwards!";
-    public const string PLACE_MINE = "Click on a field to palce a mine!";
-    public const string TELEPORT_PLAYER = "Click on a field to teleport to!";
+    public const string PLACE_MINE = "Select a field to place a mine!";
+    public const string TELEPORT_PLAYER = "Select a field to teleport to!";
 
     public static string[] fieldInfoMessages =
     {FUEL_STATION, EMPTY_FIELD, RANDOM, SWAP_PLACES, STEAL_FUEL,
