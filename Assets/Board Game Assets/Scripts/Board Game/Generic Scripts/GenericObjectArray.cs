@@ -90,4 +90,22 @@ public class GenericObjectArray : MonoBehaviour
     {
         return gameObjects.Length;
     }
+    public void ExcludeElement(int index) 
+    {
+        int lenght = gameObjects.Length - 1;
+        GameObject[] tmpGameObjects = new GameObject[lenght];
+        for (int a = index; a < gameObjects.Length-1; a++)
+        {
+            gameObjects[a] = gameObjects[a + 1];
+        }
+        for (int a = 0; a < tmpGameObjects.Length; a++)
+        {
+            tmpGameObjects[a] = gameObjects[a];
+        }
+        gameObjects = tmpGameObjects;
+        for (int a = index; a < gameObjects.Length; a++)
+        {
+            Debug.Log(gameObjects[a]);
+        }
+    }
 }
