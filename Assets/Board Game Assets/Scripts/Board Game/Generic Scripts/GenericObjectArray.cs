@@ -6,7 +6,6 @@ public class GenericObjectArray : MonoBehaviour
 {
     public GameObject[] gameObjects;
     private int currentMemberIndex = 0;
-
     protected int CurrentMemberIndex { get => currentMemberIndex; set => currentMemberIndex = value; }
 
     public GameObject FirstMember()
@@ -90,7 +89,7 @@ public class GenericObjectArray : MonoBehaviour
     {
         return gameObjects.Length;
     }
-    public void ExcludeElement(int index) 
+    public void ExcludeElement(int index)
     {
         int lenght = gameObjects.Length - 1;
         GameObject[] tmpGameObjects = new GameObject[lenght];
@@ -103,7 +102,7 @@ public class GenericObjectArray : MonoBehaviour
             tmpGameObjects[a] = gameObjects[a];
         }
         gameObjects = tmpGameObjects;
-        for (int a = index; a < gameObjects.Length; a++)
+        for (int a = 0; a < gameObjects.Length; a++)
         {
             Debug.Log(gameObjects[a]);
         }

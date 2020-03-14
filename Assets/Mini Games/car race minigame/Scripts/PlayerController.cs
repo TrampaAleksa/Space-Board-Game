@@ -76,6 +76,7 @@ public partial class PlayerController : MonoBehaviour
     private void FinishGame()
     {
         cameraFollowController.finishGame = true;
+        cameraFollowController.deathOrNot = true;
         gameObject.SetActive(false);
         cameraFollowController.ChangeIndex(cameraFollowController.index);
         playerClass.Text.text = playerClass.Name + " je " + GameManager.Instance.playerBoardStates[playerClass.Element].rank + " mesto";
