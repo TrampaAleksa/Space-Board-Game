@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollowController : MonoBehaviour {
+	public string input;
 	public int index;
 	public GenericObjectArray objectToFollow;
 	public float followSpeed = 10;
@@ -35,7 +36,7 @@ public class CameraFollowController : MonoBehaviour {
 	}
 	private void Update()
 	{
-		if (Input.GetKeyDown("o") && finishGame) 
+		if (Input.GetKeyDown(input) && finishGame) 
 		{
 			ChangeIndex(index);
 		}
