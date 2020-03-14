@@ -6,7 +6,6 @@ using UnityEngine.UI;
 [System.Serializable]
 public class PlayerClass
 {
-    //private Camera camera;
     private string nameOfInputHorizontal;
     private string nameOfInputVertical;
     private GameObject playerObject;
@@ -16,7 +15,6 @@ public class PlayerClass
     private float maxSteerAngle;
     private float motorForce;
     private float maximumRotation;
-    //private GameObject panel;
     private Text text;
     private WheelCollider[] wheelColliders;
 
@@ -32,8 +30,6 @@ public class PlayerClass
         this.playerObject = playerObject;
         this.bodyForRotate = playerObject.GetComponentInChildren<ROTATEBODY>().gameObject;
         this.wheelColliders = playerObject.GetComponentsInChildren<WheelCollider>();
-        //GameObject[] tmpP = GameObject.FindGameObjectsWithTag("PPanel");
-        //Panel = tmpP[0];
         GameObject[] tmpT = GameObject.FindGameObjectsWithTag("PText");
         Text[] tmpTxt = new Text[tmpT.Length];
         for (int i = 0; i < tmpT.Length; i++)
@@ -52,7 +48,7 @@ public class PlayerClass
         if ((int)(wheelColliders[0].radius) > 0)
         {
             wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = 0;
-            wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = -m_verticalInput * motorForce * 3;
+            wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = -m_verticalInput * motorForce * 4;
         }
         if ((int)(wheelColliders[0].radius) <= 0)
         {
@@ -81,7 +77,6 @@ public class PlayerClass
     public string NameOfInputVertical { get { return nameOfInputVertical; } set { nameOfInputVertical = value; } }
     public GameObject PlayerObject { get { return playerObject; } set { playerObject=value; } }
     public Text Text { get { return text; } set { text = value; } }
-   //public GameObject Panel { get { return panel; } set => panel = value; }
     public int Element { get { return element; } set { element=value; } }
     public string Name { get { return nameOfPlayer; } set { nameOfPlayer = value; } }
     public float MaxSteerAngle { get { return maxSteerAngle; } set { maxSteerAngle = value; } }

@@ -7,7 +7,7 @@ public partial class PlayerController : MonoBehaviour
     private PlayerClass playerClass;
     private static int i = 0;
     private int lap;
-    private bool beforeFinishPass = false;
+    private bool beforeFinishPass = true;
     private float f_horizontalInput;
     private float f_verticalInput;
 
@@ -37,12 +37,13 @@ public partial class PlayerController : MonoBehaviour
             if (!beforeFinishPass)
             {
                 FinishedLap();
-                if (GameManager.Instance.numberOfLaps == lap-1)
+                if (GameManager.Instance.numberOfLaps == lap)
                 {
                     GameManager.Instance.Win(playerClass.Element);
                     FinishGame();
                 }
             }
+            Debug.Log(lap);
         }
         if (other.tag == "DeathLine")
         {
@@ -78,7 +79,7 @@ public partial class PlayerController : MonoBehaviour
         cameraFollowController.finishGame = true;
         cameraFollowController.deathOrNot = true;
         gameObject.SetActive(false);
+        playerClass.Text.text = "SPECTATE";
         cameraFollowController.ChangeIndex(cameraFollowController.index);
-        playerClass.Text.text = playerClass.Name + " je " + GameManager.Instance.playerBoardStates[playerClass.Element].rank + " mesto";
     }
 }

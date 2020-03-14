@@ -37,7 +37,6 @@ public class CameraFollowController : MonoBehaviour {
 	{
 		if (calibrateIndexBool) 
 		{
-			Debug.Log("Prosao");
 			CallibrateIndex();
 		}
 		if (Input.GetKeyDown(input) && deathOrNot)
@@ -50,7 +49,6 @@ public class CameraFollowController : MonoBehaviour {
 		if (finishGame)
 		{
 			indexForCalibrate = index;
-			Debug.Log(indexForCalibrate);
 			objectToFollow.ExcludeElement(index);
 			finishGame = false;
 			calibrateIndexBool = true;
@@ -67,7 +65,6 @@ public class CameraFollowController : MonoBehaviour {
 		i++;
 		if (index>indexForCalibrate)
 		{
-			Debug.Log(" ");
 			index--;
 		}
 		if (i == 4) {

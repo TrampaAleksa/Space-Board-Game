@@ -102,9 +102,5 @@ public class GenericObjectArray : MonoBehaviour
             tmpGameObjects[a] = gameObjects[a];
         }
         gameObjects = tmpGameObjects;
-        for (int a = 0; a < gameObjects.Length; a++)
-        {
-            Debug.Log(gameObjects[a]);
-        }
     }
 }
