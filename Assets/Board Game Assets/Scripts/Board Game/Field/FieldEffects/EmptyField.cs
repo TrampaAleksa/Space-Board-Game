@@ -6,7 +6,6 @@ public class EmptyField : FieldEffect , IGenericFieldEffect
 {
     public override void TriggerEffect()
     {
-        GenericTriggerEffect();
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
         print("end turn");
     }

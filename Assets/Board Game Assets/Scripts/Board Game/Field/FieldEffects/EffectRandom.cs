@@ -15,7 +15,6 @@ public class EffectRandom : FieldEffect , IGenericFieldEffect
 
     public override void TriggerEffect()
     {
-        GenericTriggerEffect();
         int index = Random.Range(0, effectsList.Length);
         print("Random effect: " + effectsList[index].name);
         effectToTrigger = gameObject.AddComponent(effectsList[index].GetType()) as FieldEffect;
