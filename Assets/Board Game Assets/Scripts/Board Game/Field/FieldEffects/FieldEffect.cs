@@ -13,6 +13,8 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
         playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
     }
 
+    public abstract void FinishedEffect();
+
     public abstract void TriggerEffect();
 
     public void GenericTriggerEffect()

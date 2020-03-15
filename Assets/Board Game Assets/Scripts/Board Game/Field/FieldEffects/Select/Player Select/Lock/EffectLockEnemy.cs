@@ -13,4 +13,9 @@ public class EffectLockEnemy : SelectPlayerEffect
         GenericTriggerEffect();
         print("Break another players engines!");
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

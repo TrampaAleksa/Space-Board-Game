@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class FieldEffectInit : MonoBehaviour
 {
-    private void InitEffectsForField(GameObject field)
+    private void Start()
     {
+        Debug.Log("field effect init");
         FieldEffectHandler fieldEffectHandler = InstanceManager.Instance.Get<FieldEffectHandler>();
 
-        if (gameObject.GetComponent<IFieldEffect>() != null)
+        foreach (var field in InstanceManager.Instance.Get<FieldHandler>().gameObjects)
         {
-            foreach (var component in gameObject.GetComponents<IFieldEffect>())
+            if (field.GetComponent<FieldEffect>() != null)
             {
-                fieldEffectHandler.AddEffectToField(field, component);
-                fieldEffectHandler.AddEffectFinishedEventToField(field, component);
+                Debug.Log("Field effect found");
+                foreach (var component in field.GetComponents<FieldEffect>())
+                {
+                    fieldEffectHandler.AddEffectToField(field, component);
+                    fieldEffectHandler.AddEffectFinishedEventToField(field, component);
+                }
             }
         }
+    }
+
+    public void InitEffectsForField(GameObject field)
+    {
     }
 }

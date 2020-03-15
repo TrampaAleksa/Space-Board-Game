@@ -13,4 +13,9 @@ public class EffectStealFuel : SelectPlayerEffect
         GenericTriggerEffect();
         print("Steal another players fuel!");
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -13,4 +13,9 @@ public class Mine : FieldEffect
         InstanceManager.Instance.Get<HullHandler>().DamagePlayer(player, mineDamage);
         Destroy(this);
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

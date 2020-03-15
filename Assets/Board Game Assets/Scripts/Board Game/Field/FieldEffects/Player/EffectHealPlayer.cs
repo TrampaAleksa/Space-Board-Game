@@ -12,4 +12,9 @@ public class EffectHealPlayer : FieldEffect
         Repair.RepairPlayer(playersHandler.GetCurrentPlayer(), amountToHeal, HullHandler.MAXIMUM_HULL);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

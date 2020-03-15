@@ -18,4 +18,9 @@ public class EffectRandom : FieldEffect
         print("Random effect: " + effectsList[index].name);
         effectsList[index].TriggerEffect();
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

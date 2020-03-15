@@ -13,4 +13,9 @@ public class EffectLockPlayer : FieldEffect
         InstanceManager.Instance.Get<TurnHandler>().AddPlayerTurnsToSkip(playersHandler.GetCurrentPlayer(), NUMBER_OF_TURNS);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -10,4 +10,9 @@ public class EmptyField : FieldEffect
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
         print("end turn");
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

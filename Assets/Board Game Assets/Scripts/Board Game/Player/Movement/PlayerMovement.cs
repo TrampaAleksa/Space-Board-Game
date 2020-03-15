@@ -33,8 +33,9 @@ public class PlayerMovement : Player
         else if (other.tag == "LastField")
         {
             other.tag = "Untagged";
-            FieldEffect[] effects = currentPlayerField.GetComponents<FieldEffect>();
-            foreach (var effect in effects) effect.TriggerEffect();
+            //FieldEffect[] effects = currentPlayerField.GetComponents<FieldEffect>();
+            //foreach (var effect in effects) effect.TriggerEffect();
+            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerFieldEffects(other.gameObject);
         }
     }
 

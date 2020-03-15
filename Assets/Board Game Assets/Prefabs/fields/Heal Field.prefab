@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 4857920320206982284}
   - component: {fileID: 7784788385075067959}
   - component: {fileID: 4157708299330668328}
+  - component: {fileID: -7619405944399450493}
   m_Layer: 8
   m_Name: Heal Field
   m_TagString: Field
@@ -249,6 +250,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersHandler: {fileID: 0}
   amountToHeal: 20
+--- !u!114 &-7619405944399450493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797193609162172850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7056311927722310363
 GameObject:
   m_ObjectHideFlags: 0

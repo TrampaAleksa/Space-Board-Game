@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EffectMoveBackwards : FieldEffect
 {
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void TriggerEffect()
     {
         GenericTriggerEffect();

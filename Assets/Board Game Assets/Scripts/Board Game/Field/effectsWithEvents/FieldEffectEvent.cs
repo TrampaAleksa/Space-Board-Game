@@ -11,11 +11,11 @@ public class FieldEffectEvent : MonoBehaviour
 
     public void TriggerFieldEvent()
     {
-        triggerFieldEvents.Invoke();
+        triggerFieldEvents?.Invoke();
     }
 
     public void TriggerFinishedEffectEvents()
     {
-        finishedEffectEvents.Invoke();
+        finishedEffectEvents?.Invoke();
     }
 }

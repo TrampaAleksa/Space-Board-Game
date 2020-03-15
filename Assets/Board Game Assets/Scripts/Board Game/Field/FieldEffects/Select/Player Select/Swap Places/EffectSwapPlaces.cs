@@ -18,4 +18,9 @@ public class EffectSwapPlaces : SelectPlayerEffect
         GenericTriggerEffect();
         print("Swap places with someone!");
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

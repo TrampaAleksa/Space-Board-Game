@@ -24,4 +24,9 @@ public class FuelStation : FieldEffect
             print("added fuel to: " + other.name);
         }
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

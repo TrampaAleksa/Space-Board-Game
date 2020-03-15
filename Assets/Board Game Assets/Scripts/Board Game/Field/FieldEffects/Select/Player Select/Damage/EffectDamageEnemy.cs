@@ -13,4 +13,9 @@ public class EffectDamageEnemy : SelectPlayerEffect
         GenericTriggerEffect();
         print("Damage Another player!");
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

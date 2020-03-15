@@ -11,4 +11,9 @@ public class EffectTeleport : SelectFieldEffect
         GenericTriggerEffect();
         GenericSelectTrigger();
     }
+
+    public override void FinishedEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

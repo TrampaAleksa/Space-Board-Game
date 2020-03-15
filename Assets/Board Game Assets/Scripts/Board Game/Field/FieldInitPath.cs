@@ -26,7 +26,6 @@ public class FieldInitPath : IInitialize
             field.tag = "Untagged";
             field.AddComponent<Field>();
             field.GetComponent<Field>().InitialSetUpField(i);
-
             field.transform.position = pathCreator.path.GetPointAtDistance(interval += tmp);
 
             Vector3 _lookDirection = pathCreator.path.GetPointAtDistance(interval + tmp) - field.transform.position;
