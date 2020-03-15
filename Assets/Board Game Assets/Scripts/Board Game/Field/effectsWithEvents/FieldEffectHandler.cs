@@ -28,13 +28,13 @@ public class FieldEffectHandler : MonoBehaviour
         return this;
     }
 
-    public FieldEffectHandler TriggerFieldEffect(GameObject field)
+    public FieldEffectHandler TriggerFieldEffects(GameObject field)
     {
         field.GetComponent<FieldEffectEvent>().TriggerFieldEvent();
         return this;
     }
 
-    public FieldEffectHandler TriggerEffectFinishedEvent(GameObject field)
+    public FieldEffectHandler TriggerEffectFinishedEvents(GameObject field)
     {
         field.GetComponent<FieldEffectEvent>().TriggerFinishedEffectEvents();
         return this;
