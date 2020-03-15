@@ -6,7 +6,6 @@ using UnityEngine;
 public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
 {
     [SerializeField]
-    public PlayersHandler playersHandler;
 
     private void Start()
     {
@@ -18,7 +17,6 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
 
     public void GenericTriggerEffect()
     {
-        playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         DisplayFieldInfoTooltip();
     }
 

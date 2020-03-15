@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class GenericFieldEffect : MonoBehaviour, IFieldEffect
+public class GenericFieldEffect : IFieldEffect
 {
     public Action FinishedEffect()
     {

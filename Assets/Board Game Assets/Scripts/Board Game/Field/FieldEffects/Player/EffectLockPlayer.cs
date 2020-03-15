@@ -10,7 +10,7 @@ public class EffectLockPlayer : FieldEffect
     {
         GenericTriggerEffect();
         print("Your engines shut down!");
-        InstanceManager.Instance.Get<TurnHandler>().AddPlayerTurnsToSkip(playersHandler.GetCurrentPlayer(), NUMBER_OF_TURNS);
+        InstanceManager.Instance.Get<TurnHandler>().AddPlayerTurnsToSkip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), NUMBER_OF_TURNS);
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 

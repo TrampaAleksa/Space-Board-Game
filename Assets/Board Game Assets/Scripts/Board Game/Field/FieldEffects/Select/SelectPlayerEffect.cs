@@ -6,9 +6,9 @@ public abstract class SelectPlayerEffect : SelectEffect
 {
     public override void GenericSelectTrigger()
     {
-        InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
+        InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
         InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
-        print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
+        print(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().name + " Is now choosing: ");
     }
 
     public override void SelectionInputs()
@@ -16,7 +16,7 @@ public abstract class SelectPlayerEffect : SelectEffect
         print("input registered");
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(playersHandler.GetCurrentPlayer());
+            InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
         }
         if (Input.GetKeyDown(KeyCode.K))
         {

@@ -9,7 +9,7 @@ public class EffectHealPlayer : FieldEffect
     public override void TriggerEffect()
     {
         GenericTriggerEffect();
-        Repair.RepairPlayer(playersHandler.GetCurrentPlayer(), amountToHeal, HullHandler.MAXIMUM_HULL);
+        Repair.RepairPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), amountToHeal, HullHandler.MAXIMUM_HULL);
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 

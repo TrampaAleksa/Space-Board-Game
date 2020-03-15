@@ -14,7 +14,7 @@ public class EffectDamagePlayer : FieldEffect
     public override void TriggerEffect()
     {
         GenericTriggerEffect();
-        Damage.DamagePlayer(playersHandler.GetCurrentPlayer(), damageAmount);
+        Damage.DamagePlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), damageAmount);
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 }
