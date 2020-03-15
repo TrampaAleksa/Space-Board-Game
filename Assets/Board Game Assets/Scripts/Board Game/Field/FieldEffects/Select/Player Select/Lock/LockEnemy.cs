@@ -24,6 +24,6 @@ public class LockEnemy : ISelectionEffect
     {
         PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
         if (TrySkippingPlayersTurn(selectedPlayer, EffectLockEnemy.TURNS_TO_LOCK, field))
-            InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(field);
     }
 }

@@ -16,6 +16,6 @@ public class EffectStealFuel : SelectPlayerEffect
 
     public override void FinishedEffect()
     {
-        throw new System.NotImplementedException();
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }

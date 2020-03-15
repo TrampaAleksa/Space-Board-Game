@@ -10,12 +10,11 @@ public static class Teleport
     {
         if (SelectedFieldIsInDistance(references))
         {
-            references.playersField.GetComponent<SelectEffect>()
-                .FinishedSelecting();
-
             InstanceManager.Instance.Get<FieldHandler>()
                 .TeleportPlayerToField(references.playerToTeleport, references.selectedFieldComponent);
 
+            InstanceManager.Instance.Get<FieldEffectHandler>()
+                .TriggerEffectFinishedEvents(references.playersField.gameObject);
             TriggerFieldsEffect(references.selectedFieldComponent);
             //teleport sound effect
         }
@@ -31,6 +30,6 @@ public static class Teleport
 
     private static void TriggerFieldsEffect(Field fieldTeleportedTo)
     {
-        fieldTeleportedTo.gameObject.GetComponent<FieldEffect>().TriggerEffect();
+        InstanceManager.Instance.Get<FieldEffectHandler>().TriggerFieldEffects(fieldTeleportedTo.gameObject);
     }
 }

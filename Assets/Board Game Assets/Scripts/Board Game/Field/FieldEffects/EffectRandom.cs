@@ -24,15 +24,10 @@ public class EffectRandom : FieldEffect
         InstanceManager.Instance.Get<FieldEffectHandler>().AddEffectFinishedEventToField(gameObject, effectToTrigger);
         InstanceManager.Instance.Get<FieldEffectHandler>().RemoveEffectFromField(gameObject, GetComponent<EffectRandom>());
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerFieldEffects(gameObject);
-        //effectToTrigger.TriggerEffect();
-        //dodaj da random polje postane neko drugo polje,
-        //triggeruj to drugo polje, kad finishujes to drugo polje pozovi i finish random-a da bi otklonio drugo polje
-        //effectsList[index].TriggerEffect();
     }
 
     public override void FinishedEffect()
     {
-        //vrati random polje da bude sa random efektom i otkloni dobijeni efekat
         InstanceManager.Instance.Get<FieldEffectHandler>().RemoveEffectFinishedEventFromField(gameObject, effectToTrigger);
         InstanceManager.Instance.Get<FieldEffectHandler>().RemoveEffectFromField(gameObject, effectToTrigger);
         Destroy(effectToTrigger);

@@ -14,6 +14,6 @@ public class EffectTeleport : SelectFieldEffect
 
     public override void FinishedEffect()
     {
-        throw new System.NotImplementedException();
+        gameObject.GetComponent<SelectEffect>().FinishedSelecting();
     }
 }

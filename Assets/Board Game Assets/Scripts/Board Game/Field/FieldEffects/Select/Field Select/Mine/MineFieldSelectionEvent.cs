@@ -17,6 +17,7 @@ public class MineFieldSelectionEvent : ISelectionEffect
         if (selectedField.GetComponent<Mine>() == null)
         {
             selectedField.AddComponent<Mine>();
+            InstanceManager.Instance.Get<FieldEffectHandler>().AddEffectToField(selectedField, selectedField.GetComponent<Mine>());
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(fieldOfPlayerSelecting);
             //Mine placed sound
         }

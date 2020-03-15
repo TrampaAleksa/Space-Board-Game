@@ -22,6 +22,6 @@ public class DamageEnemy : ISelectionEffect
     {
         PlayerHull selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerHull>();
         if (TryDamagingPlayer(selectedPlayer, fieldOfPlayerSelecting))
-            InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(fieldOfPlayerSelecting);
     }
 }

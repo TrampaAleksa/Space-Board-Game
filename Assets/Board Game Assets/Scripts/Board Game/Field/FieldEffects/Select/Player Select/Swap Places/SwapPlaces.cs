@@ -43,7 +43,7 @@ public class SwapPlaces : ISelectionEffect
         if (TrySwappingPlayers(triggeringPlayer, selectedPlayer, field))
         {
             field.GetComponent<SelectPlayerEffect>().FinishedSelecting();
-            InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(field);
         }
     }
 }

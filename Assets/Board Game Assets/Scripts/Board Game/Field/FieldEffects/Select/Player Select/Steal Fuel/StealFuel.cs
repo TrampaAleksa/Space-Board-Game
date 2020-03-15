@@ -26,6 +26,6 @@ public class StealFuel : ISelectionEffect
         PlayerFuel triggeringPlayer = playersHandler.GetCurrentPlayer().GetComponent<PlayerFuel>();
         PlayerFuel selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerFuel>();
         if (TryStealingFuel(triggeringPlayer, selectedPlayer, field))
-            InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(field);
     }
 }

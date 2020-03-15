@@ -11,6 +11,7 @@ public class Mine : FieldEffect
         print("YOU STEPPED ON A MINE");
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         InstanceManager.Instance.Get<HullHandler>().DamagePlayer(player, mineDamage);
+        InstanceManager.Instance.Get<FieldEffectHandler>().RemoveEffectFromField(gameObject, this);
         Destroy(this);
     }
 
