@@ -11,17 +11,4 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
 
     public abstract void TriggerEffect();
 
-    public void GenericTriggerEffect()
-    {
-        DisplayFieldInfoTooltip();
-    }
-
-    private void DisplayFieldInfoTooltip()
-    {
-        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-
-        tooltipHandler.ShowFieldInfoTooltip
-            (InstanceManager.Instance.Get<FieldInfoDictionaryHandler>()
-            .TooltipMessagesDictionary[gameObject.GetComponent<FieldEffect>().GetType()]);
-    }
 }
