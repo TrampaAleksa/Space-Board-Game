@@ -8,13 +8,13 @@ public class EffectDamagePlayer : FieldEffect
 
     public override void FinishedEffect()
     {
-        throw new System.NotImplementedException();
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 
     public override void TriggerEffect()
     {
         GenericTriggerEffect();
         Damage.DamagePlayer(playersHandler.GetCurrentPlayer(), damageAmount);
-        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+        InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 }

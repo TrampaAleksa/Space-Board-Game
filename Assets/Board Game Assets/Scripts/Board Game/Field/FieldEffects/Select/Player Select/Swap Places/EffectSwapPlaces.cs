@@ -14,8 +14,8 @@ public class EffectSwapPlaces : SelectPlayerEffect
             return;
         }
         selectionEffect = new SwapPlaces(gameObject);
-        GenericSelectTrigger();
         GenericTriggerEffect();
+        GenericSelectTrigger();
         print("Swap places with someone!");
     }
 

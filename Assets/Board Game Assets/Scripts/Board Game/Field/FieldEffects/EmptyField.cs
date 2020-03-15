@@ -7,12 +7,12 @@ public class EmptyField : FieldEffect
     public override void TriggerEffect()
     {
         GenericTriggerEffect();
-        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+        InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
         print("end turn");
     }
 
     public override void FinishedEffect()
     {
-        throw new System.NotImplementedException();
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }

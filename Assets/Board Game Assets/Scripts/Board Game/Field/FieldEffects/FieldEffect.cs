@@ -10,7 +10,6 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
 
     private void Start()
     {
-        playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
     }
 
     public abstract void FinishedEffect();
@@ -19,6 +18,7 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
 
     public void GenericTriggerEffect()
     {
+        playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         DisplayFieldInfoTooltip();
     }
 

@@ -14,6 +14,5 @@ public class EffectPlaceMine : SelectFieldEffect
 
     public override void FinishedEffect()
     {
-        throw new System.NotImplementedException();
     }
 }

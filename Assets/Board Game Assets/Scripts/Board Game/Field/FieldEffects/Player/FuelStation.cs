@@ -12,7 +12,7 @@ public class FuelStation : FieldEffect
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         Field field = gameObject.GetComponent<Field>();
         InstanceManager.Instance.Get<CheckpointHandler>().SetPlayersCheckpoint(player, field);
-        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+        InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,12 +21,11 @@ public class FuelStation : FieldEffect
         {
             InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(other.gameObject, fuelPerVisit, true);
             //Fuel added sound?
-            print("added fuel to: " + other.name);
         }
     }
 
     public override void FinishedEffect()
     {
-        throw new System.NotImplementedException();
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }

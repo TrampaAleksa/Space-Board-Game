@@ -10,11 +10,11 @@ public class EffectHealPlayer : FieldEffect
     {
         GenericTriggerEffect();
         Repair.RepairPlayer(playersHandler.GetCurrentPlayer(), amountToHeal, HullHandler.MAXIMUM_HULL);
-        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+        InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 
     public override void FinishedEffect()
     {
-        throw new System.NotImplementedException();
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }

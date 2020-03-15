@@ -9,8 +9,8 @@ public class EffectLockEnemy : SelectPlayerEffect
     public override void TriggerEffect()
     {
         selectionEffect = new LockEnemy(gameObject);
-        GenericSelectTrigger();
         GenericTriggerEffect();
+        GenericSelectTrigger();
         print("Break another players engines!");
     }
 

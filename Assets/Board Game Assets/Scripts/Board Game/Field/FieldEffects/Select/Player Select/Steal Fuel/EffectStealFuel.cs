@@ -9,8 +9,8 @@ public class EffectStealFuel : SelectPlayerEffect
     public override void TriggerEffect()
     {
         selectionEffect = new StealFuel(gameObject);
-        GenericSelectTrigger();
         GenericTriggerEffect();
+        GenericSelectTrigger();
         print("Steal another players fuel!");
     }
 

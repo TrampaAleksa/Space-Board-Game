@@ -6,7 +6,6 @@ public class EffectMoveForward : FieldEffect
 {
     public override void FinishedEffect()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void TriggerEffect()
@@ -16,5 +15,6 @@ public class EffectMoveForward : FieldEffect
         int fieldsToMove = Random.Range(1, 7);
         InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(currentPlayer, "+" + fieldsToMove + " fields");
         InstanceManager.Instance.Get<MovementHandler>().MoveNFields(fieldsToMove, currentPlayer);
+        InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 }
