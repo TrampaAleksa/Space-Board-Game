@@ -17,8 +17,7 @@ public class MineFieldSelectionEvent : ISelectionEffect
         if (selectedField.GetComponent<Mine>() == null)
         {
             selectedField.AddComponent<Mine>();
-            fieldOfPlayerSelecting.GetComponent<SelectEffect>().FinishedSelecting();
-            InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(fieldOfPlayerSelecting);
             //Mine placed sound
         }
         else Debug.Log("mine already exists");

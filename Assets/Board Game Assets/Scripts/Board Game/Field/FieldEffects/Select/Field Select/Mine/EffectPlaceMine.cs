@@ -14,5 +14,7 @@ public class EffectPlaceMine : SelectFieldEffect
 
     public override void FinishedEffect()
     {
+        gameObject.GetComponent<SelectEffect>().FinishedSelecting();
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }
