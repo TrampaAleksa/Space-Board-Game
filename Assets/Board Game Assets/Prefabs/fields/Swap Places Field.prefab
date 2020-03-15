@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 1839867018069979387}
   - component: {fileID: 3859089955236466752}
   - component: {fileID: 5461827640118867713}
+  - component: {fileID: -3303475367332510088}
   m_Layer: 8
   m_Name: Swap Places Field
   m_TagString: Field
@@ -248,7 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c02102b0d3a1f438e3707f1f8e8fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
 --- !u!114 &5461827640118867713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +259,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3303475367332510088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3158678204287444350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea8fea61adc3e48ad063473da34b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5539944139556817931

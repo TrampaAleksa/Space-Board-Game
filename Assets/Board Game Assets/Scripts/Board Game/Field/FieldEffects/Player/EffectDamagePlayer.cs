@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectDamagePlayer : FieldEffect
+public class EffectDamagePlayer : FieldEffect , IGenericFieldEffect
 {
     public float damageAmount = 20;
 
@@ -13,7 +13,6 @@ public class EffectDamagePlayer : FieldEffect
 
     public override void TriggerEffect()
     {
-        GenericTriggerEffect();
         Damage.DamagePlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), damageAmount);
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }

@@ -7,10 +7,6 @@ public abstract class FieldEffect : MonoBehaviour, IGenericFieldEffect
 {
     [SerializeField]
 
-    private void Start()
-    {
-    }
-
     public abstract void FinishedEffect();
 
     public abstract void TriggerEffect();

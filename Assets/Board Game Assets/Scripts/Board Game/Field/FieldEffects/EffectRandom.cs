@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectRandom : FieldEffect
+public class EffectRandom : FieldEffect , IGenericFieldEffect
 {
     private FieldEffect effectToTrigger;
 

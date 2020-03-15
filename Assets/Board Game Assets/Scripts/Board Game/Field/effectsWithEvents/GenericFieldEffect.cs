@@ -1,15 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-public class GenericFieldEffect : IFieldEffect
+public class GenericFieldEffect : FieldEffect
 {
-    public Action FinishedEffect()
+    public override void FinishedEffect()
     {
-        throw new NotImplementedException();
+        
     }
 
-    public Action TriggerEffect()
+    public override void TriggerEffect()
     {
-        throw new NotImplementedException();
+        DisplayFieldInfoTooltip();
+    }
+     private void DisplayFieldInfoTooltip()
+    {
+        TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+
+        tooltipHandler.ShowFieldInfoTooltip
+            (InstanceManager.Instance.Get<FieldInfoDictionaryHandler>()
+            .TooltipMessagesDictionary[gameObject.GetComponent<IGenericFieldEffect>().GetType()]);
     }
 }

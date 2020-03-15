@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 5122051738904850703}
   - component: {fileID: 8451086830648861833}
   - component: {fileID: -4893011469135616383}
+  - component: {fileID: -2516311886338730911}
   m_Layer: 8
   m_Name: Move Back Field
   m_TagString: Field
@@ -205,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbfe1417de810d4f9ff0aa8f4ca9569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
 --- !u!114 &-4893011469135616383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +216,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2516311886338730911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8451086830648861834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea8fea61adc3e48ad063473da34b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9014827184660098847

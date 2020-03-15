@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectSwapPlaces : SelectPlayerEffect
+public class EffectSwapPlaces : SelectPlayerEffect, IGenericFieldEffect
 {
     public override void TriggerEffect()
     {
@@ -14,7 +14,6 @@ public class EffectSwapPlaces : SelectPlayerEffect
             return;
         }
         selectionEffect = new SwapPlaces(gameObject);
-        GenericTriggerEffect();
         GenericSelectTrigger();
         print("Swap places with someone!");
     }

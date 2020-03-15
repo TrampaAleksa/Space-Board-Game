@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FuelStation : FieldEffect
+public class FuelStation : FieldEffect , IGenericFieldEffect
 {
     private float fuelPerVisit = 20f;
 
     public override void TriggerEffect()
     {
-        GenericTriggerEffect();
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         Field field = gameObject.GetComponent<Field>();
         InstanceManager.Instance.Get<CheckpointHandler>().SetPlayersCheckpoint(player, field);

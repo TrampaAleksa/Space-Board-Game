@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectDamageEnemy : SelectPlayerEffect
+public class EffectDamageEnemy : SelectPlayerEffect, IGenericFieldEffect
 {
     public const float AMOUNT_TO_DAMAGE = 40f;
 
     public override void TriggerEffect()
     {
         selectionEffect = new DamageEnemy(gameObject);
-        GenericTriggerEffect();
         GenericSelectTrigger();
         print("Damage Another player!");
     }

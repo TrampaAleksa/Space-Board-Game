@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmptyField : FieldEffect
+public class EmptyField : FieldEffect , IGenericFieldEffect
 {
     public override void TriggerEffect()
     {
