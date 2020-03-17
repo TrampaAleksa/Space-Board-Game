@@ -14,6 +14,15 @@ public class PlayerCheckpoint : MonoBehaviour
 
         InstanceManager.Instance.Get<FieldHandler>().TeleportPlayerToField(player, CheckpointField);
         InstanceManager.Instance.Get<CheckpointHandler>().SetPlayerStatusAfterRespawn(player);
+        DisplayInActivityHistory(player);
         return player;
+    }
+
+     private void DisplayInActivityHistory(GameObject player)
+    {
+        string message = new ATRespawn(
+           player
+           ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }
