@@ -7,7 +7,7 @@ public class CheckpointHandler : MonoBehaviour, IBoardPlayerState
     public void SetPlayersCheckpoint(GameObject player, Field fieldToSetTo)
     {
         player.GetComponent<PlayerCheckpoint>().CheckpointField = fieldToSetTo;
-        print("Set the checkpoint for : " + player.name + ", field : " + fieldToSetTo.name);
+        DisplayInActivityHistory();
     }
 
     public void SetPlayerStatusAfterRespawn(GameObject player)
@@ -16,6 +16,15 @@ public class CheckpointHandler : MonoBehaviour, IBoardPlayerState
         player.GetComponent<PlayerMovement>().turnsToSkip = 0;
         float numberToDivideFuelBy = 2f;
         player.GetComponent<PlayerFuel>().fuel /= numberToDivideFuelBy;
+    }
+
+    
+     private void DisplayInActivityHistory()
+    {
+        string message = new ATCheckpoint(
+           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
+           ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 
     public void SavePlayerState(GameObject player, PlayerBoardState playerState)
