@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBuildActivityTooltip
 {
-    void BuildActivityTooltip();
+    string BuildActivityTooltip();
 }
