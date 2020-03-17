@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATPlayerDamaged : IBuildActivityTooltip
+public class ATPlayerHealed : IBuildActivityTooltip
 {
     private int value;
     private GameObject player;
 
-    public ATPlayerDamaged(GameObject player, int value)
+    public ATPlayerHealed(GameObject player, int value)
     {
         this.player = player;
         this.value = value;
@@ -20,9 +20,9 @@ public class ATPlayerDamaged : IBuildActivityTooltip
         string tooltipMessage = "";
 
         tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
-        tooltipMessage += " took";
+        tooltipMessage += " repaired for ";
         tooltipMessage += RichTextBuilder.AddTagToString(value.ToString(), "color", color);
-        tooltipMessage += " damage";
+        tooltipMessage += " health";
         return tooltipMessage;
     }
 }

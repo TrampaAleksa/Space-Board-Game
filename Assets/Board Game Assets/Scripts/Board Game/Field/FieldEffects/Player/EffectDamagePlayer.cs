@@ -8,11 +8,7 @@ public class EffectDamagePlayer : FieldEffect, IGenericFieldEffect
 
     public override void FinishedEffect()
     {
-        string message = new ATPlayerDamaged(
-            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
-            (int)damageAmount
-            ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
+        DisplayInActivityHistory();
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 
@@ -20,5 +16,14 @@ public class EffectDamagePlayer : FieldEffect, IGenericFieldEffect
     {
         Damage.DamagePlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), damageAmount);
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
+    }
+
+    private void DisplayInActivityHistory()
+    {
+        string message = new ATPlayerDamaged(
+           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+           (int)damageAmount
+           ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }
