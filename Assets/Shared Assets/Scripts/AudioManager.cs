@@ -6,11 +6,11 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioClip[] clips;
     [System.Serializable]
     public class Audio
     {
         public string tag;
-        public AudioClip clip;
         public AudioSource link;
         public bool playOnAwake;
         public bool loop;
@@ -29,15 +29,22 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         int i = 0;
+        clips=Resources.LoadAll<AudioClip>("Sounds/");
         AudioSource[] audioSource = new AudioSource[audioArray.Length];
         foreach (Audio audio in audioArray)
         {
             gameObject.AddComponent(typeof(AudioSource));
             audioSource = gameObject.GetComponents<AudioSource>();
-            audioSource[i].clip = audio.clip;
             audioSource[i].volume = audio.volume;
             audioSource[i].loop = audio.loop;
             audioSource[i].playOnAwake = audio.playOnAwake;
+            for(int j=0;j<clips.Length;j++)
+            {
+                if(clips[j].name==audio.tag)
+                {
+                    audioSource[i].clip=clips[j];
+                }
+            }
             audio.link = audioSource[i];
             i++;
         }

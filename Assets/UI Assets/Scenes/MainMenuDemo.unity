@@ -149,9 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4f0e886eda7a043b75c81a335331cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clips: []
   audioArray:
-  - tag: 123
-    clip: {fileID: 8300000, guid: 559d860b3704ec546ac27dc952add8cb, type: 3}
+  - tag: shortClick
+    clip: {fileID: 0}
     link: {fileID: 0}
     playOnAwake: 1
     loop: 1
