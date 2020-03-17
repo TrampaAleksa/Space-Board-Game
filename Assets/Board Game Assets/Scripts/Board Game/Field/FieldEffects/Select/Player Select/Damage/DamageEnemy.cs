@@ -21,7 +21,19 @@ public class DamageEnemy : ISelectionEffect
     public void ConfirmedSelection()
     {
         PlayerHull selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerHull>();
-        if (TryDamagingPlayer(selectedPlayer, fieldOfPlayerSelecting))
+        if (TryDamagingPlayer(selectedPlayer, fieldOfPlayerSelecting)){
+            DisplayInActivityHistory();
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(fieldOfPlayerSelecting);
+        }
+    }
+
+     private void DisplayInActivityHistory()
+    {
+        string message = new ATDamagedEnemy(
+           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+           InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer(),
+           (int)EffectDamageEnemy.AMOUNT_TO_DAMAGE
+           ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }

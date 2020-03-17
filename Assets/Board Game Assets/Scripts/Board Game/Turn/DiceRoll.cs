@@ -27,7 +27,7 @@ public class DiceRoll
         int randomDiceSide = 0;
         for (int i = 0; i <= 20; i++)
         {
-            randomDiceSide = Random.Range(dice.MinimumDiceNumber, dice.MaximumDiceNumber);
+            randomDiceSide = Random.Range(dice.MinimumDiceNumber-1, dice.MaximumDiceNumber);
 
             dice.DiceImage.sprite = dice.DiceSides[randomDiceSide];
 
@@ -35,7 +35,7 @@ public class DiceRoll
         }
         int numberRolled = randomDiceSide + 1;
         InstanceManager.Instance.Get<DiceRollHandler>().numberRolled = numberRolled;
-        numberRolled = 1; // use to fix what the dice will roll, for testing
+        //numberRolled = 1; // use to fix what the dice will roll, for testing
         InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
     }
 }
