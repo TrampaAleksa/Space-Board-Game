@@ -52,17 +52,6 @@ public class AudioManager : MonoBehaviour
             i++;
         }
     }
-    void Update() 
-    {
-        if (Input.GetKeyDown("k"))
-        {
-            PlaySound("diceRoll");
-        }
-        if (Input.GetKeyDown("l"))
-        {
-            PlayOrPauseAllSounds("bacanjekockice");
-        }
-    }
     public void PlaySound(string name) 
     {
         foreach (Audio audio in audioArray)
