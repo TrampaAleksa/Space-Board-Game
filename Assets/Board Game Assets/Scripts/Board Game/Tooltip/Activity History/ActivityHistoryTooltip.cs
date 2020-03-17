@@ -7,20 +7,22 @@ public class ActivityHistoryTooltip : MonoBehaviour
 {
     private Text tooltipText;
 
+    public Text TooltipText { get => tooltipText; set => tooltipText = value; }
+
     private void Start()
     {
-        tooltipText = GetComponent<Text>();
+        TooltipText = GetComponent<Text>();
     }
 
     public ActivityHistoryTooltip AddTextToTooltip(string textToAdd)
     {
-        tooltipText.text += textToAdd;
+        TooltipText.text += textToAdd;
         return this;
     }
 
     public ActivityHistoryTooltip ClearActivityText()
     {
-        tooltipText.text = " ";
+        TooltipText.text = " ";
         return this;
     }
 }
