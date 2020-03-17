@@ -12,7 +12,8 @@ public class EffectDamagePlayer : FieldEffect, IGenericFieldEffect
             InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerName>().playerName.text,
             (int)damageAmount,
             "damage",
-            "took"
+            "took",
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerName>().color
             ).BuildActivityTooltip();
         InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
