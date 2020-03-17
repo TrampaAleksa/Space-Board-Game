@@ -25,7 +25,19 @@ public class StealFuel : ISelectionEffect
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         PlayerFuel triggeringPlayer = playersHandler.GetCurrentPlayer().GetComponent<PlayerFuel>();
         PlayerFuel selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerFuel>();
-        if (TryStealingFuel(triggeringPlayer, selectedPlayer, field))
+        if (TryStealingFuel(triggeringPlayer, selectedPlayer, field)){
+            DisplayInActivityHistory();
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(field);
+        }
+    }
+
+     private void DisplayInActivityHistory()
+    {
+        string message = new ATStealFuel(
+           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+           InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer(),
+           (int)EffectStealFuel.AMOUNT_TO_STEAL
+           ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }
