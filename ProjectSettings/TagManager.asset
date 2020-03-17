@@ -20,6 +20,7 @@ TagManager:
   - PPanel
   - Wheel
   - Body
+  - ActivityTooltip
   layers:
   - Default
   - TransparentFX

@@ -2438,6 +2438,7 @@ GameObject:
   - component: {fileID: 387936094}
   - component: {fileID: 387936095}
   - component: {fileID: 387936096}
+  - component: {fileID: 387936097}
   m_Layer: 0
   m_Name: InstancesHolder
   m_TagString: Untagged
@@ -2758,6 +2759,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb27673816ef18a478d7084103511581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &387936097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387936072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3588a64b4288545b781f65f1ac53f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjects: []
 --- !u!1 &398581031
 GameObject:
   m_ObjectHideFlags: 0
@@ -7236,6 +7250,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActivityTooltip (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 521603435390123155, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_TagString
+      value: ActivityTooltip
+      objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9652,6 +9671,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ActivityTooltip (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 521603435390123155, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_TagString
+      value: ActivityTooltip
       objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
@@ -15178,6 +15202,11 @@ PrefabInstance:
     - target: {fileID: 521603435390123155, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_Name
+      value: ActivityTooltip
+      objectReference: {fileID: 0}
+    - target: {fileID: 521603435390123155, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_TagString
       value: ActivityTooltip
       objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
