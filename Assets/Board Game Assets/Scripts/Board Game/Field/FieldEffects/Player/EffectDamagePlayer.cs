@@ -8,12 +8,9 @@ public class EffectDamagePlayer : FieldEffect, IGenericFieldEffect
 
     public override void FinishedEffect()
     {
-        string message = new PlayerStatehangedActivityTooltip(
-            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerName>().playerName.text,
-            (int)damageAmount,
-            "damage",
-            "took",
-            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerName>().color
+        string message = new ATPlayerDamaged(
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+            (int)damageAmount
             ).BuildActivityTooltip();
         InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();

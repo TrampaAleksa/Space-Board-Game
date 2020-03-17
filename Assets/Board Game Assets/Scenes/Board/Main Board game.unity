@@ -1157,6 +1157,11 @@ PrefabInstance:
       propertyPath: playerName
       value: 
       objectReference: {fileID: 103284910}
+    - target: {fileID: 5568054972932908245, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: color
+      value: yellow
+      objectReference: {fileID: 0}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1636,6 +1641,11 @@ PrefabInstance:
       propertyPath: playerName
       value: 
       objectReference: {fileID: 1449891152}
+    - target: {fileID: 5568054972932908245, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: color
+      value: green
+      objectReference: {fileID: 0}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9488,6 +9498,11 @@ PrefabInstance:
       propertyPath: playerName
       value: 
       objectReference: {fileID: 1046646715}
+    - target: {fileID: 5568054972932908245, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: color
+      value: red
+      objectReference: {fileID: 0}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15719,6 +15734,11 @@ PrefabInstance:
       propertyPath: playerName
       value: 
       objectReference: {fileID: 852526750}
+    - target: {fileID: 5568054972932908245, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: color
+      value: grey
+      objectReference: {fileID: 0}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
