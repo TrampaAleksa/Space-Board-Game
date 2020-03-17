@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4929826127562185307}
   - component: {fileID: 3454112200933043791}
   - component: {fileID: 907425793353650608}
+  - component: {fileID: -2021011740227571289}
   m_Layer: 8
   m_Name: Teleport Field
   m_TagString: Field
@@ -162,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525d7292e7549f544b5f7232983f7297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
 --- !u!114 &907425793353650608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +173,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2021011740227571289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6469202871867976361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea8fea61adc3e48ad063473da34b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6776659797641352950

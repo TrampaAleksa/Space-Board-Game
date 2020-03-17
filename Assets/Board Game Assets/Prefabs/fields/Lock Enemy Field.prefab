@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 8164209418256019829}
   - component: {fileID: 3372447093870935677}
   - component: {fileID: -8750668949114529329}
+  - component: {fileID: 3231968691386071212}
   m_Layer: 8
   m_Name: Lock Enemy Field
   m_TagString: Field
@@ -291,7 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0723798d3f8ac848ab09f86702b130c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
 --- !u!114 &-8750668949114529329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +302,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3231968691386071212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845378540104335751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea8fea61adc3e48ad063473da34b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &643127733872083719

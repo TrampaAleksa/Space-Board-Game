@@ -857,7 +857,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name 4
+  m_Text: 'Name
+
+'
 --- !u!222 &103284911
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1145,11 +1147,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3711998593192422355, guid: 920a5479874bca94cb003e8725b77e77,
+    - target: {fileID: 5568054972932908245, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: playerName
       value: 
-      objectReference: {fileID: 2100000, guid: 21085cfc4f7ff8a4291ed42a85f27537, type: 2}
+      objectReference: {fileID: 103284910}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1624,6 +1626,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5568054972932908245, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: playerName
+      value: 
+      objectReference: {fileID: 1449891152}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2425,6 +2432,7 @@ GameObject:
   - component: {fileID: 387936085}
   - component: {fileID: 387936094}
   - component: {fileID: 387936095}
+  - component: {fileID: 387936096}
   m_Layer: 0
   m_Name: InstancesHolder
   m_TagString: Untagged
@@ -2731,6 +2739,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ab44dd2e9ad1cf4285b3c37a65fd76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &387936096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387936072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb27673816ef18a478d7084103511581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &398581031
@@ -6025,7 +6045,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name 1
+  m_Text: Name
 --- !u!222 &852526751
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7602,7 +7622,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name 3
+  m_Text: 'Name
+
+'
 --- !u!222 &1046646716
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9237,11 +9259,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3711998593192422355, guid: 920a5479874bca94cb003e8725b77e77,
+    - target: {fileID: 5568054972932908245, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: playerName
       value: 
-      objectReference: {fileID: 2100000, guid: defbdb8d47c401641be7b7c013675558, type: 2}
+      objectReference: {fileID: 1046646715}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10034,7 +10056,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name 2
+  m_Text: 'Name
+
+'
 --- !u!222 &1449891153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15196,16 +15220,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3711998593192422355, guid: 920a5479874bca94cb003e8725b77e77,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f8d15df95b7ef5a4ead9604b3e5b6597, type: 2}
     - target: {fileID: 4039554822172623560, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_MotionVectors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5568054972932908245, guid: 920a5479874bca94cb003e8725b77e77,
+        type: 3}
+      propertyPath: playerName
+      value: 
+      objectReference: {fileID: 852526750}
     - target: {fileID: 6278102749296986473, guid: 920a5479874bca94cb003e8725b77e77,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

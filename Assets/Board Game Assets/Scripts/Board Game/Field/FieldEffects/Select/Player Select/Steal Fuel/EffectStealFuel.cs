@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectStealFuel : SelectPlayerEffect
+public class EffectStealFuel : SelectPlayerEffect, IGenericFieldEffect
 {
     public const float AMOUNT_TO_STEAL = 20f;
 
     public override void TriggerEffect()
     {
         selectionEffect = new StealFuel(gameObject);
-        GenericTriggerEffect();
         GenericSelectTrigger();
         print("Steal another players fuel!");
     }

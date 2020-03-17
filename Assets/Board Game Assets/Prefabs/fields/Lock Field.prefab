@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3891698682184723617}
   - component: {fileID: 2412886140013894512}
   - component: {fileID: 199169876104616836}
+  - component: {fileID: -2346923266456291429}
   m_Layer: 8
   m_Name: Lock Field
   m_TagString: Field
@@ -205,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c779f26fc15564c93e3d37e79e91de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
 --- !u!114 &199169876104616836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +216,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2346923266456291429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147853789232487507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea8fea61adc3e48ad063473da34b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3198644002696208396

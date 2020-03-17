@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 4643822385336765127}
   - component: {fileID: 3190090363929172263}
   - component: {fileID: -4619495540125186930}
+  - component: {fileID: -7956555980684214817}
   m_Layer: 8
   m_Name: Move Forward
   m_TagString: Field
@@ -205,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181a81c7f4b12a4fb2559d4cfbd8272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
 --- !u!114 &-4619495540125186930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +216,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7956555980684214817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227882470810820418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea8fea61adc3e48ad063473da34b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8736634687189360992

@@ -16,5 +16,6 @@ MonoBehaviour:
   hull: 120
   pathIndex: 0
   checkpointIndex: 0
-  rank: 0
+  rank: 4
   turnsToSkip: 0
+  playerName: Name 1

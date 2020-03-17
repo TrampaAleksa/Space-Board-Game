@@ -14,7 +14,7 @@ public abstract class SelectFieldEffect : SelectEffect
         cameraMovementHandler.SetCameraMode<CameraModeFieldFollow>();
 
         InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
-        print(playersHandler.GetCurrentPlayer().name + " Is now choosing: ");
+        print(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().name + " Is now choosing: ");
     }
 
     public override void SelectionInputs()

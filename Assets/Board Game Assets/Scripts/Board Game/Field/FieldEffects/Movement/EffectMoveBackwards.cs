@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectMoveBackwards : FieldEffect
+public class EffectMoveBackwards : FieldEffect, IGenericFieldEffect
 {
     public override void FinishedEffect()
     {
@@ -10,8 +10,7 @@ public class EffectMoveBackwards : FieldEffect
 
     public override void TriggerEffect()
     {
-        GenericTriggerEffect();
-        GameObject currentPlayer = playersHandler.GetCurrentPlayer();
+        GameObject currentPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         int fieldsToMove = Random.Range(1, 7);
         InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(currentPlayer, "-" + fieldsToMove + " fields");
         InstanceManager.Instance.Get<MovementHandler>().MoveNFields(-fieldsToMove, currentPlayer);

@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 7597721993511011719}
   - component: {fileID: 8421164938613863796}
   - component: {fileID: 5448881462014820925}
+  - component: {fileID: 951549413322418048}
   m_Layer: 8
   m_Name: Damage Enemy Field
   m_TagString: Field
@@ -291,7 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba4a1806f45bd14faa3b6e1b80d525f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
 --- !u!114 &5448881462014820925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +302,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &951549413322418048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8421164938613863797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea8fea61adc3e48ad063473da34b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6949010913096338584

@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3064352675285437419}
   - component: {fileID: 2678522385696574709}
   - component: {fileID: 214342934828739118}
+  - component: {fileID: 2908787868333209267}
   m_Layer: 8
   m_Name: Damage Player Field
   m_TagString: Field
@@ -205,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb773553354218c4bb340f83eeb61d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersHandler: {fileID: 0}
   damageAmount: 20
 --- !u!114 &214342934828739118
 MonoBehaviour:
@@ -217,6 +217,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e19b3f9598037489194796de19ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2908787868333209267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791202146461343342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea8fea61adc3e48ad063473da34b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2838064912635858183

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectTeleport : SelectFieldEffect
+public class EffectTeleport : SelectFieldEffect , IGenericFieldEffect
 {
     public override void TriggerEffect()
     {
         selectionEffect = new TeleportFieldSelectionEffect();
         print("Select a filed to teleport to!");
-        GenericTriggerEffect();
         GenericSelectTrigger();
     }
 
