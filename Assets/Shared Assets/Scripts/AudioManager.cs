@@ -6,7 +6,8 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip[] clips;
+    public AudioMixerGroup outputAudioMixerGroup;
+    private AudioClip[] clips;
     [System.Serializable]
     public class Audio
     {
@@ -38,6 +39,7 @@ public class AudioManager : MonoBehaviour
             audioSource[i].volume = audio.volume;
             audioSource[i].loop = audio.loop;
             audioSource[i].playOnAwake = audio.playOnAwake;
+            audioSource[i].outputAudioMixerGroup = outputAudioMixerGroup;
             for(int j=0;j<clips.Length;j++)
             {
                 if(clips[j].name==audio.tag)
@@ -53,7 +55,7 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetKeyDown("k"))
         {
-            PlaySound("bacanjekockice");
+            PlaySound("diceRoll");
         }
         if (Input.GetKeyDown("l"))
         {
