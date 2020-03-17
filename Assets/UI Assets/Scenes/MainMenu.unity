@@ -356,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 7531629576576658032, guid: 46e71e92359439c47a12745bfc78ffc4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7531629576576658032, guid: 46e71e92359439c47a12745bfc78ffc4,
         type: 3}
@@ -377,6 +377,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531629576576658035, guid: 46e71e92359439c47a12745bfc78ffc4,
+        type: 3}
+      propertyPath: audioArray.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531629576576658035, guid: 46e71e92359439c47a12745bfc78ffc4,
+        type: 3}
+      propertyPath: audioArray.Array.data[0].tag
+      value: damagePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531629576576658035, guid: 46e71e92359439c47a12745bfc78ffc4,
+        type: 3}
+      propertyPath: audioArray.Array.data[1].tag
+      value: diceRoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531629576576658035, guid: 46e71e92359439c47a12745bfc78ffc4,
+        type: 3}
+      propertyPath: audioArray.Array.data[2].tag
+      value: mine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531629576576658035, guid: 46e71e92359439c47a12745bfc78ffc4,
+        type: 3}
+      propertyPath: audioArray.Array.data[3].tag
+      value: notif
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531629576576658035, guid: 46e71e92359439c47a12745bfc78ffc4,
+        type: 3}
+      propertyPath: audioArray.Array.data[4].tag
+      value: shortClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531629576576658035, guid: 46e71e92359439c47a12745bfc78ffc4,
+        type: 3}
+      propertyPath: audioArray.Array.data[5].tag
+      value: startOfTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531629576576658035, guid: 46e71e92359439c47a12745bfc78ffc4,
+        type: 3}
+      propertyPath: audioArray.Array.data[6].tag
+      value: teleport
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46e71e92359439c47a12745bfc78ffc4, type: 3}
@@ -723,7 +763,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1877688894 stripped
 MonoBehaviour:

@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
         public AudioSource link;
         public bool playOnAwake;
         public bool loop;
+        [Range(0.0f, 1.0f)]
         public int volume;
     }
 

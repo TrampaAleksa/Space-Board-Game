@@ -46,13 +46,28 @@ MonoBehaviour:
   outputAudioMixerGroup: {fileID: 24300002, guid: 3b2f5e010b7b96540968891bf2f1cd9b,
     type: 2}
   audioArray:
-  - tag: shortClick
+  - tag: 
     link: {fileID: 0}
-    playOnAwake: 1
-    loop: 1
-    volume: 1
-  - tag: diceRoll
+    playOnAwake: 0
+    loop: 0
+    volume: 0
+  - tag: 
     link: {fileID: 0}
-    playOnAwake: 1
-    loop: 1
-    volume: 1
+    playOnAwake: 0
+    loop: 0
+    volume: 0
+  - tag: 
+    link: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+    volume: 0
+  - tag: 
+    link: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+    volume: 0
+  - tag: 
+    link: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+    volume: 0
