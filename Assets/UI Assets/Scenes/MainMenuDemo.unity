@@ -152,7 +152,11 @@ MonoBehaviour:
   clips: []
   audioArray:
   - tag: shortClick
-    clip: {fileID: 0}
+    link: {fileID: 0}
+    playOnAwake: 1
+    loop: 1
+    volume: 1
+  - tag: bacanjekockice
     link: {fileID: 0}
     playOnAwake: 1
     loop: 1
