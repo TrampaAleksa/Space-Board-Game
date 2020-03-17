@@ -42,8 +42,15 @@ public class SwapPlaces : ISelectionEffect
         PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
         if (TrySwappingPlayers(triggeringPlayer, selectedPlayer, field))
         {
+            DisplayInActivityHistory(triggeringPlayer.gameObject, selectedPlayer.gameObject);
             field.GetComponent<SelectPlayerEffect>().FinishedSelecting();
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(field);
         }
+    }
+
+    private void DisplayInActivityHistory(GameObject player1, GameObject player2)
+    {
+        string message = new ATSwappedPlaces(player1, player2).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }
