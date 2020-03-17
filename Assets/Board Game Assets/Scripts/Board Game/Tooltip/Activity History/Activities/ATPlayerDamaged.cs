@@ -20,7 +20,7 @@ public class ATPlayerDamaged : IBuildActivityTooltip
         string tooltipMessage = "";
 
         tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
-        tooltipMessage += " took";
+        tooltipMessage += " took ";
         tooltipMessage += RichTextBuilder.AddTagToString(value.ToString(), "color", color);
         tooltipMessage += " damage";
         return tooltipMessage;

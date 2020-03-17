@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATPlayerFuel : MonoBehaviour
+public class ATPlayerFuel : IBuildActivityTooltip
 {
-    // Start is called before the first frame update
-    void Start()
+    private int value;
+    private GameObject player;
+
+    public ATPlayerFuel(GameObject player, int value)
     {
-        
+        this.player = player;
+        this.value = value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public string BuildActivityTooltip()
     {
-        
+        string playerName = player.GetComponent<PlayerName>().playerName.text;
+        string color = player.GetComponent<Player>().color;
+        string tooltipMessage = "";
+
+        tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
+        tooltipMessage += " visited fuel station. Gained ";
+        tooltipMessage += RichTextBuilder.AddTagToString(value.ToString(), "color", color);
+        tooltipMessage += " fuel";
+        return tooltipMessage;
     }
 }

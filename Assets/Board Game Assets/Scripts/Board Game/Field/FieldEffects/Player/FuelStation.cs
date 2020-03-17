@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FuelStation : FieldEffect , IGenericFieldEffect
+public class FuelStation : FieldEffect, IGenericFieldEffect
 {
     private float fuelPerVisit = 20f;
 
@@ -18,6 +18,7 @@ public class FuelStation : FieldEffect , IGenericFieldEffect
     {
         if (other.tag == "Player")
         {
+            DisplayInActivityHistory();
             InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(other.gameObject, fuelPerVisit, true);
             //Fuel added sound?
         }
@@ -26,5 +27,14 @@ public class FuelStation : FieldEffect , IGenericFieldEffect
     public override void FinishedEffect()
     {
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+    }
+
+    private void DisplayInActivityHistory()
+    {
+        string message = new ATPlayerFuel(
+           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+           (int)fuelPerVisit
+           ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }
