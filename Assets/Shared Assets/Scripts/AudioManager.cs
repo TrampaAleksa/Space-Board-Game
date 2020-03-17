@@ -53,11 +53,11 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetKeyDown("k"))
         {
-            PlaySound("123");
+            PlaySound("bacanjekockice");
         }
         if (Input.GetKeyDown("l"))
         {
-            PlayOrPauseAllSounds("123");
+            PlayOrPauseAllSounds("bacanjekockice");
         }
     }
     public void PlaySound(string name) 
@@ -87,6 +87,13 @@ public class AudioManager : MonoBehaviour
             if(audio.link.isPlaying)
                 audio.link.Pause();
             else audio.link.UnPause();
+        }
+    }
+    public void LoopOnOrOff(string name)
+    {
+        foreach (Audio audio in audioArray)
+        {
+            audio.loop = !audio.loop;
         }
     }
 }
