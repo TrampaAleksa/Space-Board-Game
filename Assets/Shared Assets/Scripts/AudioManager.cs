@@ -10,7 +10,6 @@ public class AudioManager : MonoBehaviour
     public class Audio
     {
         public string tag;
-        public static AudioMixer mixer;
         public AudioClip clip;
         public AudioSource link;
         public bool playOnAwake;
@@ -41,6 +40,46 @@ public class AudioManager : MonoBehaviour
             audioSource[i].playOnAwake = audio.playOnAwake;
             audio.link = audioSource[i];
             i++;
+        }
+    }
+    void Update() 
+    {
+        if (Input.GetKeyDown("k"))
+        {
+            PlaySound("123");
+        }
+        if (Input.GetKeyDown("l"))
+        {
+            PlayOrPauseAllSounds("123");
+        }
+    }
+    public void PlaySound(string name) 
+    {
+        foreach (Audio audio in audioArray)
+        {
+            if(audio.tag==name)
+            {
+                audio.link.Play();
+            }
+        }
+    }
+    public void StopSound(string name) 
+    {
+        foreach (Audio audio in audioArray)
+        {
+            if(audio.tag==name)
+            {
+                audio.link.Play();
+            }
+        }
+    }
+    public void PlayOrPauseAllSounds(string name)
+    {
+        foreach (Audio audio in audioArray)
+        {
+            if(audio.link.isPlaying)
+                audio.link.Pause();
+            else audio.link.UnPause();
         }
     }
 }
