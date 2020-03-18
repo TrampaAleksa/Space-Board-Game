@@ -10,6 +10,8 @@ public class DiceRoll
     private int maximumDiceNumber = 6;
 
     private float diceAnimationSpeed = 0.01f;
+    private DiceRollHandler diceRollHandler { get; set; }
+    private MovementHandler movementHandler { get; set; }
 
     public DiceRoll()
     {
@@ -20,6 +22,8 @@ public class DiceRoll
                 Resources.LoadAll<Sprite>("DiceSides/"),
                 GameObject.Find("Dice").GetComponent<Image>()
        );
+        diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
+        movementHandler = InstanceManager.Instance.Get<MovementHandler>();
     }
 
     public IEnumerator RollTheDiceAnim()
@@ -34,8 +38,8 @@ public class DiceRoll
             yield return new WaitForSeconds(dice.DiceAnimationSpeed);
         }
         int numberRolled = randomDiceSide + 1;
-        InstanceManager.Instance.Get<DiceRollHandler>().numberRolled = numberRolled;
+        diceRollHandler.numberRolled = numberRolled;
         // numberRolled = 3; // use to fix what the dice will roll, for testing
-        InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
+        movementHandler.MoveCurrentPlayer(numberRolled);
     }
 }

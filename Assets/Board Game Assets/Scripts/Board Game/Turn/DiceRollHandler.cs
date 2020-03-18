@@ -10,7 +10,7 @@ public class DiceRollHandler : MonoBehaviour
 
     private bool diceLocked = false;
 
-    private void Awake()
+    private void Start()
     {
         diceRoll = new DiceRoll();
     }
