@@ -7,7 +7,7 @@ public class FollowCameraMode
     protected Transform camera;
     public float cameraRotationSpeed = 0.3f;
 
-    public float smoothSpeed = 0.3f;
+    public float smoothSpeed = 0.5f;
     public Vector3 offset;
 
     public FollowCameraMode(Transform camera)
