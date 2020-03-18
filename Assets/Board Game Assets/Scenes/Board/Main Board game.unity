@@ -2910,6 +2910,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2019637530979457745, guid: 336fdab1b08b003479aa0daa324d5135,
+        type: 3}
+      propertyPath: audioArray.Array.data[1].tag
+      value: diceRoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019637530979457745, guid: 336fdab1b08b003479aa0daa324d5135,
+        type: 3}
+      propertyPath: audioArray.Array.data[7].tag
+      value: startOfTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019637530979457745, guid: 336fdab1b08b003479aa0daa324d5135,
+        type: 3}
+      propertyPath: audioArray.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019637530979457745, guid: 336fdab1b08b003479aa0daa324d5135,
+        type: 3}
+      propertyPath: audioArray.Array.data[3].tag
+      value: damagePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019637530979457745, guid: 336fdab1b08b003479aa0daa324d5135,
+        type: 3}
+      propertyPath: audioArray.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2019637530979457758, guid: 336fdab1b08b003479aa0daa324d5135,
         type: 3}
       propertyPath: m_LocalPosition.x

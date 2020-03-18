@@ -7,6 +7,7 @@ public class EndTurn : MonoBehaviour
     public static void StartNextPlayersTurn()
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
+        AudioManager.Instance.PlaySound("startOfTurn");
         // player ended turn sound
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
         tooltipHandler.ShowInfoTooltip(playersHandler.GetCurrentPlayer().name + "s turn");
