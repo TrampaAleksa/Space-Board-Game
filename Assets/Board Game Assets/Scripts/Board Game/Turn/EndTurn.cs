@@ -17,7 +17,7 @@ public class EndTurn : MonoBehaviour
         AudioManager.Instance.PlaySound("startOfTurn");
         // player ended turn sound
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
-        tooltipHandler.ShowInfoTooltip(playersHandler.GetCurrentPlayer().name + "s turn");
+        tooltipHandler.ShowInfoTooltip(playersHandler.GetCurrentPlayer().GetComponent<PlayerName>().playerName.text + "s turn");
 
         DiceRollHandler diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
         if (diceRollHandler.DiceIsLocked())
