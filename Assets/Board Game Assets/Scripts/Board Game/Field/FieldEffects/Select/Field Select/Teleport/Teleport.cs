@@ -12,7 +12,7 @@ public static class Teleport
         {
             InstanceManager.Instance.Get<FieldHandler>()
                 .TeleportPlayerToField(references.playerToTeleport, references.selectedFieldComponent);
-
+            DisplayInActivityHistory();
             InstanceManager.Instance.Get<FieldEffectHandler>()
                 .TriggerEffectFinishedEvents(references.playersField.gameObject);
             TriggerFieldsEffect(references.selectedFieldComponent);
@@ -31,5 +31,13 @@ public static class Teleport
     private static void TriggerFieldsEffect(Field fieldTeleportedTo)
     {
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerFieldEffects(fieldTeleportedTo.gameObject);
+    }
+    
+    private static void DisplayInActivityHistory()
+    {
+        string message = new ATTeleported(
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
+        ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }

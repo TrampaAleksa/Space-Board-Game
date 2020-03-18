@@ -22,7 +22,7 @@ public class ActivityHistoryTooltip : MonoBehaviour
 
     public ActivityHistoryTooltip ClearActivityText()
     {
-        TooltipText.text = " ";
+        TooltipText.text = "";
         return this;
     }
 }
