@@ -4748,12 +4748,13 @@ RectTransform:
   - {fileID: 1789908492072576702}
   - {fileID: 985554601}
   - {fileID: 1315315635}
+  - {fileID: 2113929887}
   m_Father: {fileID: 562767928}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 699, y: -271}
+  m_AnchoredPosition: {x: 699, y: -143}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &673509870
@@ -4769,8 +4770,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 3
+    m_Right: 3
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
@@ -6517,7 +6518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 697, y: -5}
+  m_AnchoredPosition: {x: 706, y: -1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887923923
@@ -7195,8 +7196,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -290, y: 412}
-  m_SizeDelta: {x: 151.19995, y: 159.40002}
+  m_AnchoredPosition: {x: -503.46, y: 555.1}
+  m_SizeDelta: {x: 180.12, y: 163.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &981500210
 MonoBehaviour:
@@ -7373,12 +7374,12 @@ PrefabInstance:
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 606.6
+      value: 581.8
       objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 99.6
       objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
@@ -7413,7 +7414,7 @@ PrefabInstance:
     - target: {fileID: 1101237092596622126, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_Text
-      value: 
+      value: Player 1 damaged Player 2 for 20 Hualth points
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3, type: 3}
@@ -8612,22 +8613,22 @@ PrefabInstance:
     - target: {fileID: 3677064410482075944, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.2
+      value: 64.3
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075944, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 11.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075944, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 594.2
+      value: 387.6
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075944, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 142.2
+      value: 163.2
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075944, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
@@ -8662,12 +8663,23 @@ PrefabInstance:
     - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_FontData.m_Alignment
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
       propertyPath: m_Text
-      value: Field Info
+      value: 'Field Info aaaaaaaaaa
+
+        infoaaaaaaaaaaaaa
+
+        infoaaaaaaaaaaa
+
+        infoaaaaaaaa'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677064410482075945, guid: d1429f7651bcc9342813c9abd1e3c3ae,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3677064410482075951, guid: d1429f7651bcc9342813c9abd1e3c3ae,
         type: 3}
@@ -9810,12 +9822,12 @@ PrefabInstance:
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 606.6
+      value: 581.8
       objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 99.6
       objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
@@ -9850,7 +9862,7 @@ PrefabInstance:
     - target: {fileID: 1101237092596622126, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_Text
-      value: 
+      value: Player 1 damaged Player 2 for 20 Hualth points
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3, type: 3}
@@ -12379,6 +12391,135 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6278102750429118182}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1751114563
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 673509869}
+    m_Modifications:
+    - target: {fileID: 521603435390123155, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_Name
+      value: ActivityTooltip (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 521603435390123155, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_TagString
+      value: ActivityTooltip
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 581.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 99.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101237092596622126, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+        type: 3}
+      propertyPath: m_Text
+      value: Player 1 damaged Player 2 for 20 Hualth points
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3, type: 3}
 --- !u!1001 &1765928955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14952,6 +15093,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2113456618}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &2113929887 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751114563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2121362686
 GameObject:
   m_ObjectHideFlags: 0
@@ -15347,12 +15494,12 @@ PrefabInstance:
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 606.6
+      value: 581.8
       objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 99.6
       objectReference: {fileID: 0}
     - target: {fileID: 615640724952276399, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
@@ -15387,7 +15534,7 @@ PrefabInstance:
     - target: {fileID: 1101237092596622126, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3,
         type: 3}
       propertyPath: m_Text
-      value: 
+      value: Player 1 damaged Player 2 for 20 Hualth points
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbee22aaa13a81d4d948cf3ccbeeb1f3, type: 3}

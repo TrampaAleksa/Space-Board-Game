@@ -17,10 +17,19 @@ public class MineFieldSelectionEvent : ISelectionEffect
         if (selectedField.GetComponent<Mine>() == null)
         {
             selectedField.AddComponent<Mine>();
+            DisplayInActivityHistory();
             InstanceManager.Instance.Get<FieldEffectHandler>().AddEffectToField(selectedField, selectedField.GetComponent<Mine>());
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(fieldOfPlayerSelecting);
             //Mine placed sound
         }
         else Debug.Log("mine already exists");
+    }
+    
+    private void DisplayInActivityHistory()
+    {
+        string message = new ATMinePlacement(
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
+        ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }
