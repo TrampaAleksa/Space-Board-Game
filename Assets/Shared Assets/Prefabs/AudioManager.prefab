@@ -43,9 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4f0e886eda7a043b75c81a335331cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outputAudioMixerGroup: {fileID: 24300002, guid: 3b2f5e010b7b96540968891bf2f1cd9b,
-    type: 2}
   audioArray:
+  - tag: 
+    link: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+    volume: 0
+  - tag: 
+    link: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+    volume: 0
   - tag: 
     link: {fileID: 0}
     playOnAwake: 0

@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     public const string DAMAGE_PLAYER="damagePlayer", DICE_ROLL="diceRoll",
     MINE="mine", NOTIF="notif", SHORT_CLICK="shortClick", 
     START_OF_TURN="startOfTurn", TELEPORT="teleport";
-    public AudioClip[] clips;
+    private AudioClip[] clips;
     [System.Serializable]
     public class Audio
     {
@@ -32,24 +32,18 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         clips=Resources.LoadAll<AudioClip>("Sounds/");
-        AudioSource[] audioSource = new AudioSource[audioArray.Length];
+        AudioSource[] audioSource = new AudioSource[clips.Length];
         for (int i=0;i<clips.Length;i++)
         {
             gameObject.AddComponent(typeof(AudioSource));
             audioSource = gameObject.GetComponents<AudioSource>();
             audioArray[i].tag=clips[i].name;
             audioSource[i].clip=clips[i];
-            audioSource[i].volume = audioArray[i].volume;
+            audioSource[i].volume = audioArray[i].volume=1;
             audioSource[i].loop = audioArray[i].loop;
             audioSource[i].playOnAwake = audioArray[i].playOnAwake;
             audioSource[i].outputAudioMixerGroup=Resources.LoadAll<AudioMixerGroup>("Sounds/")[0];
             audioArray[i].link = audioSource[i];
-        }
-    }
-    private void Update() {
-        if(Input.GetKeyDown("k"))
-        {
-            PlaySound(TELEPORT);
         }
     }
     public void PlaySound(string name) 
