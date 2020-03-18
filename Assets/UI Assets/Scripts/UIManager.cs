@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
+    public Input input;
+    public PlayerBoardState[] playerBoardStates;
+    public GameObject[] inputsGameObject;
     public GameObject mainMenuPanel;
     public GameObject controlsPanel;
     public GameObject settingsPanel;
@@ -15,6 +18,39 @@ public class UIManager : MonoBehaviour
     public Dropdown resolutionDropdown;
 
     Resolution[] resolutions;
+    public void InputAllNamesForPlayers()
+    {
+        if(!inputsAreEmpty() && CheckThatNamesAreNotEqual())
+        {
+            for(int i=0;i<playerBoardStates.Length;i++)
+            {
+                playerBoardStates[i].playerName=inputsGameObject[i].GetComponent<InputField>().text;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+            }
+        }
+        else    print("Unesi ponovo");
+    }
+    public bool inputsAreEmpty()
+    {
+        for (int i = 0; i < inputsGameObject.Length; i++)
+        {
+            if(string.IsNullOrEmpty(inputsGameObject[i].GetComponent<InputField>().text))
+                return true;
+        }
+        return false;
+    }
+    public bool CheckThatNamesAreNotEqual()
+    {
+        for (int i = 0; i < inputsGameObject.Length-1; i++)
+        {
+            for (int j = i+1; j < inputsGameObject.Length ; j++)
+            {
+               if(inputsGameObject[i].GetComponent<InputField>().text.ToLower().Equals(inputsGameObject[j].GetComponent<InputField>().text.ToLower()) )
+                  return false;
+            }
+        }
+        return true;
+    }
     public void Input()
     {
         mainMenuPanel.SetActive(false);
@@ -22,7 +58,7 @@ public class UIManager : MonoBehaviour
     }
     public void Confirm()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        InputAllNamesForPlayers();
     }
 
     public void Controls() 
@@ -76,8 +112,6 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        Back();
-        
         resolutions = Screen.resolutions;
         int currentResolutionIndex = 0;
         List<string> options = new List<string>();
@@ -94,5 +128,7 @@ public class UIManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        inputsGameObject=GameObject.FindGameObjectsWithTag("PInput");
+        Back();
     }
 }
