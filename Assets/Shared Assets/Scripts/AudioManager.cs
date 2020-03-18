@@ -6,6 +6,9 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public const string DAMAGE_PLAYER="damagePlayer", DICE_ROLL="diceRoll",
+    MINE="mine", NOTIF="notif", SHORT_CLICK="shortClick", 
+    START_OF_TURN="startOfTurn", TELEPORT="teleport";
     public AudioClip[] clips;
     [System.Serializable]
     public class Audio
@@ -17,7 +20,6 @@ public class AudioManager : MonoBehaviour
         [Range(0.0f, 1.0f)]
         public int volume;
     }
-
     public static AudioManager Instance;
 
     private void Awake()
@@ -44,6 +46,12 @@ public class AudioManager : MonoBehaviour
             audioArray[i].link = audioSource[i];
         }
     }
+    private void Update() {
+        if(Input.GetKeyDown("k"))
+        {
+            PlaySound(TELEPORT);
+        }
+    }
     public void PlaySound(string name) 
     {
         foreach (Audio audio in audioArray)
@@ -51,6 +59,7 @@ public class AudioManager : MonoBehaviour
             if(audio.tag==name)
             {
                 audio.link.Play();
+                Debug.Log("Prosao");
             }
         }
     }
