@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     public const string DAMAGE_PLAYER="damagePlayer", DICE_ROLL="diceRoll",
     MINE="mine", NOTIF="notif", SHORT_CLICK="shortClick", 
     START_OF_TURN="startOfTurn", TELEPORT="teleport";
-    public AudioClip[] clips;
+    private AudioClip[] clips;
     [System.Serializable]
     public class Audio
     {
