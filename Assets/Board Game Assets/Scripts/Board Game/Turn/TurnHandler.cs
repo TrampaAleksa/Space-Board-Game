@@ -1,7 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class TurnHandler : MonoBehaviour, IBoardPlayerState
 {
+    private EndTurn _endTurn;
+    private void Start()
+    {
+        _endTurn = gameObject.AddComponent<EndTurn>();
+    }
+
     public void EndCurrentPlayersTurn()
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
@@ -13,7 +20,7 @@ public class TurnHandler : MonoBehaviour, IBoardPlayerState
             return;
         }
         // player ended turn sound
-        EndTurn.StartNextPlayersTurn();
+        _endTurn.StartNextPlayersTurn();
     }
 
     public GameObject AddPlayerTurnsToSkip(GameObject player, int turnsToSkip)

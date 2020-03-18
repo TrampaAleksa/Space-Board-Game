@@ -16,10 +16,12 @@ public abstract class SelectPlayerEffect : SelectEffect
         print("input registered");
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            AudioManager.Instance.PlaySound("shortClick");
             InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
+            AudioManager.Instance.PlaySound("shortClick");
             selectionEffect?.ConfirmedSelection();
         }
     }

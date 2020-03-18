@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class EndTurn : MonoBehaviour
 {
-    public static void StartNextPlayersTurn()
+    public void StartNextPlayersTurn()
     {
+        StartCoroutine(DelayTurnEnd());
+    }
+
+    public IEnumerator DelayTurnEnd()
+    {
+        yield return new WaitForSeconds(1f);
+        
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         AudioManager.Instance.PlaySound("startOfTurn");
         // player ended turn sound
