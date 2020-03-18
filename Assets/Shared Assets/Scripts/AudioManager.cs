@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioClip[] clips;
+    public AudioClip[] clips;
     [System.Serializable]
     public class Audio
     {
@@ -29,26 +29,19 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        int i = 0;
         clips=Resources.LoadAll<AudioClip>("Sounds/");
         AudioSource[] audioSource = new AudioSource[audioArray.Length];
-        foreach (Audio audio in audioArray)
+        for (int i=0;i<clips.Length;i++)
         {
             gameObject.AddComponent(typeof(AudioSource));
             audioSource = gameObject.GetComponents<AudioSource>();
-            audioSource[i].volume = audio.volume;
-            audioSource[i].loop = audio.loop;
-            audioSource[i].playOnAwake = audio.playOnAwake;
+            audioArray[i].tag=clips[i].name;
+            audioSource[i].clip=clips[i];
+            audioSource[i].volume = audioArray[i].volume;
+            audioSource[i].loop = audioArray[i].loop;
+            audioSource[i].playOnAwake = audioArray[i].playOnAwake;
             audioSource[i].outputAudioMixerGroup=Resources.LoadAll<AudioMixerGroup>("Sounds/")[0];
-            for(int j=0;j<clips.Length;j++)
-            {
-                if(clips[j].name==audio.tag)
-                {
-                    audioSource[i].clip=clips[j];
-                }
-            }
-            audio.link = audioSource[i];
-            i++;
+            audioArray[i].link = audioSource[i];
         }
     }
     public void PlaySound(string name) 
