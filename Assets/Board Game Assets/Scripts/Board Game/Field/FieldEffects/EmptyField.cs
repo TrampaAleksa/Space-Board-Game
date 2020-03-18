@@ -12,6 +12,15 @@ public class EmptyField : FieldEffect , IGenericFieldEffect
 
     public override void FinishedEffect()
     {
+        DisplayInActivityHistory();
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
+    }
+    
+    private void DisplayInActivityHistory()
+    {
+        string message = new ATEmptyField(
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
+        ).BuildActivityTooltip();
+        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }
