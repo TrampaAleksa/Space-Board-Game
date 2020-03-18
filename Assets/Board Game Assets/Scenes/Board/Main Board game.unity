@@ -2935,6 +2935,21 @@ PrefabInstance:
       propertyPath: audioArray.Array.data[3].volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2019637530979457745, guid: 336fdab1b08b003479aa0daa324d5135,
+        type: 3}
+      propertyPath: audioArray.Array.data[2].tag
+      value: shortClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019637530979457745, guid: 336fdab1b08b003479aa0daa324d5135,
+        type: 3}
+      propertyPath: audioArray.Array.data[4].tag
+      value: teleport
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019637530979457745, guid: 336fdab1b08b003479aa0daa324d5135,
+        type: 3}
+      propertyPath: audioArray.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2019637530979457758, guid: 336fdab1b08b003479aa0daa324d5135,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -29,6 +29,7 @@ public class FieldMovementImpl : IFieldMovement
     public void TeleportPlayerToField(GameObject player, Field field)
     {
         SetCurrentField(field, player);
+        AudioManager.Instance.PlaySound("teleport");
         player.GetComponent<PlayerMovement>().transform.position = player.GetComponent<PlayerMovement>().positionToTravelTo;
     }
 }

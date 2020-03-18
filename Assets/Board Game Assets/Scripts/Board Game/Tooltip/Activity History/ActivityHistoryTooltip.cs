@@ -12,6 +12,7 @@ public class ActivityHistoryTooltip : MonoBehaviour
     private void Start()
     {
         TooltipText = GetComponent<Text>();
+        tooltipText.text = "";
     }
 
     public ActivityHistoryTooltip AddTextToTooltip(string textToAdd)
