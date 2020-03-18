@@ -17,10 +17,10 @@ TagManager:
   - Ground
   - DeathLine
   - PText
-  - PPanel
   - Wheel
   - Body
   - ActivityTooltip
+  - PInput
   layers:
   - Default
   - TransparentFX
