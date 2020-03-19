@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
-    public Input input;
     public PlayerBoardState[] playerBoardStates;
     public GameObject[] inputsGameObject;
     public GameObject mainMenuPanel;
@@ -16,7 +15,6 @@ public class UIManager : MonoBehaviour
     public GameObject creditsPanel;
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
-
     Resolution[] resolutions;
     public void InputAllNamesForPlayers()
     {
