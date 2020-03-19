@@ -20,10 +20,9 @@ public class EffectLockPlayer : FieldEffect, IGenericFieldEffect
 
     private void DisplayInActivityHistory()
     {
-        string message = new ATPlayerLocked(
-           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
-           NUMBER_OF_TURNS
-           ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
+        new ATPlayerLocked(
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+            NUMBER_OF_TURNS
+        ).DisplayAT();
     }
 }

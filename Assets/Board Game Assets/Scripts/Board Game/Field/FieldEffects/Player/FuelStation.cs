@@ -18,7 +18,7 @@ public class FuelStation : FieldEffect, IGenericFieldEffect
     {
         if (other.tag == "Player")
         {
-            DisplayInActivityHistory();
+            DisplayInActivityHistory(other.gameObject);
             InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(other.gameObject, fuelPerVisit, true);
             //Fuel added sound?
         }
@@ -29,12 +29,8 @@ public class FuelStation : FieldEffect, IGenericFieldEffect
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 
-    private void DisplayInActivityHistory()
+    private void DisplayInActivityHistory(GameObject player)
     {
-        string message = new ATPlayerFuel(
-           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
-           (int)fuelPerVisit
-           ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
+        new ATPlayerFuel(player, (int)fuelPerVisit).DisplayAT();
     }
 }

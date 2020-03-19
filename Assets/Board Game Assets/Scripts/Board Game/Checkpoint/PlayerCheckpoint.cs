@@ -20,9 +20,6 @@ public class PlayerCheckpoint : MonoBehaviour
 
      private void DisplayInActivityHistory(GameObject player)
     {
-        string message = new ATRespawn(
-           player
-           ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
+        new ATRespawn(player).DisplayAT();
     }
 }

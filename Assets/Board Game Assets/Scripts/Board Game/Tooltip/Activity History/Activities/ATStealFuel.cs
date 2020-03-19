@@ -2,32 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATStealFuel : IBuildActivityTooltip
+public class ATStealFuel : ActivityTooltipBuilder
 {
-    private GameObject player1;
-    private GameObject player2;
-    private int value;
-
-    public ATStealFuel(GameObject player1, GameObject player2, int value)
+    public ATStealFuel(GameObject player1, GameObject player2, int value) : base(player1, player2, value)
     {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.value = value;
+        BuildActivityTooltip();
     }
 
-    public string BuildActivityTooltip()
+    public sealed override void BuildActivityTooltip()
     {
-        string playerName1 = player1.GetComponent<PlayerName>().playerName.text;
-        string color1 = player1.GetComponent<Player>().color;
-        string playerName2 = player2.GetComponent<PlayerName>().playerName.text;
-        string color2 = player2.GetComponent<Player>().color;
-
-        string tooltipMessage = "";
-
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName1, "color", color1);
+        tooltipMessage += player1Name;
         tooltipMessage += " stole " + value;
         tooltipMessage += " fuel from ";
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName2, "color", color2);
-        return tooltipMessage;
+        tooltipMessage += player2Name;
     }
 }

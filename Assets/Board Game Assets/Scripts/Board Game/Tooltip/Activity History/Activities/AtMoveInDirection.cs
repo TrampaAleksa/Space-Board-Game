@@ -2,31 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATMoveInDirection : IBuildActivityTooltip
+public class ATMoveInDirection : ActivityTooltipBuilder
 {
-    private int value;
-    private GameObject player;
     private string direction;
 
-    public ATMoveInDirection(GameObject player, int value, string direction)
+    public ATMoveInDirection(GameObject player, int value, string direction) : base(player, value)
     {
-        this.player = player;
-        this.value = value;
         this.direction = direction;
+        BuildActivityTooltip();
     }
 
-    public string BuildActivityTooltip()
+    public sealed override void BuildActivityTooltip()
     {
-        string playerName = player.GetComponent<PlayerName>().playerName.text;
-        string color = player.GetComponent<Player>().color;
-        string tooltipMessage = "";
-
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
+        tooltipMessage += player1Name;
         tooltipMessage += " Moved  ";
-        tooltipMessage += RichTextBuilder.AddTagToString(value.ToString(), "color", color);
+        tooltipMessage += value;
         tooltipMessage += " fields ";
         tooltipMessage += direction;
-
-        return tooltipMessage;
     }
 }

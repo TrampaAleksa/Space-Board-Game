@@ -22,18 +22,17 @@ public class DamageEnemy : ISelectionEffect
     {
         PlayerHull selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerHull>();
         if (TryDamagingPlayer(selectedPlayer, fieldOfPlayerSelecting)){
-            DisplayInActivityHistory();
+            DisplayInActivityHistory(selectedPlayer.gameObject);
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(fieldOfPlayerSelecting);
         }
     }
 
-     private void DisplayInActivityHistory()
+     private void DisplayInActivityHistory(GameObject selectedPlayer)
     {
-        string message = new ATDamagedEnemy(
-           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
-           InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer(),
-           (int)EffectDamageEnemy.AMOUNT_TO_DAMAGE
-           ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
+        new ATDamagedEnemy(
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+            selectedPlayer,
+            (int)EffectDamageEnemy.AMOUNT_TO_DAMAGE
+        ).DisplayAT();
     }
 }

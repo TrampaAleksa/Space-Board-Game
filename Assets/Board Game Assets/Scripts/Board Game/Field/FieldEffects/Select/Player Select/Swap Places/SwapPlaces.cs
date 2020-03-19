@@ -50,7 +50,6 @@ public class SwapPlaces : ISelectionEffect
 
     private void DisplayInActivityHistory(GameObject player1, GameObject player2)
     {
-        string message = new ATSwappedPlaces(player1, player2).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
+        new ATSwappedPlaces(player1, player2).DisplayAT();
     }
 }

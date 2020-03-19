@@ -10,7 +10,9 @@ public class Mine : FieldEffect
     {
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
         InstanceManager.Instance.Get<HullHandler>().DamagePlayer(player, mineDamage);
-        DisplayInActivityHistory();
+        
+        new ATMineTriggered(player, (int)mineDamage).DisplayAT();
+        
         InstanceManager.Instance.Get<FieldEffectHandler>().RemoveEffectFromField(gameObject, this);
         Destroy(this);
     }
@@ -20,12 +22,4 @@ public class Mine : FieldEffect
         throw new System.NotImplementedException();
     }
 
-     private void DisplayInActivityHistory()
-    {
-        string message = new ATMineTriggered(
-           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
-           (int)mineDamage
-           ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
-    }
 }

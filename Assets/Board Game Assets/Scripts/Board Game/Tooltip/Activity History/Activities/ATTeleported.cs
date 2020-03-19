@@ -2,24 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATTeleported : IBuildActivityTooltip
+public class ATTeleported : ActivityTooltipBuilder
 {
-    private GameObject _player;
-
-    public ATTeleported(GameObject player)
+    public ATTeleported(GameObject player) :base(player)
     {
-        this._player = player;
+        BuildActivityTooltip();
     }
 
-    public string BuildActivityTooltip()
+    public sealed override void BuildActivityTooltip()
     {
-        string playerName = _player.GetComponent<PlayerName>().playerName.text;
-        string color = _player.GetComponent<Player>().color;
-
-        string tooltipMessage = "";
-
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
+        tooltipMessage += player1Name;
         tooltipMessage += " teleported to another field ";
-        return tooltipMessage;
     }
 }

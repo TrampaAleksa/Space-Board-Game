@@ -35,9 +35,8 @@ public static class Teleport
     
     private static void DisplayInActivityHistory()
     {
-        string message = new ATTeleported(
+        new ATTeleported(
             InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
-        ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
+        ).DisplayAT();
     }
 }
