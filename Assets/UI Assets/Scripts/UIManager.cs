@@ -52,6 +52,7 @@ public class UIManager : MonoBehaviour
             for(int i=0;i<playerBoardStates.Length;i++)
             {
                 playerBoardStates[i].playerName=inputsGameObject[i].GetComponent<InputField>().text;
+                AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             }
         else    print("Unesi ponovo");
@@ -77,6 +78,7 @@ public class UIManager : MonoBehaviour
     }
     public void GoToPanel(GameObject gameObject)
     {
+        AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
         mainMenuPanel.SetActive(false);
         gameObject.SetActive(true);
         backButton=GetComponentInChildren<Button>();
@@ -84,6 +86,7 @@ public class UIManager : MonoBehaviour
     }
     public void Back() 
     {
+        AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
         controlsPanel.SetActive(false);
         settingsPanel.SetActive(false);
         inputPanel.SetActive(false);
@@ -92,6 +95,7 @@ public class UIManager : MonoBehaviour
     }
     public void Quit()
     {
+        AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
         Application.Quit();
     }
     public void SetVolume(float volume) 
