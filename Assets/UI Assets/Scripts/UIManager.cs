@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     Resolution[] resolutions;
     public void InputAllNamesForPlayers()
     {
-        if(!inputsAreEmpty() && CheckThatNamesAreNotEqual())
+        if(CheckForInputsAreEmpty() && CheckThatNamesAreNotEqual())
         {
             for(int i=0;i<playerBoardStates.Length;i++)
             {
@@ -30,14 +30,14 @@ public class UIManager : MonoBehaviour
         }
         else    print("Unesi ponovo");
     }
-    public bool inputsAreEmpty()
+    public bool CheckForInputsAreEmpty()
     {
         for (int i = 0; i < inputsGameObject.Length; i++)
         {
-            if(string.IsNullOrEmpty(inputsGameObject[i].GetComponent<InputField>().text))
-                return true;
+            if(string.IsNullOrEmpty(inputsGameObject[i].GetComponent<InputField>().text) || inputsGameObject[i].GetComponent<InputField>().text.Length>7)
+                return false;
         }
-        return false;
+        return true;
     }
     public bool CheckThatNamesAreNotEqual()
     {
