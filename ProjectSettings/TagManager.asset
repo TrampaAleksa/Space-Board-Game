@@ -21,6 +21,7 @@ TagManager:
   - Body
   - ActivityTooltip
   - PInput
+  - UI
   layers:
   - Default
   - TransparentFX

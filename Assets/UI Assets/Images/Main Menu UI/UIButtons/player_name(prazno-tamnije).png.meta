@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 2153f9170543c224e858dd507bbe87e8
+guid: 3920b6750319e384781bf510ba986488
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6394250768286579091
+    second: player_name(prazno-tamnije)_0
+  - first:
+      213: -6700231378317989259
+    second: player_name(prazno-tamnije)_1
+  - first:
+      213: 4760786876968167419
+    second: player_name(prazno-tamnije)_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,11 +93,74 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: player_name(prazno-tamnije)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 374
+        width: 626
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67561d15a088f0a43b04bfc7fca48306
+      internalID: 6394250768286579091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_name(prazno-tamnije)_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 626
+        height: 374
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafe3f64c90c6b847b6fb4382ca28e7b
+      internalID: -6700231378317989259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_name(prazno-tamnije)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 626
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705e38dfba676c1479e9726fa49c52ff
+      internalID: 4760786876968167419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: c81f02733e7e10449b2a9aa722634dc7
     internalID: 0
     vertices: []
     indices: 
