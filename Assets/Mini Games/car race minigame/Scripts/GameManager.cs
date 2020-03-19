@@ -36,8 +36,10 @@ public class GameManager : MonoBehaviour
     {
         playerBoardStates[number].rank = count;
         numberOfPlayersFinished++;
-        if (numberOfPlayersFinished == 3)
+        if (numberOfPlayersFinished == 4)
+        {
             GameFinished();
+        }
     }
     private void GameFinished()
     {
