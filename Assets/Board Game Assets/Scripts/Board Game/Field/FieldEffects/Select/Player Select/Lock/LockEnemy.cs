@@ -25,17 +25,11 @@ public class LockEnemy : ISelectionEffect
         PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
         if (TrySkippingPlayersTurn(selectedPlayer, EffectLockEnemy.TURNS_TO_LOCK, field))
         {
-            DisplayInActivityHistory();
+            new ATEnemyLock(
+                InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+                selectedPlayer.gameObject
+            ).DisplayAT();
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(field);
         }
-    }
-    
-    private void DisplayInActivityHistory()
-    {
-        string message = new ATEnemyLock(
-            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
-            InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer()
-        ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
     }
 }

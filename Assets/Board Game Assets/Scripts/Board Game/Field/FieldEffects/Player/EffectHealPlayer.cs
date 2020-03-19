@@ -20,10 +20,9 @@ public class EffectHealPlayer : FieldEffect, IGenericFieldEffect
 
     private void DisplayInActivityHistory()
     {
-        string message = new ATPlayerHealed(
-           InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
-           (int)amountToHeal
-           ).BuildActivityTooltip();
-        InstanceManager.Instance.Get<ActivityHistoryHandler>().ShowActivityTooltipMessage(message);
+        new ATPlayerHealed(
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
+            (int)amountToHeal
+        ).DisplayAT();
     }
 }

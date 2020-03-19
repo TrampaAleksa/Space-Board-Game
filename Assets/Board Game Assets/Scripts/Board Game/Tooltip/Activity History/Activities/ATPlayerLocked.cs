@@ -2,27 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATPlayerLocked : IBuildActivityTooltip
+public class ATPlayerLocked : ActivityTooltipBuilder
 {
-    private int numberOfTurns;
-    private GameObject player;
-
-    public ATPlayerLocked(GameObject player, int value)
+    public ATPlayerLocked(GameObject player, int value) : base(player, value)
     {
-        this.player = player;
-        this.numberOfTurns = value;
+        BuildActivityTooltip();
     }
 
-    public string BuildActivityTooltip()
+    public sealed override void BuildActivityTooltip()
     {
-        string playerName = player.GetComponent<PlayerName>().playerName.text;
-        string color = player.GetComponent<Player>().color;
-        string tooltipMessage = "";
-
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
+        tooltipMessage += player1Name;
         tooltipMessage += " engines broken for ";
-        tooltipMessage += RichTextBuilder.AddTagToString(numberOfTurns.ToString(), "color", color);
+        tooltipMessage += value;
         tooltipMessage += " turn(s)";
-        return tooltipMessage;
     }
 }

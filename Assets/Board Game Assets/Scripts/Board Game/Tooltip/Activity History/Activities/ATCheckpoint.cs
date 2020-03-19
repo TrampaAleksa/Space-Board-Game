@@ -2,23 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATCheckpoint : IBuildActivityTooltip
+public class ATCheckpoint : ActivityTooltipBuilder
 {
-    private GameObject player;
 
-    public ATCheckpoint(GameObject player)
+    public ATCheckpoint(GameObject player) : base(player)
     {
-        this.player = player;
+        BuildActivityTooltip();
     }
 
-    public string BuildActivityTooltip()
+    public sealed override void BuildActivityTooltip()
     {
-        string playerName = player.GetComponent<PlayerName>().playerName.text;
-        string color = player.GetComponent<Player>().color;
-        string tooltipMessage = "";
-
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
+        tooltipMessage += player1Name;
         tooltipMessage += " got a checkpoint  ";
-        return tooltipMessage;
     }
 }

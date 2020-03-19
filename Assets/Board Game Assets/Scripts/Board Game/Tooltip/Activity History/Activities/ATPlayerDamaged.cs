@@ -2,27 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATPlayerDamaged : IBuildActivityTooltip
+public class ATPlayerDamaged : ActivityTooltipBuilder
 {
-    private int value;
-    private GameObject player;
-
-    public ATPlayerDamaged(GameObject player, int value)
+    public ATPlayerDamaged(GameObject player, int value) : base(player, value)
     {
-        this.player = player;
-        this.value = value;
+        BuildActivityTooltip();
     }
 
-    public string BuildActivityTooltip()
+    public sealed override void BuildActivityTooltip()
     {
-        string playerName = player.GetComponent<PlayerName>().playerName.text;
-        string color = player.GetComponent<Player>().color;
-        string tooltipMessage = "";
-
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
+        tooltipMessage += player1Name;
         tooltipMessage += " took ";
-        tooltipMessage += RichTextBuilder.AddTagToString(value.ToString(), "color", color);
+        tooltipMessage += value;
         tooltipMessage += " damage";
-        return tooltipMessage;
     }
 }

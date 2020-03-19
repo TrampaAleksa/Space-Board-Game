@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
-public static class RichTextBuilder
+public class RichTextBuilder
 {
+    
     public static string AddTagToString(string message, string tag)
     {
         message = "<" + tag + ">" + message + "</" + tag + ">";
@@ -15,4 +17,5 @@ public static class RichTextBuilder
         message = "<" + tag + "=" + value + ">" + message + "</" + tag + ">";
         return message;
     }
+
 }

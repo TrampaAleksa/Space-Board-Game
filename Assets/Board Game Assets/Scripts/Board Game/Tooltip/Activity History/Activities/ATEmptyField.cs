@@ -2,25 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATEmptyField : IBuildActivityTooltip
+public class ATEmptyField : ActivityTooltipBuilder
 {
-    private GameObject _player;
-
-    public ATEmptyField(GameObject player)
+    public ATEmptyField(GameObject player) : base(player)
     {
-        this._player = player;
+        BuildActivityTooltip();
     }
 
-    public string BuildActivityTooltip()
+    public sealed override void BuildActivityTooltip()
     {
-        string playerName = _player.GetComponent<PlayerName>().playerName.text;
-        string color = _player.GetComponent<Player>().color;
-
-        string tooltipMessage = "";
-
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
+        tooltipMessage += player1Name;
         tooltipMessage += " landed on an empty field ";
-        return tooltipMessage;
     }
 }
 

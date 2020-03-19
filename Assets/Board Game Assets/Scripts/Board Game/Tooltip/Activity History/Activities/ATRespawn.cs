@@ -2,26 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATRespawn : IBuildActivityTooltip
+public class ATRespawn : ActivityTooltipBuilder
 {
-    private GameObject player;
 
-    public ATRespawn(GameObject player)
+    public ATRespawn(GameObject player) : base(player)
     {
-        this.player = player;
+        BuildActivityTooltip();
     }
 
-    public string BuildActivityTooltip()
+    public sealed override void BuildActivityTooltip()
     {
-        string playerName = player.GetComponent<PlayerName>().playerName.text;
-        string color = player.GetComponent<Player>().color;
-        int fuelAmount = (int)player.GetComponent<PlayerFuel>().fuel;
-        string tooltipMessage = "";
-
-        tooltipMessage += RichTextBuilder.AddTagToString(playerName, "color", color);
+        tooltipMessage += player1Name;
         tooltipMessage += " Destroyed. Respawned with  ";
-        tooltipMessage += RichTextBuilder.AddTagToString(fuelAmount.ToString(), "color", color);
+        tooltipMessage += value;
          tooltipMessage += " fuel  ";
-        return tooltipMessage;
     }
 }
