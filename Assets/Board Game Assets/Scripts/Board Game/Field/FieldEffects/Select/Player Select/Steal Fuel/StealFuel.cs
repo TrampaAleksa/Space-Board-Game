@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class StealFuel 
 {
-    private GameObject field;
-
-    public StealFuel(GameObject field)
-    {
-        this.field = field;
-    }
 
     public static bool TryStealingFuel(PlayerFuel triggeringPlayer, PlayerFuel selectedPlayer)
     {
