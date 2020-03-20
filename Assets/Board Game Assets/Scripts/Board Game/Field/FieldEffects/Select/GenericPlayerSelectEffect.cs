@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericPlayerSelectEffectEffect : FieldEffect, IGenericFieldEffect
+public class GenericPlayerSelectEffect : FieldEffect, IGenericFieldEffect
 {
     public override void FinishedEffect()
     {

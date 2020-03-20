@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectTeleport : SelectFieldEffect , IGenericFieldEffect
+public class EffectTeleport : FieldEffect , IGenericFieldEffect
 {
     private void Awake()
     {
@@ -17,6 +17,5 @@ public class EffectTeleport : SelectFieldEffect , IGenericFieldEffect
 
     public override void FinishedEffect()
     {
-        //gameObject.GetComponent<SelectEffect>().FinishedSelecting();
     }
 }
