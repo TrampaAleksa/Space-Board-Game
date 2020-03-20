@@ -24,16 +24,4 @@ public class HullHandler : MonoBehaviour
         return player;
     }
 
-    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        float amount = playerState.hull = player.GetComponent<PlayerHull>().HullPercentage;
-        print("Saving the players fuel: " + amount);
-    }
-
-    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        float amount = playerState.hull;
-        player.GetComponent<PlayerHull>().HullPercentage = amount;
-        print("Players initial hull set: " + amount);
-    }
 }

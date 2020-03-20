@@ -28,16 +28,4 @@ public class TurnHandler : MonoBehaviour
         player.GetComponent<PlayerMovement>().turnsToSkip += turnsToSkip;
         return player;
     }
-
-    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        int turnsToSkip = playerState.turnsToSkip = player.GetComponent<PlayerMovement>().turnsToSkip;
-        print("Saving the players turns to skip : " + turnsToSkip);
-    }
-
-    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        int turnsToSkip = playerState.turnsToSkip;
-        player.GetComponent<PlayerMovement>().turnsToSkip = turnsToSkip;
-    }
 }
