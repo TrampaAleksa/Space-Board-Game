@@ -18,6 +18,7 @@ public class EffectStealFuel : FieldEffect, IGenericFieldEffect
     }
 
     public override void FinishedEffect()
-    {
+    {        
+        InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 }
