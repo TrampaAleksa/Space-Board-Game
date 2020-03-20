@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointHandler : MonoBehaviour, IBoardPlayerState
+public class CheckpointHandler : MonoBehaviour, IBoardStateInitializer
 {
     public void SetPlayersCheckpoint(GameObject player, Field fieldToSetTo)
     {

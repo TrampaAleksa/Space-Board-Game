@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public interface IBoardPlayerState
+public interface IBoardStateInitializer
 {
     void SavePlayerState(GameObject player, PlayerBoardState playerState);
 

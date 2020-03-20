@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HullHandler : MonoBehaviour, IBoardPlayerState
+public class HullHandler : MonoBehaviour, IBoardStateInitializer
 {
     public const float STARTING_HULL = 120f;
     public const float MAXIMUM_HULL = 120f;

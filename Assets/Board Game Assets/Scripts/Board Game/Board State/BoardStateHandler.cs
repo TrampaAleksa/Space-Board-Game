@@ -8,8 +8,13 @@ public class BoardStateHandler : MonoBehaviour
 
     private void Start()
     {
+        LoadBoardState();
+    }
+
+    private void LoadBoardState()
+    {
         GameObject[] players = InstanceManager.Instance.Get<PlayersHandler>().gameObjects;
-        foreach (var stateComponent in InstanceManager.Instance.GetComponents<IBoardPlayerState>())
+        foreach (var stateComponent in InstanceManager.Instance.GetComponents<IBoardStateInitializer>())
         {
             for (int i = 0; i < players.Length; i++)
             {
@@ -21,7 +26,7 @@ public class BoardStateHandler : MonoBehaviour
     public void SaveBoardState()
     {
         GameObject[] players = InstanceManager.Instance.Get<PlayersHandler>().gameObjects;
-        foreach (var stateComponent in InstanceManager.Instance.GetComponents<IBoardPlayerState>())
+        foreach (var stateComponent in InstanceManager.Instance.GetComponents<IBoardStateInitializer>())
         {
             for (int i = 0; i < players.Length; i++)
             {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RankHandler : MonoBehaviour, IBoardPlayerState
+public class RankHandler : MonoBehaviour, IBoardStateInitializer
 {
     public float rewardPerRank = 5f;
 

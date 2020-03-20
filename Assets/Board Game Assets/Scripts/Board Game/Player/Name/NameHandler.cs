@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NameHandler : MonoBehaviour, IBoardPlayerState
+public class NameHandler : MonoBehaviour, IBoardStateInitializer
 {
     public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {

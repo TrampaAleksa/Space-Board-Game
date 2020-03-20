@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldHandler : GenericObjectArray, IBoardPlayerState
+public class FieldHandler : GenericObjectArray, IBoardStateInitializer
 {
     private FieldMovementImpl fieldMovement;
 
