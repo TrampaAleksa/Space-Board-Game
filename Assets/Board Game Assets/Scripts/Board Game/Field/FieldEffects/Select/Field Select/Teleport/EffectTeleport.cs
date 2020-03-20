@@ -1,18 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EffectTeleport : SelectFieldEffect , IGenericFieldEffect
 {
+    private void Awake()
+    {
+        gameObject.AddComponent<GenericFieldSelectEffect>();
+        gameObject.AddComponent<TeleportFieldSelectionEffect>();
+    }
+
     public override void TriggerEffect()
     {
-        selectionEffect = new TeleportFieldSelectionEffect();
-        print("Select a filed to teleport to!");
-        GenericSelectTrigger();
     }
 
     public override void FinishedEffect()
     {
-        gameObject.GetComponent<SelectEffect>().FinishedSelecting();
+        //gameObject.GetComponent<SelectEffect>().FinishedSelecting();
     }
 }
