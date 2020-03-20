@@ -6,6 +6,12 @@ public class GenericFieldSelectEffect : FieldEffect, IGenericFieldEffect
 {
     public override void FinishedEffect()
     {
+        InstanceManager.Instance.Get<Inputs>().selectionInputEvents
+            -= SelectionInputs;
+    }
+
+    public override void TriggerEffect()
+    {
         FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
 
         fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
@@ -14,12 +20,8 @@ public class GenericFieldSelectEffect : FieldEffect, IGenericFieldEffect
         cameraMovementHandler.SetCameraMode<CameraModeFieldFollow>();
 
         InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
-        print(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().name + " Is now choosing: ");
-    }
-
-    public override void TriggerEffect()
-    {
-        throw new System.NotImplementedException();
+        InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip
+            (InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().name + " Is now choosing: ");
     }
 
     private void SelectionInputs()
