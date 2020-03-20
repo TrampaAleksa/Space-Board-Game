@@ -37,9 +37,10 @@ public class PlayerMovement : Player
 
     private void FixedUpdate()
     {
-        Vector3 targetPosition = currentPlayerField.transform.position
-                                + (Vector3.up * 0.5f)
-                                + currentPlayerField.transform.forward;
+        var fieldTransform = currentPlayerField.transform;
+        Vector3 targetPosition = fieldTransform.position
+                                 + (Vector3.up * 0.5f)
+                                 + (fieldTransform.forward*50f);
         Lerping.LerpObjectRotationToPosition(targetPosition, gameObject, rotationSpeed);
         // Maybe you can disable / enable the movement script when needed to be used so that you don't have the constant position update
         transform.position = Vector3.MoveTowards(transform.position, positionToTravelTo + (Vector3.up * 0.5f), movementSpeed * Time.deltaTime);
