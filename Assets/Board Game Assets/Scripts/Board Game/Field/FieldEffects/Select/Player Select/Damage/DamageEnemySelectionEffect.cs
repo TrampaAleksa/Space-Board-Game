@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageEnemyFieldEffect : MonoBehaviour, ISelectionEffect
+public class DamageEnemySelectionEffect : MonoBehaviour, ISelectionEffect
 {
 
     public void ConfirmedSelection()

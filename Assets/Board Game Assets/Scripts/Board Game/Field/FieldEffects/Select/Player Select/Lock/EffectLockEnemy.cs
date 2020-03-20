@@ -11,7 +11,7 @@ public class EffectLockEnemy : FieldEffect, IGenericFieldEffect
     private void Awake()
     {
         gameObject.AddComponent<GenericPlayerSelectEffect>();
-        gameObject.AddComponent<LockEnemyFieldEffect>();
+        gameObject.AddComponent<LockEnemySelectionEffect>();
     }
 
     public override void TriggerEffect()

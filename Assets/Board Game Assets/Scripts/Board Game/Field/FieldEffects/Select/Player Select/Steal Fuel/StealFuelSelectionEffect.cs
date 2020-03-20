@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StealFuelFieldEffect : MonoBehaviour, ISelectionEffect
+public class StealFuelSelectionEffect : MonoBehaviour, ISelectionEffect
 {
     public void ConfirmedSelection()
     {

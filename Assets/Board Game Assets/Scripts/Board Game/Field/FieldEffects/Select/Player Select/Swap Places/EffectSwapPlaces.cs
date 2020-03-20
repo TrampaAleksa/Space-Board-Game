@@ -8,7 +8,7 @@ public class EffectSwapPlaces : FieldEffect, IGenericFieldEffect
     private void Awake()
     {
         gameObject.AddComponent<GenericPlayerSelectEffect>();
-        gameObject.AddComponent<SwapPlacesSelectionEvent>();
+        gameObject.AddComponent<SwapPlacesSelectionEffect>();
     }
 
     public override void TriggerEffect()

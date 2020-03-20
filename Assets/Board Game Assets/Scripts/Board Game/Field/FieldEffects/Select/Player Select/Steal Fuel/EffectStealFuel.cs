@@ -10,7 +10,7 @@ public class EffectStealFuel : FieldEffect, IGenericFieldEffect
     private void Awake()
     {
         gameObject.AddComponent<GenericPlayerSelectEffect>();
-        gameObject.AddComponent<StealFuelFieldEffect>();
+        gameObject.AddComponent<StealFuelSelectionEffect>();
     }
 
     public override void TriggerEffect()

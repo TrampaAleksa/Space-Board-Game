@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwapPlacesSelectionEvent : MonoBehaviour, ISelectionEffect
+public class SwapPlacesSelectionEffect : MonoBehaviour, ISelectionEffect
 {
     public void ConfirmedSelection()
     {

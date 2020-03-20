@@ -10,7 +10,7 @@ public class EffectDamageEnemy : FieldEffect, IGenericFieldEffect
     private void Awake()
     {
         gameObject.AddComponent<GenericPlayerSelectEffect>();
-        gameObject.AddComponent<DamageEnemyFieldEffect>();
+        gameObject.AddComponent<DamageEnemySelectionEffect>();
     }
 
     public override void TriggerEffect()

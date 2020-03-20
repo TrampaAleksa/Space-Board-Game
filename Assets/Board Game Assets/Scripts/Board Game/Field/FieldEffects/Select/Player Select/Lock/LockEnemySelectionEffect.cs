@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockEnemyFieldEffect : MonoBehaviour, ISelectionEffect
+public class LockEnemySelectionEffect : MonoBehaviour, ISelectionEffect
 {
 
     public void ConfirmedSelection()
