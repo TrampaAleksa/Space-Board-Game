@@ -9,8 +9,6 @@ public class Field : MonoBehaviour
     [SerializeField]
     public FieldAltPoint[] altPoints;
 
-    public int playersOnField = 0;
-
     public Field NextField()
     {
         return InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(IndexInPath + 1).GetComponent<Field>();
@@ -28,28 +26,42 @@ public class Field : MonoBehaviour
 
     public GameObject RemovePlayerFromField(GameObject player)
     {
-        playersOnField--;
+        player.GetComponent<PlayerMovement>().altFieldOn.IsFree = true;
         return player;
     }
 
     public GameObject AddPlayerToField(GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        
         playerMovement.currentPlayerField = this;
-        playersOnField++;
-        playerMovement.positionToTravelTo = GetFreeAltPoint().gameObject.transform.position;
+        playerMovement.altFieldOn = SetPlayerToFreeAltPoint();
+        
+        playerMovement.positionToTravelTo = playerMovement.altFieldOn.gameObject.transform.position;
         return player;
     }
 
-    public GameObject GetFreeAltPoint()
+    public FieldAltPoint SetPlayerToFreeAltPoint()
     {
-        if (playersOnField == 0 || playersOnField > 4) print("Error, negative players on field or more than 4");
-        return altPoints[playersOnField - 1].gameObject;
+        for (int i = 0; i < altPoints.Length; i++)
+        {
+            if (altPoints[i].IsFree)
+            {
+                altPoints[i].IsFree = false;
+                return altPoints[i];
+            }
+        }
+        Debug.Log("error, no alt point is free");
+        return null;
     }
 
     public Field InitialSetUpField(int indexInFieldsArray)
     {
         altPoints = GetComponentsInChildren<FieldAltPoint>();
+        foreach (var altPoint in altPoints)
+        {
+            altPoint.IsFree = true;
+        }
         IndexInPath = indexInFieldsArray;
         return this;
     }

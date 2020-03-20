@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class DiceRollHandler : MonoBehaviour
 {
     private DiceRoll diceRoll;
+    public bool isRandom = true;
+    public int nonRandomNumber = 1;
     public int numberRolled = 0;
 
     private bool diceLocked = false;
@@ -20,7 +22,12 @@ public class DiceRollHandler : MonoBehaviour
         if (!diceLocked)
         {
             ChangeDiceLockState();
-            StartCoroutine(diceRoll.RollTheDiceAnim());
+            if(isRandom)
+                StartCoroutine(diceRoll.RollTheDiceAnim());
+            else
+            {
+                InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(nonRandomNumber);
+            }
         }
         else Debug.Log("Sorry, the dice is locked");
     }

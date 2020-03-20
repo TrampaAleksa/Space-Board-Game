@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class FieldAltPoint : MonoBehaviour
 {
-    private bool isFree;
-
-    public bool IsFree { get => isFree; set => isFree = value; }
+    public bool IsFree { get; set; }
 }

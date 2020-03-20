@@ -4,6 +4,7 @@ public class PlayerMovement : Player
 {
     private MovementHandler movementHandler;
 
+    public FieldAltPoint altFieldOn;
     [SerializeField]
     public Vector3 positionToTravelTo;
 
@@ -14,11 +15,6 @@ public class PlayerMovement : Player
 
     [SerializeField]
     public int spacesToMove = 0;
-
-    private void Start()
-    {
-        //InstanceManager.Instance.Get<FieldHandler>().
-    }
 
     private void OnTriggerEnter(Collider other)
     {
