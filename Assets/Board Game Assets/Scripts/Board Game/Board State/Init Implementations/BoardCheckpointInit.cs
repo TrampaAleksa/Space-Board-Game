@@ -2,22 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointHandler : MonoBehaviour, IBoardStateInitializer
+public class BoardCheckpointInit : MonoBehaviour, IBoardStateInitializer
 {
-    public void SetPlayersCheckpoint(GameObject player, Field fieldToSetTo)
-    {
-        player.GetComponent<PlayerCheckpoint>().CheckpointField = fieldToSetTo;
-        new ATCheckpoint(player).DisplayAT();
-    }
-
-    public void SetPlayerStatusAfterRespawn(GameObject player)
-    {
-        player.GetComponent<PlayerHull>().HullPercentage = HullHandler.STARTING_HULL;
-        player.GetComponent<PlayerMovement>().turnsToSkip = 0;
-        float numberToDivideFuelBy = 2f;
-        player.GetComponent<PlayerFuel>().fuel /= numberToDivideFuelBy;
-    }
-
     public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
         int checkpointIndex = player.GetComponent<PlayerCheckpoint>().CheckpointField.IndexInPath;

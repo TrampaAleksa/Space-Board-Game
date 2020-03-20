@@ -3,16 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwapPlaces : ISelectionEffect
+public class SwapPlaces 
 {
-    private GameObject field;
-
-    public SwapPlaces(GameObject field)
-    {
-        this.field = field;
-    }
-
-    public static bool TrySwappingPlayers(PlayerMovement firstPlayer, PlayerMovement secondPlayer, GameObject fieldTriggeringSwap)
+    public static bool TrySwappingPlayers(PlayerMovement firstPlayer, PlayerMovement secondPlayer)
     {
         bool playersOnSameField =
             firstPlayer.currentPlayerField.
@@ -20,7 +13,7 @@ public class SwapPlaces : ISelectionEffect
 
         if (playersOnSameField)
             return PlayersOnSameFieldAction();
-        else return SwapPlayersAction(firstPlayer, secondPlayer, fieldTriggeringSwap);
+        else return SwapPlayersAction(firstPlayer, secondPlayer);
     }
 
     private static bool PlayersOnSameFieldAction()
@@ -28,7 +21,7 @@ public class SwapPlaces : ISelectionEffect
         return false;
     }
 
-    private static bool SwapPlayersAction(PlayerMovement firstPlayer, PlayerMovement secondPlayer, GameObject firstPlayersField)
+    private static bool SwapPlayersAction(PlayerMovement firstPlayer, PlayerMovement secondPlayer)
     {
         FieldHandler fieldHandler = InstanceManager.Instance.Get<FieldHandler>();
         fieldHandler.SwapTwoPlayers(firstPlayer, secondPlayer);
@@ -36,20 +29,4 @@ public class SwapPlaces : ISelectionEffect
         return true;
     }
 
-    public void ConfirmedSelection()
-    {
-        PlayerMovement triggeringPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().GetComponent<PlayerMovement>();
-        PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
-        if (TrySwappingPlayers(triggeringPlayer, selectedPlayer, field))
-        {
-            DisplayInActivityHistory(triggeringPlayer.gameObject, selectedPlayer.gameObject);
-            field.GetComponent<SelectPlayerEffect>().FinishedSelecting();
-            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(field);
-        }
-    }
-
-    private void DisplayInActivityHistory(GameObject player1, GameObject player2)
-    {
-        new ATSwappedPlaces(player1, player2).DisplayAT();
-    }
 }

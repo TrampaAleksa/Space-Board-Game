@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SelectFieldEffect : SelectEffect
+public class GenericFieldSelectEffect : FieldEffect, IGenericFieldEffect
 {
-    public override void GenericSelectTrigger()
+    public override void FinishedEffect()
+    {
+        InstanceManager.Instance.Get<Inputs>().selectionInputEvents
+            -= SelectionInputs;
+    }
+
+    public override void TriggerEffect()
     {
         FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
 
@@ -14,32 +20,27 @@ public abstract class SelectFieldEffect : SelectEffect
         cameraMovementHandler.SetCameraMode<CameraModeFieldFollow>();
 
         InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
-        print(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().name + " Is now choosing: ");
+        InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip
+            (InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().name + " Is now choosing: ");
     }
 
-    public override void SelectionInputs()
+    private void SelectionInputs()
     {
-        print("input registered");
+        Debug.Log("input registered");
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            AudioManager.Instance.PlaySound("shortClick");
+            Inputs.PlayInputSound();
             InstanceManager.Instance.Get<FieldSelectionHandler>().SelectNextField();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            AudioManager.Instance.PlaySound("shortClick");
+            Inputs.PlayInputSound();
             InstanceManager.Instance.Get<FieldSelectionHandler>().SelectPreviousField();
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            AudioManager.Instance.PlaySound("shortClick");
-            selectionEffect?.ConfirmedSelection();
+            Inputs.PlayInputSound();
+            GetComponent<ISelectionEffect>().ConfirmedSelection();
         }
-    }
-
-    public override void FinishedSelecting()
-    {
-        InstanceManager.Instance.Get<Inputs>().selectionInputEvents
-            -= SelectionInputs;
     }
 }

@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RankHandler : MonoBehaviour
+public class BoardRankInit : MonoBehaviour, IBoardStateInitializer
 {
-    public const float RewardPerRank = 5f;
-
     public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
         //ranks should be reset to 0 when leaving the board
@@ -15,12 +13,7 @@ public class RankHandler : MonoBehaviour
     public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
         int rank = playerState.rank;
-        float fuelReward = PrizeForRank(rank);
+        float fuelReward = RankHandler.PrizeForRank(rank);
         InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(player, fuelReward, false);
-    }
-
-    public static float PrizeForRank(int rank)
-    {
-        return (4 - rank) * RewardPerRank;
     }
 }

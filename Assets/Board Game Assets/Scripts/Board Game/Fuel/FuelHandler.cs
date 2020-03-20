@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FuelHandler : MonoBehaviour, IBoardPlayerState
+public class FuelHandler : MonoBehaviour
 {
     public const float startingAmount = 50;
     public const float winningAmount = 200f;

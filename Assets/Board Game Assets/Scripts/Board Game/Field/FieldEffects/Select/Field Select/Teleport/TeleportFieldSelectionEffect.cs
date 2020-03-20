@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportFieldSelectionEffect : ISelectionEffect
+public class TeleportFieldSelectionEffect : MonoBehaviour, ISelectionEffect
 {
     public void ConfirmedSelection()
     {

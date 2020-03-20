@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MineFieldSelectionEvent : ISelectionEffect
+public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
 {
-    private GameObject fieldOfPlayerSelecting;
-
-    public MineFieldSelectionEvent(GameObject fieldOfPlayerSelecting)
-    {
-        this.fieldOfPlayerSelecting = fieldOfPlayerSelecting;
-    }
 
     public void ConfirmedSelection()
     {
@@ -24,7 +18,7 @@ public class MineFieldSelectionEvent : ISelectionEffect
             
             InstanceManager.Instance.Get<FieldEffectHandler>()
                 .AddEffectToField(selectedField, selectedField.GetComponent<Mine>());
-            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(fieldOfPlayerSelecting);
+            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
             //Mine placed sound
         }
         else Debug.Log("mine already exists");
