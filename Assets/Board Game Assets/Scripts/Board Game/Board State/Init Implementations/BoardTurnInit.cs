@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardTurnInit : MonoBehaviour
+public class BoardTurnInit : MonoBehaviour, IBoardStateInitializer
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        int turnsToSkip = playerState.turnsToSkip = player.GetComponent<PlayerMovement>().turnsToSkip;
+        print("Saving the players turns to skip : " + turnsToSkip);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        int turnsToSkip = playerState.turnsToSkip;
+        player.GetComponent<PlayerMovement>().turnsToSkip = turnsToSkip;
     }
 }

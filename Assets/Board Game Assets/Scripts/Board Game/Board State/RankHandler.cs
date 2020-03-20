@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RankHandler : MonoBehaviour, IBoardStateInitializer
+public class RankHandler : MonoBehaviour
 {
-    public float rewardPerRank = 5f;
+    public const float RewardPerRank = 5f;
 
     public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
@@ -19,8 +19,8 @@ public class RankHandler : MonoBehaviour, IBoardStateInitializer
         InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(player, fuelReward, false);
     }
 
-    public float PrizeForRank(int rank)
+    public static float PrizeForRank(int rank)
     {
-        return (4 - rank) * rewardPerRank;
+        return (4 - rank) * RewardPerRank;
     }
 }

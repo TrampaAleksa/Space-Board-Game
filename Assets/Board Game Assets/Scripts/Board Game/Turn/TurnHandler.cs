@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class TurnHandler : MonoBehaviour, IBoardStateInitializer
+public class TurnHandler : MonoBehaviour
 {
     private EndTurn _endTurn;
     private void Start()

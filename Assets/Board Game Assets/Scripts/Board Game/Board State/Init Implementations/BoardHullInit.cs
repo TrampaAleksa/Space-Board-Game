@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardHullInit : MonoBehaviour
+public class BoardHullInit : MonoBehaviour, IBoardStateInitializer
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        float amount = playerState.hull = player.GetComponent<PlayerHull>().HullPercentage;
+        print("Saving the players fuel: " + amount);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        float amount = playerState.hull;
+        player.GetComponent<PlayerHull>().HullPercentage = amount;
+        print("Players initial hull set: " + amount);
     }
 }

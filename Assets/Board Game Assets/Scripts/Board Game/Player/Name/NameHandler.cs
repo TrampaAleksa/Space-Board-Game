@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NameHandler : MonoBehaviour, IBoardStateInitializer
+public class NameHandler : MonoBehaviour
 {
+    //TODO -- implement Get Players Name method
     public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
     }

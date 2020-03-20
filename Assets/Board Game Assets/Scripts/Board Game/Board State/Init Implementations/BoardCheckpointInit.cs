@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardCheckpointInit : MonoBehaviour
+public class BoardCheckpointInit : MonoBehaviour, IBoardStateInitializer
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        int checkpointIndex = player.GetComponent<PlayerCheckpoint>().CheckpointField.IndexInPath;
+        playerState.checkpointIndex = checkpointIndex;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        int checkpointIndex = playerState.checkpointIndex;
+        Field fieldAtCheckpointIndex = InstanceManager.Instance.Get<FieldHandler>().MemberWithIndex(checkpointIndex)
+            .GetComponent<Field>();
+        player.GetComponent<PlayerCheckpoint>().CheckpointField = fieldAtCheckpointIndex;
     }
 }

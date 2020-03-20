@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardRankInit : MonoBehaviour
+public class BoardRankInit : MonoBehaviour, IBoardStateInitializer
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        //ranks should be reset to 0 when leaving the board
+        playerState.rank = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        int rank = playerState.rank;
+        float fuelReward = RankHandler.PrizeForRank(rank);
+        InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(player, fuelReward, false);
     }
 }

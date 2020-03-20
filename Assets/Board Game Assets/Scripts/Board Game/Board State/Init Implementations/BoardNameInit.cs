@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class BoardNameInit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        player.GetComponent<PlayerName>().playerName.text = playerState.playerName;
     }
+
 }

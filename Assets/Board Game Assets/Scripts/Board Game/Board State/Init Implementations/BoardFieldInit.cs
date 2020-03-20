@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardFieldInit : MonoBehaviour
+public class BoardFieldInit : MonoBehaviour, IBoardStateInitializer
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        int index = playerState.pathIndex
+            = player.GetComponent<PlayerMovement>().currentPlayerField.IndexInPath;
+        print("Saved players position index: " + index);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
     {
-        
+        int index = playerState.pathIndex;
+        var fieldHandler = InstanceManager.Instance.Get<FieldHandler>();
+        fieldHandler.MemberWithIndex(index).GetComponent<Field>().AddPlayerToField(player);
+        fieldHandler.TeleportPlayerToField(player, fieldHandler.MemberWithIndex(index).GetComponent<Field>());
     }
 }

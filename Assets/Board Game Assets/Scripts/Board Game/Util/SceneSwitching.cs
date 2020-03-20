@@ -9,7 +9,7 @@ public class SceneSwitching : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            InstanceManager.Instance.Get<BoardStateHandler>().SaveBoardState();
+            BoardStateHandler.Instance.SaveBoardState();
             SceneManager.LoadScene(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
