@@ -79,7 +79,7 @@ public class PlayerClass
     public GameObject PlayerObject { get { return playerObject; } set { playerObject=value; } }
     public Text Text { get { return text; } set { text = value; } }
     public int Element { get { return element; } set { element=value; } }
-    public string Name { get { return nameOfPlayer; } set { nameOfPlayer = value; } }
+    public string NameOfPlayer { get { return nameOfPlayer; } set { nameOfPlayer = value; } }
     public float MaxSteerAngle { get { return maxSteerAngle; } set { maxSteerAngle = value; } }
     public float MotorForce { get { return motorForce; } set { motorForce = value; } }
     public float MaximumRotation { get { return maximumRotation; } set { maximumRotation = value; } }

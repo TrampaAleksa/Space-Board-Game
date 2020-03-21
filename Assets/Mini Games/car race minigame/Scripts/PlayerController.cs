@@ -6,16 +6,11 @@ using PathCreation;
 public partial class PlayerController : MonoBehaviour
 {
     public CameraFollowController cameraFollowController;
-    private PlayerClass playerClass;
-    private static PlayerClass[] players= new PlayerClass[4];
-    private static int i = 0;
-    private static int count = 0;
-    private int lap;
-    private bool beforeFinishPass = true;
+    public PlayerClass playerClass;
+    public static int i = 0;
     private float f_horizontalInput;
     private float f_verticalInput;
     public PathCreator pathCreator;
-
     public float maxSteerAngle, motorForce, maximumRotation;
     public static bool startGame = false;
 
@@ -39,31 +34,10 @@ public partial class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        print(pathCreator.path.GetClosestDistanceAlongPath(transform.localPosition));
         if (other.tag == "Finish")
-        {
-            if (!beforeFinishPass)
-            {
-                FinishedLap();
-                if (GameManager.Instance.numberOfLaps == lap)
-                {
-                    FinishGame();
-                }
-            }
-        }
-        if (other.tag == "DeathLine")
-        {
             FinishGame();
-        }
-        if (other.tag == "NextField")
-        {
-            beforeFinishPass = false;
-        }
-    }
-    private void FinishedLap()
-    {
-        lap++;
-        beforeFinishPass = true;
+        if (other.tag == "DeathLine")
+            FinishGame();
     }
     public void Move()
     {
@@ -81,17 +55,12 @@ public partial class PlayerController : MonoBehaviour
     }
     private void FinishGame()
     {
-        count++;
-        if(!beforeFinishPass)
         playerClass.Distance=pathCreator.path.GetClosestDistanceAlongPath(transform.localPosition);
+        GameManager.Instance.PlayerDeath(playerClass);
+        gameObject.SetActive(false);
         cameraFollowController.finishGame = true;
         cameraFollowController.deathOrNot = true;
-        gameObject.SetActive(false);
         playerClass.Text.text = "SPECTATE";
         cameraFollowController.ChangeIndex(cameraFollowController.index);
-        if(count==4){
-            players[count]=playerClass;
-            GameManager.Instance.PlayerDeath(players);
-        }
     }
 }
