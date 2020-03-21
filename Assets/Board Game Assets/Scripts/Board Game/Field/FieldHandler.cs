@@ -40,17 +40,4 @@ public class FieldHandler : GenericObjectArray
         return Mathf.Abs(field1.IndexInPath - field2.IndexInPath);
     }
 
-    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        int index = playerState.pathIndex
-            = player.GetComponent<PlayerMovement>().currentPlayerField.IndexInPath;
-        print("Saved players position index: " + index);
-    }
-
-    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        int index = playerState.pathIndex;
-        MemberWithIndex(index).GetComponent<Field>().AddPlayerToField(player);
-        TeleportPlayerToField(player, MemberWithIndex(index).GetComponent<Field>());
-    }
 }

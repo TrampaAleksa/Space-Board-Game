@@ -31,16 +31,4 @@ public class FuelHandler : MonoBehaviour
         return player;
     }
 
-    public void SavePlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        float amount = playerState.fuel = player.GetComponent<PlayerFuel>().fuel;
-        print("Saving the players fuel: " + amount);
-    }
-
-    public void SetupPlayerState(GameObject player, PlayerBoardState playerState)
-    {
-        float amount = playerState.fuel;
-        player.GetComponent<PlayerFuel>().fuel = amount;
-        print("Players initial fuel set: " + amount);
-    }
 }
