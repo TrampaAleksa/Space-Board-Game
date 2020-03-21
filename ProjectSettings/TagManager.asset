@@ -22,6 +22,7 @@ TagManager:
   - ActivityTooltip
   - PInput
   - UI
+  - Random Field
   layers:
   - Default
   - TransparentFX
