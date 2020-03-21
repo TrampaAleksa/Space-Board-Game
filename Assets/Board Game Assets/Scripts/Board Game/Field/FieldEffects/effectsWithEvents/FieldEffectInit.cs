@@ -19,5 +19,17 @@ public class FieldEffectInit : MonoBehaviour
                 }
             }
         }
+
+        foreach (var randomField in GameObject.FindGameObjectsWithTag("Random Field"))
+        {
+            if (randomField.GetComponent<FieldEffect>() != null)
+            {
+                foreach (var component in randomField.GetComponents<FieldEffect>())
+                {
+                    fieldEffectHandler.AddEffectToField(randomField, component);
+                    fieldEffectHandler.AddEffectFinishedEventToField(randomField, component);
+                }
+            }
+        }
     }
 }
