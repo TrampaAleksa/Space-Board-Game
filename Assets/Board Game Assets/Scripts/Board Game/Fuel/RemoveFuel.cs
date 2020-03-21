@@ -9,7 +9,7 @@ public class RemoveFuel
         PlayerFuel playerFuel = InstanceManager.Instance.Get<FuelHandler>().GetPlayersFuel(player);
         playerFuel.fuel -= amount;
         if (showTooltip)
-            InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "-" + amount);
+            InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "-" + amount + " fuel");
         if (playerFuel.fuel < 0)
         {
             playerFuel.fuel = 0;

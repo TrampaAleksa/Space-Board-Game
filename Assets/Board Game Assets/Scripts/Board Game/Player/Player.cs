@@ -26,11 +26,11 @@ public class Player : MonoBehaviour
                 break;
 
             case "Player 3":
-                color = "red";
+                color = "yellow";
                 break;
 
             case "Player 4":
-                color = "yellow";
+                color = "red";
                 break;
         }
     }

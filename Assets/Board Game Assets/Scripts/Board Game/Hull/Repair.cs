@@ -8,7 +8,7 @@ public class Repair
     {
         PlayerHull playerHull = player.GetComponent<PlayerHull>();
         playerHull.HullPercentage += value;
-        InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "+" + value);
+        InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "+" + value + " health");
         //repair sound?
         if (playerHull.HullPercentage >= maximumAmount)
         {
