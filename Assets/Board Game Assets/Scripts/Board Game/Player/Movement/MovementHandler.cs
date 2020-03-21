@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +8,12 @@ public class MovementHandler : MonoBehaviour
     public float fuelPerField = 0.5f;
     public bool moveForward = true;
     IPlayerFieldMovement move;
+    private PlayersHandler _playersHandler;
 
-    void Awake()
+    private void Start()
     {
         move = new Move(fuelPerField);
+        _playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
     }
 
     public GameObject MoveNFields(int n, GameObject player)
@@ -33,7 +36,7 @@ public class MovementHandler : MonoBehaviour
 
     public void MoveCurrentPlayer(int numberOfFields)
     {
-        GameObject currentPlayer = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
-        InstanceManager.Instance.Get<MovementHandler>().MoveNFields(numberOfFields, currentPlayer);
+        GameObject currentPlayer = _playersHandler.GetCurrentPlayer();
+        MoveNFields(numberOfFields, currentPlayer);
     }
 }

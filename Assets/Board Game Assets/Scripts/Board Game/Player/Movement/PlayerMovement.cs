@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerMovement : Player
 {
@@ -16,22 +17,27 @@ public class PlayerMovement : Player
     [SerializeField]
     public int spacesToMove = 0;
 
+    private FieldEffectHandler _fieldEffectHandler;
+
+    private void Start()
+    {
+        movementHandler  = InstanceManager.Instance.Get<MovementHandler>();
+        _fieldEffectHandler = InstanceManager.Instance.Get<FieldEffectHandler>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        movementHandler = InstanceManager.Instance.Get<MovementHandler>();
-        if (other.tag == "NextField")
+        if (other.CompareTag("NextField"))
         {
             other.tag = "Untagged";
             if (movementHandler.moveForward)
                 movementHandler.MoveToNextField(gameObject);
             else movementHandler.MoveToPreviousField(gameObject);
         }
-        else if (other.tag == "LastField")
+        else if (other.CompareTag("LastField"))
         {
             other.tag = "Untagged";
-            //FieldEffect[] effects = currentPlayerField.GetComponents<FieldEffect>();
-            //foreach (var effect in effects) effect.TriggerEffect();
-            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerFieldEffects(other.gameObject);
+            _fieldEffectHandler.TriggerFieldEffects(other.gameObject);
         }
     }
 

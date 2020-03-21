@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         //TODO -- refactor and extract methods for getting specific player
+        InitializePlayerColors();
+    }
+
+    private void InitializePlayerColors()
+    {
         switch (gameObject.name)
         {
             case "Player 1":
