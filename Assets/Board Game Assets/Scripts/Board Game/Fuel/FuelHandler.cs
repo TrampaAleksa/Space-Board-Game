@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,13 @@ public class FuelHandler : MonoBehaviour
 {
     public const float startingAmount = 50;
     public const float winningAmount = 200f;
+
+    private AddFuel _addFuel;
+
+    private void Start()
+    {
+        _addFuel = new AddFuel();
+    }
 
     public PlayerFuel GetPlayersFuel(GameObject player)
     {
@@ -21,7 +29,14 @@ public class FuelHandler : MonoBehaviour
 
     public GameObject AddFuelToPlayer(GameObject player, float amount, bool showTooltip)
     {
-        AddFuel.AddFuelToPlayer(player, amount, showTooltip);
+        var playerFuel = GetPlayersFuel(player);
+        float fuelAfterAdding = playerFuel.fuel + amount;
+        
+        if (VictoryHandler.CheckGameWon(fuelAfterAdding))
+            VictoryHandler.Win(player);
+        else
+            _addFuel.ShowPlayerGainedFuelTooltip(player, amount, showTooltip);
+        StartCoroutine(_addFuel.AddFuelLerp(playerFuel, fuelAfterAdding));
         return player;
     }
 
