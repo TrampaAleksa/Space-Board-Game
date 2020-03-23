@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public partial class Player : MonoBehaviour
 {
     protected FieldHandler path;
 
@@ -23,19 +23,19 @@ public class Player : MonoBehaviour
         switch (gameObject.name)
         {
             case "Player 1":
-                color = "grey";
+                color = PlayerColor.Player1Color;
                 break;
 
             case "Player 2":
-                color = "green";
+                color = PlayerColor.Player2Color;
                 break;
 
             case "Player 3":
-                color = "yellow";
+                color = PlayerColor.Player3Color;
                 break;
 
             case "Player 4":
-                color = "red";
+                color = PlayerColor.Player4Color;
                 break;
         }
     }
