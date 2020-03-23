@@ -153,6 +153,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ring
       objectReference: {fileID: 0}
+    - target: {fileID: 3483079232439652171, guid: f37b0e66d3d288743b575ddf5f7bcd03,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d0af7ad49d9e0d54cb487c1c81501239, type: 2}
     - target: {fileID: 9135379965643669578, guid: f37b0e66d3d288743b575ddf5f7bcd03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -171,22 +176,22 @@ PrefabInstance:
     - target: {fileID: 9135379965643669578, guid: f37b0e66d3d288743b575ddf5f7bcd03,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.63873804
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9135379965643669578, guid: f37b0e66d3d288743b575ddf5f7bcd03,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.30333778
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9135379965643669578, guid: f37b0e66d3d288743b575ddf5f7bcd03,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.3033378
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9135379965643669578, guid: f37b0e66d3d288743b575ddf5f7bcd03,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6387379
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9135379965643669578, guid: f37b0e66d3d288743b575ddf5f7bcd03,
         type: 3}
