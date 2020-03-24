@@ -14,6 +14,10 @@ public class CameraFollowController : MonoBehaviour {
 	public bool deathOrNot = false;
 	public static bool calibrateIndexBool = false;
 	public Vector3 offset;
+	public static CameraFollowController Instance;
+	private void Awake() {
+		Instance=this;
+	}
 	public void LookAtTarget()
 	{
 		Vector3 _lookDirection = objectToFollow.SetCurrentMember(index).transform.position - transform.position; //razlika izmedju vector3 pozicija kamere i kola
@@ -54,7 +58,7 @@ public class CameraFollowController : MonoBehaviour {
 			calibrateIndexBool = true;
 		}
 		index++;
-		if (!objectToFollow.MemberWithIndex(index).active)
+		if (!objectToFollow.MemberWithIndex(index).activeSelf)
 		{
 			ChangeIndex(index);
 		}

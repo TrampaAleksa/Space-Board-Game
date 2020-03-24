@@ -56,11 +56,8 @@ public partial class PlayerController : MonoBehaviour
     private void FinishGame()
     {
         playerClass.Distance=pathCreator.path.GetClosestDistanceAlongPath(transform.localPosition);
-        GameManager.Instance.PlayerDeath(playerClass);
+        GameManager.Instance.PlayerDeath(playerClass, cameraFollowController);
         gameObject.SetActive(false);
-        cameraFollowController.finishGame = true;
-        cameraFollowController.deathOrNot = true;
         playerClass.Text.text = "SPECTATE";
-        cameraFollowController.ChangeIndex(cameraFollowController.index);
     }
 }
