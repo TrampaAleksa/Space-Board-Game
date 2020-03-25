@@ -9,7 +9,6 @@ public class PlayerClass
     private string nameOfInputHorizontal;
     private string nameOfInputVertical;
     private GameObject playerObject;
-    private GameObject bodyForRotate;
     private int element;
     private string nameOfPlayer;
     private float maxSteerAngle;
@@ -29,7 +28,6 @@ public class PlayerClass
         this.motorForce = motorForce;
         this.maximumRotation = maximumRotation;
         this.playerObject = playerObject;
-        this.bodyForRotate = playerObject.GetComponentInChildren<ROTATEBODY>().gameObject;
         this.wheelColliders = playerObject.GetComponentsInChildren<WheelCollider>();
         GameObject[] tmpT = GameObject.FindGameObjectsWithTag("PText");
         Text[] tmpTxt = new Text[tmpT.Length];
@@ -40,10 +38,6 @@ public class PlayerClass
         this.text = tmpTxt[element];
     }
     //methods
-    public void Rotation(float m_horizontalInput)
-    {
-        bodyForRotate.transform.localEulerAngles = new Vector3(0, -(m_horizontalInput * maximumRotation), 0);
-    }
     public void Brake(float m_verticalInput)
     {
         if (wheelColliders[0].radius*wheelColliders[0].rpm > 1)
@@ -53,7 +47,6 @@ public class PlayerClass
         }
         if (wheelColliders[0].radius*wheelColliders[0].rpm <= 1)
         {
-            Debug.Log("Prosao");
             SpeedUp(m_verticalInput);
         }
     }

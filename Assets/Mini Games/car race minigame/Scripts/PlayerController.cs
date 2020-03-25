@@ -5,6 +5,9 @@ using PathCreation;
 
 public partial class PlayerController : MonoBehaviour
 {
+    public GameObject allWheelColliders;
+    public Rigidbody rigidBody;
+    public MeshCollider meshCollider;
     public CameraFollowController cameraFollowController;
     public PlayerClass playerClass;
     public static int i = 0;
@@ -21,6 +24,8 @@ public partial class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        rigidBody=gameObject.GetComponent<Rigidbody>();
+        meshCollider=gameObject.GetComponent<MeshCollider>();
         playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
         playerClass.Text.text = "Speed";
     }
@@ -41,6 +46,9 @@ public partial class PlayerController : MonoBehaviour
             transform.localRotation=pathCreator.path.GetRotationAtDistance(distance);
             transform.localEulerAngles= new Vector3 (transform.localEulerAngles.x,transform.localEulerAngles.y, 0);
             transform.position=pathCreator.path.GetClosestPointOnPath(transform.position)+new Vector3(0,2,0);
+            rigidBody.isKinematic=true;
+            meshCollider.isTrigger=true;
+            allWheelColliders.SetActive(false);
             playerClass.Brake(0);
             startGame=false;
         }
@@ -48,13 +56,16 @@ public partial class PlayerController : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown("w") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("d"))
-            startGame=true;
+            {
+                startGame=true;
+                //rigidBody.isKinematic=false;
+                //meshCollider.isTrigger=false;
+            }
     }
     public void Move()
     {
         GetInput(playerClass.NameOfInputHorizontal, playerClass.NameOfInputVertical);
         playerClass.Steer(f_horizontalInput);
-        playerClass.Rotation(f_horizontalInput);
         if(f_verticalInput<0)
             playerClass.Brake(f_verticalInput);
         else    playerClass.Accelerate(f_verticalInput);
