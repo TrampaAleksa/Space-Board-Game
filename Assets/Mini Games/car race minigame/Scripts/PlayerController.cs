@@ -16,6 +16,7 @@ public partial class PlayerController : MonoBehaviour
     public PathCreator pathCreator;
     public float maxSteerAngle, motorForce, maximumRotation;
     public static bool startGame = false;
+    private bool playerRespawn=false;
 
     public static PlayerController Instance;
     private void Awake()
@@ -26,21 +27,25 @@ public partial class PlayerController : MonoBehaviour
     {
         rigidBody=gameObject.GetComponent<Rigidbody>();
         meshCollider=gameObject.GetComponent<MeshCollider>();
-        playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i++), maxSteerAngle, motorForce, maximumRotation);
+        playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i), maxSteerAngle, motorForce, maximumRotation);
+        print(playerClass.Element+" "+playerClass.NameOfPlayer+" "+playerClass.PlayerObject.name);
+        i++;
         playerClass.Text.text = "Speed";
     }
     private void FixedUpdate()
     {
-        if(startGame){
+        if(startGame && !playerRespawn)
             Move();
-        }
         playerClass.CountSpeed();
-         print(startGame);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Finish")
-            FinishGame();
+            {
+                GameManager.Instance.PlayerDeath(playerClass.Element, cameraFollowController);
+                gameObject.SetActive(false);
+                playerClass.Text.text = "SPECTATE";
+            }
         if (other.tag == "DeathLine"){
             float distance=pathCreator.path.GetClosestDistanceAlongPath(transform.position);
             transform.localRotation=pathCreator.path.GetRotationAtDistance(distance);
@@ -48,18 +53,18 @@ public partial class PlayerController : MonoBehaviour
             transform.position=pathCreator.path.GetClosestPointOnPath(transform.position)+new Vector3(0,2,0);
             rigidBody.isKinematic=true;
             meshCollider.isTrigger=true;
-            allWheelColliders.SetActive(false);
-            playerClass.Brake(0);
-            startGame=false;
+            allWheelColliders.SetActive(!true);
+            playerRespawn=true;
         }
     }    
     void Update()
     {
-        if(Input.GetKeyDown("w") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("d"))
+        if(Input.GetAxis(playerClass.NameOfInputHorizontal)>0 || Input.GetAxis(playerClass.NameOfInputVertical)!=0)
             {
-                startGame=true;
-                //rigidBody.isKinematic=false;
-                //meshCollider.isTrigger=false;
+                allWheelColliders.SetActive(!false);
+                playerRespawn=false;
+                rigidBody.isKinematic=false;
+                meshCollider.isTrigger=false;
             }
     }
     public void Move()
@@ -74,12 +79,5 @@ public partial class PlayerController : MonoBehaviour
     {
         f_horizontalInput = Input.GetAxis(nameOfInputHorizontal);
         f_verticalInput = Input.GetAxis(nameOfInputVertical);
-    }
-    private void FinishGame()
-    {
-        playerClass.Distance=pathCreator.path.GetClosestDistanceAlongPath(transform.localPosition);
-        GameManager.Instance.PlayerDeath(playerClass, cameraFollowController);
-        gameObject.SetActive(false);
-        playerClass.Text.text = "SPECTATE";
     }
 }

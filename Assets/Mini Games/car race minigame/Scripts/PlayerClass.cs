@@ -14,7 +14,6 @@ public class PlayerClass
     private float maxSteerAngle;
     private float motorForce;
     private float maximumRotation;
-    private float distance;
     private Text text;
     private WheelCollider[] wheelColliders;
 
@@ -80,6 +79,5 @@ public class PlayerClass
     public float MaxSteerAngle { get { return maxSteerAngle; } set { maxSteerAngle = value; } }
     public float MotorForce { get { return motorForce; } set { motorForce = value; } }
     public float MaximumRotation { get { return maximumRotation; } set { maximumRotation = value; } }
-    public float Distance { get { return distance; } set { distance = value; } }
     public WheelCollider[] WheelColliders { get { return wheelColliders; } set{ wheelColliders=value; } }
 }
