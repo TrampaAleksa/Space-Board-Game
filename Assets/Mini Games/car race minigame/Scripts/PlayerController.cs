@@ -36,8 +36,12 @@ public partial class PlayerController : MonoBehaviour
     {
         if (other.tag == "Finish")
             FinishGame();
-        if (other.tag == "DeathLine")
-            FinishGame();
+        if (other.tag == "DeathLine"){
+            float distance=pathCreator.path.GetClosestDistanceAlongPath(transform.position);
+            transform.localRotation=pathCreator.path.GetRotationAtDistance(distance);
+            transform.localEulerAngles= new Vector3 (transform.localEulerAngles.x,transform.localEulerAngles.y, 0);
+            transform.position=pathCreator.path.GetClosestPointOnPath(transform.position)+new Vector3(0,2,0);
+        }
     }
     public void Move()
     {
