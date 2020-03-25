@@ -201,6 +201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850015e63220a5041b7f95eb16fe9e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCollider: {fileID: 7205326398832876640}
+  cameraFollowController: {fileID: 0}
+  pathCreator: {fileID: 0}
   maxSteerAngle: 40
   motorForce: 1000
   maximumRotation: 45

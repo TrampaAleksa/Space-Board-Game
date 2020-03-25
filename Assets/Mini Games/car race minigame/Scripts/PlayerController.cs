@@ -29,8 +29,8 @@ public partial class PlayerController : MonoBehaviour
         if(startGame){
             Move();
         }
-         playerClass.CountSpeed();
-         
+        playerClass.CountSpeed();
+         print(startGame);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -41,7 +41,14 @@ public partial class PlayerController : MonoBehaviour
             transform.localRotation=pathCreator.path.GetRotationAtDistance(distance);
             transform.localEulerAngles= new Vector3 (transform.localEulerAngles.x,transform.localEulerAngles.y, 0);
             transform.position=pathCreator.path.GetClosestPointOnPath(transform.position)+new Vector3(0,2,0);
+            playerClass.Brake(0);
+            startGame=false;
         }
+    }    
+    void Update()
+    {
+        if(Input.GetKeyDown("w") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("d"))
+            startGame=true;
     }
     public void Move()
     {

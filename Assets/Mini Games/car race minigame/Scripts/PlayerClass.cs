@@ -46,13 +46,14 @@ public class PlayerClass
     }
     public void Brake(float m_verticalInput)
     {
-        if ((int)(wheelColliders[0].radius) > 0)
+        if (wheelColliders[0].radius*wheelColliders[0].rpm > 1)
         {
             wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = 0;
             wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = -m_verticalInput * motorForce * 4;
         }
-        if ((int)(wheelColliders[0].radius) <= 0)
+        if (wheelColliders[0].radius*wheelColliders[0].rpm <= 1)
         {
+            Debug.Log("Prosao");
             SpeedUp(m_verticalInput);
         }
     }
@@ -62,16 +63,19 @@ public class PlayerClass
     }
     public void Accelerate(float m_verticalInput)
     {
-        SpeedUp(m_verticalInput);
+        if(wheelColliders[0].isGrounded && wheelColliders[1].isGrounded)
+            SpeedUp(m_verticalInput);
     }
     public void SpeedUp(float m_verticalInput)
     {
-        wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = 0;
-        wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = m_verticalInput * motorForce;
+        if(wheelColliders[0].isGrounded && wheelColliders[1].isGrounded){
+            wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = 0;
+            wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = m_verticalInput * motorForce;
+        }
     }
     public void CountSpeed()
     {
-        text.text= ((int)(wheelColliders[0].radius * wheelColliders[0].rpm)/2).ToString();
+        text.text= ((int)(wheelColliders[0].radius * wheelColliders[0].rpm)).ToString();
     }
     //prop
     public string NameOfInputHorizontal { get { return nameOfInputHorizontal; } set { nameOfInputHorizontal = value; } }
