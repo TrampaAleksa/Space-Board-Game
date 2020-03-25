@@ -6,18 +6,17 @@ using PathCreation;
 public partial class PlayerController : MonoBehaviour
 {
     public GameObject allWheelColliders;
-    public Rigidbody rigidBody;
-    public MeshCollider meshCollider;
+    private Rigidbody rigidBody;
+    private MeshCollider meshCollider;
     public CameraFollowController cameraFollowController;
-    public PlayerClass playerClass;
-    public static int i = 0;
+    private PlayerClass playerClass;
+    private static int i = 0;
     private float f_horizontalInput;
     private float f_verticalInput;
+    private bool playerRespawn=false;
     public PathCreator pathCreator;
     public float maxSteerAngle, motorForce, maximumRotation;
     public static bool startGame = false;
-    private bool playerRespawn=false;
-
     public static PlayerController Instance;
     private void Awake()
     {

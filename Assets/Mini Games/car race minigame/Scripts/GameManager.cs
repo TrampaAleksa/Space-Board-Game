@@ -24,5 +24,6 @@ public class GameManager : MonoBehaviour
         playerBoardStates[index].rank=count;
         if(count!=4)
             camera.ChangeIndex(camera.index);
+        else SceneManager.LoadScene(1);
     }
 }
