@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GenericObjectArray : MonoBehaviour
 {
+    
     public GameObject[] gameObjects;
     private int currentMemberIndex = 0;
     protected int CurrentMemberIndex { get => currentMemberIndex; set => currentMemberIndex = value; }
