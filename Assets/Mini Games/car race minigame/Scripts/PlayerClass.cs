@@ -8,7 +8,9 @@ public class PlayerClass
 {
     private string nameOfInputHorizontal;
     private string nameOfInputVertical;
+    private string nameOfRespawnButton;
     private GameObject playerObject;
+    private GameObject body;
     private int element;
     private string nameOfPlayer;
     private float maxSteerAngle;
@@ -22,12 +24,14 @@ public class PlayerClass
         this.element = element;
         this.nameOfInputHorizontal = "Horizontal" + (element + 1);
         this.nameOfInputVertical = "Vertical" + (element + 1);
+        this.nameOfRespawnButton = "Fire" + (element + 1);
         this.nameOfPlayer = name;
         this.maxSteerAngle = maxSteerAngle;
         this.motorForce = motorForce;
         this.maximumRotation = maximumRotation;
         this.playerObject = playerObject;
         this.wheelColliders = playerObject.GetComponentsInChildren<WheelCollider>();
+        this.body=playerObject.GetComponentInChildren<MeshRenderer>().gameObject;
         GameObject[] tmpT = GameObject.FindGameObjectsWithTag("PText");
         Text[] tmpTxt = new Text[tmpT.Length];
         for (int i = 0; i < tmpT.Length; i++)
@@ -49,21 +53,23 @@ public class PlayerClass
             SpeedUp(m_verticalInput);
         }
     }
+    public void RotateBody(float m_horizontalInput)
+    {
+        body.transform.localEulerAngles= new Vector3(body.transform.rotation.x,body.transform.rotation.y,-maximumRotation*m_horizontalInput);
+    }
     public void Steer(float m_horizontalInput)
     {
         wheelColliders[0].steerAngle = wheelColliders[1].steerAngle = maxSteerAngle * m_horizontalInput;
     }
     public void Accelerate(float m_verticalInput)
     {
-        if(wheelColliders[0].isGrounded && wheelColliders[1].isGrounded)
+        if(wheelColliders[0].isGrounded || wheelColliders[1].isGrounded)
             SpeedUp(m_verticalInput);
     }
     public void SpeedUp(float m_verticalInput)
     {
-        if(wheelColliders[0].isGrounded && wheelColliders[1].isGrounded){
-            wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = 0;
-            wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = m_verticalInput * motorForce;
-        }
+        wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = 0;
+        wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = m_verticalInput * motorForce;
     }
     public void CountSpeed()
     {
@@ -72,6 +78,7 @@ public class PlayerClass
     //prop
     public string NameOfInputHorizontal { get { return nameOfInputHorizontal; } set { nameOfInputHorizontal = value; } }
     public string NameOfInputVertical { get { return nameOfInputVertical; } set { nameOfInputVertical = value; } }
+    public string NameOfRespawnButton { get { return nameOfRespawnButton; } set { nameOfRespawnButton = value; } }
     public GameObject PlayerObject { get { return playerObject; } set { playerObject=value; } }
     public Text Text { get { return text; } set { text = value; } }
     public int Element { get { return element; } set { element=value; } }
