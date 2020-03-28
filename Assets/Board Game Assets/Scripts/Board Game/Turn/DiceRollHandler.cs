@@ -7,33 +7,36 @@ using UnityEngine.UI;
 public class DiceRollHandler : MonoBehaviour
 {
     private DiceRollAsync diceRoll;
+    private TooltipHandler _tooltipHandler;
+    private MovementHandler _movementHandler;
+    
     public bool isRandom = true;
-    public int nonRandomNumber = 1;
-    public int numberRolled = 0;
-
+    public int numberRolled = 1;
     private bool diceLocked = false;
+ 
 
     private void Start()
     {
         diceRoll = new DiceRollAsync();
+        _tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
+        _movementHandler = InstanceManager.Instance.Get<MovementHandler>();
     }
 
     public async void DiceWasClicked()
     {
-        if (!diceLocked)
+        if (diceLocked)
         {
-            ChangeDiceLockState();
-            if (isRandom)
-            {
-                numberRolled = await RollTheDice();
-                InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
-            }
-            else
-            {
-                InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(nonRandomNumber);
-            }
+            _tooltipHandler.ShowInfoTooltip("Sorry, the dice is locked");
+            return;
         }
-        else Debug.Log("Sorry, the dice is locked");
+        
+        ChangeDiceLockState();
+        
+        if(isRandom)
+        {
+            numberRolled = await RollTheDice();
+        }
+        _movementHandler.MoveCurrentPlayer(numberRolled);
     }
 
     public async Task<int> RollTheDice()
