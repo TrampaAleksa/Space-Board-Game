@@ -30,7 +30,7 @@ public class DiceRollHandler : MonoBehaviour
             return;
         }
         
-        ChangeDiceLockState();
+        LockTheDice();
         
         if(isRandom)
         {
@@ -47,6 +47,11 @@ public class DiceRollHandler : MonoBehaviour
     public bool ChangeDiceLockState()
     {
         return diceLocked = !diceLocked;
+    }
+
+    private bool LockTheDice()
+    {
+        return diceLocked = true;
     }
 
     public bool DiceIsLocked()
