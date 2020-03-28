@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DiceRollHandler : MonoBehaviour
 {
-    private DiceRoll diceRoll;
+    private DiceRollAsync diceRoll;
     public bool isRandom = true;
     public int nonRandomNumber = 1;
     public int numberRolled = 0;
@@ -14,22 +15,30 @@ public class DiceRollHandler : MonoBehaviour
 
     private void Start()
     {
-        diceRoll = new DiceRoll();
+        diceRoll = new DiceRollAsync();
     }
 
-    public void DiceWasClicked()
+    public async void DiceWasClicked()
     {
         if (!diceLocked)
         {
             ChangeDiceLockState();
-            if(isRandom)
-                StartCoroutine(diceRoll.RollTheDiceAnim());
+            if (isRandom)
+            {
+                var number = await RollTheDice();
+                InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(number);
+            }
             else
             {
                 InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(nonRandomNumber);
             }
         }
         else Debug.Log("Sorry, the dice is locked");
+    }
+
+    public async Task<int> RollTheDice()
+    {
+        return await diceRoll.RollDiceTheDiceAnim();
     }
 
     public bool ChangeDiceLockState()
