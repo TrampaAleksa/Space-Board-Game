@@ -10,7 +10,8 @@ public class DiceRollHandler : MonoBehaviour
     private TooltipHandler _tooltipHandler;
     private MovementHandler _movementHandler;
     
-    public bool isRandom = true;
+    [SerializeField]
+    private bool isRandom = true;
     public int numberRolled = 1;
     private bool diceLocked = false;
  
@@ -24,7 +25,7 @@ public class DiceRollHandler : MonoBehaviour
 
     public async void DiceWasClicked()
     {
-        if (diceLocked)
+        if (DiceIsLocked())
         {
             _tooltipHandler.ShowInfoTooltip("Sorry, the dice is locked");
             return;

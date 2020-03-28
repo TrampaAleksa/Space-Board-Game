@@ -15,8 +15,9 @@ public class EffectDamagePlayer : FieldEffect, IGenericFieldEffect
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 
-    public override void TriggerEffect()
+    public override async void TriggerEffect()
     {
+        damageAmount = 5 * await InstanceManager.Instance.Get<DiceRollHandler>().RollTheDice();
         Damage.DamagePlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), damageAmount);
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }

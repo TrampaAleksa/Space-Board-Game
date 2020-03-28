@@ -2688,7 +2688,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRandom: 1
-  nonRandomNumber: 1
   numberRolled: 0
 --- !u!114 &387936074
 MonoBehaviour:
