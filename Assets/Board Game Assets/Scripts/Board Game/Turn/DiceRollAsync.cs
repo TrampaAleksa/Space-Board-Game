@@ -12,8 +12,7 @@ public class DiceRollAsync
     private int minimumDiceNumber = 1;
     private int maximumDiceNumber = 6;
 
-    private float diceAnimationSpeed = 100f;
-    private DiceRollHandler diceRollHandler { get; set; }
+    private float diceAnimationSpeed = 20f;
 
     public DiceRollAsync()
     {
@@ -24,7 +23,6 @@ public class DiceRollAsync
             Resources.LoadAll<Sprite>("DiceSides/"),
             GameObject.Find("Dice").GetComponent<Image>()
         );
-        diceRollHandler = InstanceManager.Instance.Get<DiceRollHandler>();
     }
 
     public async Task<int> RollDiceTheDiceAnim()
@@ -42,7 +40,6 @@ public class DiceRollAsync
                 await Task.Delay((int)dice.DiceAnimationSpeed);
             }
             int numberRolled = randomDiceSide + 1;
-            diceRollHandler.numberRolled = numberRolled;
             return numberRolled;
         }
         catch

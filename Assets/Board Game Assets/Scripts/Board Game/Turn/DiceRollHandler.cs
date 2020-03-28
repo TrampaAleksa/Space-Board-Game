@@ -25,8 +25,8 @@ public class DiceRollHandler : MonoBehaviour
             ChangeDiceLockState();
             if (isRandom)
             {
-                var number = await RollTheDice();
-                InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(number);
+                numberRolled = await RollTheDice();
+                InstanceManager.Instance.Get<MovementHandler>().MoveCurrentPlayer(numberRolled);
             }
             else
             {
