@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GenericObjectArray countSpeed;
+    public GenericObjectArray playerNameText;
+    public GenericObjectArray distanceCheckpoint;
     public GenericObjectArray cameraGenericObjectArray;
     public GenericObjectArray playersGenericObjectArray;
     public int count=0;
@@ -16,8 +19,20 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        cameraGenericObjectArray =gameObject.AddComponent<GenericObjectArray>();
+        playersGenericObjectArray=gameObject.AddComponent<GenericObjectArray>();
+        countSpeed=gameObject.AddComponent<GenericObjectArray>();
+        playerNameText=gameObject.AddComponent<GenericObjectArray>();
+        distanceCheckpoint=gameObject.AddComponent<GenericObjectArray>();
+        cameraGenericObjectArray.gameObjects=GameObject.FindGameObjectsWithTag("MainCamera");
+        playersGenericObjectArray.gameObjects=GameObject.FindGameObjectsWithTag("Player");
+        countSpeed.gameObjects= GameObject.FindGameObjectsWithTag("PlayerSpeed");
+        playerNameText.gameObjects= GameObject.FindGameObjectsWithTag("PlayerName");
+        distanceCheckpoint.gameObjects= GameObject.FindGameObjectsWithTag("DistanceCheckpoint");
+        
         for(int i=0;i<cameraGenericObjectArray.ArrayLength();i++)
         {
+            cameraGenericObjectArray.MemberWithIndex(i).GetComponent<CameraFollowController>().objectToFollow=playersGenericObjectArray;
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().cameraFollowController=cameraGenericObjectArray.MemberWithIndex(i).GetComponent<CameraFollowController>();
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().pathCreator=GameObject.FindWithTag("Field").GetComponent<PathCreator>();
         }

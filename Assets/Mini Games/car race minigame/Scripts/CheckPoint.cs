@@ -20,11 +20,13 @@ public class CheckPoint : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         numberOfPlayerCross++;
+        other.GetComponent<PlayerController>().UpdateLocalRank(numberOfPlayerCross);
         if(numberOfPlayerCross==4)
             UpdatePosition();
     }
     private void UpdatePosition()
     {
+        numberOfPlayerCross=0;
         checkpointIndex++;
         gameObject.transform.position=pathCreator.path.GetPointAtDistance(distance*checkpointIndex);
         gameObject.transform.localRotation=pathCreator.path.GetRotationAtDistance(distance*checkpointIndex);

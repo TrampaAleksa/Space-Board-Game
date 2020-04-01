@@ -5,6 +5,7 @@ using PathCreation;
 
 public partial class PlayerController : MonoBehaviour
 {
+    private int position=0;
     public GameObject allWheelColliders;
     private Rigidbody rigidBody;
     private MeshCollider meshCollider;
@@ -30,7 +31,6 @@ public partial class PlayerController : MonoBehaviour
         playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i), maxSteerAngle, motorForce, maximumRotation);
         Debug.Log(playerClass.NameOfPlayer+" "+playerClass.Element+" "+ playerClass.NameOfInputHorizontal +" "+playerClass.NameOfInputVertical+" "+ gameObject.name);
         i++;
-        playerClass.Text.text = "Speed";
     }
     private void FixedUpdate()
     {
@@ -44,9 +44,13 @@ public partial class PlayerController : MonoBehaviour
     {
         playerTriggerCollision=false;
     }
+    private void OnTriggerStay(Collider other) {
+        if(other.tag == "Player")
+            if(!other.GetComponent<MeshCollider>().isTrigger)
+                playerTriggerCollision=true;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        playerTriggerCollision=true;
         if (other.tag == "DeathLine"){
             Respawn();
         }
@@ -92,5 +96,10 @@ public partial class PlayerController : MonoBehaviour
         meshCollider.isTrigger=state;
         allWheelColliders.SetActive(!state);
         playerRespawn=state;
+    }
+    public void UpdateLocalRank(int pos)
+    {
+        position=pos;
+        Debug.Log(position);
     }
 }

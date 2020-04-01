@@ -9,7 +9,6 @@ public class PlayerClass
     private string nameOfInputHorizontal;
     private string nameOfInputVertical;
     private string nameOfRespawnButton;
-    private GameObject playerObject;
     private GameObject body;
     private int element;
     private string nameOfPlayer;
@@ -29,10 +28,9 @@ public class PlayerClass
         this.maxSteerAngle = maxSteerAngle;
         this.motorForce = motorForce;
         this.maximumRotation = maximumRotation;
-        this.playerObject = playerObject;
         this.wheelColliders = playerObject.GetComponentsInChildren<WheelCollider>();
         this.body=playerObject.GetComponentInChildren<MeshRenderer>().gameObject;
-        GameObject[] tmpT = GameObject.FindGameObjectsWithTag("PText");
+        GameObject[] tmpT = GameObject.FindGameObjectsWithTag("PlayerSpeed");
         Text[] tmpTxt = new Text[tmpT.Length];
         for (int i = 0; i < tmpT.Length; i++)
         {
@@ -79,7 +77,6 @@ public class PlayerClass
     public string NameOfInputHorizontal { get { return nameOfInputHorizontal; } set { nameOfInputHorizontal = value; } }
     public string NameOfInputVertical { get { return nameOfInputVertical; } set { nameOfInputVertical = value; } }
     public string NameOfRespawnButton { get { return nameOfRespawnButton; } set { nameOfRespawnButton = value; } }
-    public GameObject PlayerObject { get { return playerObject; } set { playerObject=value; } }
     public Text Text { get { return text; } set { text = value; } }
     public int Element { get { return element; } set { element=value; } }
     public string NameOfPlayer { get { return nameOfPlayer; } set { nameOfPlayer = value; } }

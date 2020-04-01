@@ -20,7 +20,7 @@ public class CameraFollowController : MonoBehaviour {
 	}
 	public void LookAtTarget()
 	{
-		Vector3 _lookDirection = objectToFollow.SetCurrentMember(index).transform.position - transform.position; //razlika izmedju vector3 pozicija kamere i kola
+		Vector3 _lookDirection = objectToFollow.SetCurrentMember(index).transform.position - transform.position;
 		Quaternion _rot = Quaternion.LookRotation(_lookDirection, Vector3.up);
 		transform.rotation = Quaternion.Lerp(transform.rotation, _rot, lookSpeed * Time.deltaTime);
 	}

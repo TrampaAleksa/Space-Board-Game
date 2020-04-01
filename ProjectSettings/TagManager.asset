@@ -23,6 +23,9 @@ TagManager:
   - PInput
   - UI
   - Random Field
+  - PlayerSpeed
+  - PlayerName
+  - DistanceCheckpoint
   layers:
   - Default
   - TransparentFX
