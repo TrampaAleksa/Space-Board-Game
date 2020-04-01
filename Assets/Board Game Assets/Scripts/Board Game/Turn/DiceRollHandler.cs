@@ -50,7 +50,7 @@ public class DiceRollHandler : MonoBehaviour
         return diceLocked = !diceLocked;
     }
 
-    private bool LockTheDice()
+    public bool LockTheDice()
     {
         return diceLocked = true;
     }

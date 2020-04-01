@@ -21,6 +21,7 @@ public class TurnHandler : MonoBehaviour
         }
         // player ended turn sound
         _endTurn.StartNextPlayersTurn();
+        InstanceManager.Instance.Get<MiniGameHandler>().TryTriggerMiniGame();
     }
 
     public GameObject AddPlayerTurnsToSkip(GameObject player, int turnsToSkip)

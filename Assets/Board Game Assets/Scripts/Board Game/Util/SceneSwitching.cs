@@ -10,11 +10,8 @@ public class SceneSwitching : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             BoardStateHandler.Instance.SaveBoardState();
-            SceneManager.LoadScene(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SceneManager.LoadScene(0);
+            var miniGameHandler = InstanceManager.Instance.Get<MiniGameHandler>();
+            miniGameHandler.SwitchToRandomMiniGame(miniGameHandler.miniGameSceneNames);
         }
     }
 }
