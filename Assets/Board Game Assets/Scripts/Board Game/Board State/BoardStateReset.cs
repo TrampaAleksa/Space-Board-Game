@@ -5,10 +5,20 @@ using UnityEngine;
 public class BoardStateReset : MonoBehaviour
 {
     public PlayerBoardState[] playerBoardStates;
+    public static BoardStateReset Instance;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnApplicationQuit()

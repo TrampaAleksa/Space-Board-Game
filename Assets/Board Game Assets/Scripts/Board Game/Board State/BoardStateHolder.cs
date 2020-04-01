@@ -1,19 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BoardStateHolder : MonoBehaviour
 {
     public PlayerBoardState[] playerBoardStates;
+    public static BoardStateHolder Instance;
 
-    void Start()
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        playerBoardStates = InitializePlayerBoardStates();
+
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        if(playerBoardStates.Length == 0)
+            playerBoardStates = InitializePlayerBoardStates();
     }
 
     private PlayerBoardState[] InitializePlayerBoardStates()
     {
+        Debug.Log("initializing pbs");
         //TODO -- extract a JSON file of the initial player board states
         playerBoardStates = new PlayerBoardState[4];
         for (int i = 0; i < playerBoardStates.Length; i++)

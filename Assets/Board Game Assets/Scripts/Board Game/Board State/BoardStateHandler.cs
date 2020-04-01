@@ -20,6 +20,7 @@ public class BoardStateHandler : MonoBehaviour
 
     private void LoadBoardState()
     {
+        playerBoardStates = BoardStateHolder.Instance.playerBoardStates;
         GameObject[] players = InstanceManager.Instance.Get<PlayersHandler>().gameObjects;
         foreach (var stateComponent in GetComponents<IBoardStateInitializer>())
         {
