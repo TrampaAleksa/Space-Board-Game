@@ -3014,13 +3014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0daf15f4a278a2e408b88776cbee5eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnsBeforeTriggering: 8
+  turnsBeforeTriggering: 99
   miniGameSceneNames:
   - Main Board Game
-  - MiniGame-CarRacingWithPath
-  - SampleScene
-  - jumping game Main
-  - level main
   turnsElapsed: 0
 --- !u!1 &398581031
 GameObject:
