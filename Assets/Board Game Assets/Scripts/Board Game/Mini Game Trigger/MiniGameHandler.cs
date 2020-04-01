@@ -17,13 +17,21 @@ public class MiniGameHandler : MonoBehaviour
         }
         else
         {
-            SwitchToRandomMiniGame(miniGameSceneNames);
-            turnsElapsed = 0;
+            TriggerMiniGame();
         }
     }
-    
-    public void SwitchToRandomMiniGame(string[] sceneNamesArray)
+
+    private void TriggerMiniGame()
     {
+        InstanceManager.Instance.Get<DiceRollHandler>().LockTheDice();
+        InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip("Mini game triggered!");
+        StartCoroutine(SwitchToRandomMiniGame(miniGameSceneNames));
+        turnsElapsed = 0;
+    }
+    
+    public IEnumerator SwitchToRandomMiniGame(string[] sceneNamesArray)
+    {
+        yield return new WaitForSeconds(3f);
         if (sceneNamesArray.Length > 0)
         {
             var randomIndex = Random.Range(0, sceneNamesArray.Length);
