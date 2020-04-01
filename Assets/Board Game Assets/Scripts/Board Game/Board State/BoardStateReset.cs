@@ -20,7 +20,7 @@ public class BoardStateReset : MonoBehaviour
     {
         foreach (var stateComponent in playerBoardStates)
         {
-            stateComponent.fuel = FuelHandler.startingAmount;
+            stateComponent.fuel = FuelHandler.StartingAmount;
             stateComponent.hull = HullHandler.STARTING_HULL;
             stateComponent.pathIndex = 0;
             stateComponent.checkpointIndex = 0;

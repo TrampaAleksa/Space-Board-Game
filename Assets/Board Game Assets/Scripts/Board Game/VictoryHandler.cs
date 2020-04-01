@@ -12,6 +12,6 @@ public class VictoryHandler
     
     public  static bool CheckGameWon(float playerFuel)
     {
-        return playerFuel >= FuelHandler.winningAmount;
+        return playerFuel >= FuelHandler.WinningAmount;
     }
 }

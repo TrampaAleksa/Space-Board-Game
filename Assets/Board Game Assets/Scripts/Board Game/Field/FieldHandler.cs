@@ -5,6 +5,7 @@ using UnityEngine;
 public class FieldHandler : GenericObjectArray
 {
     private FieldMovementImpl fieldMovement;
+    public const int StartingIndex = 0;
 
     private void Awake()
     {
