@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
-    public PlayerBoardState[] playerBoardStates;
+    //public PlayerBoardState[] playerBoardStates;
     public GameObject[] inputsGameObject;
     public Button playButton;
     public Button controlsButton;
@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     Resolution[] resolutions;
     private void Start()
     {
-        inputsGameObject=GameObject.FindGameObjectsWithTag("PInput");
+        inputsGameObject=GameObject.FindGameObjectsWithTag("PText");
         playButton.onClick.AddListener(()=>GoToPanel(inputPanel));
         creditButton.onClick.AddListener(()=>GoToPanel(creditsPanel));
         settingsButton.onClick.AddListener(()=>GoToPanel(settingsPanel));
@@ -49,9 +49,9 @@ public class UIManager : MonoBehaviour
     public void InputAllNamesForPlayers()
     {
         if(CheckForInputsAreEmpty() && CheckThatNamesAreNotEqual())
-            for(int i=0;i<playerBoardStates.Length;i++)
+            for(int i=0;i<BoardStateHolder.Instance.playerBoardStates.Length;i++)
             {
-                playerBoardStates[i].playerName=inputsGameObject[i].GetComponent<InputField>().text;
+                BoardStateHolder.Instance.playerBoardStates[i].playerName=inputsGameObject[i].GetComponent<InputField>().text;
                 AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             }
