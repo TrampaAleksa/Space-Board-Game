@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
-    //public PlayerBoardState[] playerBoardStates;
     public GameObject[] inputsGameObject;
     public Button playButton;
     public Button controlsButton;
@@ -24,7 +23,7 @@ public class UIManager : MonoBehaviour
     Resolution[] resolutions;
     private void Start()
     {
-        inputsGameObject=GameObject.FindGameObjectsWithTag("PText");
+        inputsGameObject=GameObject.FindGameObjectsWithTag("PInput");
         playButton.onClick.AddListener(()=>GoToPanel(inputPanel));
         creditButton.onClick.AddListener(()=>GoToPanel(creditsPanel));
         settingsButton.onClick.AddListener(()=>GoToPanel(settingsPanel));
