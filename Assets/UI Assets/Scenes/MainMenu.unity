@@ -739,9 +739,9 @@ RectTransform:
   m_Father: {fileID: 9158429975788148213}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 424.55994}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -84.44006}
   m_SizeDelta: {x: 0, y: 168.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &851295033499302619
@@ -2802,7 +2802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &9158429975312472577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3082,8 +3082,8 @@ RectTransform:
   m_Father: {fileID: 9158429976861736629}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3245,7 +3245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &9158429975507035812
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6369,11 +6369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f477bf2f6d305479bf6c73a893d37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoardStates:
-  - {fileID: 11400000, guid: 491771c19c28d744dba626b035e92889, type: 2}
-  - {fileID: 11400000, guid: b14f0e9c9fc55194b80a15e19bd89049, type: 2}
-  - {fileID: 11400000, guid: 9d7b49a5e2c0a374fbfa6aac39dfe1f2, type: 2}
-  - {fileID: 11400000, guid: 7212804a14586064eb7d5c90529c2048, type: 2}
   inputsGameObject: []
   playButton: {fileID: 9158429977072306206}
   controlsButton: {fileID: 9158429975286402296}
@@ -7786,7 +7781,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -2.494995, y: 0}
   m_SizeDelta: {x: -4.99, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
