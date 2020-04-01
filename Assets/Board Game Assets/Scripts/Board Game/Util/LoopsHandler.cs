@@ -1,25 +1,31 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoopsHandler : MonoBehaviour 
+public class LoopsHandler : MonoBehaviour
 {
+    public static LoopsHandler Instance;
 
-    public delegate bool LoopDelegate();
- 
-
-    public void Loop(float timeBetweenLoops, LoopDelegate loopable)
+    private void Awake()
     {
-        StartCoroutine(LoopEnum(timeBetweenLoops, loopable));
+        DontDestroyOnLoad(gameObject);
+        if(Instance == null)
+            Instance = this;
+        else Destroy(gameObject);
+    }
+    public void Loop(float timeBetweenLoops, Func<bool> loopFunction)
+    {
+        StartCoroutine(LoopEnum(timeBetweenLoops, loopFunction));
     }
 
-    public IEnumerator LoopEnum(float timeBetweenLoops, LoopDelegate loopable) 
+    private IEnumerator LoopEnum(float timeBetweenLoops, Func<bool> loopFunction) 
     {
             yield return new WaitForSeconds(timeBetweenLoops);
-            if(loopable())
-            yield return StartCoroutine(LoopEnum(timeBetweenLoops, loopable));
+            if(loopFunction())
+                yield return StartCoroutine(LoopEnum(timeBetweenLoops, loopFunction));
 
-        yield break;
+            yield break;
     }
 
  

@@ -1,14 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DisplayHandler : MonoBehaviour
 {
 
+    public Func<bool> loopDelegate;
     public GameObject[] displays;
     void Start()
     {
-        LoopsHandler.LoopDelegate loopDelegate = null;
         displays = GameObject.FindGameObjectsWithTag("Display");
         foreach (var display in displays)
         {
