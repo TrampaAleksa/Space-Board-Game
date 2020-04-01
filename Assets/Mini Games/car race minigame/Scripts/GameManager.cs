@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
         for(int i=0;i<cameraGenericObjectArray.ArrayLength();i++)
         {
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().cameraFollowController=cameraGenericObjectArray.MemberWithIndex(i).GetComponent<CameraFollowController>();
