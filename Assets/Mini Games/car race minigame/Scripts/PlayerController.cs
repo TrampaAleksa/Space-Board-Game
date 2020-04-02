@@ -12,6 +12,10 @@ public partial class PlayerController : MonoBehaviour
     public CameraFollowController cameraFollowController;
     private PlayerClass playerClass;
     private static int i = 0;
+    public GameObject speedText;
+    public GameObject playerNameText;
+    public GameObject localRankPositionText;
+    public GameObject distanceCheckpointText;
     private float f_horizontalInput;
     private float f_verticalInput;
     private bool playerTriggerCollision=false;
@@ -29,7 +33,7 @@ public partial class PlayerController : MonoBehaviour
         rigidBody=gameObject.GetComponent<Rigidbody>();
         meshCollider=gameObject.GetComponent<MeshCollider>();
         playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i), maxSteerAngle, motorForce, maximumRotation);
-        Debug.Log(playerClass.NameOfPlayer+" "+playerClass.Element+" "+ playerClass.NameOfInputHorizontal +" "+playerClass.NameOfInputVertical+" "+ gameObject.name);
+
         i++;
     }
     private void FixedUpdate()
@@ -38,7 +42,8 @@ public partial class PlayerController : MonoBehaviour
         {
             Move();
         }
-        playerClass.CountSpeed();
+        speedText.GetComponent<Text>().text =playerClass.CountSpeed();
+        //distanceCheckpointText.GetComponent<Text>().text ="Distance"+(CheckPoint.Instance.distance-pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position));
     }
     void OnTriggerExit(Collider other)
     {
@@ -58,7 +63,7 @@ public partial class PlayerController : MonoBehaviour
             {
                 GameManager.Instance.PlayerDeath(playerClass.Element, cameraFollowController);
                 gameObject.SetActive(false);
-                playerClass.Text.text = "SPECTATE";
+                speedText.GetComponent<Text>().text = "SPECTATE";
             }
     }    
     void Update()
@@ -100,6 +105,6 @@ public partial class PlayerController : MonoBehaviour
     public void UpdateLocalRank(int pos)
     {
         position=pos;
-        Debug.Log(position);
+        localRankPositionText.GetComponent<Text>().text=position.ToString();
     }
 }

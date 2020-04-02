@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GenericObjectArray countSpeed;
     public GenericObjectArray playerNameText;
     public GenericObjectArray distanceCheckpoint;
+    public GenericObjectArray localRankText;
     public GenericObjectArray cameraGenericObjectArray;
     public GenericObjectArray playersGenericObjectArray;
     public int count=0;
@@ -24,17 +25,25 @@ public class GameManager : MonoBehaviour
         countSpeed=gameObject.AddComponent<GenericObjectArray>();
         playerNameText=gameObject.AddComponent<GenericObjectArray>();
         distanceCheckpoint=gameObject.AddComponent<GenericObjectArray>();
+        localRankText=gameObject.AddComponent<GenericObjectArray>();
         cameraGenericObjectArray.gameObjects=GameObject.FindGameObjectsWithTag("MainCamera");
         playersGenericObjectArray.gameObjects=GameObject.FindGameObjectsWithTag("Player");
         countSpeed.gameObjects= GameObject.FindGameObjectsWithTag("PlayerSpeed");
         playerNameText.gameObjects= GameObject.FindGameObjectsWithTag("PlayerName");
         distanceCheckpoint.gameObjects= GameObject.FindGameObjectsWithTag("DistanceCheckpoint");
+        localRankText.gameObjects= GameObject.FindGameObjectsWithTag("localRank");
         
         for(int i=0;i<cameraGenericObjectArray.ArrayLength();i++)
         {
             cameraGenericObjectArray.MemberWithIndex(i).GetComponent<CameraFollowController>().objectToFollow=playersGenericObjectArray;
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().cameraFollowController=cameraGenericObjectArray.MemberWithIndex(i).GetComponent<CameraFollowController>();
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().pathCreator=GameObject.FindWithTag("Field").GetComponent<PathCreator>();
+            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().speedText=countSpeed.MemberWithIndex(i);
+            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().localRankPositionText= localRankText.MemberWithIndex(i);
+            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().distanceCheckpointText= localRankText.MemberWithIndex(i);
+            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().playerNameText=countSpeed.MemberWithIndex(i);
+            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().distanceCheckpointText=distanceCheckpoint.MemberWithIndex(i);
+
         }
     }
     public string ReturnName(int number)

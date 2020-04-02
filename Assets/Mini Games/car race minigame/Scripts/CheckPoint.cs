@@ -10,7 +10,11 @@ public class CheckPoint : MonoBehaviour
     public float distance;
     public int numberOfPlayerCross=0;
     public int checkpointIndex=0;
-
+    public static CheckPoint Instance;
+    void Awake()
+    {
+        Instance=this;
+    }
     void Start()
     {
         pathCreator=GameObject.FindWithTag("Field").GetComponent<PathCreator>();

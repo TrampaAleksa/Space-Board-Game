@@ -26,6 +26,7 @@ TagManager:
   - PlayerSpeed
   - PlayerName
   - DistanceCheckpoint
+  - localRank
   layers:
   - Default
   - TransparentFX

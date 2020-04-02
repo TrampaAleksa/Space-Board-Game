@@ -15,7 +15,6 @@ public class PlayerClass
     private float maxSteerAngle;
     private float motorForce;
     private float maximumRotation;
-    private Text text;
     private WheelCollider[] wheelColliders;
 
     public PlayerClass(GameObject playerObject, int element, string name, float maxSteerAngle, float motorForce, float maximumRotation)
@@ -30,13 +29,6 @@ public class PlayerClass
         this.maximumRotation = maximumRotation;
         this.wheelColliders = playerObject.GetComponentsInChildren<WheelCollider>();
         this.body=playerObject.GetComponentInChildren<MeshRenderer>().gameObject;
-        GameObject[] tmpT = GameObject.FindGameObjectsWithTag("PlayerSpeed");
-        Text[] tmpTxt = new Text[tmpT.Length];
-        for (int i = 0; i < tmpT.Length; i++)
-        {
-            tmpTxt[i] = tmpT[i].GetComponent<Text>();
-        }
-        this.text = tmpTxt[element];
     }
     //methods
     public void Brake(float m_verticalInput)
@@ -69,15 +61,14 @@ public class PlayerClass
         wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = 0;
         wheelColliders[0].motorTorque = wheelColliders[1].motorTorque = m_verticalInput * motorForce;
     }
-    public void CountSpeed()
+    public string CountSpeed()
     {
-        text.text= ((int)(wheelColliders[0].radius * wheelColliders[0].rpm)).ToString();
+        return ((int)(wheelColliders[0].radius * wheelColliders[0].rpm)).ToString();
     }
     //prop
     public string NameOfInputHorizontal { get { return nameOfInputHorizontal; } set { nameOfInputHorizontal = value; } }
     public string NameOfInputVertical { get { return nameOfInputVertical; } set { nameOfInputVertical = value; } }
     public string NameOfRespawnButton { get { return nameOfRespawnButton; } set { nameOfRespawnButton = value; } }
-    public Text Text { get { return text; } set { text = value; } }
     public int Element { get { return element; } set { element=value; } }
     public string NameOfPlayer { get { return nameOfPlayer; } set { nameOfPlayer = value; } }
     public float MaxSteerAngle { get { return maxSteerAngle; } set { maxSteerAngle = value; } }
