@@ -27,6 +27,8 @@ TagManager:
   - PlayerName
   - DistanceCheckpoint
   - localRank
+  - MainMenuButton
+  - BackButton
   layers:
   - Default
   - TransparentFX

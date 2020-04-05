@@ -7,27 +7,24 @@ using System.Collections.Generic;
 public class UIManager : MonoBehaviour
 {
     public GameObject[] inputsGameObject;
+    public GameObject mainMenuPanel;
     public Button playButton;
     public Button controlsButton;
     public Button settingsButton;
     public Button creditButton;
     public Button quitButton;
     public Button backButton;
-    public GameObject controlsPanel;
-    public GameObject mainMenuPanel;
-    public GameObject settingsPanel;
-    public GameObject inputPanel;
-    public GameObject creditsPanel;
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
     Resolution[] resolutions;
+    public static UIManager Instance;
+    void Awake()
+    {
+        Instance=this;
+    }
     private void Start()
     {
         inputsGameObject=GameObject.FindGameObjectsWithTag("PInput");
-        playButton.onClick.AddListener(()=>GoToPanel(inputPanel));
-        creditButton.onClick.AddListener(()=>GoToPanel(creditsPanel));
-        settingsButton.onClick.AddListener(()=>GoToPanel(settingsPanel));
-        controlsButton.onClick.AddListener(()=>GoToPanel(controlsPanel));
         quitButton.onClick.AddListener(Quit);
         resolutions = Screen.resolutions;
         int currentResolutionIndex = 0;
@@ -43,7 +40,6 @@ public class UIManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-        Back();
     }
     public void InputAllNamesForPlayers()
     {
@@ -59,7 +55,7 @@ public class UIManager : MonoBehaviour
     public bool CheckForInputsAreEmpty()
     {
         for (int i = 0; i < inputsGameObject.Length; i++)
-            if(string.IsNullOrEmpty(inputsGameObject[i].GetComponent<InputField>().text) || inputsGameObject[i].GetComponent<InputField>().text.Length>7)
+            if(string.IsNullOrEmpty(inputsGameObject[i].GetComponent<InputField>().text))
                 return false;
         return true;
     }
@@ -77,24 +73,11 @@ public class UIManager : MonoBehaviour
     }
     public void GoToPanel(GameObject gameObject)
     {
-        AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
         mainMenuPanel.SetActive(false);
         gameObject.SetActive(true);
-        backButton=GetComponentInChildren<Button>();
-        backButton.onClick.AddListener(Back);
-    }
-    public void Back() 
-    {
-        AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
-        controlsPanel.SetActive(false);
-        settingsPanel.SetActive(false);
-        inputPanel.SetActive(false);
-        creditsPanel.SetActive(false);
-        mainMenuPanel.SetActive(true);
     }
     public void Quit()
     {
-        AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
         Application.Quit();
     }
     public void SetVolume(float volume) 
