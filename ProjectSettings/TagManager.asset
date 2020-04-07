@@ -29,6 +29,7 @@ TagManager:
   - localRank
   - MainMenuButton
   - BackButton
+  - VerticalMenu
   layers:
   - Default
   - TransparentFX

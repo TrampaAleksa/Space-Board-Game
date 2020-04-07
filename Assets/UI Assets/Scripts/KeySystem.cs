@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 
 public class KeySystem : MonoBehaviour
 {
+    public GameObject pointer;
+    Transform saveOffset;
+    public bool rightPressed;
     public bool allowedHorizontalMove=false;
-    public bool horizontalMove=false;
     public GameObject mainMenuPanel;
     public GenericObjectArray panels;
     public GenericObjectArray buttonsUI;
@@ -29,31 +31,35 @@ public class KeySystem : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow) && horizontalMove)
+        if(Input.GetKeyDown(KeyCode.LeftArrow) && allowedHorizontalMove)
         {
+            rightPressed=false;
+            horizontalIndex--;
+            if(horizontalIndex<1)
+                horizontalIndex=horizontalsUI.Count-1;
+            HorizontalSelectButton();
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow) && allowedHorizontalMove)
+        {
+            rightPressed=true;
             horizontalIndex++;
             if(horizontalIndex>=horizontalsUI.Count)
-                horizontalIndex=0;
-            SelectButton();
-        }
-        if(Input.GetKeyDown(KeyCode.RightArrow) && horizontalMove)
-        {
-            horizontalIndex--;
-            if(horizontalIndex<0)
-                horizontalIndex=horizontalsUI.Count-1;
-            SelectButton();
+                horizontalIndex=1;
+            HorizontalSelectButton();
         }
 
-        if(Input.GetKeyDown(KeyCode.DownArrow)&& !horizontalMove)
+        if(Input.GetKeyDown(KeyCode.DownArrow))
         {
+            horizontalIndex=0;
             lastIndex=verticalIndex;
             verticalIndex++;
             if(verticalIndex>=verticalsUI.Count)
                 verticalIndex=0;
             SelectButton();
         }
-        if(Input.GetKeyDown(KeyCode.UpArrow)&& !horizontalMove)
+        if(Input.GetKeyDown(KeyCode.UpArrow))
         {
+            horizontalIndex=0;
             lastIndex=verticalIndex;
             verticalIndex--;
             if(verticalIndex<0)
@@ -62,55 +68,94 @@ public class KeySystem : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            if(!allowedHorizontalMove)
+            if(mainMenuPanel.activeSelf)
                 Invoke("PressButton",0.1f);
-            else
-                Invoke("IntoSettings",0.1f);
         }      
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!horizontalMove)
-                Invoke("BackButton",0.1f);
-            else
-                Invoke("GoBack",0.1f);
+            Invoke("BackButton",0.1f);
         }
-        
     }
-    void ChangeColor(Color clr1, Color clr2)
+    void FadeAlpha(GameObject gameObject, bool boolean)
     {
-        Graphic graphic= verticalObjectUI.GetComponent<Graphic>();
-        graphic.CrossFadeAlpha(clr1.a,clr2.a,true);
+        Graphic graphic= gameObject.GetComponent<Graphic>();
+        if(boolean)
+            graphic.CrossFadeAlpha(1,0.5f,true);
+        else    graphic.CrossFadeAlpha(0,0.5f,true);
+    }
+    void HorizontalFadeAlpha(GameObject gameObject, bool boolean)
+    {
+        Graphic graphic= gameObject.GetComponent<Graphic>();
+        if(boolean)
+            graphic.CrossFadeAlpha(1,1,true);
+        else    graphic.CrossFadeAlpha(0.3f,1,true);
     }
     void SelectButton()
     {
-        Selectable tmpUIObject=verticalsUI[lastIndex];
-        verticalObjectUI=verticalsUI[verticalIndex];
-        ChangeColor(verticalObjectUI.colors.highlightedColor, verticalObjectUI.colors.normalColor);
-        ChangeColor(tmpUIObject.colors.normalColor, tmpUIObject.colors.highlightedColor);
-        Selectable[] tmp=verticalObjectUI.GetComponentsInChildren<Selectable>();
-        if( tmp.Length>0 && !mainMenuPanel.activeSelf)
-        {
+        if(verticalsUI.Count>0){
+            FadeAlpha(verticalObjectUI.gameObject,false);
+            verticalObjectUI=verticalsUI[verticalIndex];
+            FadeAlpha(verticalObjectUI.gameObject,true);
+            Selectable[] tmp=verticalObjectUI.GetComponentsInChildren<Selectable>();
+            if(allowedHorizontalMove)
+                HorizontalFadeAlpha(horizontalObjectUI.gameObject,true);
             horizontalsUI.Clear();
-            allowedHorizontalMove=true;
-            horizontalsUI.InsertRange(0,tmp);
-            horizontalObjectUI=horizontalsUI[horizontalIndex];   
+            if(tmp.Length>1 && !mainMenuPanel.activeSelf)
+            {
+                allowedHorizontalMove=true;
+                horizontalsUI.AddRange(tmp);
+                horizontalObjectUI=horizontalsUI[horizontalIndex+1];
+            }
+            else allowedHorizontalMove=false;
         }
-        else {horizontalsUI.Clear();allowedHorizontalMove=false;}
+    }
+    void HorizontalSelectButton()
+    {
+        HorizontalFadeAlpha(horizontalObjectUI.gameObject,true);
+        horizontalObjectUI=horizontalsUI[horizontalIndex];
+        HorizontalFadeAlpha(horizontalObjectUI.gameObject,false);
+        if(horizontalObjectUI.GetComponentInChildren<Toggle>()!=null)
+            horizontalObjectUI.GetComponentInChildren<Toggle>().isOn=!horizontalObjectUI.GetComponentInChildren<Toggle>().isOn;
+        else if(horizontalObjectUI.GetComponentInChildren<Slider>()!=null)
+            {
+                if(rightPressed)
+                    horizontalObjectUI.GetComponent<SliderController>().PressedRightButton();
+                else horizontalObjectUI.GetComponent<SliderController>().PressedLeftButton();
+            }
+        else if(horizontalObjectUI.GetComponent<ResolutionSlide>()!=null)
+        {
+            if(rightPressed)
+                    horizontalObjectUI.GetComponent<ResolutionSlide>().PressedRightButton();
+                else horizontalObjectUI.GetComponent<ResolutionSlide>().PressedLeftButton();
+        }
+        else if(horizontalObjectUI.GetComponent<QualitySlider>()!=null)
+        {
+            if(rightPressed)
+                    horizontalObjectUI.GetComponent<QualitySlider>().PressedRightButton();
+                else horizontalObjectUI.GetComponent<QualitySlider>().PressedLeftButton();
+        }
+        else if(horizontalObjectUI.GetComponent<InputField>()!=null)
+        {
+            horizontalObjectUI.GetComponent<InputField>().ActivateInputField();
+            pointer.transform.SetParent(horizontalObjectUI.transform.parent, false);
+        }
     }
     void ChangedPanel()
     {
         verticalsUI.Clear();
-        Selectable[] tmp=panels.GetComponentsInChildren<Button>();
-        verticalsUI.AddRange(tmp);
+        GameObject[] tmp=GameObject.FindGameObjectsWithTag("VerticalMenu");
+        for(int i=0;i<tmp.Length;i++)
+            verticalsUI.Add(tmp[i].GetComponent<Selectable>());
+        SelectButton();
     }
     void Quit()
     {
-        UIManager.Instance.GoToPanel(panels.MemberWithIndex(verticalIndex));
+        GoToPanel(panels.MemberWithIndex(verticalIndex));
     }
     void PressButton()
     {
         panelIndex=verticalIndex;
-        UIManager.Instance.GoToPanel(panels.MemberWithIndex(verticalIndex));
+        GoToPanel(panels.MemberWithIndex(verticalIndex));
         verticalIndex=0;
         ChangedPanel();
     }
@@ -121,14 +166,10 @@ public class KeySystem : MonoBehaviour
         verticalsUI.Clear();
         MainMenuReset();
     }
-    void GoBack()
+    public void GoToPanel(GameObject gameObject)
     {
-        print("stisnup");
-        horizontalMove=false;
-    }
-    void IntoSettings()
-    {
-        horizontalMove=true;
+        mainMenuPanel.SetActive(false);
+        gameObject.SetActive(true);
     }
     void MainMenuReset()
     {
@@ -138,6 +179,7 @@ public class KeySystem : MonoBehaviour
             panels.MemberWithIndex(i).SetActive(false);
         }
         verticalsUI.AddRange(tmp);
+        verticalObjectUI=verticalsUI[verticalIndex];
     }
 }
 

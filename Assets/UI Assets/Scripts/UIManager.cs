@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     public Button quitButton;
     public Button backButton;
     public AudioMixer audioMixer;
-    public Dropdown resolutionDropdown;
+    public ResolutionSlide resolutionSlide;
     Resolution[] resolutions;
     public static UIManager Instance;
     void Awake()
@@ -37,9 +37,10 @@ public class UIManager : MonoBehaviour
             resolutions[i].height == Screen.currentResolution.height)
                 currentResolutionIndex = i;
         }
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        resolutionSlide.AddOptions(options);
+        resolutionSlide.index = currentResolutionIndex;
+        resolutionSlide.RefreshShownValue();
+        
     }
     public void InputAllNamesForPlayers()
     {
@@ -71,11 +72,6 @@ public class UIManager : MonoBehaviour
     {
         InputAllNamesForPlayers();
     }
-    public void GoToPanel(GameObject gameObject)
-    {
-        mainMenuPanel.SetActive(false);
-        gameObject.SetActive(true);
-    }
     public void Quit()
     {
         Application.Quit();
@@ -92,7 +88,12 @@ public class UIManager : MonoBehaviour
     {
         Screen.fullScreen = isFullscreen;
     }
-    public void SetResolution(int resolutionIndex)
+    public string SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        return resolution.width +"x"+resolution.height;
+    }
+    public void ApplyResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
