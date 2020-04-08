@@ -8,7 +8,8 @@ public class KeySystem : MonoBehaviour
 {
     public GameObject pointer;
     Transform saveOffset;
-    public bool rightPressed;
+    public bool horizontalRightArrowPressed;
+    public bool verticalDownArrowPressed;
     public bool allowedHorizontalMove=false;
     public GameObject mainMenuPanel;
     public GenericObjectArray panels;
@@ -33,37 +34,28 @@ public class KeySystem : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftArrow) && allowedHorizontalMove)
         {
-            rightPressed=false;
-            horizontalIndex--;
-            if(horizontalIndex<1)
-                horizontalIndex=horizontalsUI.Count-1;
+            horizontalRightArrowPressed=false;
+            horizontalIndex=Move(horizontalsUI,horizontalIndex,horizontalRightArrowPressed,1);
             HorizontalSelectButton();
         }
-        if(Input.GetKeyDown(KeyCode.RightArrow) && allowedHorizontalMove)
+        else if(Input.GetKeyDown(KeyCode.RightArrow) && allowedHorizontalMove)
         {
-            rightPressed=true;
-            horizontalIndex++;
-            if(horizontalIndex>=horizontalsUI.Count)
-                horizontalIndex=1;
+            horizontalRightArrowPressed=true;
+            horizontalIndex=Move(horizontalsUI,horizontalIndex,horizontalRightArrowPressed,1);
             HorizontalSelectButton();
         }
-
         if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             horizontalIndex=0;
-            lastIndex=verticalIndex;
-            verticalIndex++;
-            if(verticalIndex>=verticalsUI.Count)
-                verticalIndex=0;
+            verticalDownArrowPressed=true;
+            verticalIndex=Move(verticalsUI,verticalIndex,verticalDownArrowPressed,0);
             SelectButton();
         }
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        else if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             horizontalIndex=0;
-            lastIndex=verticalIndex;
-            verticalIndex--;
-            if(verticalIndex<0)
-                verticalIndex=verticalsUI.Count-1;
+            verticalDownArrowPressed=false;
+            verticalIndex=Move(verticalsUI,verticalIndex,verticalDownArrowPressed,0);
             SelectButton();
         }
         if(Input.GetKeyDown(KeyCode.Return))
@@ -75,6 +67,16 @@ public class KeySystem : MonoBehaviour
         {
             Invoke("BackButton",0.1f);
         }
+    }
+    int Move(List<Selectable> list,int index,bool boolean, int bound)
+    {
+        if(boolean)    index++;
+        else    index--;
+        if(index<bound)
+            index=list.Count-1;
+        else if(index>=list.Count)
+            index=bound;
+        return index;
     }
     void FadeAlpha(GameObject gameObject, bool boolean)
     {
@@ -105,6 +107,8 @@ public class KeySystem : MonoBehaviour
                 allowedHorizontalMove=true;
                 horizontalsUI.AddRange(tmp);
                 horizontalObjectUI=horizontalsUI[horizontalIndex+1];
+                if(horizontalObjectUI.GetComponent<Button>()!=null)
+                    HorizontalFadeAlpha(horizontalObjectUI.gameObject,false);
             }
             else allowedHorizontalMove=false;
         }
@@ -118,19 +122,19 @@ public class KeySystem : MonoBehaviour
             horizontalObjectUI.GetComponentInChildren<Toggle>().isOn=!horizontalObjectUI.GetComponentInChildren<Toggle>().isOn;
         else if(horizontalObjectUI.GetComponentInChildren<Slider>()!=null)
             {
-                if(rightPressed)
+                if(horizontalRightArrowPressed)
                     horizontalObjectUI.GetComponent<SliderController>().PressedRightButton();
                 else horizontalObjectUI.GetComponent<SliderController>().PressedLeftButton();
             }
         else if(horizontalObjectUI.GetComponent<ResolutionSlide>()!=null)
         {
-            if(rightPressed)
+            if(horizontalRightArrowPressed)
                     horizontalObjectUI.GetComponent<ResolutionSlide>().PressedRightButton();
                 else horizontalObjectUI.GetComponent<ResolutionSlide>().PressedLeftButton();
         }
         else if(horizontalObjectUI.GetComponent<QualitySlider>()!=null)
         {
-            if(rightPressed)
+            if(horizontalRightArrowPressed)
                     horizontalObjectUI.GetComponent<QualitySlider>().PressedRightButton();
                 else horizontalObjectUI.GetComponent<QualitySlider>().PressedLeftButton();
         }
