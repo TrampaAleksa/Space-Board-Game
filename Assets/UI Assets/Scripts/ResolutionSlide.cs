@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ResolutionSlide : SlideLeftRight
 {
-    public void OnApplyPress()
+    public static ResolutionSlide Instance;  
+    private void Awake() {
+        Instance=this;
+    }
+    public override void ApplySettings()
     {
-        UIManager.Instance.SetResolution(index);
+        UIManager.Instance.ApplyResolution(index);
     }
 }

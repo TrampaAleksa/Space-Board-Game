@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 [System.Serializable]
-public class SlideLeftRight : MonoBehaviour
+public abstract class SlideLeftRight : MonoBehaviour
 {
-    public int index=0;
+    public int index;
     public List<string> labelList=new List<string>();
     public Text label;
-    public static SlideLeftRight Instance;
-    private void Awake() {
-        Instance=this;
-    }
+    abstract public void ApplySettings();
     private void Start() {
         label=gameObject.GetComponentInChildren<Text>();
     }
-    public void AddOptions(List<string> label)
+    public void AddOptions(List<string> labels)
     {
-        labelList.AddRange(label);
+        labelList.AddRange(labels);
     }
     public void RefreshShownValue()
     {
@@ -37,5 +34,4 @@ public class SlideLeftRight : MonoBehaviour
             index=0;
         RefreshShownValue();
     }
-    
 }

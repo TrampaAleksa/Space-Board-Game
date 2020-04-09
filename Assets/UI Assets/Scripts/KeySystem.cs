@@ -7,27 +7,23 @@ using UnityEngine.EventSystems;
 public class KeySystem : MonoBehaviour
 {
     public GameObject pointer;
-    Transform saveOffset;
     public bool horizontalRightArrowPressed;
     public bool verticalDownArrowPressed;
     public bool allowedHorizontalMove=false;
     public GameObject mainMenuPanel;
-    public GenericObjectArray panels;
-    public GenericObjectArray buttonsUI;
+    public List<GameObject> panels;
+    public List<GameObject> buttonsUI;
     public List<Selectable> verticalsUI=new List<Selectable>();
     public List<Selectable> horizontalsUI=new List<Selectable>();
     public Selectable verticalObjectUI;
     public Selectable horizontalObjectUI;
-    int lastIndex;
     int verticalIndex;
     int horizontalIndex;
     int panelIndex;
     private void Start() 
     {
-        panels=gameObject.AddComponent<GenericObjectArray>();
-        panels.gameObjects=GameObject.FindGameObjectsWithTag("UI");
-        buttonsUI=gameObject.AddComponent<GenericObjectArray>();
-        buttonsUI.gameObjects=GameObject.FindGameObjectsWithTag("MainMenuButton");
+        panels.AddRange(GameObject.FindGameObjectsWithTag("UI"));
+        buttonsUI.AddRange(GameObject.FindGameObjectsWithTag("MainMenuButton"));
         MainMenuReset();
     }
     void Update()
@@ -62,6 +58,8 @@ public class KeySystem : MonoBehaviour
         {
             if(mainMenuPanel.activeSelf)
                 Invoke("PressButton",0.1f);
+            else if(horizontalObjectUI.GetComponent<Button>()!=null)
+                Invoke("ApplyOrStart",0.1f);
         }      
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -78,29 +76,20 @@ public class KeySystem : MonoBehaviour
             index=bound;
         return index;
     }
-    void FadeAlpha(GameObject gameObject, bool boolean)
+    void FadeAlpha(GameObject gameObject,float alpha,float time)
     {
         Graphic graphic= gameObject.GetComponent<Graphic>();
-        if(boolean)
-            graphic.CrossFadeAlpha(1,0.5f,true);
-        else    graphic.CrossFadeAlpha(0,0.5f,true);
-    }
-    void HorizontalFadeAlpha(GameObject gameObject, bool boolean)
-    {
-        Graphic graphic= gameObject.GetComponent<Graphic>();
-        if(boolean)
-            graphic.CrossFadeAlpha(1,1,true);
-        else    graphic.CrossFadeAlpha(0.3f,1,true);
+        graphic.CrossFadeAlpha(alpha,time,true);
     }
     void SelectButton()
     {
         if(verticalsUI.Count>0){
-            FadeAlpha(verticalObjectUI.gameObject,false);
+            FadeAlpha(verticalObjectUI.gameObject,0,0.5f);
             verticalObjectUI=verticalsUI[verticalIndex];
-            FadeAlpha(verticalObjectUI.gameObject,true);
+            FadeAlpha(verticalObjectUI.gameObject,1,0.5f);
             Selectable[] tmp=verticalObjectUI.GetComponentsInChildren<Selectable>();
             if(allowedHorizontalMove)
-                HorizontalFadeAlpha(horizontalObjectUI.gameObject,true);
+                FadeAlpha(horizontalObjectUI.gameObject,0.5f,0.5f);
             horizontalsUI.Clear();
             if(tmp.Length>1 && !mainMenuPanel.activeSelf)
             {
@@ -108,16 +97,16 @@ public class KeySystem : MonoBehaviour
                 horizontalsUI.AddRange(tmp);
                 horizontalObjectUI=horizontalsUI[horizontalIndex+1];
                 if(horizontalObjectUI.GetComponent<Button>()!=null)
-                    HorizontalFadeAlpha(horizontalObjectUI.gameObject,false);
+                    FadeAlpha(horizontalObjectUI.gameObject,1,0.1f);
             }
             else allowedHorizontalMove=false;
         }
     }
     void HorizontalSelectButton()
     {
-        HorizontalFadeAlpha(horizontalObjectUI.gameObject,true);
+        FadeAlpha(horizontalObjectUI.gameObject,1,0.5f);
         horizontalObjectUI=horizontalsUI[horizontalIndex];
-        HorizontalFadeAlpha(horizontalObjectUI.gameObject,false);
+        FadeAlpha(horizontalObjectUI.gameObject,0.3f,0.5f);
         if(horizontalObjectUI.GetComponentInChildren<Toggle>()!=null)
             horizontalObjectUI.GetComponentInChildren<Toggle>().isOn=!horizontalObjectUI.GetComponentInChildren<Toggle>().isOn;
         else if(horizontalObjectUI.GetComponentInChildren<Slider>()!=null)
@@ -154,12 +143,14 @@ public class KeySystem : MonoBehaviour
     }
     void Quit()
     {
-        GoToPanel(panels.MemberWithIndex(verticalIndex));
+        GoToPanel(panels[verticalIndex]);
     }
     void PressButton()
     {
         panelIndex=verticalIndex;
-        GoToPanel(panels.MemberWithIndex(verticalIndex));
+        GoToPanel(panels[verticalIndex]);
+        if(panelIndex==0)
+            UIManager.Instance.ImportInputs();
         verticalIndex=0;
         ChangedPanel();
     }
@@ -177,13 +168,21 @@ public class KeySystem : MonoBehaviour
     }
     void MainMenuReset()
     {
-        Selectable[] tmp= new Selectable[panels.ArrayLength()];
-        for(int i=0;i<panels.ArrayLength();i++){
-            tmp[i]=buttonsUI.MemberWithIndex(i).GetComponent<Button>();
-            panels.MemberWithIndex(i).SetActive(false);
+        Selectable[] tmp= new Selectable[panels.Count];
+        for(int i=0;i<panels.Count;i++){
+            panels[i].SetActive(false);
+            tmp[i]=buttonsUI[i].GetComponent<Button>();
         }
         verticalsUI.AddRange(tmp);
         verticalObjectUI=verticalsUI[verticalIndex];
+    }
+    void ApplyOrStart()
+    {
+        if(panelIndex==0)
+        {
+            UIManager.Instance.InputAllNamesForPlayers();
+        }
+        else {ResolutionSlide.Instance.ApplySettings();QualitySlider.Instance.ApplySettings();}
     }
 }
 

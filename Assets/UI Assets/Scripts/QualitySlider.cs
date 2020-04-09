@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class QualitySlider : SlideLeftRight
 {
+    public static QualitySlider Instance;  
+    private void Awake() {
+        Instance=this;
+    }
     private void Start() {
         List<string> tmp=new List<string>();
         tmp.Add("VERY LOW");
@@ -15,8 +18,9 @@ public class QualitySlider : SlideLeftRight
         AddOptions(tmp);
         RefreshShownValue();
     }
-    public void OnApplyPress()
+
+    public override void ApplySettings()
     {
-        UIManager.Instance.SetResolution(index);
+        UIManager.Instance.SetQuiality(index);
     }
 }
