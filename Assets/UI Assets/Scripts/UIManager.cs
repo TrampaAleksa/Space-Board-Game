@@ -91,6 +91,8 @@ public class UIManager : MonoBehaviour
     }
     public void ImportInputs()
     {
+        inputsGameObject.Clear();
         inputsGameObject.AddRange(GameObject.FindGameObjectsWithTag("PInput"));
+        Player3DController.Instance.ShowSpaceShip();
     }
 }

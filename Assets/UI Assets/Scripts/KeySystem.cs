@@ -156,6 +156,7 @@ public class KeySystem : MonoBehaviour
     }
     void BackButton()
     {
+        Player3DController.Instance.DisableSpaceShip();
         mainMenuPanel.SetActive(true);
         verticalIndex=panelIndex;
         verticalsUI.Clear();
