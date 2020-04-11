@@ -76,20 +76,22 @@ public class KeySystem : MonoBehaviour
             index=bound;
         return index;
     }
-    void FadeAlpha(GameObject gameObject,float alpha,float time)
+    void FadeAlpha(GameObject gameObject,float alpha,float time, bool boolean)
     {
         Graphic graphic= gameObject.GetComponent<Graphic>();
         graphic.CrossFadeAlpha(alpha,time,true);
+        if(gameObject.GetComponentInChildren<Text>()!=null && boolean)
+            gameObject.GetComponentInChildren<Text>().CrossFadeAlpha(alpha,time,true);
     }
     void SelectButton()
     {
         if(verticalsUI.Count>0){
-            FadeAlpha(verticalObjectUI.gameObject,0,0.5f);
+            FadeAlpha(verticalObjectUI.gameObject,0,0.5f,false);
             verticalObjectUI=verticalsUI[verticalIndex];
-            FadeAlpha(verticalObjectUI.gameObject,1,0.5f);
+            FadeAlpha(verticalObjectUI.gameObject,1,0.5f,false);
             Selectable[] tmp=verticalObjectUI.GetComponentsInChildren<Selectable>();
             if(allowedHorizontalMove)
-                FadeAlpha(horizontalObjectUI.gameObject,0.5f,0.5f);
+                FadeAlpha(horizontalObjectUI.gameObject,0.5f,0.5f,true);
             horizontalsUI.Clear();
             if(tmp.Length>1 && !mainMenuPanel.activeSelf)
             {
@@ -97,16 +99,16 @@ public class KeySystem : MonoBehaviour
                 horizontalsUI.AddRange(tmp);
                 horizontalObjectUI=horizontalsUI[horizontalIndex+1];
                 if(horizontalObjectUI.GetComponent<Button>()!=null)
-                    FadeAlpha(horizontalObjectUI.gameObject,1,0.1f);
+                    FadeAlpha(horizontalObjectUI.gameObject,1,0.1f,true);
             }
             else allowedHorizontalMove=false;
         }
     }
     void HorizontalSelectButton()
     {
-        FadeAlpha(horizontalObjectUI.gameObject,1,0.5f);
+        FadeAlpha(horizontalObjectUI.gameObject,1,0.5f,true);
         horizontalObjectUI=horizontalsUI[horizontalIndex];
-        FadeAlpha(horizontalObjectUI.gameObject,0.3f,0.5f);
+        FadeAlpha(horizontalObjectUI.gameObject,0.3f,0.5f,true);
         if(horizontalObjectUI.GetComponentInChildren<Toggle>()!=null)
             horizontalObjectUI.GetComponentInChildren<Toggle>().isOn=!horizontalObjectUI.GetComponentInChildren<Toggle>().isOn;
         else if(horizontalObjectUI.GetComponentInChildren<Slider>()!=null)
