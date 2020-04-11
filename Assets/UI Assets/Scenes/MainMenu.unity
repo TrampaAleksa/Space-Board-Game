@@ -6712,8 +6712,18 @@ MonoBehaviour:
   verticalDownArrowPressed: 0
   allowedHorizontalMove: 0
   mainMenuPanel: {fileID: 9158429975830464974}
-  panels: []
-  buttonsUI: []
+  panels:
+  - {fileID: 9158429977326316470}
+  - {fileID: 9158429975312472576}
+  - {fileID: 9158429975507035809}
+  - {fileID: 9158429976519239939}
+  - {fileID: 2041079163}
+  buttonsUI:
+  - {fileID: 9158429977072306200}
+  - {fileID: 9158429975286402298}
+  - {fileID: 9158429977050712701}
+  - {fileID: 9158429976783538035}
+  - {fileID: 9158429976147050424}
   verticalsUI: []
   horizontalsUI: []
   verticalObjectUI: {fileID: 0}
