@@ -21,6 +21,14 @@ public class QualitySlider : SlideLeftRight
 
     public override void ApplySettings()
     {
+        priviousIndex=index;
         UIManager.Instance.SetQuiality(index);
+    }
+
+    public override void RevertSettings()
+    {
+        index=priviousIndex;
+        RefreshShownValue();
+        
     }
 }

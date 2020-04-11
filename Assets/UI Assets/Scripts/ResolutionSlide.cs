@@ -10,6 +10,12 @@ public class ResolutionSlide : SlideLeftRight
     }
     public override void ApplySettings()
     {
+        priviousIndex=index;
         UIManager.Instance.ApplyResolution(index);
+    }
+    public override void RevertSettings()
+    {
+        index=priviousIndex;
+        RefreshShownValue();
     }
 }

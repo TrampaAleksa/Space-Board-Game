@@ -97,7 +97,7 @@ public class KeySystem : MonoBehaviour
             {
                 allowedHorizontalMove=true;
                 horizontalsUI.AddRange(tmp);
-                horizontalObjectUI=horizontalsUI[horizontalIndex+1];
+                horizontalObjectUI=horizontalsUI[horizontalIndex];
                 if(horizontalObjectUI.GetComponent<Button>()!=null)
                     FadeAlpha(horizontalObjectUI.gameObject,1,0.1f,true);
             }
@@ -153,11 +153,15 @@ public class KeySystem : MonoBehaviour
         GoToPanel(panels[verticalIndex]);
         if(panelIndex==0)
             UIManager.Instance.ImportInputs();
+        else if(panelIndex==2)
+            ResolutionSlide.Instance.CopyIndex();QualitySlider.Instance.CopyIndex();
         verticalIndex=0;
         ChangedPanel();
     }
     void BackButton()
     {
+        if(panelIndex==2)
+            ResolutionSlide.Instance.RevertSettings();QualitySlider.Instance.RevertSettings();
         Player3DController.Instance.DisableSpaceShip();
         mainMenuPanel.SetActive(true);
         verticalIndex=panelIndex;
@@ -185,7 +189,9 @@ public class KeySystem : MonoBehaviour
         {
             UIManager.Instance.InputAllNamesForPlayers();
         }
-        else {ResolutionSlide.Instance.ApplySettings();QualitySlider.Instance.ApplySettings();}
+        else if(panelIndex==2){ResolutionSlide.Instance.ApplySettings();QualitySlider.Instance.ApplySettings();}
+        else if(panelIndex==4){if(horizontalObjectUI.GetComponentInChildren<Text>().text=="Yes") BackButton(); else{ Application.Quit();print("quit");}}
+
     }
 }
 

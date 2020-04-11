@@ -6,12 +6,20 @@ using UnityEngine.UI;
 public abstract class SlideLeftRight : MonoBehaviour
 {
     public int index;
+    protected int priviousIndex;
     public List<string> labelList=new List<string>();
     public Text label;
     abstract public void ApplySettings();
+    abstract public void RevertSettings();
     private void Start() {
         label=gameObject.GetComponentInChildren<Text>();
     }
+    public void CopyIndex()
+    {
+        print(index);
+        priviousIndex=index;
+    }
+
     public void AddOptions(List<string> labels)
     {
         labelList.AddRange(labels);
