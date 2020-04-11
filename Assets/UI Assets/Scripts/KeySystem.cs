@@ -191,7 +191,5 @@ public class KeySystem : MonoBehaviour
         }
         else if(panelIndex==2){ResolutionSlide.Instance.ApplySettings();QualitySlider.Instance.ApplySettings();}
         else if(panelIndex==4){if(horizontalObjectUI.GetComponentInChildren<Text>().text=="Yes") BackButton(); else{ Application.Quit();print("quit");}}
-
     }
 }
-
