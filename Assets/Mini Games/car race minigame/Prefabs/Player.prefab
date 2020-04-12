@@ -269,6 +269,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allWheelColliders: {fileID: 5808322214415346303}
   cameraFollowController: {fileID: 0}
+  speedText: {fileID: 0}
+  playerNameText: {fileID: 0}
+  localRankPositionText: {fileID: 0}
   pathCreator: {fileID: 0}
   maxSteerAngle: 60
   motorForce: 1000
