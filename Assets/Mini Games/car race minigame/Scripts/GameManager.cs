@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using PathCreation;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -32,7 +33,6 @@ public class GameManager : MonoBehaviour
         playerNameText.gameObjects= GameObject.FindGameObjectsWithTag("PlayerName");
         distanceCheckpoint.gameObjects= GameObject.FindGameObjectsWithTag("DistanceCheckpoint");
         localRankText.gameObjects= GameObject.FindGameObjectsWithTag("localRank");
-        
         for(int i=0;i<cameraGenericObjectArray.ArrayLength();i++)
         {
             cameraGenericObjectArray.MemberWithIndex(i).GetComponent<CameraFollowController>().objectToFollow=playersGenericObjectArray;
@@ -40,14 +40,20 @@ public class GameManager : MonoBehaviour
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().pathCreator=GameObject.FindWithTag("Field").GetComponent<PathCreator>();
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().speedText=countSpeed.MemberWithIndex(i);
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().localRankPositionText= localRankText.MemberWithIndex(i);
-            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().distanceCheckpointText= localRankText.MemberWithIndex(i);
-            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().playerNameText=countSpeed.MemberWithIndex(i);
-            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().distanceCheckpointText=distanceCheckpoint.MemberWithIndex(i);
-
+            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().playerNameText=playerNameText.MemberWithIndex(i);
         }
     }
-    public string ReturnName(int number)
+    public void TypeName(int i)
     {
+        playerNameText.MemberWithIndex(i).GetComponent<Text>().text="Laki";//ReturnName(i);
+        localRankText.MemberWithIndex(i).GetComponent<Text>().text="--/04";
+    }
+    public void SetPosition(int i)
+    {
+        localRankText.MemberWithIndex(i).GetComponent<Text>().text="0"+(playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().ReturnIndex()+1)+"/04";
+    }
+    public string ReturnName(int number)
+    {   
         return BoardStateHolder.Instance.playerBoardStates[number].playerName;
     }
     public void PlayerDeath(int index, CameraFollowController camera)

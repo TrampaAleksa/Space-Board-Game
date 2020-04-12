@@ -6,10 +6,11 @@ using PathCreation;
 public class CheckPoint : MonoBehaviour
 {
     public PathCreator pathCreator;
-    public int numberOfCheckpoint;
-    public float distance;
+    public static int numberOfCheckpoint=8;
+    public static float distance;
     public int numberOfPlayerCross=0;
-    public int checkpointIndex=0;
+    public static int checkpointIndex=0;
+    public int checkpoint=0;
     public static CheckPoint Instance;
     void Awake()
     {
@@ -17,24 +18,31 @@ public class CheckPoint : MonoBehaviour
     }
     void Start()
     {
+        numberOfPlayerCross=0;
         pathCreator=GameObject.FindWithTag("Field").GetComponent<PathCreator>();
-        distance=pathCreator.path.length/numberOfCheckpoint;
-        UpdatePosition();
+        checkpointIndex++;
+        checkpoint=checkpointIndex;
+        if(checkpointIndex==1)
+            distance=pathCreator.path.length/numberOfCheckpoint;
+        gameObject.transform.position=pathCreator.path.GetPointAtDistance(distance*checkpointIndex)+new Vector3(0,1,0);
+        gameObject.transform.localRotation=pathCreator.path.GetRotationAtDistance(distance*checkpointIndex);
+        gameObject.transform.localEulerAngles= new Vector3 (transform.localEulerAngles.x,transform.localEulerAngles.y, 0);
     }
     void OnTriggerEnter(Collider other)
     {
         numberOfPlayerCross++;
-        other.GetComponent<PlayerController>().UpdateLocalRank(numberOfPlayerCross);
-        if(numberOfPlayerCross==4)
+        other.GetComponent<PlayerController>().UpdateLocalRank(numberOfPlayerCross,checkpoint);
+        if(numberOfPlayerCross==1)
             UpdatePosition();
+        else if(numberOfPlayerCross==4)
+            gameObject.SetActive(false);
     }
     private void UpdatePosition()
     {
-        numberOfPlayerCross=0;
-        checkpointIndex++;
-        gameObject.transform.position=pathCreator.path.GetPointAtDistance(distance*checkpointIndex);
-        gameObject.transform.localRotation=pathCreator.path.GetRotationAtDistance(distance*checkpointIndex);
-        gameObject.transform.localEulerAngles= new Vector3 (transform.localEulerAngles.x,transform.localEulerAngles.y, 0);
+        if(checkpointIndex<=numberOfCheckpoint)
+        {
+            Instantiate(gameObject);
+        }
     }
     
 }
