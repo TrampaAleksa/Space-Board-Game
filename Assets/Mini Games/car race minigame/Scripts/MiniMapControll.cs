@@ -30,7 +30,6 @@ public class MiniMapControll : MonoBehaviour
         }
         distance=maxDistance;
         gameObject.transform.position=pos/GameManager.Instance.playersGenericObjectArray.ArrayLength();
-        print(distance);
         if(distance<150)
             cam.orthographicSize-=1;
     }
