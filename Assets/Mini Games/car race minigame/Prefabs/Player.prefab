@@ -46,7 +46,7 @@ WheelCollider:
     targetPosition: 0.33
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.2
-  m_Mass: 30
+  m_Mass: 50
   m_WheelDampingRate: 3
   m_ForwardFriction:
     m_ExtremumSlip: 0.6
@@ -107,7 +107,7 @@ WheelCollider:
     targetPosition: 0.33
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.2
-  m_Mass: 30
+  m_Mass: 50
   m_WheelDampingRate: 3
   m_ForwardFriction:
     m_ExtremumSlip: 0.6
@@ -211,8 +211,8 @@ GameObject:
   - component: {fileID: 5808322214110198234}
   - component: {fileID: 5808322214110198237}
   - component: {fileID: 5808322214110198238}
-  - component: {fileID: 5808322214110198239}
   - component: {fileID: 5808322214110198208}
+  - component: {fileID: 7184454409802531049}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -229,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 5808322214110198209}
   m_LocalRotation: {x: 0, y: 0.9659259, z: -0, w: -0.25881898}
   m_LocalPosition: {x: 140, y: 0.57, z: 250}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children:
   - {fileID: 5808322213702694708}
   - {fileID: 5808322214415346302}
@@ -274,22 +274,8 @@ MonoBehaviour:
   localRankPositionText: {fileID: 0}
   pathCreator: {fileID: 0}
   maxSteerAngle: 60
-  motorForce: 1000
+  motorForce: 1700
   maximumRotation: 45
---- !u!64 &5808322214110198239
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5808322214110198209}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 3733877963792725186, guid: 24d54da20b07b7d4bb94aa91d81e854b, type: 3}
 --- !u!54 &5808322214110198208
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -306,6 +292,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &7184454409802531049
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808322214110198209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 3733877963792725186, guid: 24d54da20b07b7d4bb94aa91d81e854b, type: 3}
 --- !u!1 &5808322214415346303
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ WheelCollider:
     targetPosition: 0.33
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.2
-  m_Mass: 30
+  m_Mass: 50
   m_WheelDampingRate: 3
   m_ForwardFriction:
     m_ExtremumSlip: 0.6
@@ -447,7 +447,7 @@ WheelCollider:
     targetPosition: 0.33
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.2
-  m_Mass: 30
+  m_Mass: 50
   m_WheelDampingRate: 3
   m_ForwardFriction:
     m_ExtremumSlip: 0.6

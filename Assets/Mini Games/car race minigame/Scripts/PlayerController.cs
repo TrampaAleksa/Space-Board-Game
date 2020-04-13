@@ -93,7 +93,7 @@ public partial class PlayerController : MonoBehaviour
         float distance=pathCreator.path.GetClosestDistanceAlongPath(transform.position);
         gameObject.transform.localRotation=pathCreator.path.GetRotationAtDistance(distance);
         gameObject.transform.localEulerAngles= new Vector3 (transform.localEulerAngles.x,transform.localEulerAngles.y, 0);
-        gameObject.transform.position=pathCreator.path.GetClosestPointOnPath(transform.position)+new Vector3(0,0.8f,0);
+        gameObject.transform.position=pathCreator.path.GetClosestPointOnPath(transform.position)+new Vector3(0,1.6f,0);
         RespawnState(true);
     }
     private void RespawnState(bool state)
@@ -107,5 +107,11 @@ public partial class PlayerController : MonoBehaviour
     {
         position=pos;
         localRankPositionText.GetComponent<Text>().text="checkpoint"+checkpoint+" "+"0"+position+"/04";
+    }
+    private void OnBecameVisible() {
+        print("Vidi se");
+    }
+    private void OnBecameInvisible() {
+        print("NE Vidi se");
     }
 }
