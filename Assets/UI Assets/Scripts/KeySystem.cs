@@ -22,6 +22,8 @@ public class KeySystem : MonoBehaviour
     int panelIndex;
     private void Start() 
     {
+        Cursor.visible=false;
+        Cursor.lockState=CursorLockMode.Locked;
         MainMenuReset();
     }
     void Update()

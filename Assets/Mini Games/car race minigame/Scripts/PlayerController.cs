@@ -15,7 +15,6 @@ public partial class PlayerController : MonoBehaviour
     public GameObject speedText;
     public GameObject playerNameText;
     public GameObject localRankPositionText;
-    public GameObject distanceCheckpointText;
     private float f_horizontalInput;
     private float f_verticalInput;
     private bool playerTriggerCollision=false;
@@ -33,8 +32,11 @@ public partial class PlayerController : MonoBehaviour
         rigidBody=gameObject.GetComponent<Rigidbody>();
         meshCollider=gameObject.GetComponent<MeshCollider>();
         playerClass = new PlayerClass(gameObject, i, GameManager.Instance.ReturnName(i), maxSteerAngle, motorForce, maximumRotation);
-
         i++;
+    }
+    public int ReturnIndex()
+    {
+        return playerClass.Element;
     }
     private void FixedUpdate()
     {
@@ -43,7 +45,6 @@ public partial class PlayerController : MonoBehaviour
             Move();
         }
         speedText.GetComponent<Text>().text =playerClass.CountSpeed();
-        //distanceCheckpointText.GetComponent<Text>().text ="Distance"+(CheckPoint.Instance.distance-pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position));
     }
     void OnTriggerExit(Collider other)
     {
@@ -60,11 +61,11 @@ public partial class PlayerController : MonoBehaviour
             Respawn();
         }
         else if (other.tag == "Finish")
-            {
-                GameManager.Instance.PlayerDeath(playerClass.Element, cameraFollowController);
-                gameObject.SetActive(false);
-                speedText.GetComponent<Text>().text = "SPECTATE";
-            }
+        {
+            GameManager.Instance.PlayerDeath(playerClass.Element, cameraFollowController);
+            gameObject.SetActive(false);
+            speedText.GetComponent<Text>().text = "SPECTATE";
+        }
     }    
     void Update()
     {
@@ -92,7 +93,7 @@ public partial class PlayerController : MonoBehaviour
         float distance=pathCreator.path.GetClosestDistanceAlongPath(transform.position);
         gameObject.transform.localRotation=pathCreator.path.GetRotationAtDistance(distance);
         gameObject.transform.localEulerAngles= new Vector3 (transform.localEulerAngles.x,transform.localEulerAngles.y, 0);
-        gameObject.transform.position=pathCreator.path.GetClosestPointOnPath(transform.position)+new Vector3(0,0.8f,0);
+        gameObject.transform.position=pathCreator.path.GetClosestPointOnPath(transform.position)+new Vector3(0,1.6f,0);
         RespawnState(true);
     }
     private void RespawnState(bool state)
@@ -102,9 +103,15 @@ public partial class PlayerController : MonoBehaviour
         allWheelColliders.SetActive(!state);
         playerRespawn=state;
     }
-    public void UpdateLocalRank(int pos)
+    public void UpdateLocalRank(int pos,int checkpoint)
     {
         position=pos;
-        localRankPositionText.GetComponent<Text>().text=position.ToString();
+        localRankPositionText.GetComponent<Text>().text="checkpoint"+checkpoint+" "+"0"+position+"/04";
+    }
+    private void OnBecameVisible() {
+        print("Vidi se");
+    }
+    private void OnBecameInvisible() {
+        print("NE Vidi se");
     }
 }
