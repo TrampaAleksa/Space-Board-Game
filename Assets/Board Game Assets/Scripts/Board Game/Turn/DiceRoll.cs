@@ -30,7 +30,7 @@ public class DiceRoll
     public IEnumerator RollTheDiceAnim()
     {
         int randomDiceSide = 0;
-        AudioManager.Instance.PlaySound("diceRoll");
+        AudioManager.Instance.PlaySound("diceRoll",false,1f);
         for (int i = 0; i <= 20; i++)
         {
             randomDiceSide = Random.Range(dice.MinimumDiceNumber-1, dice.MaximumDiceNumber);

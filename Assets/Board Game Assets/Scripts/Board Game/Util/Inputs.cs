@@ -26,6 +26,6 @@ public class Inputs : MonoBehaviour
     
     public static void PlayInputSound()
     {
-        AudioManager.Instance.PlaySound("shortClick");
+        AudioManager.Instance.PlaySound("shortClick",false,1f);
     }
 }

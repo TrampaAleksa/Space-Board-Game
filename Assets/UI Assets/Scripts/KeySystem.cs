@@ -22,8 +22,9 @@ public class KeySystem : MonoBehaviour
     int panelIndex;
     private void Start() 
     {
-        Cursor.visible=false;
-        Cursor.lockState=CursorLockMode.Locked;
+        //Cursor.visible=false;
+        //Cursor.lockState=CursorLockMode.Locked;
+        AudioManager.Instance.PlaySound(AudioManager.MAIN_MENU_BACKGROUND,true,0.4f);
         MainMenuReset();
     }
     void Update()
@@ -85,6 +86,7 @@ public class KeySystem : MonoBehaviour
     }
     void SelectButton()
     {
+        AudioManager.Instance.PlaySound(AudioManager.SELECT,false,0.3f);
         if(verticalsUI.Count>0){
             FadeAlpha(verticalObjectUI.gameObject,0,0.5f,false);
             verticalObjectUI=verticalsUI[verticalIndex];
@@ -106,6 +108,7 @@ public class KeySystem : MonoBehaviour
     }
     void HorizontalSelectButton()
     {
+        AudioManager.Instance.PlaySound(AudioManager.SELECT,false,0.3f);
         FadeAlpha(horizontalObjectUI.gameObject,1,0.5f,true);
         horizontalObjectUI=horizontalsUI[horizontalIndex];
         FadeAlpha(horizontalObjectUI.gameObject,0.3f,0.5f,true);
@@ -160,6 +163,7 @@ public class KeySystem : MonoBehaviour
     }
     void BackButton()
     {
+        AudioManager.Instance.PlaySound(AudioManager.DESELECT,false,0.2f);
         horizontalIndex=0;
         if(panelIndex==2)
             {ResolutionSlide.Instance.RevertSettings();QualitySlider.Instance.RevertSettings();}

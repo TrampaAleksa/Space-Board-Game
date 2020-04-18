@@ -8,7 +8,7 @@ public class Damage
     {
         player.GetComponent<PlayerHull>().HullPercentage -= value;
         InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "-"+value + " health");
-        AudioManager.Instance.PlaySound("damagePlayer");
+        AudioManager.Instance.PlaySound("damagePlayer",false,1f);
         //damage sound?
         if (player.GetComponent<PlayerHull>().HullPercentage <= 0)
         {

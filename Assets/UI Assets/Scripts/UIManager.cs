@@ -44,7 +44,6 @@ public class UIManager : MonoBehaviour
             for(int i=0;i<BoardStateHolder.Instance.playerBoardStates.Length;i++)
             {
                 BoardStateHolder.Instance.playerBoardStates[i].playerName=inputsGameObject[i].GetComponent<InputField>().text;
-                AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK);
                 SceneManager.LoadScene(1);
             }
         else    print("Unesi ponovo");

@@ -14,7 +14,7 @@ public class EndTurn : MonoBehaviour
         yield return new WaitForSeconds(1f);
         
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
-        AudioManager.Instance.PlaySound("startOfTurn");
+        AudioManager.Instance.PlaySound("startOfTurn",false,1f);
         // player ended turn sound
         TooltipHandler tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
         tooltipHandler.ShowInfoTooltip(playersHandler.GetCurrentPlayer().GetComponent<PlayerName>().playerName.text + "s turn");
