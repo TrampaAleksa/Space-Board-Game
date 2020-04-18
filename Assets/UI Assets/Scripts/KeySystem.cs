@@ -24,7 +24,7 @@ public class KeySystem : MonoBehaviour
     {
         //Cursor.visible=false;
         //Cursor.lockState=CursorLockMode.Locked;
-        AudioManager.Instance.PlaySound(AudioManager.MAIN_MENU_BACKGROUND,true,0.4f);
+        AudioManager.Instance.PlaySound(AudioManager.MAIN_MENU_BACKGROUND,true,1f);
         MainMenuReset();
     }
     void Update()
@@ -62,7 +62,7 @@ public class KeySystem : MonoBehaviour
             else if(horizontalObjectUI.GetComponent<Button>()!=null)
                 Invoke("ApplyOrStart",0.1f);
         }      
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !mainMenuPanel.activeSelf)
         {
             Invoke("BackButton",0.1f);
         }
@@ -86,7 +86,7 @@ public class KeySystem : MonoBehaviour
     }
     void SelectButton()
     {
-        AudioManager.Instance.PlaySound(AudioManager.SELECT,false,0.3f);
+        AudioManager.Instance.PlaySound(AudioManager.SELECT,false,1f);
         if(verticalsUI.Count>0){
             FadeAlpha(verticalObjectUI.gameObject,0,0.5f,false);
             verticalObjectUI=verticalsUI[verticalIndex];
@@ -108,7 +108,7 @@ public class KeySystem : MonoBehaviour
     }
     void HorizontalSelectButton()
     {
-        AudioManager.Instance.PlaySound(AudioManager.SELECT,false,0.3f);
+        AudioManager.Instance.PlaySound(AudioManager.SELECT,false,1f);
         FadeAlpha(horizontalObjectUI.gameObject,1,0.5f,true);
         horizontalObjectUI=horizontalsUI[horizontalIndex];
         FadeAlpha(horizontalObjectUI.gameObject,0.3f,0.5f,true);
@@ -144,7 +144,6 @@ public class KeySystem : MonoBehaviour
         GameObject[] tmp=GameObject.FindGameObjectsWithTag("VerticalMenu");
         for(int i=0;i<tmp.Length;i++)
             verticalsUI.Add(tmp[i].GetComponent<Selectable>());
-        SelectButton();
     }
     void Quit()
     {
@@ -152,18 +151,20 @@ public class KeySystem : MonoBehaviour
     }
     void PressButton()
     {
+        AudioManager.Instance.PlaySound(AudioManager.SHORT_CLICK,false,1f);
         panelIndex=verticalIndex;
+        horizontalIndex=0;
         GoToPanel(panels[verticalIndex]);
         if(panelIndex==0)
             UIManager.Instance.ImportInputs();
         else if(panelIndex==2)
             ResolutionSlide.Instance.CopyIndex();QualitySlider.Instance.CopyIndex();
-        ChangedPanel();
         verticalIndex=0;
+        ChangedPanel();
     }
     void BackButton()
     {
-        AudioManager.Instance.PlaySound(AudioManager.DESELECT,false,0.2f);
+        AudioManager.Instance.PlaySound(AudioManager.DESELECT,false,0.5f);
         horizontalIndex=0;
         if(panelIndex==2)
             {ResolutionSlide.Instance.RevertSettings();QualitySlider.Instance.RevertSettings();}
@@ -195,7 +196,16 @@ public class KeySystem : MonoBehaviour
         {
             UIManager.Instance.InputAllNamesForPlayers();
         }
-        else if(panelIndex==2){ResolutionSlide.Instance.ApplySettings();QualitySlider.Instance.ApplySettings();}
-        else if(panelIndex==4){if(horizontalObjectUI.GetComponentInChildren<Text>().text=="Yes") BackButton(); else{ Application.Quit();print("quit");}}
+        else if(panelIndex==2)
+        {
+            ResolutionSlide.Instance.ApplySettings();
+            QualitySlider.Instance.ApplySettings();
+        }
+        else if(panelIndex==4)
+        {
+            if(horizontalObjectUI.GetComponentInChildren<Text>().text=="Yes")
+                BackButton();
+            else Application.Quit();
+        }
     }
 }

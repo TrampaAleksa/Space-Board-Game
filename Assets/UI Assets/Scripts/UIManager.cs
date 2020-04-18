@@ -7,14 +7,7 @@ using System.Collections.Generic;
 public class UIManager : MonoBehaviour
 {
     public List<GameObject> inputsGameObject;
-    public GameObject mainMenuPanel;
-    public Button playButton;
-    public Button controlsButton;
-    public Button settingsButton;
-    public Button creditButton;
-    public Button quitButton;
-    public Button backButton;
-    public AudioMixer audioMixer;
+    public AudioMixer masterMixer;
     Resolution[] resolutions;
     public static UIManager Instance;
     void Awake()
@@ -63,17 +56,13 @@ public class UIManager : MonoBehaviour
                   return false;
         return true;
     }
-    public void Confirm()
+    public void SetMusicValue(float volume) 
     {
-        InputAllNamesForPlayers();
+        masterMixer.SetFloat("musicVolume", volume);
     }
-    public void Quit()
+    public void SetSfxValue(float volume) 
     {
-        Application.Quit();
-    }
-    public void SetVolume(float volume) 
-    {
-        audioMixer.SetFloat("volume", volume);
+        masterMixer.SetFloat("sfxVolume", volume);
     }
     public void SetQuiality(int index)
     {

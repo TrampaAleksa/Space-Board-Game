@@ -16,15 +16,8 @@ public class AudioManager : MonoBehaviour
     {
         protected string nameOfAudio;
         protected AudioSource link;
-        protected bool playOnAwake;
-        protected bool loop;
-        [Range(0.0f, 1.0f)]
-        protected float volume;
         public string NameOfAudio { get { return nameOfAudio; } set { nameOfAudio = value; } }
         public AudioSource Link { get { return link; } set { link=value; } }
-        public bool PlayOnAwake { get { return playOnAwake; } set { playOnAwake=value; } }
-        public bool Loop { get { return loop; } set { loop=value; } }
-        public float Volume { get { return volume; } set { volume=value; } }
     }
     public static AudioManager Instance;
     protected List<Audio> audioArray= new List<Audio>();
@@ -34,13 +27,9 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         if (Instance == null)
-        {
             Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        else    Destroy(gameObject);
+
         List<AudioClip> clips= new List<AudioClip>();
         clips.AddRange(Resources.LoadAll<AudioClip>("Sounds/"));
         sources= new AudioSource[clips.Count];
@@ -50,17 +39,15 @@ public class AudioManager : MonoBehaviour
             Audio audio= new Audio();
             audioArray.Add(audio);
             sources[i].clip=clips[i];
-            sources[i].volume = audioArray[i].Volume=1;
-            sources[i].playOnAwake = audioArray[i].PlayOnAwake=false;
-            sources[i].loop = audioArray[i].Loop=false;
-            sources[i].outputAudioMixerGroup=Resources.LoadAll<AudioMixerGroup>("Sounds/")[0];
+            sources[i].volume = 1;
+            sources[i].playOnAwake = false;
+            sources[i].loop = false;
+            if(clips[i].name=="mainMenuBackground")
+                sources[i].outputAudioMixerGroup=Resources.LoadAll<AudioMixerGroup>("Sounds/")[2];
+            else sources[i].outputAudioMixerGroup=Resources.LoadAll<AudioMixerGroup>("Sounds/")[0];
             audioArray[i].Link = sources[i];
             audioArray[i].NameOfAudio=clips[i].name;
         }
-    }
-    private void Start()
-    {
-        
     }
     public void PlaySound(string name, bool loop, float volume) 
     {
@@ -91,26 +78,6 @@ public class AudioManager : MonoBehaviour
             if(boolean)
                 audio.Link.Pause();
             else audio.Link.UnPause();
-        }
-    }
-    public void LoopBool(string name, bool boolean)
-    {
-        foreach (Audio audio in audioArray)
-        {
-            if(audio.NameOfAudio==name)
-            {
-                audio.Loop = boolean;
-            }
-        }
-    }
-    public void SetVolume(string name, float value)
-    {
-        foreach (Audio audio in audioArray)
-        {
-            if(audio.NameOfAudio==name)
-            {
-                audio.Link.volume = value;
-            }
         }
     }
 }
