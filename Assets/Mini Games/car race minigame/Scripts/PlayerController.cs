@@ -22,6 +22,7 @@ public partial class PlayerController : MonoBehaviour
     public float maxSteerAngle, motorForce, maximumRotation;
     public static bool startGame = false;
     public static PlayerController Instance;
+    public int lastIndexCheckpointPass;
     private void Awake()
     {
         Instance = this;
@@ -105,7 +106,7 @@ public partial class PlayerController : MonoBehaviour
     public void UpdateLocalRank(int pos,int checkpoint)
     {
         position=pos;
-        panel.localRankText.text="checkpoint"+checkpoint+" "+"0"+position+"/04";
+        panel.localRankText.text="checkpoint"+checkpoint+"\t\t\t"+"0"+position+"/04";
     }
     private void OnBecameVisible() {
         print("Vidi se");

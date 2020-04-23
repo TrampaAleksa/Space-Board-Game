@@ -37,7 +37,7 @@ public class StartCountdown : MonoBehaviour
         countdownDisplay.gameObject.SetActive(false);
         cameraMap.SetActive(true);
         for(int i=0;i<GameManager.Instance.panels.Count;i++){
-                GameManager.Instance.panels[i].gameObject.SetActive(false);
+                GameManager.Instance.panels[i].playerNameText.gameObject.SetActive(false);
                 GameManager.Instance.SetPosition(i);
         }
     }
