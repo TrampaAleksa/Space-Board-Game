@@ -17,7 +17,7 @@ public class StartCountdown : MonoBehaviour
     private IEnumerator CountdownToStart()
     {
         cameraMap.SetActive(false);
-        for(int i=0;i<GameManager.Instance.playerNameText.ArrayLength();i++)
+        for(int i=0;i<GameManager.Instance.panels.Count;i++)
             GameManager.Instance.TypeName(i);
         while (countdwonTime > 0)
         {
@@ -36,8 +36,8 @@ public class StartCountdown : MonoBehaviour
 
         countdownDisplay.gameObject.SetActive(false);
         cameraMap.SetActive(true);
-        for(int i=0;i<GameManager.Instance.playerNameText.ArrayLength();i++){
-                GameManager.Instance.playerNameText.MemberWithIndex(i).SetActive(false);
+        for(int i=0;i<GameManager.Instance.panels.Count;i++){
+                GameManager.Instance.panels[i].gameObject.SetActive(false);
                 GameManager.Instance.SetPosition(i);
         }
     }
