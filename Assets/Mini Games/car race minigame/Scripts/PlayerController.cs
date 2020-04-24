@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using PathCreation;
@@ -11,10 +12,8 @@ public partial class PlayerController : MonoBehaviour
     private MeshCollider meshCollider;
     public CameraFollowController cameraFollowController;
     private PlayerClass playerClass;
-    private static int i = 0;
-    public GameObject speedText;
-    public GameObject playerNameText;
-    public GameObject localRankPositionText;
+    public int i;
+    public PanelController panel;
     private float f_horizontalInput;
     private float f_verticalInput;
     private bool playerTriggerCollision=false;
@@ -23,6 +22,7 @@ public partial class PlayerController : MonoBehaviour
     public float maxSteerAngle, motorForce, maximumRotation;
     public static bool startGame = false;
     public static PlayerController Instance;
+    public int lastIndexCheckpointPass;
     private void Awake()
     {
         Instance = this;
@@ -44,7 +44,7 @@ public partial class PlayerController : MonoBehaviour
         {
             Move();
         }
-        speedText.GetComponent<Text>().text =playerClass.CountSpeed();
+        panel.playerSpeedText.text =playerClass.CountSpeed();
     }
     void OnTriggerExit(Collider other)
     {
@@ -64,7 +64,7 @@ public partial class PlayerController : MonoBehaviour
         {
             GameManager.Instance.PlayerDeath(playerClass.Element, cameraFollowController);
             gameObject.SetActive(false);
-            speedText.GetComponent<Text>().text = "SPECTATE";
+            panel.playerSpeedText.text = "SPECTATE";
         }
     }    
     void Update()
@@ -106,7 +106,7 @@ public partial class PlayerController : MonoBehaviour
     public void UpdateLocalRank(int pos,int checkpoint)
     {
         position=pos;
-        localRankPositionText.GetComponent<Text>().text="checkpoint"+checkpoint+" "+"0"+position+"/04";
+        panel.localRankText.text="checkpoint"+checkpoint+"\t\t\t"+"0"+position+"/04";
     }
     private void OnBecameVisible() {
         print("Vidi se");

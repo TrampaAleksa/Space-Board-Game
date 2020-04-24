@@ -30,8 +30,12 @@ public class CheckPoint : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        numberOfPlayerCross++;
-        other.GetComponent<PlayerController>().UpdateLocalRank(numberOfPlayerCross,checkpoint);
+        if(other.GetComponent<PlayerController>().lastIndexCheckpointPass!=checkpoint)
+        {
+            numberOfPlayerCross++;
+            other.GetComponent<PlayerController>().UpdateLocalRank(numberOfPlayerCross,checkpoint);
+            other.GetComponent<PlayerController>().lastIndexCheckpointPass=checkpoint;
+        }
         if(numberOfPlayerCross==1)
             UpdatePosition();
         else if(numberOfPlayerCross==4)
@@ -44,5 +48,4 @@ public class CheckPoint : MonoBehaviour
             Instantiate(gameObject);
         }
     }
-    
 }

@@ -7,10 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GenericObjectArray countSpeed;
-    public GenericObjectArray playerNameText;
-    public GenericObjectArray distanceCheckpoint;
-    public GenericObjectArray localRankText;
+    public List<PanelController> panels;
     public GenericObjectArray cameraGenericObjectArray;
     public GenericObjectArray playersGenericObjectArray;
     public int count=0;
@@ -21,36 +18,21 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        cameraGenericObjectArray =gameObject.AddComponent<GenericObjectArray>();
-        playersGenericObjectArray=gameObject.AddComponent<GenericObjectArray>();
-        countSpeed=gameObject.AddComponent<GenericObjectArray>();
-        playerNameText=gameObject.AddComponent<GenericObjectArray>();
-        distanceCheckpoint=gameObject.AddComponent<GenericObjectArray>();
-        localRankText=gameObject.AddComponent<GenericObjectArray>();
-        cameraGenericObjectArray.gameObjects=GameObject.FindGameObjectsWithTag("MainCamera");
-        playersGenericObjectArray.gameObjects=GameObject.FindGameObjectsWithTag("Player");
-        countSpeed.gameObjects= GameObject.FindGameObjectsWithTag("PlayerSpeed");
-        playerNameText.gameObjects= GameObject.FindGameObjectsWithTag("PlayerName");
-        distanceCheckpoint.gameObjects= GameObject.FindGameObjectsWithTag("DistanceCheckpoint");
-        localRankText.gameObjects= GameObject.FindGameObjectsWithTag("localRank");
         for(int i=0;i<cameraGenericObjectArray.ArrayLength();i++)
         {
             cameraGenericObjectArray.MemberWithIndex(i).GetComponent<CameraFollowController>().objectToFollow=playersGenericObjectArray;
-            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().cameraFollowController=cameraGenericObjectArray.MemberWithIndex(i).GetComponent<CameraFollowController>();
             playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().pathCreator=GameObject.FindWithTag("Field").GetComponent<PathCreator>();
-            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().speedText=countSpeed.MemberWithIndex(i);
-            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().localRankPositionText= localRankText.MemberWithIndex(i);
-            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().playerNameText=playerNameText.MemberWithIndex(i);
+            playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().panel=panels[i];
         }
     }
     public void TypeName(int i)
     {
-        playerNameText.MemberWithIndex(i).GetComponent<Text>().text="Laki";//ReturnName(i);
-        localRankText.MemberWithIndex(i).GetComponent<Text>().text="--/04";
+        panels[i].playerNameText.text=ReturnName(i);
+        panels[i].localRankText.text="--/04";
     }
     public void SetPosition(int i)
     {
-        localRankText.MemberWithIndex(i).GetComponent<Text>().text="0"+(playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().ReturnIndex()+1)+"/04";
+        panels[i].localRankText.text="0"+(playersGenericObjectArray.MemberWithIndex(i).GetComponent<PlayerController>().ReturnIndex()+1)+"/04";
     }
     public string ReturnName(int number)
     {   
