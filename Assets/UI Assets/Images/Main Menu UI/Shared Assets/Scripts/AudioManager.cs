@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     DICE_ROLL="diceRoll", MAIN_MENU_BACKGROUND="mainMenuBackground",
     MINE="mine", NOTIF="notif", SELECT="select", SHORT_CLICK="shortClick", 
     START_OF_TURN="startOfTurn", TELEPORT="teleport", OVERHEAT="overheat", REFILL="refill",
-    STEAL_FUEL="steelFuel";
+    STEAL_FUEL="stealFuel";
     [System.Serializable]
     public class Audio
     {

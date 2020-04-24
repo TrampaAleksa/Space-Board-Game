@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,14 @@ public class StealFuelSelectionEffect : MonoBehaviour, ISelectionEffect
             DisplayInActivityHistory(triggeringPlayer.gameObject, selectedPlayer.gameObject);
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+        }
+        
     }
 
     private void DisplayInActivityHistory(GameObject triggeringPlayer, GameObject selectedPlayer)

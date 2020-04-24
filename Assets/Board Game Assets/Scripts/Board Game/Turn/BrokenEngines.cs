@@ -11,6 +11,7 @@ public class BrokenEngines : MonoBehaviour
         InstanceManager.Instance.Get<TooltipHandler>()
             .ShowPlayersTooltip(player, "Engines Broke");
         SkipPlayersTurn(player);
+        AudioManager.Instance.PlaySound(AudioManager.OVERHEAT, false, 1);
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
 

@@ -20,7 +20,7 @@ public class FuelStation : FieldEffect, IGenericFieldEffect
         {
             DisplayInActivityHistory(other.gameObject);
             InstanceManager.Instance.Get<FuelHandler>().AddFuelToPlayer(other.gameObject, fuelPerVisit, true);
-            //Fuel added sound?
+            AudioManager.Instance.PlaySound(AudioManager.REFILL, false, 1);
         }
     }
 
