@@ -11,7 +11,7 @@ public class FieldInitPath : IInitialize
 
     public FieldInitPath(GenericObjectArray fields)
     {
-        fields.gameObjects = GameObject.FindGameObjectsWithTag("Field");
+        //fields.gameObjects = GameObject.FindGameObjectsWithTag("Field");
         this.pathCreator = GameObject.Find("path").GetComponent<PathCreator>();
         this.fields = fields;
     }
