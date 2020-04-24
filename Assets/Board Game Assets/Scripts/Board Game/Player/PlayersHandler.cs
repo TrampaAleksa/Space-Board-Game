@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayersHandler : GenericObjectArray
 {
+    public GameObject random;
     void Start()
     {
         InstanceManager.Instance.Get<SelectionHandler>().SetCurrentMember(0);
@@ -31,5 +33,5 @@ public class PlayersHandler : GenericObjectArray
     {
         return MemberWithIndex(index);
     }
-
+   
 }

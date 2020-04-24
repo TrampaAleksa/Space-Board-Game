@@ -1,17 +1,57 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
-public class VictoryHandler 
+public class VictoryHandler : MonoBehaviour
 {
-    public  static void Win(GameObject player)
+    public  WinScreenPanelHandler winScreenPanel;
+    public GameObject winScreenPanelObj;
+
+    public static VictoryHandler Instance;
+
+    private void Awake()
     {
-        Debug.Log("PLAYER: " + player.name + " WON THE GAME!");
-        InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "WON THE GAME");
+        Instance = this;
+    }
+
+    public void Win(GameObject[] players)
+    {
+        // InstanceManager.Instance.Get<TooltipHandler>().ShowPlayersTooltip(player, "WON THE GAME");
+        //winScreenPanelObj.SetActive(true);
+        winScreenPanel.InjectScoreValues(TopPlayers(3, players))
+                    .ShowWinScreen();
     }
     
-    public  static bool CheckGameWon(float playerFuel)
+    public  bool CheckGameWon(float playerFuel)
     {
         return playerFuel >= FuelHandler.WinningAmount;
+    }
+
+    private List<GameObject> TopPlayers(int numberOfPlayers, GameObject[] players)
+    {
+        List<GameObject> topPlayers = new List<GameObject>();
+        
+        var sortedPlayers = 
+            (from playerFuel in players
+            orderby playerFuel.GetComponent<PlayerFuel>().fuel descending 
+            select playerFuel)
+            .ToArray();
+        
+        for (int i = 0; i < numberOfPlayers; i++)
+        {
+            topPlayers.Add(sortedPlayers[i]);
+        }
+
+        return topPlayers;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+        }
     }
 }

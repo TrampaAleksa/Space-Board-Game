@@ -31,9 +31,9 @@ public class FuelHandler : MonoBehaviour
     {
         var playerFuel = GetPlayersFuel(player);
         float fuelAfterAdding = playerFuel.fuel + amount;
-        
-        if (VictoryHandler.CheckGameWon(fuelAfterAdding))
-            VictoryHandler.Win(player);
+        var players = InstanceManager.Instance.Get<PlayersHandler>().gameObjects;
+        if (VictoryHandler.Instance.CheckGameWon(fuelAfterAdding))
+            VictoryHandler.Instance.Win(players);
         else
             _addFuel.ShowPlayerGainedFuelTooltip(player, amount, showTooltip);
         StartCoroutine(_addFuel.AddFuelLerp(playerFuel, fuelAfterAdding));

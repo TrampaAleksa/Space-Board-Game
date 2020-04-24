@@ -148,6 +148,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6721281295921892688}
     m_Modifications:
+    - target: {fileID: 541162175595753593, guid: 019e357ff7ee2264aa0a1843bfb5f521,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8803937527578110353, guid: d120ff4949df7ad4b876582c7506d117,
+        type: 3}
     - target: {fileID: 1188172220047592956, guid: 019e357ff7ee2264aa0a1843bfb5f521,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -213,6 +219,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: damagePolje
       objectReference: {fileID: 0}
+    - target: {fileID: 2773047528055451100, guid: 019e357ff7ee2264aa0a1843bfb5f521,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: d120ff4949df7ad4b876582c7506d117,
+        type: 3}
     - target: {fileID: 3150677402876467783, guid: 019e357ff7ee2264aa0a1843bfb5f521,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
