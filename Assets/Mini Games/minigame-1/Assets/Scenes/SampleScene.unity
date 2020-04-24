@@ -479,6 +479,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101481765}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &208904033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208904035}
+  - component: {fileID: 208904034}
+  m_Layer: 0
+  m_Name: PlayerBoardStates
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &208904034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208904033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfcf51fd771ad4d47930484516ce9e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBoardStates:
+  - {fileID: 11400000, guid: 491771c19c28d744dba626b035e92889, type: 2}
+  - {fileID: 11400000, guid: b14f0e9c9fc55194b80a15e19bd89049, type: 2}
+  - {fileID: 11400000, guid: 9d7b49a5e2c0a374fbfa6aac39dfe1f2, type: 2}
+  - {fileID: 11400000, guid: 7212804a14586064eb7d5c90529c2048, type: 2}
+--- !u!4 &208904035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208904033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.7730286, y: -30.807617, z: 75.5892}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244811279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,7 +1480,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.2407743e-23, y: 0, z: 0, w: 1.8e-44}
+  m_BoundingSphereOverride: {x: 4.65e-42, y: 1.02e-43, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4169,11 +4217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6762d20c554b30b46be3663d8f271070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStates:
-  - {fileID: 11400000, guid: 491771c19c28d744dba626b035e92889, type: 2}
-  - {fileID: 11400000, guid: b14f0e9c9fc55194b80a15e19bd89049, type: 2}
-  - {fileID: 11400000, guid: 9d7b49a5e2c0a374fbfa6aac39dfe1f2, type: 2}
-  - {fileID: 11400000, guid: 7212804a14586064eb7d5c90529c2048, type: 2}
 --- !u!195 &2042842082
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4589,6 +4632,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5008771686925252218, guid: fc73acd400e5dcd4da0ef9f84b64d647,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d3cd5d49c657f444d962b30872b93c9c,
+        type: 3}
     - target: {fileID: 5008771687826835017, guid: fc73acd400e5dcd4da0ef9f84b64d647,
         type: 3}
       propertyPath: m_LocalPosition.x

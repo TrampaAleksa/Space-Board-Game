@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-
+        playerStates = BoardStateHolder.Instance.playerBoardStates;
         startTime = Time.time;
 
         c1 = FindObjectOfType<CollectablePLayer1>();
@@ -147,7 +147,8 @@ public class Timer : MonoBehaviour
 
             print("niz je " + playerScores[0] + " " + playerScores[1] + " " + playerScores[2] + " " + playerScores[3]);
             granica = false;
-            SceneManager.LoadScene(0);
+            var scoreBoardSceneIndex = 6;
+            SceneManager.LoadScene(scoreBoardSceneIndex);
         }
     }
 

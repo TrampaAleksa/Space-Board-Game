@@ -40,7 +40,8 @@ public class EnemyAIV2 : MonoBehaviour
         calculateDistancesAndChase();
         if(distance1==99f && distance2==99f && distance3==99f && distance4 == 99f)
         {
-            SceneManager.LoadScene(0);
+            var scoreBoardSceneIndex = 6;
+            SceneManager.LoadScene(scoreBoardSceneIndex);
         }
     }
 

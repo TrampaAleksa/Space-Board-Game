@@ -143,45 +143,45 @@ public class MovementMechanic : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            player1.transform.Rotate(Vector3.forward * rotationThisFrame);
+            player1.transform.Rotate(-Vector3.forward * rotationThisFrame);
            
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            player1.transform.Rotate(-Vector3.forward * rotationThisFrame);
+            player1.transform.Rotate(Vector3.forward * rotationThisFrame);
             
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            player2.transform.Rotate(Vector3.forward * rotationThisFrame);
+            player2.transform.Rotate(-Vector3.forward * rotationThisFrame);
             
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            player2.transform.Rotate(-Vector3.forward * rotationThisFrame);
+            player2.transform.Rotate(Vector3.forward * rotationThisFrame);
           
         }
 
         if (Input.GetKey(KeyCode.H))
         {
-            player3.transform.Rotate(Vector3.forward * rotationThisFrame);
+            player3.transform.Rotate(-Vector3.forward * rotationThisFrame);
            
         }
         else if (Input.GetKey(KeyCode.K))
         {
-            player3.transform.Rotate(-Vector3.forward * rotationThisFrame);
+            player3.transform.Rotate(Vector3.forward * rotationThisFrame);
            
         }
 
         if (Input.GetKey(KeyCode.M))
         {
-            player4.transform.Rotate(Vector3.forward * rotationThisFrame);
+            player4.transform.Rotate(-Vector3.forward * rotationThisFrame);
            
         }
         else if (Input.GetKey(KeyCode.B))
         {
-            player4.transform.Rotate(-Vector3.forward * rotationThisFrame);
+            player4.transform.Rotate(Vector3.forward * rotationThisFrame);
          
         }
 

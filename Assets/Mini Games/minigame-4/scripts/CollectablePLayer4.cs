@@ -13,7 +13,7 @@ public class CollectablePLayer4 : MonoBehaviour
        
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "RegularBarel")
         {

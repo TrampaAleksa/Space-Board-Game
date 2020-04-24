@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayersRanking : MonoBehaviour
 {
@@ -16,8 +17,6 @@ public class PlayersRanking : MonoBehaviour
 
     int brojac = 5;
     public PlayerBoardState[] playerStates;
-   public SceneSwitching sceneSwitcher;
-
 
     void Awake()
     {
@@ -26,6 +25,8 @@ public class PlayersRanking : MonoBehaviour
         player2 = GameObject.FindGameObjectWithTag("Player 2");
         player3 = GameObject.FindGameObjectWithTag("Player 3");
         player4 = GameObject.FindGameObjectWithTag("Player 4");
+
+        playerStates = BoardStateHolder.Instance.playerBoardStates;
     }
 
 
@@ -59,7 +60,8 @@ public class PlayersRanking : MonoBehaviour
         }
         if(cond1==false && cond2==false && cond3==false && cond4 == false)
         {
-            sceneSwitcher.enabled = true;
+            var scoreBoardSceneIndex = 6;
+            SceneManager.LoadScene(scoreBoardSceneIndex);
         }
     }
 }
