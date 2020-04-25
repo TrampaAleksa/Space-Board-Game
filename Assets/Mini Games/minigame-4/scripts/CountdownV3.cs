@@ -7,10 +7,19 @@ public class CountdownV3 : MonoBehaviour
 {
     public int countdwonTime;
     public Text countdownDisplay;
+    public Timer timer;
+    public MovementMechanic movementMechanic;
+    public SpawnBarrels spawnBarrels;
 
 
     private void Start()
     {
+        timer=GetComponent<Timer>();
+        movementMechanic=GetComponent<MovementMechanic>();
+        spawnBarrels=GetComponent<SpawnBarrels>();
+        timer.enabled=false;
+        movementMechanic.enabled=false;
+        spawnBarrels.enabled=false;
         StartCoroutine(CountdownToStart());
     }
 
@@ -27,9 +36,9 @@ public class CountdownV3 : MonoBehaviour
 
         countdownDisplay.text = "GO!";
 
-        this.GetComponent<Timer>().enabled = true;
-        this.GetComponent<MovementMechanic>().enabled = true;
-        this.GetComponent<SpawnBarrels>().enabled = true;
+        timer.enabled = true;
+        movementMechanic.enabled = true;
+        spawnBarrels.enabled = true;
 
 
         yield return new WaitForSeconds(1f);
