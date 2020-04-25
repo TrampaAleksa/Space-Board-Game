@@ -14,9 +14,6 @@ public class CountdownV3 : MonoBehaviour
 
     private void Start()
     {
-        timer=GetComponent<Timer>();
-        movementMechanic=GetComponent<MovementMechanic>();
-        spawnBarrels=GetComponent<SpawnBarrels>();
         timer.enabled=false;
         movementMechanic.enabled=false;
         spawnBarrels.enabled=false;

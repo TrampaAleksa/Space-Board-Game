@@ -1204,9 +1204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdwonTime: 3
   countdownDisplay: {fileID: 1101539723}
-  timer: {fileID: 0}
-  movementMechanic: {fileID: 0}
-  spawnBarrels: {fileID: 0}
+  timer: {fileID: 834394827}
+  movementMechanic: {fileID: 834394824}
+  spawnBarrels: {fileID: 834394826}
 --- !u!1001 &849816433
 PrefabInstance:
   m_ObjectHideFlags: 0
