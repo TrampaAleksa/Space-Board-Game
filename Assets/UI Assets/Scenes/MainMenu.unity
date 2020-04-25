@@ -3325,7 +3325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2041079164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6794,7 +6794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9158429976519239942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7281,13 +7281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputsGameObject: []
-  mainMenuPanel: {fileID: 9158429975830464974}
-  playButton: {fileID: 9158429977072306206}
-  controlsButton: {fileID: 9158429975286402296}
-  settingsButton: {fileID: 9158429977050712675}
-  creditButton: {fileID: 9158429976783538033}
-  quitButton: {fileID: 9158429976147050430}
-  backButton: {fileID: 0}
   masterMixer: {fileID: 24100000, guid: 3b2f5e010b7b96540968891bf2f1cd9b, type: 2}
 --- !u!1 &9158429976980398188
 GameObject:
