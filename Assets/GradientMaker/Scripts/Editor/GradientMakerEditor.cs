@@ -147,7 +147,7 @@ class GradientMakerEditor : EditorWindow {
 			outTexture.hideFlags = HideFlags.HideAndDontSave;
 		}
 		
-		outTexture.Resize (_gradientSizeX, _gradientSizeY);
+		outTexture.Reinitialize (_gradientSizeX, _gradientSizeY);
 		gradientColours = new Color[_gradientSizeX * _gradientSizeY];
 		
 		switch (gradType) {
