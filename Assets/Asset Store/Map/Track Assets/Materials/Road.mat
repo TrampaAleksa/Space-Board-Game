@@ -2,14 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Road
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
+  m_Shader: {fileID: 4800000, guid: 29fed12d8547e354e90be987488147c1, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -63,6 +65,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _Alpha: 0.3
     - _Brightness: 1.6
@@ -77,15 +80,15 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.28
     - _GlossyReflections: 1
-    - _GlowSpeed: 10
-    - _GlowTiling: 1
+    - _GlowSpeed: -5.1
+    - _GlowTiling: 0.36
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RimPower: 1.7
-    - _ScanSpeed: 0.9
-    - _ScanTiling: 0.01
+    - _ScanSpeed: -1.05
+    - _ScanTiling: 3.08
     - _Shininess: 0.03
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -99,3 +102,4 @@ Material:
     - _MainColor: {r: 0, g: 0.09019608, b: 0, a: 1}
     - _RimColor: {r: 0.52066267, g: 0.8396226, b: 0.2732734, a: 1}
     - _SpecColor: {r: 0.14705884, g: 0.14705884, b: 0.14705884, a: 1}
+  m_BuildTextureStacks: []

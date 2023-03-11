@@ -34,6 +34,15 @@ public class MovementHandler : MonoBehaviour
         return player;
     }
 
+    public int moveTest = 1;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            MoveCurrentPlayer(moveTest);
+        }
+    }
+
     public void MoveCurrentPlayer(int numberOfFields)
     {
         GameObject currentPlayer = _playersHandler.GetCurrentPlayer();
