@@ -19,6 +19,9 @@ public class SelectionHandler : GenericObjectArray
         //changed selected player sound?
         CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode<CameraModeSelectedFollow>();
+        
+        InstanceManager.Instance.Get<SelectionIndicatorHandler>().SetArrow(currentlySelected.transform);
+
         return currentlySelected;
     }
 }

@@ -17,13 +17,17 @@ public class FieldSelectionHandler : GenericObjectArray
 
     public GameObject SetToPlayersField(GameObject playerSelecting)
     {
-        return SetCurrentMember(playerSelecting.GetComponent<PlayerMovement>().currentPlayerField.IndexInPath);
+        var currentlySelected = SetCurrentMember(playerSelecting.GetComponent<PlayerMovement>().currentPlayerField.IndexInPath);
+        SetSelectionIndicator();
+        
+        return currentlySelected;
     }
 
     public GameObject SelectNextField()
     {
         GameObject currentlySelected = SetToNextMember();
         print("selected : " + CurrentMember().name);
+        SetSelectionIndicator();
         return currentlySelected;
     }
 
@@ -31,10 +35,16 @@ public class FieldSelectionHandler : GenericObjectArray
     {
         GameObject currentlySelected = SetCurrentMember(CurrentMemberIndex - 1);
         print("selected : " + CurrentMember().name);
+        SetSelectionIndicator();
         return currentlySelected;
     }
     public Field GetCurrentField()
     {
         return CurrentMember().GetComponent<Field>();
+    }
+
+    private void SetSelectionIndicator()
+    {
+      InstanceManager.Instance.Get<SelectionIndicatorHandler>().SetArrow(GetCurrentField().transform);
     }
 }

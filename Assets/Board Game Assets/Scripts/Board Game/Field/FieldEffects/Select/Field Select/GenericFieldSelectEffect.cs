@@ -30,14 +30,12 @@ public class GenericFieldSelectEffect : FieldEffect, IGenericFieldEffect
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Inputs.PlayInputSound();
-            var nextField = InstanceManager.Instance.Get<FieldSelectionHandler>().SelectNextField();
-            InstanceManager.Instance.Get<SelectionIndicatorHandler>().SetArrow(nextField.transform);
+            InstanceManager.Instance.Get<FieldSelectionHandler>().SelectNextField();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Inputs.PlayInputSound();
-            var previousField = InstanceManager.Instance.Get<FieldSelectionHandler>().SelectPreviousField();
-            InstanceManager.Instance.Get<SelectionIndicatorHandler>().SetArrow(previousField.transform);
+            InstanceManager.Instance.Get<FieldSelectionHandler>().SelectPreviousField();
         }
         if (Input.GetKeyDown(KeyCode.K))
         {

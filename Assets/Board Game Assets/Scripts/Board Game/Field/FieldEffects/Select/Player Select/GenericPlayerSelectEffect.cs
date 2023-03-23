@@ -23,10 +23,7 @@ public class GenericPlayerSelectEffect : FieldEffect, IGenericFieldEffect
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             AudioManager.Instance.PlaySound("shortClick",false,1f);
-            var nextPlayer = InstanceManager.Instance.Get<SelectionHandler>()
-                .SelectNextPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
-            
-            InstanceManager.Instance.Get<SelectionIndicatorHandler>().SetArrow(nextPlayer.transform);
+            InstanceManager.Instance.Get<SelectionHandler>().SelectNextPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
