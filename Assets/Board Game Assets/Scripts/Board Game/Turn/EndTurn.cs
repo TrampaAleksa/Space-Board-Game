@@ -27,5 +27,7 @@ public class EndTurn : MonoBehaviour
 
         CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode<CameraModePlayerFollow>();
+        
+        InstanceManager.Instance.Get<SelectionIndicatorHandler>().SetArrow(playersHandler.GetCurrentPlayer().transform);
     }
 }

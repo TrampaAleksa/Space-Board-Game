@@ -14,7 +14,7 @@ public class GenericFieldSelectEffect : FieldEffect, IGenericFieldEffect
     {
         FieldSelectionHandler fieldSelectionHandler = InstanceManager.Instance.Get<FieldSelectionHandler>();
 
-        fieldSelectionHandler.SetToPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
+        fieldSelectionHandler.SetToPlayersField(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer());
 
         CameraModesHandler cameraMovementHandler = InstanceManager.Instance.Get<CameraModesHandler>();
         cameraMovementHandler.SetCameraMode<CameraModeFieldFollow>();
@@ -30,12 +30,14 @@ public class GenericFieldSelectEffect : FieldEffect, IGenericFieldEffect
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Inputs.PlayInputSound();
-            InstanceManager.Instance.Get<FieldSelectionHandler>().SelectNextField();
+            var nextField = InstanceManager.Instance.Get<FieldSelectionHandler>().SelectNextField();
+            InstanceManager.Instance.Get<SelectionIndicatorHandler>().SetArrow(nextField.transform);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Inputs.PlayInputSound();
-            InstanceManager.Instance.Get<FieldSelectionHandler>().SelectPreviousField();
+            var previousField = InstanceManager.Instance.Get<FieldSelectionHandler>().SelectPreviousField();
+            InstanceManager.Instance.Get<SelectionIndicatorHandler>().SetArrow(previousField.transform);
         }
         if (Input.GetKeyDown(KeyCode.K))
         {

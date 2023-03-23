@@ -15,7 +15,7 @@ public class FieldSelectionHandler : GenericObjectArray
         return CurrentMember();
     }
 
-    public GameObject SetToPlayer(GameObject playerSelecting)
+    public GameObject SetToPlayersField(GameObject playerSelecting)
     {
         return SetCurrentMember(playerSelecting.GetComponent<PlayerMovement>().currentPlayerField.IndexInPath);
     }

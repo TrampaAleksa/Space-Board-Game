@@ -30,6 +30,8 @@ public class SelectionIndicatorHandler : MonoBehaviour
         }
     }
 
+    
+    //Selection indication gets set when its a players turn, a field gets selected, and a player gets selected
     public void SetArrow(Transform target)
     {
         arrow.parent = target;
