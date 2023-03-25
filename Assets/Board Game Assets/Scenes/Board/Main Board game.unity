@@ -3383,6 +3383,8 @@ MonoBehaviour:
   - {fileID: 344072686}
   - {fileID: 671963016}
   - {fileID: 152898467}
+  haloMaterials: {fileID: 974527969}
+  testColor: 0
 --- !u!114 &387936076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8651,6 +8653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974527968}
+  - component: {fileID: 974527969}
   m_Layer: 0
   m_Name: FieldContainer
   m_TagString: Untagged
@@ -8737,6 +8740,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &974527969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974527967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1ae9b1e3a4417889cfee8a5b3b1aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redMaterial: {fileID: 2100000, guid: d0af7ad49d9e0d54cb487c1c81501239, type: 2}
+  emptyMaterial: {fileID: 2100000, guid: 1efe77015ecdfa049bb16441c77cd6b3, type: 2}
+  yellowMaterial: {fileID: 2100000, guid: 9461fd8e476502048863b335d6085642, type: 2}
+  cyanMaterial: {fileID: 2100000, guid: f41fb8fa54e199641845fd8ed7bf63b0, type: 2}
+  purpleMaterial: {fileID: 2100000, guid: 68b58e6321cde084a9784f9a65c5178e, type: 2}
 --- !u!1 &975267216 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6469202871867976361, guid: 694fb96d0ca419f4d9f51df7d5df10fa,

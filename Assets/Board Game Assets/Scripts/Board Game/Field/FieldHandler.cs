@@ -49,4 +49,12 @@ public class FieldHandler : GenericObjectArray
         haloMaterials.SetFieldColor(fieldHaloObj);
     }
 
+    public FieldColor testColor;
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SetFieldHaloColor(CurrentMember().transform.Find("Ring").gameObject, testColor);
+        }
+    }
 }
