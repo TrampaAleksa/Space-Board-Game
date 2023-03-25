@@ -18,6 +18,7 @@ public class SelectionIndicatorHandler : MonoBehaviour
     private void Start()
     {
         _playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
+        SetArrow(_playersHandler.GetCurrentPlayer().transform);
     }
 
     private void Update()

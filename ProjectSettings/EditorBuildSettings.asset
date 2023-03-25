@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Board Game Assets/Scenes/Board/Main Board game.unity
     guid: 3c72671a801d18847adc53a9cb151b15
-  - enabled: 1
+  - enabled: 0
     path: Assets/Mini Games/minigame-1/Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Mini Games/car race minigame/Scenes/MiniGame-CarRacingWithPath.unity
     guid: bd8eafcd30defda4d9401414dc43331f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Mini Games/minigame-4/scenes/level main.unity
     guid: 249107228d687704a8d41327672deef8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Mini Games/minigame-2/scenes/jumping game Main.unity
     guid: 7456b03fc9f68174482fc4dbeef4a36d
   - enabled: 1
