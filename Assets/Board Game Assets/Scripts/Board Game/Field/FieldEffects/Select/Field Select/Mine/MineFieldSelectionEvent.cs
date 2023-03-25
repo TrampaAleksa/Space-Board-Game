@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
 {
+    private GameObject _mineObj;
+
     public void ConfirmedSelection()
     {
         GameObject selectedField = InstanceManager.Instance.Get<FieldSelectionHandler>().GetSelectedField();
@@ -24,4 +26,10 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
         //Mine placed sound
     }
+
+
+
+
+    public void SetMineObj(GameObject mineObj) => _mineObj = mineObj;
+
 }
