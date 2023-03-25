@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Board_Game_Assets.Scripts.Board_Game.Field;
 using UnityEngine;
 
 public class FieldHandler : GenericObjectArray
 {
     private FieldMovementImpl fieldMovement;
+    public FieldMaterials haloMaterials;
     public const int StartingIndex = 0;
-
+    
     private void Awake()
     {
         new FieldInitPath(this).Initialize();
@@ -39,6 +41,12 @@ public class FieldHandler : GenericObjectArray
         //a message saying that he can't do that (the difference between the last index and first index is very big so he
         // wont be able to teleport even if he wanted to).
         return Mathf.Abs(field1.IndexInPath - field2.IndexInPath);
+    }
+    
+    public void SetFieldHaloColor(GameObject fieldHaloObj, FieldColor color)
+    {
+        haloMaterials.SetSelectedColor(color);
+        haloMaterials.SetFieldColor(fieldHaloObj);
     }
 
 }

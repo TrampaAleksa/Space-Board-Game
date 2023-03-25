@@ -16,31 +16,32 @@ namespace Board_Game_Assets.Scripts.Board_Game.Field
 
         public void SetFieldColor(GameObject fieldHaloObj)
         {
-            switch (_selectedColor)
+            switch (_selectedColor) //TODO Split getting material and setting it to field
             {
                 case FieldColor.Red:
-                    SetFieldMaterial(redMaterial);
+                    SetFieldMaterial(fieldHaloObj, redMaterial);
                     break;
                 case FieldColor.Empty:
-                    SetFieldMaterial(emptyMaterial);
+                    SetFieldMaterial(fieldHaloObj, emptyMaterial);
                     break;
                 case FieldColor.Yellow:
-                    SetFieldMaterial(yellowMaterial);
+                    SetFieldMaterial(fieldHaloObj, yellowMaterial);
                     break;
                 case FieldColor.Cyan:
-                    SetFieldMaterial(cyanMaterial);
+                    SetFieldMaterial(fieldHaloObj, cyanMaterial);
                     break;
                 case FieldColor.Purple:
-                    SetFieldMaterial(purpleMaterial);
+                    SetFieldMaterial(fieldHaloObj, purpleMaterial);
                     break;
             }
         }
 
         public void SetSelectedColor(FieldColor color) => _selectedColor = color;
 
-        public void SetFieldMaterial(Material materialToSet)
+        private void SetFieldMaterial(GameObject fieldHaloObj, Material materialToSet)
         {
             Debug.Log("Set color of field to: " + _selectedColor);
+            fieldHaloObj.GetComponent<MeshRenderer>().material = materialToSet;
         }
     }
     
