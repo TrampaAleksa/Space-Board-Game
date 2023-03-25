@@ -15,14 +15,19 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
             return;
         }
 
-        selectedField.AddComponent<Mine>();
-
+        var mineObj = Instantiate(_mineObj, selectedField.transform, false);
+        mineObj.transform.localPosition = Vector3.zero;
+        
+        var mineEffect = selectedField.AddComponent<Mine>();
+        mineEffect.mineObj = mineObj;
+        
+        InstanceManager.Instance.Get<FieldEffectHandler>()
+            .AddEffectToField(selectedField, mineEffect);
+        
         new ATMinePlacement(
             InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
         ).DisplayAT();
-
-        InstanceManager.Instance.Get<FieldEffectHandler>()
-            .AddEffectToField(selectedField, selectedField.GetComponent<Mine>());
+        
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
         //Mine placed sound
     }

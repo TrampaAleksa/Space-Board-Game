@@ -6,6 +6,9 @@ public class Mine : FieldEffect
 {
     private float mineDamage = 20f;
 
+    [HideInInspector]
+    public GameObject mineObj;
+
     public override void TriggerEffect()
     {
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
@@ -14,6 +17,8 @@ public class Mine : FieldEffect
         new ATMineTriggered(player, (int)mineDamage).DisplayAT();
         
         InstanceManager.Instance.Get<FieldEffectHandler>().RemoveEffectFromField(gameObject, this);
+        
+        Destroy(mineObj);
         Destroy(this);
     }
 
