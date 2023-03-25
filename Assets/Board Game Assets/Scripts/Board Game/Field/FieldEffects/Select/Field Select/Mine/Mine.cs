@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Board_Game_Assets.Scripts.Board_Game.Field;
 using UnityEngine;
 
 public class Mine : FieldEffect
@@ -17,6 +18,7 @@ public class Mine : FieldEffect
         new ATMineTriggered(player, (int)mineDamage).DisplayAT();
         
         InstanceManager.Instance.Get<FieldEffectHandler>().RemoveEffectFromField(gameObject, this);
+        InstanceManager.Instance.Get<FieldHandler>().SetFieldHaloColor(gameObject, FieldColor.Empty);
         
         Destroy(mineObj);
         Destroy(this);

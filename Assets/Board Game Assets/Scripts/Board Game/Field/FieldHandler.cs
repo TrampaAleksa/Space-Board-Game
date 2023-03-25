@@ -6,7 +6,8 @@ using UnityEngine;
 public class FieldHandler : GenericObjectArray
 {
     private FieldMovementImpl fieldMovement;
-    public FieldMaterials haloMaterials;
+    [SerializeField]
+    private FieldMaterials haloMaterials;
     public const int StartingIndex = 0;
     
     private void Awake()
@@ -43,18 +44,11 @@ public class FieldHandler : GenericObjectArray
         return Mathf.Abs(field1.IndexInPath - field2.IndexInPath);
     }
     
-    public void SetFieldHaloColor(GameObject fieldHaloObj, FieldColor color)
+    public void SetFieldHaloColor(GameObject field, FieldColor color)
     {
         haloMaterials.SetSelectedColor(color);
+        var fieldHaloObj = field.transform.Find("Ring").gameObject; // TODO - Extract Method inside field for getting the ring
         haloMaterials.SetFieldColor(fieldHaloObj);
     }
 
-    public FieldColor testColor;
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            SetFieldHaloColor(CurrentMember().transform.Find("Ring").gameObject, testColor);
-        }
-    }
 }

@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2485245290939599831}
   - component: {fileID: 1028704361936888297}
   m_Layer: 0
-  m_Name: Torus
+  m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

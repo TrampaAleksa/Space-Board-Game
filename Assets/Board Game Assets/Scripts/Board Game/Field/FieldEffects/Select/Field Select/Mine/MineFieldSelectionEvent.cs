@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Board_Game_Assets.Scripts.Board_Game.Field;
 using UnityEngine;
 
 public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
@@ -16,7 +17,7 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
         }
 
         var mineObj = Instantiate(_mineObj, selectedField.transform, false);
-        mineObj.transform.localPosition = Vector3.zero;
+        InstanceManager.Instance.Get<FieldHandler>().SetFieldHaloColor(selectedField.gameObject, FieldColor.Red);
         
         var mineEffect = selectedField.AddComponent<Mine>();
         mineEffect.mineObj = mineObj;
