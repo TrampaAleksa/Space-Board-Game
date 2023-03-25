@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectHealPlayer : FieldEffect, IGenericFieldEffect
 {
-    public float amountToHeal = 20f;
+    public float amountToHeal = 25f;
 
     public override void TriggerEffect()
     {

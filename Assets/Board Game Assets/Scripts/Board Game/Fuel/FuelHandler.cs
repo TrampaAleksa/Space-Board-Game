@@ -6,7 +6,7 @@ using UnityEngine;
 public class FuelHandler : MonoBehaviour
 {
     public const float StartingAmount = 50;
-    public const float WinningAmount = 200f;
+    public const float WinningAmount = 130f;
 
     private AddFuel _addFuel;
 
