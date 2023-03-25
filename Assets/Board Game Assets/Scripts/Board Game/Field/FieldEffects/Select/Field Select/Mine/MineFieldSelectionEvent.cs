@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
 {
-
     public void ConfirmedSelection()
     {
         GameObject selectedField = InstanceManager.Instance.Get<FieldSelectionHandler>().GetSelectedField();
-        if (selectedField.GetComponent<Mine>() == null)
+        if (selectedField.GetComponent<EmptyField>() == null)
         {
-            selectedField.AddComponent<Mine>();
-            
-            new ATMinePlacement(
-                InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
-            ).DisplayAT();
-            
-            InstanceManager.Instance.Get<FieldEffectHandler>()
-                .AddEffectToField(selectedField, selectedField.GetComponent<Mine>());
-            InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
-            //Mine placed sound
+            Debug.Log("Mine can only be placed on empty field");
+            return;
         }
-        else Debug.Log("mine already exists");
+
+        selectedField.AddComponent<Mine>();
+
+        new ATMinePlacement(
+            InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
+        ).DisplayAT();
+
+        InstanceManager.Instance.Get<FieldEffectHandler>()
+            .AddEffectToField(selectedField, selectedField.GetComponent<Mine>());
+        InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
+        //Mine placed sound
     }
 }
