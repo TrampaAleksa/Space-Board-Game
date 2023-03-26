@@ -200,6 +200,7 @@ public class KeySystem : MonoBehaviour
         {
             ResolutionSlide.Instance.ApplySettings();
             QualitySlider.Instance.ApplySettings();
+            BackButton();
         }
         else if(panelIndex==4)
         {
