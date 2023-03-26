@@ -8,10 +8,12 @@ namespace UI_Assets.Scripts
     public class UIHandler : MonoBehaviour
     {
         private GameObject _currentPanel;
+        private GameObject _mainMenuPanel;
 
         private void Start()
         {
-            _currentPanel = GameObject.Find("MainMenuPanel");
+            _mainMenuPanel = GameObject.Find("MainMenuPanel");
+            _currentPanel  = _mainMenuPanel;
         }
 
         public void ExitGame()
