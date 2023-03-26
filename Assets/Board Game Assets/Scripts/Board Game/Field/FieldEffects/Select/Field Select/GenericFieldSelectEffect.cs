@@ -21,7 +21,7 @@ public class GenericFieldSelectEffect : FieldEffect, IGenericFieldEffect
 
         InstanceManager.Instance.Get<Inputs>().selectionInputEvents += SelectionInputs;
         InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip
-            (InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer().name + " Is now choosing: ");
+            ("Select a field: ");
     }
 
     private void SelectionInputs()

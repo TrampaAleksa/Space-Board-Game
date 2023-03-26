@@ -58,16 +58,19 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
         if (selectedField.GetComponent<EmptyField>() == null)
         {
             Debug.Log("Mine can only be placed on empty field");
+            InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip("Please select empty field");
             return true;
         }
         if (selectedField.GetComponent<Mine>() != null)
         {
             Debug.Log("A Mine is already placed there!");
+            InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip("Mine already placed there");
             return true;
         }
         if (IsPlayerOnField(selectedField))
         {
             Debug.Log("Can't place mine - Player on field");
+            InstanceManager.Instance.Get<TooltipHandler>().ShowInfoTooltip("Please select field without Players");
             return true;
         }
 
