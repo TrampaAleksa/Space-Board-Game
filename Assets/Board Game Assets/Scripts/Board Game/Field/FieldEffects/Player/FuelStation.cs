@@ -31,6 +31,6 @@ public class FuelStation : FieldEffect, IGenericFieldEffect
 
     private void DisplayInActivityHistory(GameObject player)
     {
-        new ATPlayerFuel(player, (int)fuelPerVisit).DisplayAT();
+        new ATFuelStation(player, (int)fuelPerVisit).DisplayAT();
     }
 }

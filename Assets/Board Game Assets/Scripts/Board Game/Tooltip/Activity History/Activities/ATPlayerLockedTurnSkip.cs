@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Board_Game_Assets.Scripts.Board_Game.Tooltip.Activity_History.Activities
 {
-    public class ATMineSelection : ActivityTooltipBuilder
+    public class ATPlayerLockedTurnSkip : ActivityTooltipBuilder
     {
-        public ATMineSelection(GameObject player) : base(player)
+        public ATPlayerLockedTurnSkip(GameObject player) : base(player)
         {
             BuildActivityTooltip();
         }
@@ -12,7 +12,7 @@ namespace Board_Game_Assets.Scripts.Board_Game.Tooltip.Activity_History.Activiti
         public sealed override void BuildActivityTooltip()
         {
             tooltipMessage += player1Name;
-            tooltipMessage += " is selecting field for mine.";
+            tooltipMessage += " Skipped their turn due to broken engines.";
         }
     }
 }

@@ -41,12 +41,4 @@ public class TooltipHandler : MonoBehaviour
     {
         fieldInfoTooltip.ShowTooltip(message);
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ShowPlayersTooltip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), "-30 Fuel");
-        }
-    }
 }

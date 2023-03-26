@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ATPlayerFuel : ActivityTooltipBuilder
+public class ATFuelStation : ActivityTooltipBuilder
 {
 
-    public ATPlayerFuel(GameObject player, int value) :base(player, value)
+    public ATFuelStation(GameObject player, int value) :base(player, value)
     {
         BuildActivityTooltip();
     }
