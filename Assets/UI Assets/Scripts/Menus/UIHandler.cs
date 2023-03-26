@@ -16,25 +16,6 @@ namespace UI_Assets.Scripts
             _currentPanel  = _mainMenuPanel;
         }
 
-        public void ExitGame()
-        {
-            
-        }
-
-        public void ChangeResolution()
-        {
-            
-        }
-
-        public void ChangeSound()
-        {
-            
-        }
-
-        public void ToggleFullscreen()
-        {
-            
-        }
 
         public void OpenPanel(GameObject panel)
         {
