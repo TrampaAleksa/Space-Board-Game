@@ -3384,7 +3384,6 @@ MonoBehaviour:
   - {fileID: 671963016}
   - {fileID: 152898467}
   haloMaterials: {fileID: 974527969}
-  testColor: 0
 --- !u!114 &387936076
 MonoBehaviour:
   m_ObjectHideFlags: 0
