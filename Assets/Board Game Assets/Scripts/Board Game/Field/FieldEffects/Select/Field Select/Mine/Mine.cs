@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Mine : FieldEffect
 {
+    //TODO - Mine should be responsible for ending the players turn, not the empty field event
     private float mineDamage = 20f;
 
     [HideInInspector]

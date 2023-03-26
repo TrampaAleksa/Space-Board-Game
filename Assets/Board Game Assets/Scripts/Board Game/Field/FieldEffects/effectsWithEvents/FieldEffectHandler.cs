@@ -11,9 +11,9 @@ public class FieldEffectHandler : MonoBehaviour
         return this;
     }
 
-    public FieldEffectHandler RemoveEffectFromField(GameObject field, FieldEffect effectToAdd)
+    public FieldEffectHandler RemoveEffectFromField(GameObject field, FieldEffect effectToRemove)
     {
-        field.GetComponent<FieldEffectEvent>().triggerFieldEvents -= effectToAdd.TriggerEffect;
+        field.GetComponent<FieldEffectEvent>().triggerFieldEvents -= effectToRemove.TriggerEffect;
         return this;
     }
 
@@ -23,9 +23,9 @@ public class FieldEffectHandler : MonoBehaviour
         return this;
     }
 
-    public FieldEffectHandler RemoveEffectFinishedEventFromField(GameObject field, FieldEffect effectToAdd)
+    public FieldEffectHandler RemoveEffectFinishedEventFromField(GameObject field, FieldEffect effectToRemove)
     {
-        field.GetComponent<FieldEffectEvent>().finishedEffectEvents -= effectToAdd.FinishedEffect;
+        field.GetComponent<FieldEffectEvent>().finishedEffectEvents -= effectToRemove.FinishedEffect;
         return this;
     }
 

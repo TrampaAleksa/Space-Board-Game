@@ -7,6 +7,7 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
 {
     private GameObject _mineObj;
 
+    //TODO - Implement method that swaps one field with another field, much cleaner than combining mine and empty like its done here
     public void ConfirmedSelection()
     {
         GameObject selectedField = InstanceManager.Instance.Get<FieldSelectionHandler>().GetSelectedField();
@@ -15,25 +16,40 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
             Debug.Log("Mine can only be placed on empty field");
             return;
         }
-
-        var mineObj = Instantiate(_mineObj, selectedField.transform, false);
-        InstanceManager.Instance.Get<FieldHandler>().SetFieldHaloColor(selectedField.gameObject, FieldColor.Red);
-        
+        var fieldEffectHandler = InstanceManager.Instance.Get<FieldEffectHandler>();
         var mineEffect = selectedField.AddComponent<Mine>();
-        mineEffect.mineObj = mineObj;
-        
-        InstanceManager.Instance.Get<FieldEffectHandler>()
-            .AddEffectToField(selectedField, mineEffect);
-        
+
+        PlantMine(selectedField, mineEffect);
+        CombineMineAndEmptyField(fieldEffectHandler, selectedField, mineEffect);
+
         new ATMinePlacement(
             InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
         ).DisplayAT();
         
-        InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
+        fieldEffectHandler.TriggerEffectFinishedEvents(gameObject);
         //Mine placed sound
     }
 
+    private void PlantMine(GameObject selectedField, Mine mineEffect)
+    {
+        var mineObj = Instantiate(_mineObj, selectedField.transform, false);
+        InstanceManager.Instance.Get<FieldHandler>().SetFieldHaloColor(selectedField.gameObject, FieldColor.Red);
+        mineEffect.mineObj = mineObj;
+    }
 
+    // First triggers Mine Effects then the Empty Field effect(ends turn)
+    private static void CombineMineAndEmptyField(FieldEffectHandler fieldEffectHandler, GameObject selectedField, Mine mineEffect)
+    {
+        fieldEffectHandler.AddEffectToField(selectedField, mineEffect);
+
+        var emptyFieldEffect = selectedField.GetComponent<EmptyField>();
+        
+        fieldEffectHandler.RemoveEffectFromField(selectedField, emptyFieldEffect);
+        fieldEffectHandler.RemoveEffectFinishedEventFromField(selectedField, emptyFieldEffect);
+
+        fieldEffectHandler.AddEffectToField(selectedField, emptyFieldEffect);
+        fieldEffectHandler.AddEffectFinishedEventToField(selectedField, emptyFieldEffect);
+    }
 
 
     public void SetMineObj(GameObject mineObj) => _mineObj = mineObj;
