@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ATLandedOnField : ActivityTooltipBuilder
 {
-    public string fieldType = "empty";
+    private string fieldType = "empty";
     public ATLandedOnField(GameObject player) :base(player)
     {
         BuildActivityTooltip();
@@ -14,5 +14,11 @@ public class ATLandedOnField : ActivityTooltipBuilder
         tooltipMessage += " landed on '";
         tooltipMessage += fieldType;
         tooltipMessage += "' field";
+    }
+
+    public ATLandedOnField SetFieldType(string type)
+    {
+        fieldType = type;
+        return this;
     }
 }
