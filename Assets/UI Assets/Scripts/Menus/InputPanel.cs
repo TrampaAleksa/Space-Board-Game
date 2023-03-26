@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace UI_Assets.Scripts
     public class InputPanel : MonoBehaviour
     {
         public InputField[] nameInputs;
+        public Player3DController[] playerShips;
+
 
         public void StartGame()
         {
@@ -46,6 +49,19 @@ namespace UI_Assets.Scripts
             for (int i = 0; i < BoardStateHolder.Instance.playerBoardStates.Length; i++)
                 BoardStateHolder.Instance.playerBoardStates[i].playerName =
                     nameInputs[i].text;
+        }
+        
+        
+        
+        private void OnEnable()
+        {
+            foreach (var ship in playerShips)
+                ship.ShowSpaceShip();
+        }
+        private void OnDisable()
+        {
+            foreach (var ship in playerShips)
+                ship.DisableSpaceShip();
         }
     }
 }
