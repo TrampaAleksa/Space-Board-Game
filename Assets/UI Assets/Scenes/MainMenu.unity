@@ -1619,7 +1619,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 702095527}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2041079167}
+        m_TargetAssemblyTypeName: UI_Assets.Scripts.QuitPanel, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &702095527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4276,6 +4288,7 @@ GameObject:
   - component: {fileID: 2041079164}
   - component: {fileID: 2041079166}
   - component: {fileID: 2041079165}
+  - component: {fileID: 2041079167}
   m_Layer: 5
   m_Name: QuitPanel
   m_TagString: UI
@@ -4343,6 +4356,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041079163}
   m_CullTransparentMesh: 0
+--- !u!114 &2041079167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041079163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88b367fcffd4ff891490cdee1917543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2082723285
 GameObject:
   m_ObjectHideFlags: 0
@@ -6061,6 +6086,7 @@ GameObject:
   - component: {fileID: 9158429975312472583}
   - component: {fileID: 9158429975312472582}
   - component: {fileID: 9158429975312472577}
+  - component: {fileID: 9158429975312472584}
   m_Layer: 5
   m_Name: ControlPanel
   m_TagString: UI
@@ -6127,6 +6153,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9158429975312472584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158429975312472576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebc5eadb84a4e3185c3ef339050fc70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9158429975359533272
 GameObject:
   m_ObjectHideFlags: 0
@@ -6413,6 +6451,7 @@ GameObject:
   - component: {fileID: 9158429975507035814}
   - component: {fileID: 9158429975507035812}
   - component: {fileID: 7536469359364165163}
+  - component: {fileID: 9158429975507035815}
   m_Layer: 5
   m_Name: SettingsPanel
   m_TagString: UI
@@ -6449,6 +6488,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9158429975507035815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158429975507035809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c9e1ce4e204d04a6b09e3f62b9d5a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9158429975521541132
 GameObject:
   m_ObjectHideFlags: 0
@@ -7917,6 +7968,7 @@ GameObject:
   - component: {fileID: 9158429976519239942}
   - component: {fileID: 9158429976519239937}
   - component: {fileID: 9158429976519239936}
+  - component: {fileID: 9158429976519239943}
   m_Layer: 5
   m_Name: CreditsPanel
   m_TagString: UI
@@ -7945,6 +7997,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9158429976519239943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158429976519239939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66823f69a51847ca90a5da2da800b6f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9158429976680533942
 GameObject:
   m_ObjectHideFlags: 0

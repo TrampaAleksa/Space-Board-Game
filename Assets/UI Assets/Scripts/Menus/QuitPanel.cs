@@ -6,7 +6,7 @@ namespace UI_Assets.Scripts
     {
         public void QuitGame()
         {
-            
+            Application.Quit();
         }
     }
 }
