@@ -9265,7 +9265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e03209029174430ac7575377d84cc4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  names:
+  nameInputs:
   - {fileID: 9158429975521541170}
   - {fileID: 7295146343432953663}
   - {fileID: 6415416640333429274}

@@ -1,29 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI_Assets.Scripts
 {
     public class InputPanel : MonoBehaviour
     {
-        public InputField[] names;
+        public InputField[] nameInputs;
         
         public void StartGame()
         {
+            if (InvalidInput())
+                return;
+            
             SetPlayerNames();
-            if (IsValidInput())
-            {
-                SceneManager.LoadScene("Main Board game");
-            }
+            SceneManager.LoadScene("Main Board game");
+        }
+        
+
+        private bool InvalidInput()
+        {
+            return IsAnyInputEmpty() || HasSameNames();
+        }
+        
+        private bool IsAnyInputEmpty()
+        {
+            return nameInputs.Any(inputField => string.IsNullOrEmpty(inputField.text));
+        }
+        private bool HasSameNames()
+        {
+            var nameSet = new HashSet<string>();
+            foreach (var nameInput in nameInputs)
+                nameSet.Add(nameInput.text.ToLower());
+
+            var numOfPlayers = nameInputs.Length;
+            return nameSet.Count < numOfPlayers; // if there are duplicate names will return true
         }
         
         private void SetPlayerNames()
         {
             
-        }
-        private bool IsValidInput()
-        {
-            return true;
         }
     }
 }
