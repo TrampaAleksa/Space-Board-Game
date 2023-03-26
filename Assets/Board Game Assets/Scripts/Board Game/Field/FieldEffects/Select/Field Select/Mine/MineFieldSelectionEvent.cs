@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Board_Game_Assets.Scripts.Board_Game.Field;
 using UnityEngine;
 
@@ -59,16 +60,27 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
             Debug.Log("Mine can only be placed on empty field");
             return true;
         }
-
         if (selectedField.GetComponent<Mine>() != null)
         {
             Debug.Log("A Mine is already placed there!");
+            return true;
+        }
+        if (IsPlayerOnField(selectedField))
+        {
+            Debug.Log("Can't place mine - Player on field");
             return true;
         }
 
         return false;
     }
 
+    private bool IsPlayerOnField(GameObject selectedField)
+    {
+        var selectedFieldIndex = selectedField.GetComponent<Field>().IndexInPath;
+        var players = InstanceManager.Instance.Get<PlayersHandler>().gameObjects;
+        
+        return players.Any(playerObj => playerObj.GetComponent<Player>().currentPlayerField.IndexInPath == selectedFieldIndex);
+    }
 
     public void SetMineObj(GameObject mineObj) => _mineObj = mineObj;
 
