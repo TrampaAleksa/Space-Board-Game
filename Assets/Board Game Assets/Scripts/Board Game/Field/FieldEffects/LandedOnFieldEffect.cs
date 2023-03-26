@@ -1,6 +1,6 @@
 namespace Board_Game_Assets.Scripts.Board_Game.Field.FieldEffects
 {
-    public class LandedOnFieldEffect : FieldEffect
+    public class LandedOnFieldEffect : FieldEffect, IGenericFieldEffect
     {
         public string fieldType = "";
         public override void FinishedEffect()

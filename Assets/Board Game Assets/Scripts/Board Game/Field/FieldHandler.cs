@@ -16,11 +16,6 @@ public class FieldHandler : GenericObjectArray
         fieldMovement = new FieldMovementImpl();
     }
 
-    private void Start()
-    {
-        InstanceManager.Instance.Get<FieldInfoDictionaryHandler>().InitializeDictionary();
-    }
-
     public void SetCurrentField(Field fieldToSetTo, GameObject player)
     {
         fieldMovement.SetCurrentField(fieldToSetTo, player);

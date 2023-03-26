@@ -12,8 +12,6 @@ public class EmptyField : FieldEffect , IGenericFieldEffect
 
     public override void FinishedEffect()
     {
-        new ATEmptyField(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer()
-        ).DisplayAT();
         InstanceManager.Instance.Get<TurnHandler>().EndCurrentPlayersTurn();
     }
   
