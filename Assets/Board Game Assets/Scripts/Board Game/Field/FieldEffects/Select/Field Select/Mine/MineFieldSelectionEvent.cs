@@ -11,11 +11,10 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
     public void ConfirmedSelection()
     {
         GameObject selectedField = InstanceManager.Instance.Get<FieldSelectionHandler>().GetSelectedField();
-        if (selectedField.GetComponent<EmptyField>() == null)
-        {
-            Debug.Log("Mine can only be placed on empty field");
+
+        if (NotValidSelection(selectedField))
             return;
-        }
+        
         var fieldEffectHandler = InstanceManager.Instance.Get<FieldEffectHandler>();
         var mineEffect = selectedField.AddComponent<Mine>();
 
@@ -49,6 +48,25 @@ public class MineFieldSelectionEvent : MonoBehaviour, ISelectionEffect
 
         fieldEffectHandler.AddEffectToField(selectedField, emptyFieldEffect);
         fieldEffectHandler.AddEffectFinishedEventToField(selectedField, emptyFieldEffect);
+    }
+
+    
+    
+    private bool NotValidSelection(GameObject selectedField)
+    {
+        if (selectedField.GetComponent<EmptyField>() == null)
+        {
+            Debug.Log("Mine can only be placed on empty field");
+            return true;
+        }
+
+        if (selectedField.GetComponent<Mine>() != null)
+        {
+            Debug.Log("A Mine is already placed there!");
+            return true;
+        }
+
+        return false;
     }
 
 
