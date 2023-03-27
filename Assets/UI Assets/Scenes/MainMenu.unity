@@ -6958,10 +6958,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621617f148f947c28caeb714126c97fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentResolutionIndex: 0
   resolutionLabel: {fileID: 1454844154}
-  currentQualityIndex: 0
   qualityLabel: {fileID: 2033962312}
+  fullscreenToggle: {fileID: 9158429975912224383}
 --- !u!1 &9158429975521541132
 GameObject:
   m_ObjectHideFlags: 0
@@ -7509,10 +7508,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: SetFullscreen
-        m_Mode: 0
+      - m_Target: {fileID: 9158429975507035817}
+        m_TargetAssemblyTypeName: UI_Assets.Scripts.DisplaySettings, Assembly-CSharp
+        m_MethodName: ToggleFullscreen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

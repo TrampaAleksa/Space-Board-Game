@@ -22,12 +22,8 @@ namespace UI_Assets.Scripts
         public void ChangeResolutionDown()
         {
             _displaySettings.SlideResolutionDown();
+        }
 
-        }
-        public void ToggleFullscreen()
-        {
-            
-        }
         public void ChangeQualityUp()
         {
             _displaySettings.SlideQualityUp();

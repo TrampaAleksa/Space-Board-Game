@@ -13,6 +13,8 @@ namespace UI_Assets.Scripts
         public Text qualityLabel;
         private int _currentQualityIndex;
 
+        public Toggle fullscreenToggle;
+        
         private Resolution[] _resolutions;
         private string[] _qualityNames;
 
@@ -32,6 +34,8 @@ namespace UI_Assets.Scripts
             _qualityNames = QualitySettings.names;
             SetInitialQuality();
             DisplayCurrentQuality();
+
+            fullscreenToggle.isOn = Screen.fullScreen;
         }
 
         private void SetInitialQuality() => _currentQualityIndex = QualitySettings.GetQualityLevel();
@@ -63,6 +67,10 @@ namespace UI_Assets.Scripts
             DisplayCurrentResolution(); 
         }
 
+        public void ToggleFullscreen()
+        {
+            Debug.Log(fullscreenToggle.isOn);
+        }
         
         
         public void ApplySettings()
@@ -71,6 +79,8 @@ namespace UI_Assets.Scripts
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
             
             QualitySettings.SetQualityLevel(_currentQualityIndex);
+            
+            Screen.fullScreenMode = fullscreenToggle.isOn ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed;
         }
 
         
