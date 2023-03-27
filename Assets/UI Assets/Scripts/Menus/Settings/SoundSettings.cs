@@ -17,7 +17,7 @@ namespace UI_Assets.Scripts
 
         private void ChangeFillSliderValue(float value, Image fillImage)
         {
-            fillImage.fillAmount += Math.Clamp(fillImage.fillAmount + value, 0, 1);
+            fillImage.fillAmount = Math.Clamp(fillImage.fillAmount + value, 0, 1);
         }
     }
 }
