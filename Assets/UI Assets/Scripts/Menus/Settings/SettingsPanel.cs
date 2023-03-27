@@ -17,12 +17,10 @@ namespace UI_Assets.Scripts
         
         public void ChangeResolutionUp()
         {
-            Debug.Log("R Up");
             _displaySettings.SlideResolutionUp();
         }
         public void ChangeResolutionDown()
         {
-            Debug.Log("R Down");
             _displaySettings.SlideResolutionDown();
 
         }
@@ -32,11 +30,12 @@ namespace UI_Assets.Scripts
         }
         public void ChangeQualityUp()
         {
-            Debug.Log("Q Up");
+            _displaySettings.SlideQualityUp();
         }
         public void ChangeQualityDown()
         {
-            Debug.Log("Q Down");
+            _displaySettings.SlideQualityDown();
+
         }
         public void ChangeSfxSoundUp()
         {
