@@ -7333,6 +7333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38307a2b65144c6c9291cc7043a47fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: 3b2f5e010b7b96540968891bf2f1cd9b, type: 2}
   SfxFillImage: {fileID: 809115260}
   MusicFillImage: {fileID: 1853434534}
   increment: 0.1
