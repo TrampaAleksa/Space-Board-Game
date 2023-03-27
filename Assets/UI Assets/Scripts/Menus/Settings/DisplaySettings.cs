@@ -7,11 +7,11 @@ namespace UI_Assets.Scripts
 {
     public class DisplaySettings : MonoBehaviour
     {
-        public int currentResolutionIndex;
         public Text resolutionLabel;
-        
-        public int currentQualityIndex;
+        private int _currentResolutionIndex;
+
         public Text qualityLabel;
+        private int _currentQualityIndex;
 
         private Resolution[] _resolutions;
         private string[] _qualityNames;
@@ -30,26 +30,36 @@ namespace UI_Assets.Scripts
             DisplayCurrentResolution();
 
             _qualityNames = QualitySettings.names;
-            currentQualityIndex = QualitySettings.GetQualityLevel();
-            qualityLabel.text = _qualityNames[currentQualityIndex];
+            SetInitialQuality();
+            DisplayCurrentQuality();
         }
 
-        private void SetInitialResolution()
+        private void SetInitialQuality() => _currentQualityIndex = QualitySettings.GetQualityLevel();
+        public void SlideQualityDown()
         {
-            currentResolutionIndex = LastResolutionIndex;
+            _currentQualityIndex--;
+            if (_currentQualityIndex < 0) _currentQualityIndex = LastQualityIndex;
+            DisplayCurrentQuality();
+        }
+        public void SlideQualityUp()
+        {
+            _currentQualityIndex++;
+            if (_currentQualityIndex > LastQualityIndex) _currentQualityIndex = 0;
+            DisplayCurrentQuality(); 
         }
 
+        
+        private void SetInitialResolution() => _currentResolutionIndex = LastResolutionIndex;
         public void SlideResolutionDown()
         {
-            currentResolutionIndex--;
-            if (currentResolutionIndex < 0) currentResolutionIndex = LastResolutionIndex;
+            _currentResolutionIndex--;
+            if (_currentResolutionIndex < 0) _currentResolutionIndex = LastResolutionIndex;
             DisplayCurrentResolution();
         }
-
         public void SlideResolutionUp()
         {
-            currentResolutionIndex++;
-            if (currentResolutionIndex > LastResolutionIndex) currentResolutionIndex = 0;
+            _currentResolutionIndex++;
+            if (_currentResolutionIndex > LastResolutionIndex) _currentResolutionIndex = 0;
             DisplayCurrentResolution(); 
         }
 
@@ -59,13 +69,18 @@ namespace UI_Assets.Scripts
         {
             Resolution resolution = CurrentResolution;
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+            
+            QualitySettings.SetQualityLevel(_currentQualityIndex);
         }
 
         
         
         private void DisplayCurrentResolution() => resolutionLabel.text = ResolutionTextValue(CurrentResolution);
         private string ResolutionTextValue(Resolution resolution) => resolution.width + " x " + resolution.height;
-        private Resolution CurrentResolution => _resolutions[currentResolutionIndex];
+        private Resolution CurrentResolution => _resolutions[_currentResolutionIndex];
         private int LastResolutionIndex => _resolutions.Length - 1;
+        
+        private void DisplayCurrentQuality() => qualityLabel.text = _qualityNames[_currentQualityIndex];
+        private int LastQualityIndex => _qualityNames.Length - 1;
     }
 }
