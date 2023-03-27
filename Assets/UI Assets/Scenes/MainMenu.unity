@@ -677,8 +677,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9158429975507035817}
-        m_TargetAssemblyTypeName: UI_Assets.Scripts.DisplaySettings, Assembly-CSharp
+      - m_Target: {fileID: 9158429975507035815}
+        m_TargetAssemblyTypeName: UI_Assets.Scripts.SettingsPanel, Assembly-CSharp
         m_MethodName: ApplySettings
         m_Mode: 1
         m_Arguments:
