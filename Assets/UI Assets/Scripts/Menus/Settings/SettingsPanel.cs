@@ -54,6 +54,11 @@ namespace UI_Assets.Scripts
         {
             
         }
+
+        public void ApplySettings()
+        {
+            _displaySettings.ApplySettings();
+        }
     }
 
     public enum SettingChangeDirection

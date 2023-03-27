@@ -41,7 +41,13 @@ namespace UI_Assets.Scripts
         {
             currentIndex++;
             if (currentIndex > LastResolutionIndex) currentIndex = 0;
-            DisplayCurrentResolution();
+            DisplayCurrentResolution(); 
+        }
+
+        public void ApplySettings()
+        {
+            Resolution resolution = CurrentResolution;
+            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         }
 
         

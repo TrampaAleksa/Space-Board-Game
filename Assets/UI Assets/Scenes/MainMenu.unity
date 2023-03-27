@@ -677,6 +677,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 9158429975507035817}
+        m_TargetAssemblyTypeName: UI_Assets.Scripts.DisplaySettings, Assembly-CSharp
+        m_MethodName: ApplySettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 9158429976784830664}
         m_TargetAssemblyTypeName: UI_Assets.Scripts.UIHandler, Assembly-CSharp
         m_MethodName: OpenPanel
@@ -4391,7 +4403,7 @@ GameObject:
   - component: {fileID: 1756660768}
   - component: {fileID: 1756660767}
   m_Layer: 5
-  m_Name: SoundButton (1)
+  m_Name: SfxContainer
   m_TagString: VerticalMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6744,7 +6756,7 @@ GameObject:
   - component: {fileID: 9158429975385479639}
   - component: {fileID: 9158429975385479638}
   m_Layer: 5
-  m_Name: QualityButton
+  m_Name: QualityContainer
   m_TagString: VerticalMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7581,9 +7593,8 @@ GameObject:
   - component: {fileID: 9158429975995828125}
   - component: {fileID: 9158429975995828128}
   - component: {fileID: 9158429975995828127}
-  - component: {fileID: 9158429975995828126}
   m_Layer: 5
-  m_Name: GameObject (4)
+  m_Name: ApplyContainer
   m_TagString: VerticalMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7610,50 +7621,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 980, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9158429975995828126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9158429975995828124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 9158429975995828127}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &9158429975995828127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8457,7 +8424,7 @@ GameObject:
   - component: {fileID: 9158429976680533946}
   - component: {fileID: 9158429976680533945}
   m_Layer: 5
-  m_Name: SoundButton
+  m_Name: MusicContainer
   m_TagString: VerticalMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9413,7 +9380,7 @@ GameObject:
   - component: {fileID: 9158429977202381567}
   - component: {fileID: 9158429977202381563}
   m_Layer: 5
-  m_Name: ResolutionButton
+  m_Name: ResolutionContainer
   m_TagString: VerticalMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9605,7 +9572,7 @@ GameObject:
   - component: {fileID: 9158429977293715560}
   - component: {fileID: 9158429977293715559}
   m_Layer: 5
-  m_Name: FullscreenButton
+  m_Name: FullscreenContainer
   m_TagString: VerticalMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
