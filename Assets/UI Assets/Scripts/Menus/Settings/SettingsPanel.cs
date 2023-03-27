@@ -15,23 +15,39 @@ namespace UI_Assets.Scripts
             _soundSettings = GetComponent<SoundSettings>();
         }
         
-        public void ChangeResolution(SettingChangeDirection changeDirection)
+        public void ChangeResolutionUp()
         {
-
+            Debug.Log("R Up");
+        }
+        public void ChangeResolutionDown()
+        {
+            Debug.Log("R Down");
         }
         public void ToggleFullscreen()
         {
             
         }
-        public void ChangeQuality(SettingChangeDirection changeDirection)
+        public void ChangeQualityUp()
+        {
+            Debug.Log("Q Up");
+        }
+        public void ChangeQualityDown()
+        {
+            Debug.Log("Q Down");
+        }
+        public void ChangeSfxSoundUp()
         {
             
         }
-        public void ChangeSfxSound(SettingChangeDirection changeDirection)
+        public void ChangeSfxSoundDown()
         {
             
         }
-        public void ChangeMusicSound(SettingChangeDirection changeDirection)
+        public void ChangeMusicSoundUp()
+        {
+            
+        }
+        public void ChangeMusicSoundDown()
         {
             
         }
