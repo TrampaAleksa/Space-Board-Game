@@ -1,15 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI_Assets.Scripts
 {
     public class DisplaySettings : MonoBehaviour
     {
-        public int currentIndex;
-        public Text label;
+        public int currentResolutionIndex;
+        public Text resolutionLabel;
+        
+        public int currentQualityIndex;
+        public Text qualityLabel;
 
         private Resolution[] _resolutions;
+        private string[] _qualityNames;
 
         private void Start()
         {
@@ -23,27 +28,33 @@ namespace UI_Assets.Scripts
 
             SetInitialResolution();
             DisplayCurrentResolution();
+
+            _qualityNames = QualitySettings.names;
+            currentQualityIndex = QualitySettings.GetQualityLevel();
+            qualityLabel.text = _qualityNames[currentQualityIndex];
         }
 
         private void SetInitialResolution()
         {
-            currentIndex = LastResolutionIndex;
+            currentResolutionIndex = LastResolutionIndex;
         }
 
-        public void SlideValueDown()
+        public void SlideResolutionDown()
         {
-            currentIndex--;
-            if (currentIndex < 0) currentIndex = LastResolutionIndex;
+            currentResolutionIndex--;
+            if (currentResolutionIndex < 0) currentResolutionIndex = LastResolutionIndex;
             DisplayCurrentResolution();
         }
 
-        public void SlideValueUp()
+        public void SlideResolutionUp()
         {
-            currentIndex++;
-            if (currentIndex > LastResolutionIndex) currentIndex = 0;
+            currentResolutionIndex++;
+            if (currentResolutionIndex > LastResolutionIndex) currentResolutionIndex = 0;
             DisplayCurrentResolution(); 
         }
 
+        
+        
         public void ApplySettings()
         {
             Resolution resolution = CurrentResolution;
@@ -52,9 +63,9 @@ namespace UI_Assets.Scripts
 
         
         
-        private void DisplayCurrentResolution() => label.text = ResolutionTextValue(CurrentResolution);
+        private void DisplayCurrentResolution() => resolutionLabel.text = ResolutionTextValue(CurrentResolution);
         private string ResolutionTextValue(Resolution resolution) => resolution.width + " x " + resolution.height;
-        private Resolution CurrentResolution => _resolutions[currentIndex];
+        private Resolution CurrentResolution => _resolutions[currentResolutionIndex];
         private int LastResolutionIndex => _resolutions.Length - 1;
     }
 }

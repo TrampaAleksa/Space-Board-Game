@@ -18,12 +18,12 @@ namespace UI_Assets.Scripts
         public void ChangeResolutionUp()
         {
             Debug.Log("R Up");
-            _displaySettings.SlideValueUp();
+            _displaySettings.SlideResolutionUp();
         }
         public void ChangeResolutionDown()
         {
             Debug.Log("R Down");
-            _displaySettings.SlideValueDown();
+            _displaySettings.SlideResolutionDown();
 
         }
         public void ToggleFullscreen()
