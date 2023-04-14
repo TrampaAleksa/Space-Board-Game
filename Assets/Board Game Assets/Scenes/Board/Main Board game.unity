@@ -3668,6 +3668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjects: []
+  verticalLayout: {fileID: 673509869}
 --- !u!114 &387936098
 MonoBehaviour:
   m_ObjectHideFlags: 0
