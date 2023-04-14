@@ -13,7 +13,6 @@ namespace UI_Assets.Scripts
         public InputField[] nameInputs;
         public Player3DController[] playerShips;
 
-
         public void StartGame()
         {
             if (InvalidInput())

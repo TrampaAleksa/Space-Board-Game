@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Player3DController : MonoBehaviour
 {
-    static List<GameObject> spaceShips= new List<GameObject>();
-    public static Player3DController Instance;
-    private void Awake() {
-        Instance=this;
-    }
     private void Start() {
-        spaceShips.Add(gameObject);
         gameObject.SetActive(false);
     }
     private void Update() {
@@ -18,12 +12,11 @@ public class Player3DController : MonoBehaviour
     }
     public void ShowSpaceShip()
     {
-        for(int i=0;i<spaceShips.Count;i++)
-            spaceShips[i].SetActive(true);
+        gameObject.SetActive(true);
     }
     public void DisableSpaceShip()
     {
-        for(int i=0;i<spaceShips.Count;i++)
-            spaceShips[i].SetActive(false);
+        gameObject.SetActive(false);
+
     }
 }

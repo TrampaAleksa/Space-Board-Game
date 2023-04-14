@@ -169,7 +169,7 @@ public class KeySystem : MonoBehaviour
         if(panelIndex==2)
             {ResolutionSlide.Instance.RevertSettings();QualitySlider.Instance.RevertSettings();}
         else if(panelIndex==0)
-            Player3DController.Instance.DisableSpaceShip();
+            // Player3DController.Instance.DisableSpaceShip();
         mainMenuPanel.SetActive(true);
         verticalIndex=panelIndex;
         verticalsUI.Clear();
