@@ -14,11 +14,6 @@ namespace UI_Assets.Scripts
         public float increment = 0.1f;
 
         public float volumeValueTest = 60f;
-        
-        private void Start()
-        {
-            AudioManager.Instance.PlaySound(AudioManager.MAIN_MENU_BACKGROUND,true,1f);
-        }
 
         public void SlideSfxDown()
         {
@@ -46,6 +41,8 @@ namespace UI_Assets.Scripts
             var volumeLin = GetLinearizedVolumeScale(newVolumeScale);
 
             masterMixer.SetFloat("musicVolume", volumeLin);
+            
+            AudioManager.Instance.PlaySound(AudioManager.SELECT,false,1f);
         }
 
         public void SlideMusicUp()
@@ -54,6 +51,8 @@ namespace UI_Assets.Scripts
             var volumeLin = GetLinearizedVolumeScale(newVolumeScale);
             
             masterMixer.SetFloat("musicVolume", volumeLin);
+            
+            AudioManager.Instance.PlaySound(AudioManager.SELECT,false,1f);
         }
 
         private float ChangeFillSliderValue(float value, Image fillImage)  // 0-1 scale
