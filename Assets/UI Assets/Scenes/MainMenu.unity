@@ -3188,6 +3188,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053986240}
   m_CullTransparentMesh: 0
+--- !u!1 &1062726033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7531629576576658034, guid: 46e71e92359439c47a12745bfc78ffc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 813497219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1062726036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062726033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19aca6d177538841bbd8a889fde3807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1140178998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7337,6 +7355,7 @@ MonoBehaviour:
   SfxFillImage: {fileID: 809115260}
   MusicFillImage: {fileID: 1853434534}
   increment: 0.1
+  volumeValueTest: 60
 --- !u!114 &9158429975507035817
 MonoBehaviour:
   m_ObjectHideFlags: 0
