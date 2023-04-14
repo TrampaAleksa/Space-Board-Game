@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivityHistoryHandler : GenericObjectArray
+public class ActivityHistoryHandler : MonoBehaviour
 {
     private readonly Queue<ActivityHistoryTooltip> _tooltips = new Queue<ActivityHistoryTooltip>();
     public Transform verticalLayout;
