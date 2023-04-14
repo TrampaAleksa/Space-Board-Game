@@ -29,7 +29,7 @@ public class WinScreenPanelHandler : MonoBehaviour
     {
         if (gameOver)
         {
-            if (Input.anyKey)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 SceneManager.LoadScene(0);
             }
