@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class GameConfig
 {
-    private Dictionary<Type, ConfigData> _dataDictionary = new();
+    private static Dictionary<Type, ConfigData> _dataDictionary = new();
 
     [JsonProperty(PropertyName = "FieldConfig")]
     public FieldConfig FieldConfig;
@@ -27,16 +27,15 @@ public class GameConfig
     [JsonProperty(PropertyName = "FuelConfig")]
     public FuelConfig FuelConfig;
 
-    public GameConfig FromJson(string json)
+    public static GameConfig FromJson(string json)
     {
         var gameConfig = JsonConvert.DeserializeObject<GameConfig>(json);
-        if (gameConfig == null)
+        if (gameConfig == null) // TODO -Deserialize object wont return null - will throw exception instead - handle it
         {
             Debug.LogError("Serialization of GameConfig failed and returned null! Using default config.");
             gameConfig = GetDefaultConfig();
         }
         
-        gameConfig.Init();
         return gameConfig;
     }
 

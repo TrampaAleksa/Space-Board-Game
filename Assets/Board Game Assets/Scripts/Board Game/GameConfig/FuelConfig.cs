@@ -11,4 +11,16 @@ public class FuelConfig : ConfigData {
     public static FuelConfig FromJson(string json) {
         return JsonConvert.DeserializeObject<FuelConfig>(json);
     }
+    
+    public override string ToString()
+    {
+        return $"FuelConfig:\n" +
+               $"- Fuel for win: {fuelForWin}\n" +
+               $"- Fuel per field: {fuelPerField}\n" +
+               $"- Fuel to steal: {fuelToSteal}\n" +
+               $"- Fuel per checkpoint: {fuelPerCheckpoint}\n" +
+               $"- Global fuel gain modifier: {globalFuelGainModifier}\n" +
+               $"- Global fuel loss modifier: {globalFuelLossModifier}";
+    }
+    
 }

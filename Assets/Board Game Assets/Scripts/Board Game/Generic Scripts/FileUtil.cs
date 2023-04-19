@@ -8,7 +8,7 @@ namespace com.digitalmind.towertest
 {
     public class FileUtil
     {
-        public void WriteToFile(string fileName, string json)
+        public static void WriteToFile(string fileName, string json)
         {
             string path = GetFilePath(fileName);
             FileStream fileStream = new FileStream(path, FileMode.Create);
@@ -19,7 +19,7 @@ namespace com.digitalmind.towertest
             }
         }
 
-        public string ReadFromFIle(string fileName)
+        public static string ReadFromFIle(string fileName)
         {
             string path = GetFilePath(fileName);
             if (!File.Exists(path))
@@ -32,7 +32,7 @@ namespace com.digitalmind.towertest
             }
         }
 
-        private string GetFilePath(string fileName)
+        private static string GetFilePath(string fileName)
         {
             return Application.persistentDataPath + "/" + fileName;
         }
