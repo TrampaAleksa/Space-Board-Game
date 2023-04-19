@@ -9,29 +9,45 @@ public class GameConfig
 {
     private Dictionary<Type, ConfigData> _dataDictionary = new();
 
+    [JsonProperty(PropertyName = "FieldConfig")]
+    public FieldConfig FieldConfig;
 
-    [JsonProperty(PropertyName = "fuelData")]
-    private FuelConfigData _fuelData;
-    [JsonProperty(PropertyName = "healthData")]
-    private HealthConfigData _healthData;
+    [JsonProperty(PropertyName = "TeleportConfig")]
+    public TeleportConfig TeleportConfig;
 
-    public GameConfig()
+    [JsonProperty(PropertyName = "EnginesConfig")]
+    public EnginesConfig EnginesConfig;
+
+    [JsonProperty(PropertyName = "DamagesConfig")]
+    public DamagesConfig DamagesConfig;
+
+    [JsonProperty(PropertyName = "HealthConfig")]
+    public HealthConfig HealthConfig;
+
+    [JsonProperty(PropertyName = "FuelConfig")]
+    public FuelConfig FuelConfig;
+
+    public GameConfig FromJson(string json)
     {
-        _fuelData = new FuelConfigData();
-        _healthData = new HealthConfigData();
+        var gameConfig = JsonConvert.DeserializeObject<GameConfig>(json);
+        if (gameConfig == null)
+        {
+            Debug.LogError("Serialization of GameConfig failed and returned null! Using default config.");
+            gameConfig = GetDefaultConfig();
+        }
         
-        AddConfig(_fuelData);
-        AddConfig(_healthData);
+        gameConfig.Init();
+        return gameConfig;
+    }
 
-        var fuelConfigData = GetConfig<FuelConfigData>();
-        var fuelDataJson = JsonConvert.SerializeObject(fuelConfigData);
-        Debug.Log("Fuel config data: " + fuelDataJson);
-        Debug.Log("Fuel config data damage amount: " + fuelConfigData.fuelDamageAmount);
-
-        var healthConfigData = GetConfig<HealthConfigData>();
-        var healthDataJson = JsonConvert.SerializeObject(healthConfigData);
-        Debug.Log("Health config data: " + healthDataJson);
-        Debug.Log("Health config data damage amount: " + healthConfigData.healthDamageAmount);
+    public void Init()
+    {
+        AddConfig(FieldConfig);
+        AddConfig(TeleportConfig);
+        AddConfig(EnginesConfig);
+        AddConfig(DamagesConfig);
+        AddConfig(HealthConfig);
+        AddConfig(FuelConfig);
     }
 
     public T GetConfig<T>() where T : ConfigData
@@ -43,6 +59,20 @@ public class GameConfig
     {
         _dataDictionary.Add(typeof(T), config);
     }
+    
+    
+    public static GameConfig GetDefaultConfig()
+    {
+        return new GameConfig
+        {
+            FieldConfig = new FieldConfig(),
+            TeleportConfig = new TeleportConfig(),
+            EnginesConfig = new EnginesConfig(),
+            DamagesConfig = new DamagesConfig(),
+            HealthConfig = new HealthConfig(),
+            FuelConfig = new FuelConfig()
+        };
+    }
 }
 
 
@@ -51,12 +81,74 @@ public class ConfigData
     
 }
 
-public class FuelConfigData : ConfigData
-{
-    public float fuelDamageAmount = 10f;
+public class FuelConfig : ConfigData {
+    public float fuelForWin = 100f;
+    public float fuelPerField = 0.5f;
+    public float fuelToSteal = 20f;
+    public float fuelPerCheckpoint = 10f;
+    public float globalFuelGainModifier = 1.0f;
+    public float globalFuelLossModifier = 1.0f;
+
+    public static FuelConfig FromJson(string json) {
+        return JsonConvert.DeserializeObject<FuelConfig>(json);
+    }
 }
 
-public class HealthConfigData : ConfigData
-{
-    public float healthDamageAmount = 20f;
+public class HealthConfig : ConfigData {
+    public float healthOnStart = 100f;
+    public float healthOnRepair = 35f;
+    public DamagesConfig damages = new DamagesConfig();
+
+    public static HealthConfig FromJson(string json) {
+        return JsonConvert.DeserializeObject<HealthConfig>(json);
+    }
 }
+
+public class DamagesConfig : ConfigData{
+    public float takeDamageFieldAmount = 30f;
+    public float dealDamageFieldAmount = 20f;
+    public float mineDamage = 25f;
+}
+
+public class EnginesConfig : ConfigData {
+    public float turnsToBreakPlayerEngine = 1f;
+    public float turnsToBreakOthersEngine = 1f;
+
+    public static EnginesConfig FromJson(string json) {
+        return JsonConvert.DeserializeObject<EnginesConfig>(json);
+    }
+}
+
+public class TeleportConfig : ConfigData {
+    public float teleportRange = 3f;
+
+    public static TeleportConfig FromJson(string json) {
+        return JsonConvert.DeserializeObject<TeleportConfig>(json);
+    }
+}
+
+public class FieldConfig : ConfigData {
+    public bool isRandomized = false;
+    public int numberOfFields = 64;
+    public List<string> fields = new List<string> {
+        "emptyField",
+        "fuelStation",
+        "healField",
+        "dealDamageField",
+        "takeDamageField",
+        "breakOthersEngineField",
+        "breakPlayerEngineField",
+        "placeMineField",
+        "mineField",
+        "moveForwardField",
+        "moveBackwardField",
+        "stealFuelField",
+        "swapPlacesField",
+        "teleportField"
+    };
+
+    public static FieldConfig FromJson(string json) {
+        return JsonConvert.DeserializeObject<FieldConfig>(json);
+    }
+}
+

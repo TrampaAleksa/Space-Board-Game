@@ -1,0 +1,46 @@
+{
+  "FuelConfig": {
+    "fuelForWin": 100,
+    "fuelPerField": 0.5,
+    "fuelToSteal": 20,
+    "fuelPerCheckpoint": 10,
+    "globalFuelGainModifier": 1.0,
+    "globalFuelLossModifier": 1.0
+  },
+  "HealthConfig": {
+    "healthOnStart": 100,
+    "healthOnRepair": 35,
+    "damages": {
+      "takeDamageFieldAmount": 30,
+      "dealDamageFieldAmount": 20,
+      "mineDamage": 25
+    }
+  },
+  "EnginesConfig": {
+    "turnsToBreakPlayerEngine": 1,
+    "turnsToBreakOthersEngine": 1
+  },
+  "TeleportConfig": {
+    "teleportRange": 3
+  },
+  "FieldConfig": {
+    "isRandomized": false,
+    "numberOfFields": 64,
+    "fields": [
+      "emptyField",
+      "fuelStation",
+      "healField",
+      "dealDamageField": 
+      "takeDamageField": 
+      "breakOthersEngineField",
+      "breakPlayerEngineField",
+      "placeMineField",
+      "mineField",
+      "moveForwardField",
+      "moveBackwardField",
+      "stealFuelField",
+      "swapPlacesField",
+      "teleportField"
+    ]
+  }
+}
