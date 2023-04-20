@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EffectDamageEnemy : FieldEffect, IGenericFieldEffect
 {
-    public const float AMOUNT_TO_DAMAGE = 30f;
+    public static float amountToDamage => GameConfig.GetConfig<DamagesConfig>().dealDamageFieldAmount;
 
     private void Awake()
     {

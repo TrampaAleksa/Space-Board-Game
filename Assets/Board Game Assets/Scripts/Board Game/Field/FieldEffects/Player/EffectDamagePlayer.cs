@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectDamagePlayer : FieldEffect, IGenericFieldEffect
 {
-    public float damageAmount = 20;
+    public float damageAmount => GameConfig.GetConfig<DamagesConfig>().takeDamageFieldAmount;
 
     public override void FinishedEffect()
     {

@@ -6,7 +6,7 @@ public class DamageEnemy
 {
     public static bool TryDamagingPlayer(PlayerHull selectedPlayer)
     {
-        Damage.DamagePlayer(selectedPlayer.gameObject, EffectDamageEnemy.AMOUNT_TO_DAMAGE);
+        Damage.DamagePlayer(selectedPlayer.gameObject, EffectDamageEnemy.amountToDamage);
         return true;
     }
  

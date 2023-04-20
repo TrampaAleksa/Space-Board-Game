@@ -19,7 +19,7 @@ public class DamageEnemySelectionEffect : MonoBehaviour, ISelectionEffect
         new ATDamagedEnemy(
             InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
             selectedPlayer,
-            (int)EffectDamageEnemy.AMOUNT_TO_DAMAGE
+            (int)EffectDamageEnemy.amountToDamage
         ).DisplayAT();
     }
 }
