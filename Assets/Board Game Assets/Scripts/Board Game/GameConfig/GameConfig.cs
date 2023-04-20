@@ -49,7 +49,7 @@ public class GameConfig
         AddConfig(FuelConfig);
     }
 
-    public T GetConfig<T>() where T : ConfigData
+    public static T GetConfig<T>() where T : ConfigData
     {
         return _dataDictionary[typeof(T)] as T;
     }

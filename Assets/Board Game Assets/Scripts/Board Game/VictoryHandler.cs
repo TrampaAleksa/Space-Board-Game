@@ -27,7 +27,7 @@ public class VictoryHandler : MonoBehaviour
     
     public  bool CheckGameWon(float playerFuel)
     {
-        return playerFuel >= FuelHandler.WinningAmount;
+        return playerFuel >= GameConfig.GetConfig<FuelConfig>().fuelForWin;
     }
 
     private List<GameObject> TopPlayers(int numberOfPlayers, GameObject[] players)

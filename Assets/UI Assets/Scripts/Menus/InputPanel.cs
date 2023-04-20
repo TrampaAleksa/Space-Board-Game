@@ -55,12 +55,16 @@ namespace UI_Assets.Scripts
         private void OnEnable()
         {
             foreach (var ship in playerShips)
-                ship.ShowSpaceShip();
+                if (ship != null)
+                    ship.ShowSpaceShip();
         }
         private void OnDisable()
         {
             foreach (var ship in playerShips)
-                ship.DisableSpaceShip();
+            {
+                if (ship != null)
+                    ship.DisableSpaceShip();
+            }
         }
     }
 }

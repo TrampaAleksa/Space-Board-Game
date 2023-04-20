@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour
 {
-    public float fuelPerField = 0.5f;
+    public float fuelPerField => GameConfig.GetConfig<FuelConfig>().fuelPerField;
     public bool moveForward = true;
     IPlayerFieldMovement move;
     private PlayersHandler _playersHandler;

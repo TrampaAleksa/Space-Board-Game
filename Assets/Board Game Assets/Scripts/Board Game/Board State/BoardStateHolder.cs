@@ -32,7 +32,7 @@ public class BoardStateHolder : MonoBehaviour
         for (int i = 0; i < playerBoardStates.Length; i++)
         {
             playerBoardStates[i] = ScriptableObject.CreateInstance<PlayerBoardState>();
-            playerBoardStates[i].fuel = FuelHandler.StartingAmount;
+            playerBoardStates[i].fuel = GameConfig.GetConfig<FuelConfig>().startingFuel;
             playerBoardStates[i].hull = HullHandler.STARTING_HULL;
             playerBoardStates[i].rank = RankHandler.StartingRank;
             playerBoardStates[i].pathIndex = FieldHandler.StartingIndex;

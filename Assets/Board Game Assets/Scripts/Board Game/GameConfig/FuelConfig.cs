@@ -7,6 +7,7 @@ public class FuelConfig : ConfigData {
     public float fuelPerCheckpoint = 10f;
     public float globalFuelGainModifier = 1.0f;
     public float globalFuelLossModifier = 1.0f;
+    public float startingFuel = 50f;
 
     public static FuelConfig FromJson(string json) {
         return JsonConvert.DeserializeObject<FuelConfig>(json);
@@ -16,11 +17,11 @@ public class FuelConfig : ConfigData {
     {
         return $"FuelConfig:\n" +
                $"- Fuel for win: {fuelForWin}\n" +
+               $"- Starting fuel: {startingFuel}\n" + 
                $"- Fuel per field: {fuelPerField}\n" +
                $"- Fuel to steal: {fuelToSteal}\n" +
                $"- Fuel per checkpoint: {fuelPerCheckpoint}\n" +
                $"- Global fuel gain modifier: {globalFuelGainModifier}\n" +
                $"- Global fuel loss modifier: {globalFuelLossModifier}";
     }
-    
 }

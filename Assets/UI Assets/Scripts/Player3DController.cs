@@ -17,6 +17,5 @@ public class Player3DController : MonoBehaviour
     public void DisableSpaceShip()
     {
         gameObject.SetActive(false);
-
     }
 }

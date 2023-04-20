@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FuelStation : FieldEffect, IGenericFieldEffect
 {
-    private float fuelPerVisit = 20f;
-
     public override void TriggerEffect()
     {
         GameObject player = InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer();
@@ -33,4 +31,6 @@ public class FuelStation : FieldEffect, IGenericFieldEffect
     {
         new ATFuelStation(player, (int)fuelPerVisit).DisplayAT();
     }
+
+    private static float fuelPerVisit => GameConfig.GetConfig<FuelConfig>().fuelPerCheckpoint;
 }
