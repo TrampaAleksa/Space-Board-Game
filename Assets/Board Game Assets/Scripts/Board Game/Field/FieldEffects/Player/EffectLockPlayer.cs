@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EffectLockPlayer : FieldEffect, IGenericFieldEffect
 {
-    public const int NUMBER_OF_TURNS = 1;
+    public static int numberOfTurns => GameConfig.GetConfig<EnginesConfig>().turnsToBreakPlayerEngine;
 
     public override void TriggerEffect()
     {
-        InstanceManager.Instance.Get<TurnHandler>().AddPlayerTurnsToSkip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), NUMBER_OF_TURNS);
+        InstanceManager.Instance.Get<TurnHandler>().AddPlayerTurnsToSkip(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), numberOfTurns);
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 
@@ -22,7 +22,7 @@ public class EffectLockPlayer : FieldEffect, IGenericFieldEffect
     {
         new ATPlayerLocked(
             InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(),
-            NUMBER_OF_TURNS
+            numberOfTurns
         ).DisplayAT();
     }
 }

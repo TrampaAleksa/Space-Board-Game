@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class EffectLockEnemy : FieldEffect, IGenericFieldEffect
 {
-    public const int TURNS_TO_LOCK = 1;
-
+    public static int turnsToLock => GameConfig.GetConfig<EnginesConfig>().turnsToBreakOthersEngine;
 
     private void Awake()
     {

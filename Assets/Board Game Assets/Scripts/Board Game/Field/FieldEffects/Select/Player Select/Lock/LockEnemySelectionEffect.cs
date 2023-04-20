@@ -8,7 +8,7 @@ public class LockEnemySelectionEffect : MonoBehaviour, ISelectionEffect
     public void ConfirmedSelection()
     {
         PlayerMovement selectedPlayer = InstanceManager.Instance.Get<SelectionHandler>().GetSelectedPlayer().GetComponent<PlayerMovement>();
-        if (LockEnemy.TrySkippingPlayersTurn(selectedPlayer, EffectLockEnemy.TURNS_TO_LOCK))
+        if (LockEnemy.TrySkippingPlayersTurn(selectedPlayer, EffectLockEnemy.turnsToLock))
         {
             DisplayActivityTooltip(selectedPlayer);
             InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
