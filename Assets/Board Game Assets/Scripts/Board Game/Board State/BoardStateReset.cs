@@ -40,6 +40,6 @@ public class BoardStateReset : MonoBehaviour
     }
 
     private float startingFuel => GameConfig.GetConfig<FuelConfig>().startingFuel;
-    private float startingHull => HullHandler.STARTING_HULL;
+    private float startingHull => HullHandler.startingHull;
     
 }

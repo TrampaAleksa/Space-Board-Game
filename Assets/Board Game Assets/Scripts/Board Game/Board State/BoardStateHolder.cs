@@ -33,7 +33,7 @@ public class BoardStateHolder : MonoBehaviour
         {
             playerBoardStates[i] = ScriptableObject.CreateInstance<PlayerBoardState>();
             playerBoardStates[i].fuel = GameConfig.GetConfig<FuelConfig>().startingFuel;
-            playerBoardStates[i].hull = HullHandler.STARTING_HULL;
+            playerBoardStates[i].hull = HullHandler.startingHull;
             playerBoardStates[i].rank = RankHandler.StartingRank;
             playerBoardStates[i].pathIndex = FieldHandler.StartingIndex;
             playerBoardStates[i].checkpointIndex = FieldHandler.StartingIndex;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HullHandler : MonoBehaviour
 {
-    public const float STARTING_HULL = 120f;
-    public const float MAXIMUM_HULL = 120f;
+    public static float startingHull => GameConfig.GetConfig<HealthConfig>().healthOnStart;
+    public static float maximumHull = startingHull;
 
     public GameObject SetPlayerHull(GameObject player, float value)
     {

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EffectHealPlayer : FieldEffect, IGenericFieldEffect
 {
-    public float amountToHeal = 25f;
+    public float amountToHeal => GameConfig.GetConfig<HealthConfig>().healthOnRepair;
 
     public override void TriggerEffect()
     {
-        Repair.RepairPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), amountToHeal, HullHandler.MAXIMUM_HULL);
+        Repair.RepairPlayer(InstanceManager.Instance.Get<PlayersHandler>().GetCurrentPlayer(), amountToHeal, HullHandler.maximumHull); //TODO - Pass in player hull instance instead of values
         InstanceManager.Instance.Get<FieldEffectHandler>().TriggerEffectFinishedEvents(gameObject);
     }
 

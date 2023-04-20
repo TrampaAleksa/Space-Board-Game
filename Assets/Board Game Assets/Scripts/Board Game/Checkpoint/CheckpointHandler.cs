@@ -12,7 +12,7 @@ public class CheckpointHandler : MonoBehaviour
 
     public void SetPlayerStatusAfterRespawn(GameObject player)
     {
-        player.GetComponent<PlayerHull>().HullPercentage = HullHandler.STARTING_HULL;
+        player.GetComponent<PlayerHull>().HullPercentage = HullHandler.startingHull;
         player.GetComponent<PlayerMovement>().turnsToSkip = 0;
         float numberToDivideFuelBy = 2f;
         player.GetComponent<PlayerFuel>().fuel /= numberToDivideFuelBy;
