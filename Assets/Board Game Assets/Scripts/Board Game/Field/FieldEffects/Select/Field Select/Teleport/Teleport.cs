@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Teleport
 {
-    public const int maximumDistanceAllowed = 3;
+    public static int maximumDistanceAllowed => GameConfig.GetConfig<TeleportConfig>().teleportRange;
 
     public static void TryTeleporting(PlayerAndFieldReferences references)
     {
