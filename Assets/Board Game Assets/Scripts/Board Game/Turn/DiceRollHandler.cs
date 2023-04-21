@@ -9,6 +9,7 @@ public class DiceRollHandler : MonoBehaviour
     private DiceRollAsync diceRoll;
     private TooltipHandler _tooltipHandler;
     private MovementHandler _movementHandler;
+    private PlayersHandler _playersHandler;
     
     [SerializeField]
     private bool isRandom = true;
@@ -21,6 +22,7 @@ public class DiceRollHandler : MonoBehaviour
         diceRoll = new DiceRollAsync();
         _tooltipHandler = InstanceManager.Instance.Get<TooltipHandler>();
         _movementHandler = InstanceManager.Instance.Get<MovementHandler>();
+        _playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
     }
 
     public async void DiceWasClicked()
@@ -31,12 +33,20 @@ public class DiceRollHandler : MonoBehaviour
             return;
         }
         
+        bool brokenEngines = _playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>().EnginesBroken();
+        if (brokenEngines)
+        {
+            BrokenEngines.BrokenEngineAction();
+            return;
+        }
+        
         LockTheDice();
         
         if(isRandom)
         {
             numberRolled = await RollTheDice();
         }
+        
         _movementHandler.MoveCurrentPlayer(numberRolled);
     }
 

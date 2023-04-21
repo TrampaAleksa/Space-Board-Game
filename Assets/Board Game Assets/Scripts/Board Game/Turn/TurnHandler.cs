@@ -13,12 +13,7 @@ public class TurnHandler : MonoBehaviour
     {
         PlayersHandler playersHandler = InstanceManager.Instance.Get<PlayersHandler>();
         playersHandler.SetToNextPlayer();
-        bool brokenEngines = playersHandler.GetCurrentPlayer().GetComponent<PlayerMovement>().EnginesBroken();
-        if (brokenEngines)
-        {
-            BrokenEngines.BrokenEngineAction();
-            return;
-        }
+
         // player ended turn sound
         _endTurn.StartNextPlayersTurn();
         InstanceManager.Instance.Get<MiniGameHandler>().TryTriggerMiniGame();
